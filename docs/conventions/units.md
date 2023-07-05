@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Units
-parent: Units, notation and conventions
+parent: Conventions
 nav_order: 1
 ---
 

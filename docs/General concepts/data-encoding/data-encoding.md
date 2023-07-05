@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Scenarios
-parent: General ‘.nde’ concepts and cross-technology objects 
-nav_order: 5
+title: Data Encoding
+parent: General Concepts
+nav_order: 4
+has_children: true
 ---
 
 # Data encoding 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Scenarios
-parent: General ‘.nde’ concepts and cross-technology objects 
+parent: General Concepts
 nav_order: 2
 ---
 

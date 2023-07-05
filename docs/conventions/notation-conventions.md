@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Notation and convention
-parent: Units, notation and conventions
+parent: Conventions
 nav_order: 2
+has_children: true
 ---
 
 # Notation and convention

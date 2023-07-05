@@ -1,7 +1,7 @@
 ---
 layout: default
 title: File Structure
-parent: General ‘.nde’ concepts and cross-technology objects 
+parent: General Concepts
 nav_order: 1
 has_children: true
 ---

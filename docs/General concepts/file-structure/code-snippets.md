@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Code Snippets 
+title: Code Snippets, extracting the JSON, accessing the dataset with path, etc. 
 parent: File Structure
-grand_parent: General ‘.nde’ concepts and cross-technology objects 
+grand_parent: General Concepts
 nav_order: 1
 ---
 
