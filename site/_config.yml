@@ -12,7 +12,7 @@ plugins:
   - jekyll-github-metadata
 
 repository: Evident-Industrial/NDE_Open_File_Format
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 # Aux links for the upper right navigation
 aux_links:
