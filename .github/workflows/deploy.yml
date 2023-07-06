@@ -11,6 +11,14 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: Unlock Branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        curl --request DELETE \
+          --url "https://api.github.com/repos/${{ Evident-Industrial/NDE_Open_File_Format }}/branches/gh-pages/protection" \
+          --header "Authorization: Bearer $GITHUB_TOKEN"
+
     - name: Deploy
       uses: s0/git-publish-subdir-action@develop
       env:
@@ -18,3 +26,22 @@ jobs:
         BRANCH: gh-pages
         FOLDER: site
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Lock Branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        curl --request PUT \
+          --url "https://api.github.com/repos/${{ Evident-Industrial/NDE_Open_File_Format }}/branches/gh-pages/protection" \
+          --header "Authorization: Bearer $GITHUB_TOKEN" \
+          --data '{
+            "required_status_checks": null,
+            "enforce_admins": null,
+            "required_pull_request_reviews": {
+              "dismissal_restrictions": null,
+              "dismiss_stale_reviews": true,
+              "require_code_owner_reviews": true,
+              "required_approving_review_count": 1
+            },
+            "restrictions": null
+          }'

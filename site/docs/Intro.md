@@ -7,6 +7,7 @@ permalink: /
 # Mission statement
 =================
 
+Test lock
 The aim of this project is to share NDT data between multiple stakeholders. Data are stored using HDF5 file format combined to a JSON text format to describe the metadata associated.
 
 ### Scenarios concept
