@@ -144,7 +144,7 @@ JSON Group object example containing dataset and a phased array configuration.
 | ![Image](./assets/images/AxisReferential-PlateWeld_2Probres.png) |
 | -
 
-| ![Image](./assets/images/AxisReferential-Wedge_Elements_and_Beam-PAexample.png) | ![Image](./assets/images/AxisReferential-Wedge_SkewAngle.png) |
+| ![Image](./assets/images/AxisReferential-Wedge_Elements_and_Beam-PAexample.png) | ![Image](./assets/images/AxisReferential-Wedge_SkewAngle[TopView].png) |
 | - | -
 
 | ![Image](./assets/images/Axes-use-cases.png) |
