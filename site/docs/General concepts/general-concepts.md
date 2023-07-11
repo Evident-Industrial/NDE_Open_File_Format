@@ -7,3 +7,13 @@ description:
 ---
 
 # General Concepts
+
+
+---
+
+## Examples
+### Minimum required
+How to create a simple .nde file.
+TODO
+
+---

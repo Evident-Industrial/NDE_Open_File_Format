@@ -16,3 +16,4 @@ Combining simplicity while enabling complex use cases is achieved by the followi
 Each file is structured with two sections: 
 - **Applications**: A proprietary acquisition software-specific section. This section is not meant for use by .nde readers. 
 - **Domain**: Includes the standardized dataset information and standardized objects described in an embedded JSON file. 
+
