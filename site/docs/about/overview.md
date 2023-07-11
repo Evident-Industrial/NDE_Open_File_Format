@@ -1,8 +1,10 @@
 ---
 layout: default
-title: Overview/What is the .nde format? 
+title: Overview/What is the .nde format?  
 parent: About the .nde format 
 nav_order: 1
+description: "NDE documentation of Evident Scientific file format. Data are stored using HDF5 file format combined to a JSON text format to describe the metadata associated."
+permalink: /
 ---
 
 # What is the .nde format 
