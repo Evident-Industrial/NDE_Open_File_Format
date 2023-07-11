@@ -137,3 +137,19 @@ $$
 
 The surface and reference line are limited to a 1 unit x 1 unit square boundary in both $X$ and $Y$. A discrete grid in $(u,v)$ space of $\delta u = delta v = 0.03$ is defined. The $(u,v)$ grid and its mapping to $(X, Y, Z)$ coordinates are presented in Figure 6. The $(u,v)$ mapping of a uniform grid onto $(X,Y,Z)$ space does not lead to a uniform grid in the later. In the case of Figure 6, the parabolic shape of the reference line even creates a converging grid in $(X,Y,Z)$ space that is strongly compressed over the $u$. 
 Comment on the numerical implementation: The iterative scheme above relies on the direction of the $\hat{\mathbf{v}}$ vector field to position the next involute. The accuracy of the computation of the surface tangent $\hat{\mathbf{v}}$ vector direction is critical. In the example provided here, the specimen surface $\mathcal{S}$ was sampled and a 2D interpolation scheme was used to approximate the position of arrival of the $\delta v \hat{\mathbf{v}}$ vector on the surface.
+
+
+| ![Figure7-1.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-1.png) | 
+| ![Figure7-2.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-2.png) |
+| ![Figure7-3.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-3.png) |
+| ![Figure7-4.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-4.png) |
+|:--:| 
+| *Figure 7 The reference line serves as the initial involute along the $v$ axis laid on the surface. From the local direction of axis $u$ on the surface of the part, an orthogonal direction, $\hat{\mathbf{v}}$ is obtained.* |
+
+
+
+| ![Figure8-1.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure8-1.png) | 
+| ![Figure8-2.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure8-2.png) |
+|:--:| 
+| *Figure 8 The $\delta u = \delta v = 0.03$ grid in $(u,v)$ space and mapping onto the $(X,Y,Z)$ space. The reference line defines $v = 0$ (orange line). The finite dimension of the embedding surface and reference line restricts the accessible $(u,v)$ grid values, hence the “sleeveless shirt” look of the $(u,v)$ grid. The $(X,Y,Z)$ coordinates mapping of the grid is almost square near the reference line and non uniformity increases as the distance from the reference line increases.* |
+
