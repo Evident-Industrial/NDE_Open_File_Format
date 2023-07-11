@@ -62,7 +62,7 @@ By the .nde file format’s convention, surface id:0 is the outer surface (or to
 -  **Reference Position** (.Ref): Probes are referenced to other objects (wedge, specimen, etc.) through this point. The reference position is defined from the position of the first element when the probe skew = 0. 
 
 
-| ![Figure1-AxisReferential-PlateWeld_2Probres.png](/NDE_Open_File_Format/assets/images/conventions/Figure1-AxisReferential-PlateWeld_2Probres.png) | 
+| ![AxisReferential-PlateWeld_2Probres.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PlateWeld_2Probres.png) | 
 |:--:| 
 | *Figure 1 – Example of a typical plate scenario with a weld and two probes in relation to the $U$ and $V$ axis.* |
 
@@ -72,16 +72,16 @@ By the .nde file format’s convention, surface id:0 is the outer surface (or to
 | *Figure 2 - Raster example with the $U$ and $V$ axis.* |
 
 
-| ![Figure3-AxisReferential-Wedge_Elements_and_Beam-PAexample.png](/NDE_Open_File_Format/assets/images/conventions/Figure3-AxisReferential-Wedge_Elements_and_Beam-PAexample.png) | 
+| ![AxisReferential-Wedge_Elements_and_Beam-PAexample.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Wedge_Elements_and_Beam-PAexample.png) | 
 |:--:| 
 | *Figure 3 - Wedge parameters and referential system conventions.* |
 
 
-| ![Figure4-AxisReferential-Wedge_SkewAngle[TopView].png](/NDE_Open_File_Format/assets/images/conventions/Figure4-AxisReferential-Wedge_SkewAngle[TopView].png) | 
+| ![AxisReferential-Wedge_SkewAngle[TopView].png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Wedge_SkewAngle[TopView].png) | 
 |:--:| 
 | *Figure 4 – Top views of different skew angles for reference. The skew angle is taken from the U-axis to the wedge Yw-axis.* |
 
 
-| ![Figure5-Isometrics-views.png](/NDE_Open_File_Format/assets/images/conventions/Figure5-Isometrics-views.png) | 
+| ![AxisReferential-Wedge_SkewAngle[IsoView].png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Wedge_SkewAngle[IsoView].png) | 
 |:--:| 
 | *Figure 5 – Isometric views of different skew angles for reference. The skew angle is taken from the U-axis to the wedge Yw-axis.* |
