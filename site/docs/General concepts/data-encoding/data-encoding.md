@@ -10,6 +10,22 @@ has_children: true
 
 ! Data encoding (X- “Unified File Format general conventions.docx” à incomplete and outdated info) 
 
-! Discrete Grid objects  
+Data encoding refers to the how the data are put in relation with the specimen. The file can include an array of data encoding definition.
 
-Full cycle object 
+
+| ![Figure20.jpg](/NDE_Open_File_Format/assets/images/general-concepts/Figure20.png) | 
+|:--:| 
+| *Figure 20: Exemple dataEncoding JSON extract.* |
+
+
+The following data encoding objects are available:
+- [“discreteGrid”]({% link docs/General concepts/data-encoding/discrete-grid-objects.md %})
+- “rawCycle” 
+
+
+## “rawCycle” data encoding method
+
+### Definition 
+
+All dataset are saved with corresponding encoder positions
+Exemple cycle 
