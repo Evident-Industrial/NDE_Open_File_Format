@@ -7,7 +7,7 @@ nav_order: 1
 
 # Units 
 
-“Unified File Format general conventions.docx”
+Angles are expressed in degrees, while all other units in the dataset are in International System (SI) units, expressed in meters and seconds unless otherwise indicated by a "unit" key. For example, the "Bitfield" and "Percent" units are used for the ascan in the dataset object. 
 
 ## Units, physical quantities, definitions: 
 
@@ -38,6 +38,6 @@ nav_order: 1
 | **Unit vector**               | $\hat{v}$                                 | $\hat{v} = v / \| v \|$, subject to $\hat{v}^T \cdot \hat{v} = 1$ |
 | **Radius of curvature**       | R, r, ρ                                   | Formally positive, *but* in the context of ray tracing will define the interface as being concave (R < 0) or convex (R > 0), see Figure 1 |
 
-| ![Figure1.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure1.png) | 
+| ![Figure1.png](/NDE_Open_File_Format/assets/images/conventions/Figure1.png) | 
 |:--:| 
 | *Figure 1 The convention regarding the sign of the radius of curvature in the context of ray tracing.* |

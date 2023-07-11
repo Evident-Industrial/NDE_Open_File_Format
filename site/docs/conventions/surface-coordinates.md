@@ -27,7 +27,7 @@ In the coming sections, a general description of the $(u,v)$ coordinates mapping
 To conclude this introduction on surface coordinates, and anticipate coming elements, the $(u,v)$ surface coordinates define a position on the surface but do not directly indicate an orientation of the object that is positioned. In the domain of ultrasonic NDE, the object that needs to be positioned and oriented on the specimen surface is the transducer, the active part of the acoustic probe sensing element(s). In many cases for ultrasonic applications, an intermediate object, a solid wedge made from plastic or glass, or a volume of liquid, stands between the face of the elements and the surface of the specimen. This wedge, solid or liquid, is the one thing the operator positions and orients on the surface of the specimen to obtain acoustic data in a specific direction. The skew angle $\theta$ is the angle between the $O_w y_{\mathrm{im}}$ acoustic imaging axis direction, $\hat{\mathbf{y}}_{\mathrm{im}}$, and the local $u$ axis direction, $\hat{\mathbf{u}}$. The topic of object orientation is further developed in the description of the wedge, starting at page 14.
 
 
-| ![Figure2-1.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure2-1.png) | ![Figure2-2.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure2-2.png) | ![Figure2-3.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure2-3.png) | 
+| ![Figure2-1.png](/NDE_Open_File_Format/assets/images/conventions/Figure2-1.png) | ![Figure2-2.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure2-2.png) | ![Figure2-3.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure2-3.png) | 
 |:--:| 
 | *Figure 2 The $(u,v)$ coordinates concept on some typical scanning NDE applications.* |
 

@@ -12,7 +12,7 @@ nav_order: 1
 
 Data storage grid corresponding to surface coordinates on the specimen. A single set of data is to be saved for each coordinate position. The discreteGrid is a structured Grid (see definition below from  https://www.sciencedirect.com/topics/engineering/structured-grid)
 
-![structure-grid.jpg](/NDE_Open_File_Format/assets/images/general-concepts/structure-grid.png)
+![structure-grid.png](/NDE_Open_File_Format/assets/images/general-concepts/structure-grid.png)
 
 ## Limitation 
 
