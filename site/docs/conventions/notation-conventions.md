@@ -10,7 +10,10 @@ has_children: true
 
 “Unified File Format general conventions.docx
 
-## Limitation  
+
+## Wedge design conventions  
+
+### Limitation
 - Wedge shape must be symmetric.
 - Specimen contact surface must be flat or cylindrical.
 - The wedge contact face is assumed to exactly match the specimen surface.

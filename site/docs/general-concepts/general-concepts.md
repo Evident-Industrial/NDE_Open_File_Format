@@ -8,6 +8,11 @@ description:
 
 # General Concepts
 
+## Defaults values
+- Material is considered homogeneous and isotropic by default
+- Coupling layers are incapable of transmitting shears wave by default
+- Probe with unique resonant frequency
+
 
 ---
 

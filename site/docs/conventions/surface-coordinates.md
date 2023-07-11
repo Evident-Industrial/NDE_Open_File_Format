@@ -27,29 +27,29 @@ In the coming sections, a general description of the $(u,v)$ coordinates mapping
 To conclude this introduction on surface coordinates, and anticipate coming elements, the $(u,v)$ surface coordinates define a position on the surface but do not directly indicate an orientation of the object that is positioned. In the domain of ultrasonic NDE, the object that needs to be positioned and oriented on the specimen surface is the transducer, the active part of the acoustic probe sensing element(s). In many cases for ultrasonic applications, an intermediate object, a solid wedge made from plastic or glass, or a volume of liquid, stands between the face of the elements and the surface of the specimen. This wedge, solid or liquid, is the one thing the operator positions and orients on the surface of the specimen to obtain acoustic data in a specific direction. The skew angle $\theta$ is the angle between the $O_w y_{\mathrm{im}}$ acoustic imaging axis direction, $\hat{\mathbf{y}}_{\mathrm{im}}$, and the local $u$ axis direction, $\hat{\mathbf{u}}$. The topic of object orientation is further developed in the description of the wedge, starting at page 14.
 
 
-| ![Figure2-1.png](/NDE_Open_File_Format/assets/images/conventions/Figure2-1.png) | ![Figure2-2.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure2-2.png) | ![Figure2-3.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure2-3.png) | 
+| ![Figure2-1.png](/NDE_Open_File_Format/assets/images/conventions/Figure2-1.png) | ![Figure2-2.png](/NDE_Open_File_Format/assets/images/conventions/Figure2-2.png) | ![Figure2-3.png](/NDE_Open_File_Format/assets/images/conventions/Figure2-3.png) | 
 |:--:| 
 | *Figure 2 The $(u,v)$ coordinates concept on some typical scanning NDE applications.* |
 
 
-| ![Figure3.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure3.png) | 
+| ![Figure3.png](/NDE_Open_File_Format/assets/images/conventions/Figure3.png) | 
 |:--:| 
 | *Figure 3 Schematics of the $(u,v)$ surface coordinates system. The $u$ ($v=0$) axis lies along a reference line (in orange), itself going through the $(u,v)$ system’s origin.* |
 
 
-| ![Figure4.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure4.png) | 
+| ![Figure4.png](/NDE_Open_File_Format/assets/images/conventions/Figure4.png) | 
 |:--:| 
 | *Figure 4 The reference line defines the $u$ coordinate at $v=0$. The general coordinates direction of the local vectors $\hat{\mathbf{u}}$ and $\hat{\mathbf{v}}$ generally changes along the reference line.* |
 
 
-| ![Figure5.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure5.png) | 
+| ![Figure5.png](/NDE_Open_File_Format/assets/images/conventions/Figure5.png) | 
 |:--:| 
 | *Figure 5 A uniform grid in $(u,v)$ space does not remain uniform through the transformation in the general coordinates. The length $\delta l$ along involutes of $v$ measured on the specimen surface generally changes with $v$ although the $u$ value is constant.* |
 
 
-| (a) ![Figure6-a.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure6-a.png) | 
-| (b) ![Figure6-b.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure6-b.png) | 
-| (c) ![Figure6-c.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure6-c.png) | 
+| (a) ![Figure6-a.png](/NDE_Open_File_Format/assets/images/conventions/Figure6-a.png) | 
+| (b) ![Figure6-b.png](/NDE_Open_File_Format/assets/images/conventions/Figure6-b.png) | 
+| (c) ![Figure6-c.png](/NDE_Open_File_Format/assets/images/conventions/Figure6-c.png) | 
 |:--:| 
 | *Figure 6 (a) Non-unique correspondence of $(u,v)$ to $(X,Y,Z)$ coordinates. (b,c) Unique correspondence of $(u,v)$ to $(X,Y,Z)$ coordinates. The reference line (orange) defines the $u$ coordinate.* |
 
@@ -139,17 +139,11 @@ The surface and reference line are limited to a 1 unit x 1 unit square boundary 
 Comment on the numerical implementation: The iterative scheme above relies on the direction of the $\hat{\mathbf{v}}$ vector field to position the next involute. The accuracy of the computation of the surface tangent $\hat{\mathbf{v}}$ vector direction is critical. In the example provided here, the specimen surface $\mathcal{S}$ was sampled and a 2D interpolation scheme was used to approximate the position of arrival of the $\delta v \hat{\mathbf{v}}$ vector on the surface.
 
 
-| ![Figure7-1.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-1.png) | 
-| ![Figure7-2.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-2.png) |
-| ![Figure7-3.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-3.png) |
-| ![Figure7-4.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure7-4.png) |
+| ![Figure7-1.png](/NDE_Open_File_Format/assets/images/conventions/Figure7-1.png) | 
+| ![Figure7-2.png](/NDE_Open_File_Format/assets/images/conventions/Figure7-2.png) |
+| ![Figure7-3.png](/NDE_Open_File_Format/assets/images/conventions/Figure7-3.png) |
+| ![Figure7-4.png](/NDE_Open_File_Format/assets/images/conventions/Figure7-4.png) |
 |:--:| 
 | *Figure 7 The reference line serves as the initial involute along the $v$ axis laid on the surface. From the local direction of axis $u$ on the surface of the part, an orthogonal direction, $\hat{\mathbf{v}}$ is obtained.* |
 
-
-
-| ![Figure8-1.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure8-1.png) | 
-| ![Figure8-2.jpg](/NDE_Open_File_Format/assets/images/conventions/Figure8-2.png) |
-|:--:| 
-| *Figure 8 The $\delta u = \delta v = 0.03$ grid in $(u,v)$ space and mapping onto the $(X,Y,Z)$ space. The reference line defines $v = 0$ (orange line). The finite dimension of the embedding surface and reference line restricts the accessible $(u,v)$ grid values, hence the “sleeveless shirt” look of the $(u,v)$ grid. The $(X,Y,Z)$ coordinates mapping of the grid is almost square near the reference line and non uniformity increases as the distance from the reference line increases.* |
 
