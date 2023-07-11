@@ -1,5 +1,7 @@
 ---
-layout: home
+layout: default
+title: Home 
+nav_order: 1
 description: "NDE documentation of Evident Scientific file format. Data are stored using HDF5 file format combined to a JSON text format to describe the metadata associated."
 permalink: /
 ---
