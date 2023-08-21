@@ -1,0 +1,3371 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "$schema",
+    "version",
+    "scenario",
+    "groups"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "enum": [ "3.0.1" ]
+    },
+    "scenario": {
+      "type": "string",
+      "enum": [ "General Weld", "General Mapping" ]
+    },
+    "specimens": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [ "id", "plateGeometry" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "plateGeometry": {
+                "$ref": "#/definitions/plateGeometry"
+              },
+              "weldGeometry": {
+                "$ref": "#/definitions/weldGeometry"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "id", "pipeGeometry" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pipeGeometry": {
+                "$ref": "#/definitions/pipeGeometry"
+              },
+              "weldGeometry": {
+                "$ref": "#/definitions/weldGeometry"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "id", "barGeometry" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "barGeometry": {
+                "$ref": "#/definitions/barGeometry"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "probes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [ "id", "model" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1
+              },
+              "serie": {
+                "type": "string",
+                "minLength": 1
+              },
+              "serialNumber": {
+                "type": "string",
+                "minLength": 1
+              },
+              "conventionalRound": {
+                "$ref": "#/definitions/conventionalRound"
+              },
+              "conventionalRectangular": {
+                "$ref": "#/definitions/conventionalRectangular"
+              },
+              "wedgeAssociation": {
+                "type": "object",
+                "required": [ "wedgeId", "mountingLocationId" ],
+                "properties": {
+                  "wedgeId": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "mountingLocationId": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              },
+              "fluidColumn": {
+                "$ref": "#/definitions/fluidColumn"
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "oneOf": [
+                  { "required": [ "conventionalRound" ] },
+                  { "required": [ "conventionalRectangular" ] }
+                ]
+              },
+              {
+                "oneOf": [
+                  { "required": [ "wedgeAssociation" ] },
+                  { "required": [ "fluidColumn" ] }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "required": [ "id", "model", "phasedArrayLinear" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1
+              },
+              "serie": {
+                "type": "string",
+                "minLength": 1
+              },
+              "serialNumber": {
+                "type": "string",
+                "minLength": 1
+              },
+              "phasedArrayLinear": {
+                "$ref": "#/definitions/phasedArrayLinear"
+              },
+              "wedgeAssociation": {
+                "type": "object",
+                "required": [ "wedgeId", "mountingLocationId" ],
+                "properties": {
+                  "wedgeId": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "mountingLocationId": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "orientation": {
+                    "type": "string",
+                    "enum": [ "Normal", "Reverse" ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "fluidColumn": {
+                "$ref": "#/definitions/fluidColumn"
+              }
+            },
+            "additionalProperties": false,
+            "oneOf": [
+              { "required": [ "wedgeAssociation" ] },
+              { "required": [ "fluidColumn" ] }
+            ]
+          }
+        ]
+      }
+    },
+    "wedges": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [ "id", "model", "angleBeamWedge", "positioning" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1
+              },
+              "serie": {
+                "type": "string",
+                "minLength": 1
+              },
+              "serialNumber": {
+                "type": "string",
+                "minLength": 1
+              },
+              "angleBeamWedge": {
+                "$ref": "#/definitions/angleBeamWedge"
+              },
+              "positioning": {
+                "$ref": "#/definitions/positioning"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "acquisitionUnits": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [ "id", "platform", "model", "acquisitionRate" ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "platform": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "serialNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "acquisitionRate": {
+            "type": "number",
+            "minimum": 0.0,
+            "exclusiveMinimum": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "motionDevices": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [ "id" ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "encoder": {
+            "type": "object",
+            "required": [ "mode", "stepResolution" ],
+            "properties": {
+              "serialNumber": {
+                "type": "string",
+                "minLength": 1
+              },
+              "mode": {
+                "enum": [ "Quadrature", "ClockDir", "PulseUp", "PulseDown" ]
+              },
+              "stepResolution": {
+                "type": "number",
+                "minimum": 0.0,
+                "exclusiveMinimum": true
+              },
+              "preset": {
+                "type": "number",
+                "minimum": 0.0
+              },
+              "acquisitionDirection": {
+                "type": "string",
+                "enum": [ "Unidirectional", "Bidirectional" ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dataEncodings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [ "id", "discreteGrid" ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "discreteGrid": {
+            "$ref": "#/definitions/discreteGrid"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [ "id" ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "usage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ut": {
+            "$ref": "#/definitions/ut"
+          },
+          "paut": {
+            "$ref": "#/definitions/paut"
+          },
+          "fmc": {
+            "$ref": "#/definitions/fmc"
+          },
+          "dataset": {
+            "$ref": "#/definitions/dataset"
+          }
+        },
+        "additionalProperties": false,
+        "anyOf": [
+          { "required": [ "dataset" ] },
+          { "required": [ "ut" ] },
+          { "required": [ "paut" ] },
+          { "required": [ "fmc" ] },
+          { "required": [ "ut", "dataset" ] },
+          { "required": [ "paut", "dataset" ] },
+          { "required": [ "fmc", "dataset" ] }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "material": {
+      "type": "object",
+      "required": [ "name", "longitudinalWave", "transversalVerticalWave" ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "longitudinalWave": {
+          "type": "object",
+          "required": [ "nominalVelocity" ],
+          "properties": {
+            "nominalVelocity": {
+              "type": "number",
+              "minimum": 0.0
+            },
+            "attenuationCoefficient": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "transversalVerticalWave": {
+          "type": "object",
+          "required": [ "nominalVelocity" ],
+          "properties": {
+            "nominalVelocity": {
+              "type": "number",
+              "minimum": 0.0
+            },
+            "attenuationCoefficient": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "density": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "weldGeometry": {
+      "type": "object",
+      "required": [ "weldAngle", "material", "bevelShape", "symmetry" ],
+      "properties": {
+        "weldAngle": {
+          "type": "number"
+        },
+        "material": {
+          "$ref": "#/definitions/material"
+        },
+        "bevelShape": {
+          "type": "string",
+          "enum": [ "U", "V" ]
+        },
+        "symmetry": {
+          "type": "string",
+          "enum": [ "Symmetric", "StraightLeft", "StraightRight" ]
+        },
+        "heatAffectedZoneWidth": {
+          "type": "number"
+        },
+        "offset": {
+          "type": "number"
+        },
+        "upperCap": {
+          "type": "object",
+          "required": [ "height" ],
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "lowerCap": {
+          "type": "object",
+          "required": [ "height" ],
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "fills": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [ "angle", "height" ],
+            "properties": {
+              "angle": {
+                "type": "number"
+              },
+              "height": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          },
+          "additionalItems": false
+        },
+        "hotPass": {
+          "type": "object",
+          "required": [ "angle", "height" ],
+          "properties": {
+            "angle": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "land": {
+          "type": "object",
+          "required": [ "height" ],
+          "properties": {
+            "height": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "root": {
+          "type": "object",
+          "required": [ "angle", "height" ],
+          "properties": {
+            "angle": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "pipeGeometry": {
+      "type": "object",
+      "required": [ "thickness", "material", "surfaces" ],
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "outerRadius": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "thickness": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "material": {
+          "$ref": "#/definitions/material"
+        },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "name": {
+                "type": "string",
+                "enum": [ "Inside", "Outside" ]
+              }
+            }
+          },
+          "additionalItems": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "plateGeometry": {
+      "type": "object",
+      "required": [ "thickness", "material", "surfaces" ],
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "thickness": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "material": {
+          "$ref": "#/definitions/material"
+        },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "name": {
+                "type": "string",
+                "enum": [ "Top", "Bottom" ]
+              }
+            }
+          },
+          "additionalItems": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "barGeometry": {
+      "type": "object",
+      "required": [ "length", "diameter", "material", "surfaces" ],
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "diameter": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "material": {
+          "$ref": "#/definitions/material"
+        },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "name": {
+                "type": "string",
+                "enum": [ "Outside" ]
+              }
+            }
+          },
+          "additionalItems": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "conventionalRound": {
+      "type": "object",
+      "required": [ "centralFrequency", "diameter", "elements" ],
+      "properties": {
+        "centralFrequency": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "diameter": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "elements": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "acquisitionUnitId", "connectorName" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pinId": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "acquisitionUnitId": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "connectorName": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "conventionalRectangular": {
+      "type": "object",
+      "required": [ "centralFrequency", "length", "width", "elements" ],
+      "properties": {
+        "centralFrequency": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "length": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "elements": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "acquisitionUnitId", "connectorName" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pinId": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "acquisitionUnitId": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "connectorName": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "phasedArrayLinear": {
+      "type": "object",
+      "required": [ "centralFrequency", "elements", "primaryAxis", "secondaryAxis" ],
+      "properties": {
+        "centralFrequency": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "elements": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "pinId", "acquisitionUnitId", "connectorName" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pinId": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "acquisitionUnitId": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "connectorName": {
+                "type": "string",
+                "minLength": 1
+              },
+              "primaryIndex": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "secondaryIndex": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "primaryAxis": {
+          "type": "object",
+          "required": [ "elementGap", "elementQuantity", "elementLength", "referencePoint" ],
+          "properties": {
+            "elementGap": {
+              "type": "number",
+              "minimum": 0.0
+            },
+            "elementQuantity": {
+              "type": "number",
+              "minimum": 1
+            },
+            "elementLength": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "referencePoint": {
+              "type": "number"
+            },
+            "casingLength": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "secondaryAxis": {
+          "type": "object",
+          "required": [ "elementGap", "elementQuantity", "elementLength", "referencePoint" ],
+          "properties": {
+            "elementGap": {
+              "type": "number",
+              "minimum": 0.0
+            },
+            "elementQuantity": {
+              "type": "number",
+              "minimum": 1
+            },
+            "elementLength": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "referencePoint": {
+              "type": "number"
+            },
+            "casingLength": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "angleBeamWedge": {
+      "type": "object",
+      "required": [ "width", "height", "length", "longitudinalVelocity", "mountingLocations" ],
+      "properties": {
+        "width": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": false
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": false
+        },
+        "length": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": false
+        },
+        "longitudinalVelocity": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "mountingLocations": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "wedgeAngle", "primaryOffset", "secondaryOffset", "tertiaryOffset" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "wedgeAngle": {
+                "type": "number"
+              },
+              "squintAngle": {
+                "type": "number"
+              },
+              "roofAngle": {
+                "type": "number"
+              },
+              "primaryOffset": {
+                "type": "number"
+              },
+              "secondaryOffset": {
+                "type": "number"
+              },
+              "tertiaryOffset": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "pocketDepth": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "positioning": {
+      "type": "object",
+      "required": [ "specimenId", "surfaceId", "uCoordinateOffset", "vCoordinateOffset", "skewAngle" ],
+      "properties": {
+        "specimenId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "surfaceId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "uCoordinateOffset": {
+          "type": "number"
+        },
+        "vCoordinateOffset": {
+          "type": "number"
+        },
+        "skewAngle": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fluidColumn": {
+      "type": "object",
+      "required": [ "name", "longitudinalVelocity", "wedgeAngle", "primaryOffset", "secondaryOffset", "tertiaryOffset", "positioning" ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "longitudinalVelocity": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "nominalHeight": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "wedgeAngle": {
+          "type": "number"
+        },
+        "squintAngle": {
+          "type": "number"
+        },
+        "roofAngle": {
+          "type": "number"
+        },
+        "primaryOffset": {
+          "type": "number"
+        },
+        "secondaryOffset": {
+          "type": "number"
+        },
+        "tertiaryOffset": {
+          "type": "number"
+        },
+        "positioning": {
+          "$ref": "#/definitions/positioning"
+        }
+      },
+      "additionalProperties": false
+    },
+    "discreteGrid": {
+      "type": "object",
+      "required": [ "specimenId", "surfaceId", "scanPattern", "dimensions" ],
+      "properties": {
+        "specimenId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "surfaceId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "scanPattern": {
+          "type": "string",
+          "enum": [ "OneLineScan", "RasterScan" ]
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": [
+            {
+              "type": "object",
+              "required": [ "axis", "offset", "quantity", "resolution" ],
+              "properties": {
+                "axis": {
+                  "type": "string",
+                  "enum": [ "UCoordinate" ]
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "resolution": {
+                  "type": "number",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "motionDeviceId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [ "axis", "offset", "quantity", "resolution" ],
+              "properties": {
+                "axis": {
+                  "type": "string",
+                  "enum": [ "VCoordinate" ]
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "resolution": {
+                  "type": "number",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "motionDeviceId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ascanData": {
+      "type": "object",
+      "required": [ "amplitude", "status" ],
+      "properties": {
+        "velocity": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "skewAngle": {
+          "type": "number"
+        },
+        "refractedAngle": {
+          "type": "number"
+        },
+        "amplitude": {
+          "required": [ "path", "dataSampling", "dataValue", "dimensions" ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataSampling": {
+              "type": "object",
+              "required": [ "min", "max" ],
+              "properties": {
+                "min": { "type": "integer" },
+                "max": { "type": "integer" }
+              },
+              "additionalProperties": false
+            },
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit", "max", "min" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Percent" ]
+                },
+                "min": { "type": "number" },
+                "max": { "type": "number" }
+              },
+              "additionalProperties": false
+            },
+            "dimensions": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": [
+                {
+                  "required": [ "axis", "quantity", "resolution" ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "UCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    },
+                    "lastCellRewrited": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "oneOf": [
+                    {
+                      "required": [
+                        "axis",
+                        "quantity",
+                        "resolution",
+                        "offset"
+                      ],
+                      "properties": {
+                        "axis": {
+                          "enum": [ "VCoordinate" ]
+                        },
+                        "quantity": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "exclusiveMinimum": true
+                        },
+                        "resolution": {
+                          "type": "number",
+                          "minimum": 0,
+                          "exclusiveMinimum": true
+                        },
+                        "offset": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    {
+                      "required": [
+                        "axis",
+                        "beams"
+                      ],
+                      "properties": {
+                        "axis": {
+                          "enum": [ "Beam" ]
+                        },
+                        "beams": {
+                          "type": "array",
+                          "minItems": 1,
+                          "uniqueItems": true,
+                          "items": [
+                            {
+                              "required": [
+                                "velocity",
+                                "skewAngle",
+                                "refractedAngle",
+                                "uCoordinateOffset",
+                                "vCoordinateOffset",
+                                "ultrasoundOffset"
+                              ],
+                              "properties": {
+                                "velocity": {
+                                  "type": "number",
+                                  "minimum": 0.0,
+                                  "exclusiveMinimum": true
+                                },
+                                "skewAngle": {
+                                  "type": "number"
+                                },
+                                "refractedAngle": {
+                                  "type": "number"
+                                },
+                                "uCoordinateOffset": {
+                                  "type": "number"
+                                },
+                                "vCoordinateOffset": {
+                                  "type": "number"
+                                },
+                                "ultrasoundOffset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "required": [ "axis", "quantity", "resolution" ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "Ultrasound" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ],
+              "additionalItems": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "status": {
+          "required": [ "path", "dataValue", "dimensions" ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Bitfield" ]
+                },
+                "hasData": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "noSynchro": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "saturated": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "dimensions": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": [
+                {
+                  "required": [ "axis", "quantity", "resolution" ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "UCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    },
+                    "lastCellRewrited": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "oneOf": [
+                    {
+                      "required": [
+                        "axis",
+                        "quantity",
+                        "resolution",
+                        "offset"
+                      ],
+                      "properties": {
+                        "axis": {
+                          "enum": [ "VCoordinate" ]
+                        },
+                        "quantity": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "exclusiveMinimum": true
+                        },
+                        "resolution": {
+                          "type": "number",
+                          "minimum": 0,
+                          "exclusiveMinimum": true
+                        },
+                        "offset": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    {
+                      "required": [
+                        "axis",
+                        "beams"
+                      ],
+                      "properties": {
+                        "axis": {
+                          "enum": [ "Beam" ]
+                        },
+                        "beams": {
+                          "type": "array",
+                          "minItems": 1,
+                          "uniqueItems": true,
+                          "items": [
+                            {
+                              "required": [
+                                "velocity",
+                                "skewAngle",
+                                "refractedAngle",
+                                "uCoordinateOffset",
+                                "vCoordinateOffset",
+                                "ultrasoundOffset"
+                              ],
+                              "properties": {
+                                "velocity": {
+                                  "type": "number",
+                                  "minimum": 0.0,
+                                  "exclusiveMinimum": true
+                                },
+                                "skewAngle": {
+                                  "type": "number"
+                                },
+                                "refractedAngle": {
+                                  "type": "number"
+                                },
+                                "uCoordinateOffset": {
+                                  "type": "number"
+                                },
+                                "vCoordinateOffset": {
+                                  "type": "number"
+                                },
+                                "ultrasoundOffset": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "additionalItems": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "gateCscanData": {
+      "type": "object",
+      "required": [
+        "gateId",
+        "path",
+        "crossingTime",
+        "peakTime",
+        "peak",
+        "status",
+        "dimensions"
+      ],
+      "properties": {
+        "gateId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "crossingTime": {
+          "required": [ "dataValue" ],
+          "properties": {
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit", "min", "max" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Second" ]
+                },
+                "min": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 0.0
+                },
+                "max": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "peakTime": {
+          "required": [ "dataValue" ],
+          "properties": {
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit", "min", "max" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Second" ]
+                },
+                "min": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 0.0
+                },
+                "max": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "peak": {
+          "required": [ "dataSampling", "dataValue" ],
+          "properties": {
+            "dataSampling": {
+              "type": "object",
+              "required": [ "min", "max" ],
+              "properties": {
+                "min": { "type": "integer" },
+                "max": { "type": "integer" }
+              },
+              "additionalProperties": false
+            },
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit", "min", "max" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Percent" ]
+                },
+                "min": { "type": "number" },
+                "max": { "type": "number" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "status": {
+          "required": [ "dataValue" ],
+          "properties": {
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Bitfield" ]
+                },
+                "hasData": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "noSynchro": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "saturated": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "noDetection": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": [
+            {
+              "required": [ "axis", "quantity", "resolution", "offset" ],
+              "properties": {
+                "axis": {
+                  "enum": [ "UCoordinate" ]
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "resolution": {
+                  "type": "number",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "lastCellRewrited": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "oneOf": [
+                {
+                  "required": [
+                    "axis",
+                    "quantity",
+                    "resolution",
+                    "offset"
+                  ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "VCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    }
+                  }
+                },
+                {
+                  "required": [
+                    "axis",
+                    "beams"
+                  ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "Beam" ]
+                    },
+                    "beams": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": [
+                        {
+                          "required": [
+                            "refractedAngle"
+                          ],
+                          "properties": {
+                            "refractedAngle": {
+                              "type": "number"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "additionalItems": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "firingSourceData": {
+      "type": "object",
+      "required": [ "path", "dataValue", "dimensions" ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataValue": {
+          "type": "object",
+          "required": [ "unit", "min", "max" ],
+          "properties": {
+            "min": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "max": { "type": "integer" },
+            "unit": {
+              "type": "string",
+              "enum": [ "BeamId", "ColumnId" ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": [
+            {
+              "required": [ "axis", "quantity", "resolution", "offset" ],
+              "properties": {
+                "axis": {
+                  "enum": [ "UCoordinate" ]
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "resolution": {
+                  "type": "number",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "offset": {
+                  "type": "number"
+                },
+                "lastCellRewrited": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "required": [ "axis", "quantity", "resolution", "offset" ],
+              "properties": {
+                "axis": {
+                  "enum": [ "VCoordinate" ]
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "resolution": {
+                  "type": "number",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "offset": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "additionalItems": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "tfmData": {
+      "type": "object",
+      "required": [ "tfmDescriptionId", "amplitude", "status" ],
+      "properties": {
+        "tfmDescriptionId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "amplitude": {
+          "required": [ "path", "dataSampling", "dataValue", "dimensions" ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataSampling": {
+              "type": "object",
+              "required": [ "min", "max" ],
+              "properties": {
+                "min": { "type": "integer" },
+                "max": { "type": "integer" }
+              },
+              "additionalProperties": false
+            },
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit", "max", "min" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Percent", "Coherence" ]
+                },
+                "min": { "type": "number" },
+                "max": { "type": "number" }
+              },
+              "additionalProperties": false
+            },
+            "dimensions": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": [
+                {
+                  "required": [ "axis", "quantity", "resolution" ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "UCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    },
+                    "lastCellRewrited": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "required": [
+                    "axis",
+                    "quantity",
+                    "resolution",
+                    "offset"
+                  ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "VCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    }
+                  }
+                },
+                {
+                  "required": [ "axis", "quantity", "resolution" ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "WCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ],
+              "additionalItems": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "status": {
+          "required": [ "path", "dataValue", "dimensions" ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataValue": {
+              "type": "object",
+              "required": [ "unit" ],
+              "properties": {
+                "unit": {
+                  "type": "string",
+                  "enum": [ "Bitfield" ]
+                },
+                "hasData": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "saturated": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "dimensions": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": [
+                {
+                  "required": [ "axis", "quantity", "resolution" ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "UCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    },
+                    "lastCellRewrited": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "required": [
+                    "axis",
+                    "quantity",
+                    "resolution",
+                    "offset"
+                  ],
+                  "properties": {
+                    "axis": {
+                      "enum": [ "VCoordinate" ]
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "resolution": {
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "offset": {
+                      "type": "number"
+                    }
+                  }
+                }
+              ],
+              "additionalItems": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "elementaryAscanData": {
+      "properties": {
+
+      },
+      "additionalProperties": false
+    },
+    "dataset": {
+      "type": "object",
+      "required": [
+        "storageMode"
+      ],
+      "properties": {
+        "storageMode": {
+          "type": "string",
+          "enum": [ "Independent", "Paintbrush" ],
+          "description": "Select if each beams/columns have their independent position in the dataset or if they can be store everywhere, use firing source dataset to retrieve information."
+        },
+        "overwriteCriteria": {
+          "type": "string",
+          "enum": [ "Last", "Min", "Max" ]
+        },
+        "ascan": {
+          "type": "object",
+          "$ref": "#/definitions/ascanData"
+        },
+        "gateCscans": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": [
+            {
+              "type": "object",
+              "$ref": "#/definitions/gateCscanData"
+            }
+          ]
+        },
+        "firingSource": {
+          "type": "object",
+          "$ref": "#/definitions/firingSourceData"
+        },
+        "tfms": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/tfmData"
+          }
+        },
+        "elementaryAscan": {
+          "type": "object",
+          "$ref": "#/definitions/elementaryAscanData"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ut": {
+      "type": "object",
+      "required": [
+        "dataEncodingId",
+        "waveMode",
+        "velocity",
+        "refractedAngle",
+        "wedgeDelay",
+        "ascanStart",
+        "ascanLength",
+        "rectification"
+      ],
+      "properties": {
+        "dataEncodingId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pulseEcho": {
+          "probeId": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "pitchCatch": {
+          "pulserProbeId": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "receiverProbeId": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "tofd": {
+          "pulserProbeId": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "receiverProbeId": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "waveMode": {
+          "enum": [ "Longitudinal", "TransversalVertical" ]
+        },
+        "velocity": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "refractedAngle": {
+          "type": "number"
+        },
+        "wedgeDelay": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "ascanStart": {
+          "type": "number"
+        },
+        "ascanLength": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "digitizingFrequency": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "tcg": {
+          "$ref": "#/definitions/tcg"
+        },
+        "pulse": {
+          "required": [ "width", "voltage" ],
+          "properties": {
+            "width": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "voltage": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "polarity": {
+              "type": "string",
+              "enum": [ "Bipolar", "UnipolarPositive", "UnipolarNegative" ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "gates": {
+          "$ref": "#/definitions/utGates"
+        },
+        "rectification": {
+          "type": "string",
+          "enum": [ "None", "Positive", "Negative", "Full" ]
+        },
+        "ascanSynchroMode": {
+          "type": "string",
+          "enum": [ "Pulse", "SynchroGateRelative" ]
+        },
+        "ascanCompressionFactor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "gain": {
+          "type": "number",
+          "description": "The gain in dB"
+        },
+        "ultrasoundMode": {
+          "type": "string",
+          "enum": [ "TrueDepth", "SoundPath", "Time" ]
+        },
+        "highAmplitude": {
+          "type": "number",
+          "minimum": 0
+        },
+        "referenceAmplitude": {
+          "type": "number"
+        },
+        "referenceGain": {
+          "type": "number"
+        },
+        "digitalBandPassFilter": {
+          "$ref": "#/definitions/digitalBandPassFilter"
+        },
+        "smoothingFilter": {
+          "type": "number"
+        },
+        "averagingFactor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "calibrationStates": {
+          "$ref": "#/definitions/calibrationStates"
+        },
+        "recurrence": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "softwareProcess": {
+          "properties": {
+            "gain": {
+              "type": "number"
+            },
+            "gates": {
+              "$ref": "#/definitions/utGates"
+            },
+            "tcg": {
+              "$ref": "#/definitions/softTcg"
+            },
+            "thickness": {
+              "$ref": "#/definitions/thickness"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        { "required": [ "pulseEcho" ] },
+        { "required": [ "pitchCatch" ] },
+        { "required": [ "tofd" ] }
+      ]
+    },
+    "paut": {
+      "type": "object",
+      "required": [
+        "dataEncodingId",
+        "waveMode",
+        "velocity",
+        "focusing",
+        "beams",
+        "rectification"
+      ],
+      "properties": {
+        "dataEncodingId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pulseEcho": {
+          "required": [ "probeId" ],
+          "properties": {
+            "probeId": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "linearFormation": {
+              "required": [ "probeFirstElementId", "probeLastElementId", "elementStep", "elementAperture", "beamRefractedAngle" ],
+              "properties": {
+                "probeFirstElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "probeLastElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementStep": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
+                },
+                "elementAperture": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "beamRefractedAngle": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            },
+            "sectorialFormation": {
+              "required": [ "probeFirstElementId", "elementAperture", "beamRefractedAngles" ],
+              "properties": {
+                "probeFirstElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementAperture": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "beamRefractedAngles": {
+                  "type": "object",
+                  "required": [ "start", "stop", "step" ],
+                  "properties": {
+                    "start": {
+                      "type": "number"
+                    },
+                    "stop": {
+                      "type": "number"
+                    },
+                    "step": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "exclusiveMinimum": true
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "compoundFormation": {
+              "required": [ "probeFirstElementId", "probeLastElementId", "elementAperture", "beamRefractedAngles" ],
+              "properties": {
+                "probeFirstElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "probeLastElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementAperture": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "beamRefractedAngles": {
+                  "type": "object",
+                  "required": [ "start", "step", "stop" ],
+                  "properties": {
+                    "start": {
+                      "type": "number"
+                    },
+                    "stop": {
+                      "type": "number"
+                    },
+                    "step": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "exclusiveMinimum": true
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "oneOf": [
+            { "required": [ "linearFormation" ] },
+            { "required": [ "sectorialFormation" ] },
+            { "required": [ "compoundFormation" ] },
+            {
+              "not": {
+                "anyOf": [
+                  { "required": [ "linearFormation" ] },
+                  { "required": [ "sectorialFormation" ] },
+                  { "required": [ "compoundFormation" ] }
+                ]
+              }
+            }
+          ]
+        },
+        "pitchCatch": {
+          "required": [ "pulserProbeId", "receiverProbeId" ],
+          "properties": {
+            "pulserProbeId": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "receiverProbeId": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "linearFormation": {
+              "required": [ "probeFirstElementId", "probeLastElementId", "elementStep", "elementAperture", "beamRefractedAngle" ],
+              "properties": {
+                "probeFirstElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "probeLastElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementStep": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "exclusiveMinimum": true
+                },
+                "elementAperture": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "beamRefractedAngle": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": false
+            },
+            "sectorialFormation": {
+              "required": [ "probeFirstElementId", "elementAperture", "beamRefractedAngles" ],
+              "properties": {
+                "probeFirstElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementAperture": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "beamRefractedAngles": {
+                  "type": "object",
+                  "required": [ "start", "stop", "step" ],
+                  "properties": {
+                    "start": {
+                      "type": "number"
+                    },
+                    "stop": {
+                      "type": "number"
+                    },
+                    "step": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "exclusiveMinimum": true
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "compoundFormation": {
+              "required": [ "probeFirstElementId", "probeLastElementId", "elementAperture", "beamRefractedAngles" ],
+              "properties": {
+                "probeFirstElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "probeLastElementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementAperture": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "exclusiveMinimum": true
+                },
+                "beamRefractedAngles": {
+                  "type": "object",
+                  "required": [ "start", "step", "stop" ],
+                  "properties": {
+                    "start": {
+                      "type": "number"
+                    },
+                    "stop": {
+                      "type": "number"
+                    },
+                    "step": {
+                      "type": "number",
+                      "minimum": 0.0,
+                      "exclusiveMinimum": true
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false,
+          "oneOf": [
+            { "required": [ "linearFormation" ] },
+            { "required": [ "sectorialFormation" ] },
+            { "required": [ "compoundFormation" ] },
+            {
+              "not": {
+                "anyOf": [
+                  { "required": [ "linearFormation" ] },
+                  { "required": [ "sectorialFormation" ] },
+                  { "required": [ "compoundFormation" ] }
+                ]
+              }
+            }
+          ]
+        },
+        "waveMode": {
+          "enum": [ "Longitudinal", "TransversalVertical" ]
+        },
+        "velocity": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "focusing": {
+          "type": "object",
+          "required": [ "mode" ],
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [ "TrueDepth", "HalfPath", "Unfocused", "Projection" ]
+            },
+            "distance": {
+              "type": "number",
+              "minimum": 0
+            },
+            "angle": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "beams": {
+          "$ref": "#/definitions/beams"
+        },
+        "pulse": {
+          "required": [ "width", "voltage" ],
+          "properties": {
+            "width": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "voltage": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "polarity": {
+              "type": "string",
+              "enum": [ "Bipolar", "UnipolarPositive", "UnipolarNegative" ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "gates": {
+          "$ref": "#/definitions/pautGates"
+        },
+        "rectification": {
+          "type": "string",
+          "enum": [ "None", "Positive", "Negative", "Full" ]
+        },
+        "digitizingFrequency": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "ascanSynchroMode": {
+          "type": "string",
+          "enum": [ "Pulse", "SynchroGateRelative" ]
+        },
+        "ascanCompressionFactor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "gain": {
+          "type": "number"
+        },
+        "wedgeDelay": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "ultrasoundMode": {
+          "type": "string",
+          "enum": [ "TrueDepth", "SoundPath", "Time" ]
+        },
+        "highAmplitude": {
+          "type": "number",
+          "minimum": 0
+        },
+        "referenceAmplitude": {
+          "type": "number"
+        },
+        "referenceGain": {
+          "type": "number"
+        },
+        "digitalBandPassFilter": {
+          "$ref": "#/definitions/digitalBandPassFilter"
+        },
+        "smoothingFilter": {
+          "type": "number"
+        },
+        "averagingFactor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "calibrationStates": {
+          "$ref": "#/definitions/calibrationStates"
+        },
+        "softwareProcess": {
+          "properties": {
+            "gain": {
+              "type": "number"
+            },
+            "gates": {
+              "$ref": "#/definitions/pautGates"
+            },
+            "tcg": {
+              "$ref": "#/definitions/softTcg"
+            },
+            "thickness": {
+              "$ref": "#/definitions/thickness"
+            }
+          },
+          "additionalProperties": false
+        },
+        "lawFile": {
+          "properties": {
+            "filename": {
+              "type": "string",
+              "minLength": 1
+            },
+            "path": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        { "required": [ "pulseEcho" ] },
+        { "required": [ "pitchCatch" ] }
+      ]
+    },
+    "fmc": {
+      "type": "object",
+      "required": [ "dataEncodingId", "probeId", "pulsers", "receivers", "tfmDescriptions" ],
+      "properties": {
+        "dataEncodingId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "probeId": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pulse": {
+          "required": [ "width", "voltage" ],
+          "properties": {
+            "width": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "voltage": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            },
+            "polarity": {
+              "type": "string",
+              "enum": [ "Bipolar", "UnipolarPositive", "UnipolarNegative" ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "pulserFrequency": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true
+        },
+        "digitizingFrequency": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "pulsers": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "elementId" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "elementId": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "receivers": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "elementId" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "elementId": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "tfmDescriptions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "gain", "rectangularGrid", "fmcPulserIds", "fmcReceiverIds", "pathName", "waveSet" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "signalSource": {
+                "type": "string",
+                "enum": [ "Analytic", "Real" ]
+              },
+              "gain": {
+                "type": "number"
+              },
+              "referenceAmplitude": {
+                "type": "number"
+              },
+              "referenceGain": {
+                "type": "number"
+              },
+              "rectangularGrid": {
+                "type": "object",
+                "required": [ "yImagingLimits", "zImagingLimits" ],
+                "properties": {
+                  "yImagingLimits": {
+                    "type": "object",
+                    "required": [ "min", "max", "resolution" ],
+                    "properties": {
+                      "min": { "type": "number" },
+                      "max": { "type": "number" },
+                      "resolution": { "type": "number" }
+                    },
+                    "additionalProperties": false
+                  },
+                  "zImagingLimits": {
+                    "type": "object",
+                    "required": [ "min", "max", "resolution" ],
+                    "properties": {
+                      "min": { "type": "number" },
+                      "max": { "type": "number" },
+                      "resolution": { "type": "number" }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "fmcPulserIds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "fmcReceiverIds": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "pathName": {
+                "type": "string",
+                "minLength": 1
+              },
+              "waveSet": {
+                "type": "object",
+                "required": [ "pulsings", "receivings" ],
+                "properties": {
+                  "pulsings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "enum": [ "Longitudinal", "TransversalVertical" ]
+                    }
+                  },
+                  "receivings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "enum": [ "Longitudinal", "TransversalVertical" ]
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "columns": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "required": [ "id", "gainMap" ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "gainMap": {
+                      "type": "object",
+                      "required": [ "points" ],
+                      "properties": {
+                        "points": {
+                          "type": "array",
+                          "minItems": 1,
+                          "uniqueItems": true,
+                          "items": {
+                            "type": "object",
+                            "required": [ "position", "gain" ],
+                            "properties": {
+                              "position": {
+                                "type": "number"
+                              },
+                              "gain": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "softwareProcess": {
+                "boxGates": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [ "id", "enabled", "threshold", "yImagingMin", "yImagingMax", "zImagingMin", "zImagingMax" ],
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "enabled": {
+                        "type": "boolean"
+                      },
+                      "threshold": {
+                        "type": "number"
+                      },
+                      "yImagingMin": {
+                        "type": "number"
+                      },
+                      "yImagingMax": {
+                        "type": "number"
+                      },
+                      "zImagingMin": {
+                        "type": "number",
+                        "minimum": 0.0
+                      },
+                      "zImagingMax": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "digitalBandPassFilter": {
+                "$ref": "#/definitions/digitalBandPassFilter"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "beams": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [ "id", "skewAngle", "refractedAngle", "beamDelay", "ascanStart", "ascanLength" ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "skewAngle": {
+            "type": "number"
+          },
+          "refractedAngle": {
+            "type": "number"
+          },
+          "beamDelay": {
+            "type": "number",
+            "minimum": 0.0
+          },
+          "ascanStart": {
+            "type": "number"
+          },
+          "ascanLength": {
+            "type": "number",
+            "minimum": 0.0,
+            "exclusiveMinimum": true
+          },
+          "gainOffset": {
+            "type": "number"
+          },
+          "recurrence": {
+            "type": "number",
+            "minimum": 0.0
+          },
+          "sumGainMode": {
+            "type": "string",
+            "enum": [ "Manual", "Automatic" ]
+          },
+          "sumGain": {
+            "type": "number"
+          },
+          "pulsers": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "required": [ "id", "elementId", "delay" ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "delay": {
+                  "type": "number",
+                  "minimum": 0.0
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "receivers": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "required": [ "id", "elementId", "delay" ],
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "elementId": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "delay": {
+                  "type": "number",
+                  "minimum": 0.0
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "tcg": {
+            "$ref": "#/definitions/tcg"
+          }
+        }
+      }
+    },
+    "tcg": {
+      "type": "object",
+      "required": [ "enabled", "points" ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "synchroMode": {
+          "enum": [ "Pulse", "AscanSynchroRelative" ]
+        },
+        "points": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "time", "gain" ],
+            "properties": {
+              "time": {
+                "type": "number"
+              },
+              "gain": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "softTcg": {
+      "type": "object",
+      "required": [ "enabled", "points" ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "points": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "time", "gain" ],
+            "properties": {
+              "time": {
+                "type": "number"
+              },
+              "gain": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "utGates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "peakDetection",
+          "timeSelection",
+          "thresholdPolarity",
+          "synchronization",
+          "start",
+          "length",
+          "threshold"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "geometry": {
+            "type": "string",
+            "enum": [ "SoundPath", "TrueDepth" ]
+          },
+          "produceCscanData": {
+            "type": "boolean"
+          },
+          "peakDetection": {
+            "type": "string",
+            "enum": [ "First", "Last", "Maximum" ]
+          },
+          "timeSelection": {
+            "type": "string",
+            "enum": [ "Peak", "Crossing", "Unselected" ]
+          },
+          "thresholdPolarity": {
+            "type": "string",
+            "enum": [ "Absolute", "Positive", "Negative" ]
+          },
+          "synchronization": {
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [ "Pulse", "GateRelative" ]
+              },
+              "triggeringEvent": {
+                "type": "string",
+                "enum": [ "Peak", "Crossing" ]
+              },
+              "gateId": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [ "mode" ],
+            "additionalProperties": false
+          },
+          "start": {
+            "type": "number"
+          },
+          "length": {
+            "type": "number",
+            "minimum": 0.0,
+            "exclusiveMinimum": true
+          },
+          "threshold": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "pautGates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "peakDetection",
+          "timeSelection",
+          "thresholdPolarity",
+          "synchronization",
+          "threshold"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "geometry": {
+            "type": "string",
+            "enum": [ "SoundPath", "TrueDepth" ]
+          },
+          "produceCscanData": {
+            "type": "boolean"
+          },
+          "peakDetection": {
+            "type": "string",
+            "enum": [ "First", "Last", "Maximum" ]
+          },
+          "timeSelection": {
+            "type": "string",
+            "enum": [ "Peak", "Crossing", "Unselected" ]
+          },
+          "thresholdPolarity": {
+            "type": "string",
+            "enum": [ "Absolute", "Positive", "Negative" ]
+          },
+          "synchronization": {
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [ "Pulse", "GateRelative" ]
+              },
+              "triggeringEvent": {
+                "type": "string",
+                "enum": [ "Peak", "Crossing" ]
+              },
+              "gateId": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [ "mode" ],
+            "additionalProperties": false
+          },
+          "start": {
+            "type": "number"
+          },
+          "length": {
+            "type": "number",
+            "minimum": 0.0,
+            "exclusiveMinimum": true
+          },
+          "starts": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "lengths": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0.0,
+              "exclusiveMinimum": true
+            }
+          },
+          "threshold": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "oneOf": [
+              { "required": [ "start" ] },
+              { "required": [ "starts" ] }
+            ]
+          },
+          {
+            "oneOf": [
+              { "required": [ "length" ] },
+              { "required": [ "lengths" ] }
+            ]
+          }
+        ]
+      }
+    },
+    "digitalBandPassFilter": {
+      "type": "object",
+      "required": [ "filterType", "highCutOffFrequency", "lowCutOffFrequency", "characteristic" ],
+      "properties": {
+        "filterType": {
+          "type": "string",
+          "enum": [ "None", "LowPass", "HighPass", "BandPass" ]
+        },
+        "highCutOffFrequency": {
+          "type": "number"
+        },
+        "lowCutOffFrequency": {
+          "type": "number"
+        },
+        "characteristic": {
+          "type": "string",
+          "enum": [ "None", "TOFD" ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "calibrationStates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [ "sensitivityCalibration" ],
+            "properties": {
+              "sensitivityCalibration": {
+                "type": "object",
+                "required": [ "calibrated" ],
+                "properties": {
+                  "calibrated": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "tcgCalibration" ],
+            "properties": {
+              "tcgCalibration": {
+                "type": "object",
+                "required": [ "calibrated" ],
+                "properties": {
+                  "calibrated": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "velocityCalibration" ],
+            "properties": {
+              "velocityCalibration": {
+                "type": "object",
+                "required": [ "calibrated" ],
+                "properties": {
+                  "calibrated": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "wedgeDelayCalibration" ],
+            "properties": {
+              "wedgeDelayCalibration": {
+                "type": "object",
+                "required": [ "calibrated" ],
+                "properties": {
+                  "calibrated": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "dacCalibration" ],
+            "properties": {
+              "dacCalibration": {
+                "type": "object",
+                "required": [ "calibrated" ],
+                "properties": {
+                  "calibrated": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "dgsCalibration" ],
+            "properties": {
+              "dgsCalibration": {
+                "type": "object",
+                "required": [ "calibrated" ],
+                "properties": {
+                  "calibrated": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [ "tofdWedgeDelayCalibration" ],
+            "properties": {
+              "tofdWedgeDelayCalibration": {
+                "type": "object",
+                "required": [ "calibrated" ],
+                "properties": {
+                  "calibrated": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "additionalItems": false
+    },
+    "thickness": {
+      "type": "object",
+      "required": [ "min", "max", "gates" ],
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "gates": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "required": [ "id", "timeSelection" ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "timeSelection": {
+                "type": "string",
+                "enum": [ "Peak", "Crossing" ]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

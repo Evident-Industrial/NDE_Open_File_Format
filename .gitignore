@@ -1,0 +1,17 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+.vs
+.BuildScript.log
+.vscode
+Gemfile.lock
+vendor
+Dockerfile
+docker-compose.yml
+node_modules
+package-lock.json
+package.json
+screenshots
+bin
+build

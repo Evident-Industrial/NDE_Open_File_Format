@@ -1,0 +1,73 @@
+{
+  "$schema": "../../schemas/NDE-FileFormat-Schema-3.1.0.json",
+  "version": "3.1.0",
+  "scenario": "General Mapping",
+  "groups": [
+    {
+      "id": 0,
+      "name": "One Line Scan - Linear",
+      "dataset": {
+        "storageMode": "Paintbrush",
+        "ascan": {
+          "velocity": 5890,
+          "skewAngle": 0.0,
+          "refractedAngle": 0.0,
+          "amplitude": {
+            "path": "/Domain/DataGroups/0/Datasets/0/Amplitude",
+            "dimensions": [
+              {
+                "axis": "UCoordinate",
+                "quantity": 300,
+                "resolution": 0.001,
+                "offset": 0.015
+              },
+              {
+                "axis": "VCoordinate",
+                "quantity": 120,
+                "resolution": 0.001,
+                "offset": -0.022
+              },
+              {
+                "axis": "Ultrasound",
+                "quantity": 568,
+                "resolution": 10.0e-9,
+                "offset": 4.0e-6
+              }
+            ],
+            "dataValue": {
+              "unit": "Percent",
+              "min": 0,
+              "max": 100
+            },
+            "dataSampling": {
+              "min": 0,
+              "max": 32767
+            }
+          },
+          "status": {
+            "path": "/Domain/DataGroups/0/Datasets/0/Status",
+            "dimensions": [
+              {
+                "axis": "UCoordinate",
+                "quantity": 300,
+                "resolution": 0.001,
+                "offset": 0.015
+              },
+              {
+                "axis": "VCoordinate",
+                "quantity": 120,
+                "resolution": 0.001,
+                "offset": -0.022
+              }
+            ],
+            "dataValue": {
+              "unit": "Bitfield",
+              "hasData": 1,
+              "noSynchro": 2
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "$schema": "../../schemas/NDE-FileFormat-Schema-3.1.0.json",
+  "version": "3.1.0",
+  "scenario": "General Weld",
+  "groups": [
+    {
+      "id": 0,
+      "name": "One Line Scan - COD - Sectorial",
+      "paut": {
+        "dataEncodingId": 0,
+        "pulseEcho": {
+          "probeId": 0,
+          "sectorialFormation": {
+            "probeFirstElementId": 0,
+            "elementAperture": 32,
+            "beamRefractedAngles": {
+              "start": 45.0,
+              "stop": 47.0,
+              "step": 1.0
+            }
+          }
+        },
+        "waveMode": "Longitudinal",
+        "velocity": 5890,
+        "focusing": {
+          "mode": "TrueDepth",
+          "distance": 0.010,
+          "angle": 40
+        },
+        "gain": 0.0,
+        "rectification": "Full",
+        "gates": [
+          {
+            "id": 1,
+            "name": "Gate A",
+            "starts": [ 3.1e-6, 3.1e-6, 3.1e-6 ],
+            "lengths": [ 0.8e-6, 0.8e-6, 0.8e-6 ],
+            "threshold": 0.0,
+            "geometry": "SoundPath",
+            "peakDetection": "Maximum",
+            "timeSelection": "Peak",
+            "thresholdPolarity": "Absolute",
+            "produceCscanData": true,
+            "synchronization": {
+              "mode": "Pulse"
+            }
+          }
+        ],
+        "beams": [
+          {
+            "id": 0,
+            "skewAngle": 0.0,
+            "refractedAngle": 45.0,
+            "ascanStart": 0.0,
+            "ascanLength": 5.68e-6,
+            "beamDelay": 17.0e-6
+          },
+          {
+            "id": 1,
+            "skewAngle": 0.0,
+            "refractedAngle": 45.0,
+            "ascanStart": 0.0,
+            "ascanLength": 5.68e-6,
+            "beamDelay": 17.0e-6
+          },
+          {
+            "id": 2,
+            "skewAngle": 0.0,
+            "refractedAngle": 45.0,
+            "ascanStart": 0.0,
+            "ascanLength": 5.68e-6,
+            "beamDelay": 17.0e-6
+          }
+        ]
+      },
+      "dataset": {
+        "storageMode": "Independent",
+        "overwriteCriteria": "Last",
+        "ascan": {
+          "amplitude": {
+            "path": "/Domain/DataGroups/0/Datasets/0/Amplitude",
+            "dimensions": [
+              {
+                "axis": "UCoordinate",
+                "quantity": 300,
+                "resolution": 0.001
+              },
+              {
+                "axis": "Beam",
+                "beams": [
+                  {
+                    "velocity": 5890,
+                    "skewAngle": 0.0,
+                    "refractedAngle": 45.0,
+                    "uCoordinateOffset": 0.0,
+                    "vCoordinateOffset": -0.022,
+                    "ultrasoundOffset": 4.0e-6
+                  },
+                  {
+                    "velocity": 5890,
+                    "skewAngle": 0.0,
+                    "refractedAngle": 46.0,
+                    "uCoordinateOffset": 0.0,
+                    "vCoordinateOffset": -0.021,
+                    "ultrasoundOffset": 4.0e-6
+                  },
+                  {
+                    "velocity": 5890,
+                    "skewAngle": 0.0,
+                    "refractedAngle": 47.0,
+                    "uCoordinateOffset": 0.0,
+                    "vCoordinateOffset": -0.020,
+                    "ultrasoundOffset": 4.0e-6
+                  }
+                ]
+              },
+              {
+                "axis": "Ultrasound",
+                "quantity": 568,
+                "resolution": 10.0e-9
+              }
+            ],
+            "dataValue": {
+              "unit": "Percent",
+              "min": 0,
+              "max": 100
+            },
+            "dataSampling": {
+              "min": 0,
+              "max": 32767
+            }
+          },
+          "status": {
+            "path": "/Domain/DataGroups/0/Datasets/0/Status",
+            "dimensions": [
+              {
+                "axis": "UCoordinate",
+                "quantity": 300,
+                "resolution": 0.001
+              },
+              {
+                "axis": "Beam",
+                "beams": [
+                  {
+                    "velocity": 5890,
+                    "skewAngle": 0.0,
+                    "refractedAngle": 45.0,
+                    "uCoordinateOffset": 0.0,
+                    "vCoordinateOffset": -0.022,
+                    "ultrasoundOffset": 4.0e-6
+                  },
+                  {
+                    "velocity": 5890,
+                    "skewAngle": 0.0,
+                    "refractedAngle": 46.0,
+                    "uCoordinateOffset": 0.0,
+                    "vCoordinateOffset": -0.021,
+                    "ultrasoundOffset": 4.0e-6
+                  },
+                  {
+                    "velocity": 5890,
+                    "skewAngle": 0.0,
+                    "refractedAngle": 47.0,
+                    "uCoordinateOffset": 0.0,
+                    "vCoordinateOffset": -0.020,
+                    "ultrasoundOffset": 4.0e-6
+                  }
+                ]
+              }
+            ],
+            "dataValue": {
+              "unit": "Bitfield",
+              "hasData": 1,
+              "noSynchro": 2
+            }
+          }
+        }
+      }
+    }
+  ],
+  "dataEncodings": [
+    {
+      "id": 0,
+      "discreteGrid": {
+        "specimenId": 0,
+        "surfaceId": 0,
+        "scanPattern": "OneLineScan",
+        "dimensions": [
+          {
+            "axis": "UCoordinate",
+            "quantity": 300,
+            "resolution": 0.001,
+            "offset": 0.0,
+            "motionDeviceId": 0,
+            "name": "Scan"
+          }
+        ]
+      }
+    }
+  ],
+  "motionDevices": [
+    {
+      "id": 0,
+      "encoder": {
+        "mode": "Quadrature",
+        "stepResolution": 12000.0,
+        "acquisitionDirection": "Bidirectional"
+      }
+    }
+  ],
+  "acquisitionUnits": [
+    {
+      "id": 0,
+      "platform": "OmniScanX3",
+      "model": "PA64x128",
+      "acquisitionRate": 100.0
+    }
+  ],
+  "probes": [
+    {
+      "id": 0,
+      "model": "5L64-A32",
+      "serie": "A32",
+      "phasedArrayLinear": {
+        "centralFrequency": 5.0e6,
+        "elements": [
+          {
+            "id": 0,
+            "pinId": 0,
+            "acquisitionUnitId": 0,
+            "connectorName": "PA",
+            "primaryIndex": 0,
+            "secondaryIndex": 0,
+            "enabled": true
+          },
+          {
+            "id": 1,
+            "pinId": 1,
+            "acquisitionUnitId": 0,
+            "connectorName": "PA",
+            "primaryIndex": 1,
+            "secondaryIndex": 0,
+            "enabled": true
+          }
+        ],
+        "primaryAxis": {
+          "elementGap": 0,
+          "elementLength": 0.0005,
+          "elementQuantity": 64,
+          "referencePoint": -0.0366,
+          "casingLength": 0.04
+        },
+        "secondaryAxis": {
+          "elementGap": 0,
+          "elementQuantity": 1,
+          "elementLength": 0.01,
+          "referencePoint": 0,
+          "casingLength": 0.000002
+        }
+      },
+      "wedgeAssociation": {
+        "wedgeId": 0,
+        "mountingLocationId": 0
+      }
+    }
+  ],
+  "wedges": [
+    {
+      "id": 0,
+      "model": "SA32-N55S",
+      "serie": "SA32",
+      "angleBeamWedge": {
+        "width": 0.03,
+        "height": 0.0331,
+        "length": 0.061,
+        "longitudinalVelocity": 2330,
+        "mountingLocations": [
+          {
+            "id": 0,
+            "wedgeAngle": 36.1,
+            "squintAngle": 0,
+            "roofAngle": 0,
+            "primaryOffset": -0.055,
+            "secondaryOffset": 0,
+            "tertiaryOffset": 0.011
+          }
+        ]
+      },
+      "positioning": {
+        "specimenId": 0,
+        "surfaceId": 0,
+        "uCoordinateOffset": 0.1,
+        "vCoordinateOffset": -0.050,
+        "skewAngle": 90
+      }
+    }
+  ],
+  "specimens": [
+    {
+      "id": 0,
+      "pipeGeometry": {
+        "material": {
+          "name": "Steel, Mild",
+          "longitudinalWave": {
+            "nominalVelocity": 5890.0
+          },
+          "transversalVerticalWave": {
+            "nominalVelocity": 3240.0
+          }
+        },
+        "thickness": 0.007,
+        "surfaces": [
+          {
+            "id": 0,
+            "name": "Inside"
+          },
+          {
+            "id": 1,
+            "name": "Outside"
+          }
+        ]
+      },
+      "weldGeometry": {
+        "weldAngle": 0.0,
+        "material": {
+          "name": "Steel, Mild",
+          "longitudinalWave": {
+            "nominalVelocity": 5890.0
+          },
+          "transversalVerticalWave": {
+            "nominalVelocity": 3240.0
+          }
+        },
+        "bevelShape": "V",
+        "symmetry": "Symmetric",
+        "hotPass": {
+          "angle": 0.030,
+          "height": 0.020
+        },
+        "land": {
+          "height": 0.002
+        }
+      }
+    }
+  ]
+}

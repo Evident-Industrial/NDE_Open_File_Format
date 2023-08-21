@@ -1,0 +1,2035 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "nonNullString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "frequency": {
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMinimum": true
+    },
+    "velocity": {
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMinimum": true
+    },
+    "angle": { "type": "number" },
+    "positiveAngle": {
+      "type": "number",
+      "minimum": 0
+    },
+    "quantity": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "resolution": {
+      "type": "number",
+      "minimum": 0,
+      "exclusiveMinimum": true
+    },
+    "offset": { "type": "number" },
+    "storageMode": {
+      "type": "string",
+      "enum": [ "Independent", "Paintbrush" ]
+    },
+    "overwriteCriteria": {
+      "type": "string",
+      "enum": [ "Last", "Min", "Max" ]
+    },
+    "rectification": {
+      "type": "string",
+      "enum": [ "None", "Positive", "Negative", "Full" ]
+    },
+    "waveMode": { "enum": [ "Longitudinal", "TransversalVertical" ] },
+    "gain": { "type": "number" },
+    "ascanSynchroMode": {
+      "type": "string",
+      "enum": [ "Pulse", "SynchroGateRelative" ]
+    },
+    "ascanCompressionFactor": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "averagingFactor": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "ultrasoundMode": {
+      "type": "string",
+      "enum": [ "TrueDepth", "SoundPath", "Time" ]
+    },
+    "timeSelection": {
+      "type": "string",
+      "enum": [ "Peak", "Crossing", "Unselected" ]
+    },
+    "highAmplitude": {
+      "type": "number",
+      "minimum": 0
+    },
+    "referenceAmplitude": { "type": "number" },
+    "recurrence": {
+      "type": "number",
+      "minimum": 0
+    },
+    "range": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "resolution": { "$ref": "#/definitions/resolution" }
+      },
+      "additionalProperties": false,
+      "required": [ "min", "max", "resolution" ]
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "geometry": {
+            "type": "string",
+            "enum": [ "SoundPath", "TrueDepth" ]
+          },
+          "produceCscanData": { "type": "boolean" },
+          "peakDetection": {
+            "type": "string",
+            "enum": [ "First", "Last", "Maximum" ]
+          },
+          "timeSelection": {
+            "type": "string",
+            "enum": [ "Peak", "Crossing", "Unselected" ]
+          },
+          "thresholdPolarity": {
+            "type": "string",
+            "enum": [ "Absolute", "Positive", "Negative" ]
+          },
+          "synchronization": {
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [ "Pulse", "GateRelative" ]
+              },
+              "triggeringEvent": {
+                "type": "string",
+                "enum": [ "Peak", "Crossing" ]
+              },
+              "gateId": { "$ref": "#/definitions/gates/items/properties/id" }
+            },
+            "required": [ "mode" ],
+            "additionalProperties": false
+          },
+          "start": { "type": "number" },
+          "length": {
+            "type": "number",
+            "minimum": 0,
+            "exclusiveMinimum": true
+          },
+          "starts": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "number" }
+          },
+          "lengths": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "threshold": { "type": "number" }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "peakDetection",
+          "timeSelection",
+          "thresholdPolarity",
+          "synchronization",
+          "threshold"
+        ],
+        "oneOf": [
+          { "required": [ "start", "length" ] },
+          { "required": [ "starts", "lengths" ] }
+        ]
+      }
+    },
+    "tcg": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "synchroMode": { "enum": [ "Pulse", "AscanSynchroRelative" ] },
+        "points": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "time": { "type": "number" },
+              "gain": { "$ref": "#/definitions/gain" }
+            },
+            "additionalProperties": false,
+            "required": [ "time", "gain" ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "enabled", "points" ]
+    },
+    "pulse": {
+      "properties": {
+        "width": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "voltage": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "polarity": {
+          "type": "string",
+          "enum": [ "Bipolar", "UnipolarPositive", "UnipolarNegative" ]
+        }
+      },
+      "additionalProperties": true,
+      "required": [ "width", "voltage" ]
+    },
+    "digitalBandPassFilter": {
+      "type": "object",
+      "properties": {
+        "filterType": {
+          "type": "string",
+          "enum": [ "None", "LowPass", "HighPass", "BandPass" ]
+        },
+        "highCutOffFrequency": { "$ref": "#/definitions/frequency" },
+        "lowCutOffFrequency": { "$ref": "#/definitions/frequency" },
+        "characteristic": {
+          "type": "string",
+          "enum": [ "None", "TOFD" ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "filterType",
+        "highCutOffFrequency",
+        "lowCutOffFrequency",
+        "characteristic"
+      ]
+    },
+    "elements": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "elementId": {
+            "anyOf": [
+              {
+                "$ref": "#/properties/probes/items/properties/conventionalRound/properties/elements/items/properties/id"
+              },
+              {
+                "$ref": "#/properties/probes/items/properties/conventionalRectangular/properties/elements/items/properties/id"
+              },
+              {
+                "$ref": "#/properties/probes/items/properties/phasedArrayLinear/properties/elements/items/properties/id"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "id", "elementId" ]
+      }
+    },
+    "elementDelays": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "elementId": {
+            "anyOf": [
+              {
+                "$ref": "#/properties/probes/items/properties/conventionalRound/properties/elements/items/properties/id"
+              },
+              {
+                "$ref": "#/properties/probes/items/properties/conventionalRectangular/properties/elements/items/properties/id"
+              },
+              {
+                "$ref": "#/properties/probes/items/properties/phasedArrayLinear/properties/elements/items/properties/id"
+              }
+            ]
+          },
+          "delay": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "id", "elementId", "delay" ]
+      }
+    },
+    "probeAxis": {
+      "type": "object",
+      "properties": {
+        "elementGap": {
+          "type": "number",
+          "minimum": 0
+        },
+        "elementQuantity": { "$ref": "#/definitions/quantity" },
+        "elementLength": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "referencePoint": { "type": "number" },
+        "casingLength": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "elementGap",
+        "elementQuantity",
+        "elementLength",
+        "referencePoint"
+      ]
+    },
+    "linearFormation": {
+      "type": "object",
+      "properties": {
+        "probeFirstElementId": { "$ref": "#/definitions/id" },
+        "probeLastElementId": { "$ref": "#/definitions/id" },
+        "elementStep": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "elementAperture": {
+          "type": "integer",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "beamRefractedAngle": { "$ref": "#/definitions/angle" }
+      },
+      "additionalProperties": false,
+      "required": [
+        "probeFirstElementId",
+        "probeLastElementId",
+        "elementStep",
+        "elementAperture",
+        "beamRefractedAngle"
+      ]
+    },
+    "sectorialFormation": {
+      "type": "object",
+      "properties": {
+        "probeFirstElementId": { "$ref": "#/definitions/id" },
+        "elementAperture": {
+          "type": "integer",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "beamRefractedAngles": {
+          "type": "object",
+          "properties": {
+            "start": { "$ref": "#/definitions/angle" },
+            "stop": { "$ref": "#/definitions/angle" },
+            "step": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "start", "stop", "step" ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "probeFirstElementId",
+        "elementAperture",
+        "beamRefractedAngles"
+      ]
+    },
+    "compoundFormation": {
+      "properties": {
+        "probeFirstElementId": { "$ref": "#/definitions/id" },
+        "probeLastElementId": { "$ref": "#/definitions/id" },
+        "elementAperture": {
+          "type": "integer",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "beamRefractedAngles": {
+          "type": "object",
+          "properties": {
+            "start": { "$ref": "#/definitions/angle" },
+            "stop": { "$ref": "#/definitions/angle" },
+            "step": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "start", "stop", "step" ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "probeFirstElementId",
+        "probeLastElementId",
+        "elementAperture",
+        "beamRefractedAngles"
+      ]
+    },
+    "tfmDescriptions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "name": { "$ref": "#/definitions/nonNullString" },
+          "signalSource": {
+            "type": "string",
+            "enum": [ "Analytic", "Real" ]
+          },
+          "gain": { "$ref": "#/definitions/gain" },
+          "referenceAmplitude": { "type": "number" },
+          "referenceGain": { "$ref": "#/definitions/gain" },
+          "rectangularGrid": {
+            "type": "object",
+            "properties": {
+              "yImagingLimits": { "$ref": "#/definitions/range" },
+              "zImagingLimits": { "$ref": "#/definitions/range" }
+            },
+            "additionalProperties": false,
+            "required": [ "yImagingLimits", "zImagingLimits" ]
+          },
+          "fmcPulserIds": { "$ref": "#/definitions/ids" },
+          "fmcReceiverIds": { "$ref": "#/definitions/ids" },
+          "pathName": { "$ref": "#/definitions/nonNullString" },
+          "waveSet": {
+            "type": "object",
+            "properties": {
+              "pulsings": { "$ref": "#/definitions/waves" },
+              "receivings": { "$ref": "#/definitions/waves" }
+            },
+            "additionalProperties": false,
+            "required": [ "pulsings", "receivings" ]
+          },
+          "digitalBandPassFilter": {
+            "$ref": "#/definitions/digitalBandPassFilter"
+          },
+          "columns": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "$ref": "#/definitions/id" },
+                "gainMap": {
+                  "type": "object",
+                  "properties": {
+                    "points": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": { "type": "number" },
+                          "gain": { "$ref": "#/definitions/gain" }
+                        },
+                        "additionalProperties": false,
+                        "required": [ "position", "gain" ]
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "points" ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [ "id", "gainMap" ]
+            }
+          },
+          "softwareProcess": {
+            "properties": {
+              "gain": { "$ref": "#/definitions/gain" },
+              "boxGates": { "$ref": "#/definitions/boxGates" }
+            },
+            "additionalProperties": false,
+            "anyOf": [
+              { "required": [ "gain" ] },
+              { "required": [ "boxGates" ] }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "gain",
+          "rectangularGrid",
+          "fmcPulserIds",
+          "fmcReceiverIds",
+          "pathName",
+          "waveSet"
+        ]
+      }
+    },
+    "waves": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/waveMode" }
+    },
+    "wave": {
+      "type": "object",
+      "properties": {
+        "nominalVelocity": { "$ref": "#/definitions/velocity" },
+        "attenuationCoefficient": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Attenuation Coefficient of the longitudinal wave"
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "nominalVelocity" ]
+    },
+    "material": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/nonNullString",
+          "description": "Material Name"
+        },
+        "longitudinalWave": {
+          "$ref": "#/definitions/wave",
+          "description": "Nominal Velocity of the longitudinal wave"
+        },
+        "transversalVerticalWave": {
+          "$ref": "#/definitions/wave",
+          "description": "Nominal Velocity of the Transversal Vertical wave"
+        },
+        "density": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true,
+          "description": "Density of the material"
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "name", "longitudinalWave", "transversalVerticalWave" ]
+    },
+    "weldGeometry": {
+      "type": "object",
+      "properties": {
+        "weldAngle": { "$ref": "#/definitions/angle" },
+        "material": { "$ref": "#/definitions/material" },
+        "bevelShape": {
+          "type": "string",
+          "enum": [ "U", "V" ]
+        },
+        "symmetry": {
+          "type": "string",
+          "enum": [ "Symmetric", "StraightLeft", "StraightRight" ]
+        },
+        "heatAffectedZoneWidth": { "type": "number" },
+        "offset": { "$ref": "#/definitions/offset" },
+        "upperCap": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "height" ]
+        },
+        "lowerCap": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "height" ]
+        },
+        "fills": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "angle": { "$ref": "#/definitions/angle" },
+              "height": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "angle", "height" ]
+          }
+        },
+        "hotPass": {
+          "type": "object",
+          "properties": {
+            "angle": { "$ref": "#/definitions/angle" },
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "angle", "height" ]
+        },
+        "land": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "height" ]
+        },
+        "root": {
+          "type": "object",
+          "properties": {
+            "angle": { "$ref": "#/definitions/angle" },
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "angle", "height" ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "weldAngle", "material", "bevelShape", "symmetry" ],
+      "description": "Describes the geometry of the weld"
+    },
+    "coordinate": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "z": { "type": "number" }
+      },
+      "additionalProperties": false,
+      "required": [ "x", "y", "z" ]
+    },
+    "customOverlay2D": {
+      "type": "object",
+      "properties": {
+        "filename": { "$ref": "#/definitions/nonNullString" },
+        "format": { "$ref": "#/definitions/nonNullString" },
+        "extension": { "$ref": "#/definitions/nonNullString" },
+        "path": { "$ref": "#/definitions/nonNullString" },
+        "localScale": { "$ref": "#/definitions/coordinate" },
+        "localTranslation": { "$ref": "#/definitions/coordinate" },
+        "translation": { "$ref": "#/definitions/coordinate" },
+        "scale": { "type": "number" },
+        "rotation": { "type": "number" },
+        "width": { "type": "number" },
+        "thickness": { "type": "number" }
+      },
+      "additionalProperties": false,
+      "required": [
+        "filename",
+        "format",
+        "extension",
+        "path",
+        "scale",
+        "rotation",
+        "width",
+        "thickness"
+      ],
+      "description": "DXF file and overlay position"
+    },
+    "positioning": {
+      "type": "object",
+      "properties": {
+        "specimenId": { "$ref": "#/properties/specimens/items/properties/id" },
+        "surfaceId": {
+          "anyOf": [
+            {
+              "$ref": "#/properties/specimens/items/properties/plateGeometry/properties/surfaces/items/properties/id"
+            },
+            {
+              "$ref": "#/properties/specimens/items/properties/pipeGeometry/properties/surfaces/items/properties/id"
+            },
+            {
+              "$ref": "#/properties/specimens/items/properties/barGeometry/properties/surfaces/items/properties/id"
+            }
+          ]
+        },
+        "uCoordinateOffset": { "$ref": "#/definitions/offset" },
+        "vCoordinateOffset": { "$ref": "#/definitions/offset" },
+        "skewAngle": { "$ref": "#/definitions/positiveAngle" }
+      },
+      "additionalProperties": false,
+      "required": [
+        "specimenId",
+        "surfaceId",
+        "uCoordinateOffset",
+        "vCoordinateOffset",
+        "skewAngle"
+      ]
+    },
+    "dataset": {
+      "dataValue": {
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string",
+            "enum": [ "Percent", "Coherence", "BeamId", "ColumnId" ]
+          },
+          "min": { "type": "number" },
+          "max": { "type": "number" }
+        },
+        "additionalProperties": false,
+        "required": [ "unit", "max", "min" ]
+      },
+      "statusValue": {
+        "type": "object",
+        "properties": {
+          "unit": {
+            "type": "string",
+            "enum": [ "Bitfield" ]
+          },
+          "hasData": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "noSynchro": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "saturated": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "unit", "hasData" ]
+      },
+      "dataSampling": {
+        "type": "object",
+        "properties": {
+          "min": { "type": "integer" },
+          "max": { "type": "integer" }
+        },
+        "additionalProperties": false,
+        "required": [ "min", "max" ]
+      },
+      "amplitude": {
+        "type": "object",
+        "properties": {
+          "dimensions": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "uniqueItems": true,
+            "items": [
+              { "$ref": "#/definitions/axis/uCoordinate" },
+              {
+                "oneOf": [
+                  { "$ref": "#/definitions/axis/vCoordinate" },
+                  { "$ref": "#/definitions/axis/beam" }
+                ]
+              },
+              {
+                "oneOf": [
+                  { "$ref": "#/definitions/axis/ultrasound" },
+                  { "$ref": "#/definitions/axis/wCoordinate" }
+                ]
+              }
+            ]
+          },
+          "path": { "$ref": "#/definitions/nonNullString" },
+          "dataValue": { "$ref": "#/definitions/dataset/dataValue" },
+          "dataSampling": { "$ref": "#/definitions/dataset/dataSampling" }
+        },
+        "additionalProperties": false,
+        "required": [ "dimensions", "path", "dataValue", "dataSampling" ]
+      },
+      "status": {
+        "type": "object",
+        "properties": {
+          "dimensions": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true,
+            "items": [
+              { "$ref": "#/definitions/axis/uCoordinate" },
+              {
+                "oneOf": [
+                  { "$ref": "#/definitions/axis/vCoordinate" },
+                  { "$ref": "#/definitions/axis/beam" }
+                ]
+              }
+            ]
+          },
+          "path": { "$ref": "#/definitions/nonNullString" },
+          "dataValue": { "$ref": "#/definitions/dataset/statusValue" }
+        },
+        "additionalProperties": false,
+        "required": [ "dimensions", "path", "dataValue" ]
+      },
+      "firingSource": {
+        "type": "object",
+        "properties": {
+          "dimensions": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true,
+            "items": [
+              { "$ref": "#/definitions/axis/uCoordinate" },
+              { "$ref": "#/definitions/axis/vCoordinate" }
+            ]
+          },
+          "path": { "$ref": "#/definitions/nonNullString" },
+          "dataValue": { "$ref": "#/definitions/dataset/dataValue" }
+        },
+        "additionalProperties": false,
+        "required": [ "dimensions", "path", "dataValue" ]
+      },
+      "tfms": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "object",
+          "properties": {
+            "tfmDescriptionId": {
+              "$ref": "#/definitions/tfmDescriptions/items/properties/id"
+            },
+            "amplitude": { "$ref": "#/definitions/dataset/amplitude" },
+            "status": { "$ref": "#/definitions/dataset/status" }
+          },
+          "additionalProperties": false,
+          "required": [ "tfmDescriptionId", "amplitude", "status" ]
+        }
+      }
+    },
+    "axis": {
+      "uCoordinate": {
+        "type": "object",
+        "properties": {
+          "axis": { "enum": [ "UCoordinate" ] },
+          "quantity": { "$ref": "#/definitions/quantity" },
+          "resolution": { "$ref": "#/definitions/resolution" },
+          "offset": { "$ref": "#/definitions/offset" },
+          "motionDeviceId": {
+            "$ref": "#/properties/motionDevices/items/properties/id"
+          },
+          "name": { "$ref": "#/definitions/nonNullString" },
+          "lastCellRewrited": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "axis", "quantity", "resolution", "offset" ]
+      },
+      "vCoordinate": {
+        "type": "object",
+        "properties": {
+          "axis": { "enum": [ "VCoordinate" ] },
+          "quantity": { "$ref": "#/definitions/quantity" },
+          "resolution": { "$ref": "#/definitions/resolution" },
+          "offset": { "$ref": "#/definitions/offset" },
+          "motionDeviceId": {
+            "$ref": "#/properties/motionDevices/items/properties/id"
+          },
+          "name": { "$ref": "#/definitions/nonNullString" }
+        },
+        "additionalProperties": false,
+        "required": [ "axis", "quantity", "resolution", "offset" ]
+      },
+      "wCoordinate": {
+        "type": "object",
+        "properties": {
+          "axis": { "enum": [ "WCoordinate" ] },
+          "quantity": { "$ref": "#/definitions/quantity" },
+          "resolution": { "$ref": "#/definitions/resolution" },
+          "offset": { "$ref": "#/definitions/offset" }
+        },
+        "additionalProperties": false,
+        "required": [ "axis", "quantity", "resolution", "offset" ]
+      },
+      "ultrasound": {
+        "type": "object",
+        "properties": {
+          "axis": { "enum": [ "Ultrasound" ] },
+          "quantity": { "$ref": "#/definitions/quantity" },
+          "resolution": { "$ref": "#/definitions/resolution" },
+          "offset": { "$ref": "#/definitions/offset" }
+        },
+        "additionalProperties": false,
+        "required": [ "axis", "quantity", "resolution", "offset" ]
+      },
+      "beam": {
+        "type": "object",
+        "properties": {
+          "axis": { "enum": [ "Beam" ] },
+          "beams": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "velocity": { "$ref": "#/definitions/velocity" },
+                  "skewAngle": { "$ref": "#/definitions/positiveAngle" },
+                  "refractedAngle": { "$ref": "#/definitions/angle" },
+                  "uCoordinateOffset": { "$ref": "#/definitions/offset" },
+                  "vCoordinateOffset": { "$ref": "#/definitions/offset" },
+                  "ultrasoundOffset": { "$ref": "#/definitions/offset" }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "velocity",
+                  "skewAngle",
+                  "refractedAngle",
+                  "uCoordinateOffset",
+                  "vCoordinateOffset",
+                  "ultrasoundOffset"
+                ]
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "axis", "beams" ]
+      }
+    },
+    "boxGates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "enabled": { "type": "boolean" },
+          "threshold": { "type": "number" },
+          "yImagingMin": { "type": "number" },
+          "yImagingMax": { "type": "number" },
+          "zImagingMin": {
+            "type": "number",
+            "minimum": 0
+          },
+          "zImagingMax": { "type": "number" }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "enabled",
+          "threshold",
+          "yImagingMin",
+          "yImagingMax",
+          "zImagingMin",
+          "zImagingMax"
+        ]
+      }
+    },
+    "thickness": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "gates": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "timeSelection": { "$ref": "#/definitions/timeSelection" }
+            },
+            "additionalProperties": false,
+            "required": [ "id", "timeSelection" ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "min", "max", "gates" ]
+    },
+    "calibrationState": {
+      "type": "object",
+      "properties": { "calibrated": { "type": "boolean" } },
+      "additionalProperties": false,
+      "required": [ "calibrated" ]
+    },
+    "calibrationStates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "sensitivityCalibration": {
+            "calibrated": { "$ref": "#/definitions/calibrationState" }
+          },
+          "tcgCalibration": {
+            "calibrated": { "$ref": "#/definitions/calibrationState" }
+          },
+          "velocityCalibration": {
+            "calibrated": { "$ref": "#/definitions/calibrationState" }
+          },
+          "wedgeDelayCalibration": {
+            "calibrated": { "$ref": "#/definitions/calibrationState" }
+          },
+          "dacCalibration": {
+            "calibrated": { "$ref": "#/definitions/calibrationState" }
+          },
+          "dgsCalibration": {
+            "calibrated": { "$ref": "#/definitions/calibrationState" }
+          },
+          "tofdWedgeDelayCalibration": {
+            "calibrated": { "$ref": "#/definitions/calibrationState" }
+          }
+        },
+        "additionalProperties": false,
+        "anyOf": [
+          { "required": [ "sensitivityCalibration" ] },
+          { "required": [ "tcgCalibration" ] },
+          { "required": [ "velocityCalibration" ] },
+          { "required": [ "wedgeDelayCalibration" ] },
+          { "required": [ "dacCalibration" ] },
+          { "required": [ "dgsCalibration" ] },
+          { "required": [ "tofdWedgeDelayCalibration" ] }
+        ]
+      },
+      "additionalItems": false
+    }
+  },
+  "properties": {
+    "$schema": { "$ref": "#/definitions/nonNullString" },
+    "version": {
+      "type": "string",
+      "enum": [ "3.1.1" ]
+    },
+    "scenario": {
+      "type": "string",
+      "enum": [ "General Weld", "General Mapping" ],
+      "description": "The general scenario of this data file"
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "name": {
+                "$ref": "#/definitions/nonNullString",
+                "description": "Group Name"
+              },
+              "usage": {
+                "$ref": "#/definitions/nonNullString",
+                "description": "Additionnal information concerning the use of the group (for example: CouplingCheck)"
+              },
+              "dataset": {
+                "properties": {
+                  "storageMode": { "$ref": "#/definitions/storageMode" },
+                  "overwriteCriteria": {
+                    "$ref": "#/definitions/overwriteCriteria"
+                  },
+                  "ascan": {
+                    "type": "object",
+                    "properties": {
+                      "velocity": { "$ref": "#/definitions/velocity" },
+                      "skewAngle": { "$ref": "#/definitions/positiveAngle" },
+                      "refractedAngle": { "$ref": "#/definitions/angle" },
+                      "amplitude": { "$ref": "#/definitions/dataset/amplitude" },
+                      "status": { "$ref": "#/definitions/dataset/status" }
+                    },
+                    "additionalProperties": false,
+                    "required": [ "amplitude", "status" ]
+                  },
+                  "firingSource": { "$ref": "#/definitions/dataset/firingSource" }
+                },
+                "additionalProperties": false,
+                "required": [ "storageMode" ],
+                "anyOf": [
+                  { "required": [ "ascan" ] },
+                  { "required": [ "firingSource" ] }
+                ]
+              },
+              "ut": {
+                "type": "object",
+                "properties": {
+                  "dataEncodingId": {
+                    "$ref": "#/properties/dataEncodings/items/properties/id"
+                  },
+                  "pulseEcho": {
+                    "probeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    }
+                  },
+                  "pitchCatch": {
+                    "pulserProbeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "receiverProbeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    }
+                  },
+                  "tofd": {
+                    "pulserProbeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "receiverProbeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "pcs": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "waveMode": { "$ref": "#/definitions/waveMode" },
+                  "velocity": { "$ref": "#/definitions/velocity" },
+                  "refractedAngle": { "$ref": "#/definitions/angle" },
+                  "wedgeDelay": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "ascanStart": { "type": "number" },
+                  "ascanLength": {
+                    "type": "number",
+                    "minimum": 0,
+                    "exclusiveMinimum": true
+                  },
+                  "rectification": { "$ref": "#/definitions/rectification" },
+                  "ascanSynchroMode": {
+                    "$ref": "#/definitions/ascanSynchroMode"
+                  },
+                  "ascanCompressionFactor": {
+                    "$ref": "#/definitions/ascanCompressionFactor"
+                  },
+                  "gain": { "$ref": "#/definitions/gain" },
+                  "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
+                  "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
+                  "referenceAmplitude": {
+                    "$ref": "#/definitions/referenceAmplitude"
+                  },
+                  "referenceGain": { "$ref": "#/definitions/gain" },
+                  "digitalBandPassFilter": {
+                    "$ref": "#/definitions/digitalBandPassFilter"
+                  },
+                  "smoothingFilter": { "$ref": "#/definitions/frequency" },
+                  "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
+                  "recurrence": { "$ref": "#/definitions/recurrence" },
+                  "digitizingFrequency": { "$ref": "#/definitions/frequency" },
+                  "pulse": { "$ref": "#/definitions/pulse" },
+                  "tcg": { "$ref": "#/definitions/tcg" },
+                  "gates": { "$ref": "#/definitions/gates" },
+                  "calibrationStates": {
+                    "$ref": "#/definitions/calibrationStates"
+                  },
+                  "softwareProcess": {
+                    "type": "object",
+                    "properties": {
+                      "gain": { "$ref": "#/definitions/gain" },
+                      "gates": { "$ref": "#/definitions/gates" },
+                      "tcg": { "$ref": "#/definitions/tcg" },
+                      "thickness": { "$ref": "#/definitions/thickness" }
+                    },
+                    "additionalProperties": false,
+                    "anyOf": [
+                      { "required": [ "gain" ] },
+                      { "required": [ "gates" ] },
+                      { "required": [ "tcg" ] },
+                      { "required": [ "thickness" ] }
+                    ]
+                  }
+                },
+                "additionalProperties": false,
+                "oneOf": [
+                  { "required": [ "pulseEcho" ] },
+                  { "required": [ "pitchCatch" ] },
+                  { "required": [ "tofd" ] }
+                ]
+              },
+              "paut": {
+                "type": "object",
+                "properties": {
+                  "dataEncodingId": {
+                    "$ref": "#/properties/dataEncodings/items/properties/id"
+                  },
+                  "pulseEcho": {
+                    "type": "object",
+                    "probeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "properties": {
+                      "linearFormation": {
+                        "$ref": "#/definitions/linearFormation"
+                      },
+                      "sectorialFormation": {
+                        "$ref": "#/definitions/sectorialFormation"
+                      },
+                      "compoundFormation": {
+                        "$ref": "#/definitions/compoundFormation"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "oneOf": [
+                      { "required": [ "linearFormation" ] },
+                      { "required": [ "sectorialFormation" ] },
+                      { "required": [ "compoundFormation" ] }
+                    ]
+                  },
+                  "pitchCatch": {
+                    "type": "object",
+                    "pulserProbeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "receiverProbeId": {
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "properties": {
+                      "linearFormation": {
+                        "$ref": "#/definitions/linearFormation"
+                      },
+                      "sectorialFormation": {
+                        "$ref": "#/definitions/sectorialFormation"
+                      },
+                      "compoundFormation": {
+                        "$ref": "#/definitions/compoundFormation"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "oneOf": [
+                      { "required": [ "linearFormation" ] },
+                      { "required": [ "sectorialFormation" ] },
+                      { "required": [ "compoundFormation" ] }
+                    ]
+                  },
+                  "waveMode": { "$ref": "#/definitions/waveMode" },
+                  "velocity": { "$ref": "#/definitions/velocity" },
+                  "pulse": { "$ref": "#/definitions/pulse" },
+                  "focusing": {
+                    "type": "object",
+                    "properties": {
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "TrueDepth",
+                          "HalfPath",
+                          "Unfocused",
+                          "Projection"
+                        ]
+                      },
+                      "distance": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "angle": { "$ref": "#/definitions/angle" }
+                    },
+                    "additionalProperties": false,
+                    "required": [ "mode" ]
+                  },
+                  "beams": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "$ref": "#/definitions/id" },
+                        "skewAngle": { "$ref": "#/definitions/positiveAngle" },
+                        "refractedAngle": { "$ref": "#/definitions/angle" },
+                        "beamDelay": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "ascanStart": { "type": "number" },
+                        "ascanLength": {
+                          "type": "number",
+                          "minimum": 0,
+                          "exclusiveMinimum": true
+                        },
+                        "gainOffset": { "$ref": "#/definitions/gain" },
+                        "recurrence": { "$ref": "#/definitions/recurrence" },
+                        "sumGain": { "$ref": "#/definitions/gain" },
+                        "sumGainMode": {
+                          "type": "string",
+                          "enum": [ "Manual", "Automatic" ]
+                        },
+                        "tcg": { "$ref": "#/definitions/tcg" },
+                        "pulsers": { "$ref": "#/definitions/elementDelays" },
+                        "receivers": { "$ref": "#/definitions/elementDelays" }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "id",
+                        "skewAngle",
+                        "refractedAngle",
+                        "beamDelay",
+                        "ascanStart",
+                        "ascanLength"
+                      ]
+                    }
+                  },
+                  "gates": { "$ref": "#/definitions/gates" },
+                  "rectification": { "$ref": "#/definitions/rectification" },
+                  "digitizingFrequency": { "$ref": "#/definitions/frequency" },
+                  "ascanSynchroMode": {
+                    "$ref": "#/definitions/ascanSynchroMode"
+                  },
+                  "ascanCompressionFactor": {
+                    "$ref": "#/definitions/ascanCompressionFactor"
+                  },
+                  "gain": { "$ref": "#/definitions/gain" },
+                  "wedgeDelay": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
+                  "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
+                  "referenceAmplitude": {
+                    "$ref": "#/definitions/referenceAmplitude"
+                  },
+                  "referenceGain": { "$ref": "#/definitions/gain" },
+                  "digitalBandPassFilter": {
+                    "$ref": "#/definitions/digitalBandPassFilter"
+                  },
+                  "smoothingFilter": { "$ref": "#/definitions/frequency" },
+                  "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
+                  "calibrationStates": {
+                    "$ref": "#/definitions/calibrationStates"
+                  },
+                  "softwareProcess": {
+                    "type": "object",
+                    "properties": {
+                      "gain": { "$ref": "#/definitions/gain" },
+                      "gates": { "$ref": "#/definitions/gates" },
+                      "tcg": { "$ref": "#/definitions/tcg" },
+                      "thickness": { "$ref": "#/definitions/thickness" }
+                    },
+                    "additionalProperties": false,
+                    "anyOf": [
+                      { "required": [ "gain" ] },
+                      { "required": [ "gates" ] },
+                      { "required": [ "tcg" ] },
+                      { "required": [ "thickness" ] }
+                    ]
+                  },
+                  "lawFile": {
+                    "properties": {
+                      "filename": { "$ref": "#/definitions/nonNullString" },
+                      "path": { "$ref": "#/definitions/nonNullString" }
+                    },
+                    "additionalProperties": false,
+                    "required": [ "filename", "path" ]
+                  }
+                },
+                "additionalProperties": false,
+                "oneOf": [
+                  { "required": [ "pulseEcho" ] },
+                  { "required": [ "pitchCatch" ] }
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "id", "dataset" ],
+            "oneOf": [
+              { "required": [ "ut" ] },
+              { "required": [ "paut" ] }
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "name": { "$ref": "#/definitions/nonNullString" },
+              "usage": { "$ref": "#/definitions/nonNullString" },
+              "dataset": {
+                "properties": {
+                  "storageMode": { "$ref": "#/definitions/storageMode" },
+                  "overwriteCriteria": {
+                    "$ref": "#/definitions/overwriteCriteria"
+                  },
+                  "tfms": { "$ref": "#/definitions/dataset/tfms" },
+                  "firingSource": { "$ref": "#/definitions/dataset/firingSource" }
+                },
+                "additionalProperties": false,
+                "required": [ "storageMode" ],
+                "anyOf": [
+                  { "required": [ "tfms" ] },
+                  { "required": [ "firingSource" ] }
+                ]
+              },
+              "fmc": {
+                "type": "object",
+                "properties": {
+                  "dataEncodingId": {
+                    "$ref": "#/properties/dataEncodings/items/properties/id"
+                  },
+                  "probeId": {
+                    "$ref": "#/properties/probes/items/properties/id"
+                  },
+                  "pulse": { "$ref": "#/definitions/pulse" },
+                  "pulserFrequency": { "$ref": "#/definitions/frequency" },
+                  "digitizingFrequency": { "$ref": "#/definitions/frequency" },
+                  "pulsers": { "$ref": "#/definitions/elements" },
+                  "receivers": { "$ref": "#/definitions/elements" },
+                  "tfmDescriptions": { "$ref": "#/definitions/tfmDescriptions" }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "dataEncodingId",
+                  "probeId",
+                  "pulsers",
+                  "receivers",
+                  "tfmDescriptions"
+                ]
+              }
+            },
+            "required": [ "id", "dataset", "fmc" ]
+          }
+        ]
+      }
+    },
+    "dataEncodings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "discreteGrid": {
+            "type": "object",
+            "properties": {
+              "specimenId": {
+                "$ref": "#/properties/specimens/items/properties/id"
+              },
+              "surfaceId": {
+                "anyOf": [
+                  {
+                    "$ref": "#/properties/specimens/items/properties/plateGeometry/properties/surfaces/items/properties/id"
+                  },
+                  {
+                    "$ref": "#/properties/specimens/items/properties/pipeGeometry/properties/surfaces/items/properties/id"
+                  },
+                  {
+                    "$ref": "#/properties/specimens/items/properties/barGeometry/properties/surfaces/items/properties/id"
+                  }
+                ]
+              },
+              "scanPattern": {
+                "type": "string",
+                "enum": [ "OneLineScan", "RasterScan" ]
+              },
+              "uCoordinateOrientation": {
+                "type": "string",
+                "enum": [ "ScanAround", "ScanAlong", "ScanWidth", "ScanLength" ]
+              },
+              "dimensions": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 2,
+                "uniqueItems": true,
+                "items": [
+                  { "$ref": "#/definitions/axis/uCoordinate" },
+                  { "$ref": "#/definitions/axis/vCoordinate" }
+                ],
+                "additionalItems": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "specimenId", "surfaceId", "scanPattern", "dimensions" ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "id", "discreteGrid" ]
+      }
+    },
+    "probes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "model": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Probe model number"
+          },
+          "serie": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Probe serie"
+          },
+          "serialNumber": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Probe serial number"
+          },
+          "conventionalRound": {
+            "type": "object",
+            "properties": {
+              "centralFrequency": { "$ref": "#/definitions/frequency" },
+              "diameter": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "elements": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "$ref": "#/definitions/id" },
+                    "pinId": { "$ref": "#/definitions/id" },
+                    "acquisitionUnitId": {
+                      "$ref": "#/properties/acquisitionUnits/items/properties/id"
+                    },
+                    "connectorName": { "$ref": "#/definitions/nonNullString" }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "id", "acquisitionUnitId", "connectorName" ]
+                }
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "centralFrequency", "diameter", "elements" ]
+          },
+          "conventionalRectangular": {
+            "type": "object",
+            "properties": {
+              "centralFrequency": { "$ref": "#/definitions/frequency" },
+              "length": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "width": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "elements": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "$ref": "#/definitions/id" },
+                    "pinId": { "$ref": "#/definitions/id" },
+                    "acquisitionUnitId": {
+                      "$ref": "#/properties/acquisitionUnits/items/properties/id"
+                    },
+                    "connectorName": { "$ref": "#/definitions/nonNullString" }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "id", "acquisitionUnitId", "connectorName" ]
+                }
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "centralFrequency", "length", "width", "elements" ]
+          },
+          "phasedArrayLinear": {
+            "type": "object",
+            "properties": {
+              "centralFrequency": { "$ref": "#/definitions/frequency" },
+              "elements": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "$ref": "#/definitions/id" },
+                    "pinId": { "$ref": "#/definitions/id" },
+                    "acquisitionUnitId": {
+                      "$ref": "#/properties/acquisitionUnits/items/properties/id"
+                    },
+                    "connectorName": { "$ref": "#/definitions/nonNullString" },
+                    "primaryIndex": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "secondaryIndex": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "enabled": { "type": "boolean" }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "id", "acquisitionUnitId", "connectorName" ]
+                }
+              },
+              "primaryAxis": { "$ref": "#/definitions/probeAxis" },
+              "secondaryAxis": { "$ref": "#/definitions/probeAxis" }
+            },
+            "additionalProperties": false,
+            "required": [
+              "centralFrequency",
+              "elements",
+              "primaryAxis",
+              "secondaryAxis"
+            ]
+          },
+          "wedgeAssociation": {
+            "type": "object",
+            "properties": {
+              "wedgeId": {
+                "$ref": "#/properties/wedges/items/properties/id",
+                "description": "The wedge ID on which the probe is mounted"
+              },
+              "mountingLocationId": {
+                "$ref": "#/properties/wedges/items/properties/angleBeamWedge/properties/mountingLocations/items/properties/id",
+                "description": "The mounting location ID on the wedge, on which the probe is mounted"
+              },
+              "orientation": {
+                "type": "string",
+                "enum": [ "Normal", "Reverse" ],
+                "description": "Probe mounting orientation"
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "wedgeId", "mountingLocationId" ]
+          },
+          "fluidColumn": {
+            "type": "object",
+            "properties": {
+              "name": { "$ref": "#/definitions/nonNullString" },
+              "longitudinalVelocity": { "$ref": "#/definitions/velocity" },
+              "nominalHeight": {
+                "type": "number",
+                "minimum": 0
+              },
+              "wedgeAngle": { "$ref": "#/definitions/angle" },
+              "squintAngle": { "$ref": "#/definitions/angle" },
+              "roofAngle": { "$ref": "#/definitions/angle" },
+              "primaryOffset": { "$ref": "#/definitions/offset" },
+              "secondaryOffset": { "$ref": "#/definitions/offset" },
+              "tertiaryOffset": { "$ref": "#/definitions/offset" },
+              "positioning": { "$ref": "#/definitions/positioning" }
+            },
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "longitudinalVelocity",
+              "wedgeAngle",
+              "primaryOffset",
+              "secondaryOffset",
+              "tertiaryOffset",
+              "positioning"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "id" ],
+        "oneOf": [
+          { "required": [ "conventionalRound" ] },
+          { "required": [ "conventionalRectangular" ] },
+          { "required": [ "phasedArrayLinear" ] }
+        ],
+        "allOf": [
+          {
+            "anyOf": [
+              { "required": [ "wedgeAssociation" ] },
+              { "required": [ "fluidColumn" ] }
+            ]
+          },
+          { "not": { "required": [ "wedgeAssociation", "fluidColumn" ] } }
+        ]
+      }
+    },
+    "wedges": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "model": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Wedge Model Number"
+          },
+          "serie": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Wedge Serie"
+          },
+          "serialNumber": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Wedge Serial Number"
+          },
+          "angleBeamWedge": {
+            "type": "object",
+            "properties": {
+              "width": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "height": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "length": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "longitudinalVelocity": { "$ref": "#/definitions/velocity" },
+              "mountingLocations": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 2,
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "$ref": "#/definitions/id" },
+                    "wedgeAngle": { "$ref": "#/definitions/angle" },
+                    "squintAngle": { "$ref": "#/definitions/angle" },
+                    "roofAngle": { "$ref": "#/definitions/angle" },
+                    "primaryOffset": { "$ref": "#/definitions/offset" },
+                    "secondaryOffset": { "$ref": "#/definitions/offset" },
+                    "tertiaryOffset": { "$ref": "#/definitions/offset" }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "wedgeAngle",
+                    "primaryOffset",
+                    "secondaryOffset",
+                    "tertiaryOffset"
+                  ]
+                }
+              },
+              "pocketDepth": { "type": "number" }
+            },
+            "additionalProperties": false,
+            "required": [
+              "width",
+              "height",
+              "length",
+              "longitudinalVelocity",
+              "mountingLocations"
+            ]
+          },
+          "positioning": { "$ref": "#/definitions/positioning" }
+        },
+        "additionalProperties": false,
+        "required": [ "id", "model", "angleBeamWedge", "positioning" ]
+      }
+    },
+    "specimens": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "plateGeometry": {
+            "type": "object",
+            "properties": {
+              "width": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "length": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "thickness": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "material": { "$ref": "#/definitions/material" },
+              "surfaces": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 2,
+                "uniqueItems": true,
+                "items": {
+                  "properties": {
+                    "id": { "$ref": "#/definitions/id" },
+                    "name": {
+                      "type": "string",
+                      "enum": [ "Top", "Bottom" ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "id", "name" ]
+                }
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "thickness", "material", "surfaces" ],
+            "description": "Describes the geometry of the plate"
+          },
+          "pipeGeometry": {
+            "type": "object",
+            "properties": {
+              "length": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "thickness": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "outerRadius": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "material": { "$ref": "#/definitions/material" },
+              "surfaces": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 2,
+                "uniqueItems": true,
+                "items": {
+                  "properties": {
+                    "id": { "$ref": "#/definitions/id" },
+                    "name": {
+                      "type": "string",
+                      "enum": [ "Inside", "Outside" ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "id", "name" ]
+                }
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "thickness", "material", "surfaces" ],
+            "description": "Describes the geometry of the pipe"
+          },
+          "barGeometry": {
+            "type": "object",
+            "properties": {
+              "length": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "diameter": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "material": { "$ref": "#/definitions/material" },
+              "surfaces": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "properties": {
+                    "id": { "$ref": "#/definitions/id" },
+                    "name": {
+                      "type": "string",
+                      "enum": [ "Outside" ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "id", "name" ]
+                }
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "length", "diameter", "material", "surfaces" ],
+            "description": "Describes the geometry of the bar"
+          },
+          "weldGeometry": { "$ref": "#/definitions/weldGeometry" },
+          "customOverlay2D": { "$ref": "#/definitions/customOverlay2D" }
+        },
+        "additionalProperties": false,
+        "required": [ "id" ],
+        "oneOf": [
+          { "required": [ "plateGeometry" ] },
+          { "required": [ "pipeGeometry" ] },
+          { "required": [ "barGeometry" ] }
+        ],
+        "dependencies": {
+          "weldGeometry": {
+            "oneOf": [
+              { "required": [ "plateGeometry" ] },
+              { "required": [ "pipeGeometry" ] }
+            ]
+          },
+          "customOverlay2D": {
+            "oneOf": [
+              { "required": [ "plateGeometry" ] },
+              { "required": [ "pipeGeometry" ] }
+            ]
+          }
+        }
+      }
+    },
+    "acquisitionUnits": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "platform": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Platform Name"
+          },
+          "model": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Platform Model"
+          },
+          "serialNumber": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Platform Serial Number"
+          },
+          "name": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Optional Name Attributed to the Unit"
+          },
+          "acquisitionRate": {
+            "type": "number",
+            "minimum": 0,
+            "exclusiveMinimum": true,
+            "description": "Acquisition Rate"
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "id", "platform", "model", "acquisitionRate" ]
+      }
+    },
+    "motionDevices": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "name": {
+            "$ref": "#/definitions/nonNullString",
+            "description": "Name of the motion device"
+          },
+          "encoder": {
+            "type": "object",
+            "properties": {
+              "serialNumber": {
+                "$ref": "#/definitions/nonNullString",
+                "description": "Motion Device Serial Number"
+              },
+              "mode": {
+                "enum": [ "Quadrature", "ClockDir", "PulseUp", "PulseDown" ],
+                "description": "Encoder Pulse Mode"
+              },
+              "stepResolution": {
+                "$ref": "#/definitions/resolution",
+                "description": "Encoder Step Resolution (unit)"
+              },
+              "preset": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Preset value et set on acquistion start"
+              },
+              "acquisitionDirection": {
+                "type": "string",
+                "enum": [ "Unidirectional", "Bidirectional" ],
+                "description": "Aquire in one direction or both"
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "mode", "stepResolution" ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "id", "encoder" ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [ "$schema", "version", "scenario", "groups" ]
+}

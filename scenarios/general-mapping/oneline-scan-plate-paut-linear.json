@@ -1,0 +1,696 @@
+{
+  "$schema": "../../schemas/NDE-FileFormat-Schema-3.1.0.json",
+  "version": "3.1.0",
+  "scenario": "General Mapping",
+  "groups": [
+    {
+      "id": 0,
+      "name": "One Line Scan - Linear",
+      "paut": {
+        "dataEncodingId": 0,
+        "pulseEcho": {
+          "probeId": 0,
+          "linearFormation": {
+            "probeFirstElementId": 0,
+            "probeLastElementId": 31,
+            "elementStep": 1,
+            "elementAperture": 16,
+            "beamRefractedAngle": 0
+          }
+        },
+        "waveMode": "Longitudinal",
+        "velocity": 5890,
+        "focusing": {
+          "mode": "TrueDepth",
+          "distance": 0.015
+        },
+        "pulse": {
+          "width": 1.0000000000000001e-7,
+          "voltage": 40,
+          "polarity": "UnipolarNegative"
+        },
+        "gain": 0.0,
+        "rectification": "Full",
+        "ascanSynchroMode": "Pulse",
+        "ascanCompressionFactor": 4,
+        "digitizingFrequency": 100000000,
+        "ultrasoundMode": "TrueDepth",
+        "wedgeDelay": 0,
+        "highAmplitude": 200,
+        "referenceAmplitude": 80,
+        "referenceGain": 0,
+        "digitalBandPassFilter": {
+          "filterType": "None",
+          "highCutOffFrequency": 17900000,
+          "lowCutOffFrequency": 1000000,
+          "characteristic": "None"
+        },
+        "smoothingFilter": 5000000,
+        "averagingFactor": 1,
+        "gates": [
+          {
+            "id": 0,
+            "name": "Gate I",
+            "start": 1.1e-6,
+            "length": 1.25e-6,
+            "threshold": 25.0,
+            "geometry": "TrueDepth",
+            "peakDetection": "Maximum",
+            "timeSelection": "Peak",
+            "thresholdPolarity": "Absolute",
+            "produceCscanData": false,
+            "synchronization": {
+              "mode": "Pulse"
+            }
+          },
+          {
+            "id": 1,
+            "name": "Gate A",
+            "start": 1.1e-6,
+            "length": 1.25e-6,
+            "threshold": 25.0,
+            "geometry": "TrueDepth",
+            "peakDetection": "Maximum",
+            "timeSelection": "Peak",
+            "thresholdPolarity": "Absolute",
+            "produceCscanData": true,
+            "synchronization": {
+              "mode": "Pulse"
+            }
+          },
+          {
+            "id": 2,
+            "name": "Gate B",
+            "start": 1.1e-6,
+            "length": 1.25e-6,
+            "threshold": 25.0,
+            "geometry": "TrueDepth",
+            "peakDetection": "Maximum",
+            "timeSelection": "Peak",
+            "thresholdPolarity": "Absolute",
+            "produceCscanData": false,
+            "synchronization": {
+              "mode": "Pulse"
+            }
+          }
+        ],
+        "beams": [
+          {
+            "id": 0,
+            "skewAngle": 0.0,
+            "refractedAngle": 0.0,
+            "beamDelay": 17.0e-6,
+            "ascanStart": 0.0,
+            "ascanLength": 5.68e-6,
+            "gainOffset": 0,
+            "sumGainMode": "Automatic",
+            "sumGain": 21.1,
+            "pulsers": [
+              {
+                "id": 0,
+                "elementId": 0,
+                "delay": 1.5111067779016718e-18
+              },
+              {
+                "id": 1,
+                "elementId": 1,
+                "delay": 2.1980982740425173e-9
+              },
+              {
+                "id": 2,
+                "elementId": 2,
+                "delay": 3.663738654285546e-9
+              },
+              {
+                "id": 3,
+                "elementId": 3,
+                "delay": 4.3966313401562235e-9
+              },
+              {
+                "id": 4,
+                "elementId": 4,
+                "delay": 4.396631345133389e-9
+              },
+              {
+                "id": 5,
+                "elementId": 5,
+                "delay": 3.6637386569791106e-9
+              },
+              {
+                "id": 6,
+                "elementId": 6,
+                "delay": 2.198098237762402e-9
+              },
+              {
+                "id": 7,
+                "elementId": 7,
+                "delay": 0
+              }
+            ],
+            "receivers": [
+              {
+                "id": 0,
+                "elementId": 0,
+                "delay": 1.5111067779016718e-18
+              },
+              {
+                "id": 1,
+                "elementId": 1,
+                "delay": 2.1980982740425173e-9
+              },
+              {
+                "id": 2,
+                "elementId": 2,
+                "delay": 3.663738654285546e-9
+              },
+              {
+                "id": 3,
+                "elementId": 3,
+                "delay": 4.3966313401562235e-9
+              },
+              {
+                "id": 4,
+                "elementId": 4,
+                "delay": 4.396631345133389e-9
+              },
+              {
+                "id": 5,
+                "elementId": 5,
+                "delay": 3.6637386569791106e-9
+              },
+              {
+                "id": 6,
+                "elementId": 6,
+                "delay": 2.198098237762402e-9
+              },
+              {
+                "id": 7,
+                "elementId": 7,
+                "delay": 0
+              }
+            ]
+          },
+          {
+            "id": 1,
+            "skewAngle": 0.0,
+            "refractedAngle": 0.0,
+            "beamDelay": 17.0e-6,
+            "ascanStart": 0.0,
+            "ascanLength": 5.68e-6,
+            "gainOffset": 0,
+            "sumGainMode": "Automatic",
+            "sumGain": 21.1,
+            "pulsers": [
+              {
+                "id": 0,
+                "elementId": 0,
+                "delay": 1.5111067779016718e-18
+              },
+              {
+                "id": 1,
+                "elementId": 1,
+                "delay": 2.1980982740425173e-9
+              },
+              {
+                "id": 2,
+                "elementId": 2,
+                "delay": 3.663738654285546e-9
+              },
+              {
+                "id": 3,
+                "elementId": 3,
+                "delay": 4.3966313401562235e-9
+              },
+              {
+                "id": 4,
+                "elementId": 4,
+                "delay": 4.396631345133389e-9
+              },
+              {
+                "id": 5,
+                "elementId": 5,
+                "delay": 3.6637386569791106e-9
+              },
+              {
+                "id": 6,
+                "elementId": 6,
+                "delay": 2.198098237762402e-9
+              },
+              {
+                "id": 7,
+                "elementId": 7,
+                "delay": 0
+              }
+            ],
+            "receivers": [
+              {
+                "id": 0,
+                "elementId": 0,
+                "delay": 1.5111067779016718e-18
+              },
+              {
+                "id": 1,
+                "elementId": 1,
+                "delay": 2.1980982740425173e-9
+              },
+              {
+                "id": 2,
+                "elementId": 2,
+                "delay": 3.663738654285546e-9
+              },
+              {
+                "id": 3,
+                "elementId": 3,
+                "delay": 4.3966313401562235e-9
+              },
+              {
+                "id": 4,
+                "elementId": 4,
+                "delay": 4.396631345133389e-9
+              },
+              {
+                "id": 5,
+                "elementId": 5,
+                "delay": 3.6637386569791106e-9
+              },
+              {
+                "id": 6,
+                "elementId": 6,
+                "delay": 2.198098237762402e-9
+              },
+              {
+                "id": 7,
+                "elementId": 7,
+                "delay": 0
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "skewAngle": 0.0,
+            "refractedAngle": 0.0,
+            "beamDelay": 17.0e-6,
+            "ascanStart": 0.0,
+            "ascanLength": 5.68e-6,
+            "gainOffset": 0,
+            "sumGainMode": "Automatic",
+            "sumGain": 21.1,
+            "pulsers": [
+              {
+                "id": 0,
+                "elementId": 0,
+                "delay": 1.5111067779016718e-18
+              },
+              {
+                "id": 1,
+                "elementId": 1,
+                "delay": 2.1980982740425173e-9
+              },
+              {
+                "id": 2,
+                "elementId": 2,
+                "delay": 3.663738654285546e-9
+              },
+              {
+                "id": 3,
+                "elementId": 3,
+                "delay": 4.3966313401562235e-9
+              },
+              {
+                "id": 4,
+                "elementId": 4,
+                "delay": 4.396631345133389e-9
+              },
+              {
+                "id": 5,
+                "elementId": 5,
+                "delay": 3.6637386569791106e-9
+              },
+              {
+                "id": 6,
+                "elementId": 6,
+                "delay": 2.198098237762402e-9
+              },
+              {
+                "id": 7,
+                "elementId": 7,
+                "delay": 0
+              }
+            ],
+            "receivers": [
+              {
+                "id": 0,
+                "elementId": 0,
+                "delay": 1.5111067779016718e-18
+              },
+              {
+                "id": 1,
+                "elementId": 1,
+                "delay": 2.1980982740425173e-9
+              },
+              {
+                "id": 2,
+                "elementId": 2,
+                "delay": 3.663738654285546e-9
+              },
+              {
+                "id": 3,
+                "elementId": 3,
+                "delay": 4.3966313401562235e-9
+              },
+              {
+                "id": 4,
+                "elementId": 4,
+                "delay": 4.396631345133389e-9
+              },
+              {
+                "id": 5,
+                "elementId": 5,
+                "delay": 3.6637386569791106e-9
+              },
+              {
+                "id": 6,
+                "elementId": 6,
+                "delay": 2.198098237762402e-9
+              },
+              {
+                "id": 7,
+                "elementId": 7,
+                "delay": 0
+              }
+            ]
+          }
+        ],
+        "softwareProcess": {
+          "gain": 0.0,
+          "gates": [
+            {
+              "id": 0,
+              "name": "Gate I",
+              "start": 1.1e-6,
+              "length": 1.25e-6,
+              "threshold": 25.0,
+              "geometry": "TrueDepth",
+              "peakDetection": "Maximum",
+              "timeSelection": "Peak",
+              "thresholdPolarity": "Absolute",
+              "produceCscanData": false,
+              "synchronization": {
+                "mode": "Pulse"
+              }
+            },
+            {
+              "id": 1,
+              "name": "Gate A",
+              "start": 2.1e-6,
+              "length": 2.25e-6,
+              "threshold": 20.0,
+              "geometry": "TrueDepth",
+              "peakDetection": "Maximum",
+              "timeSelection": "Peak",
+              "thresholdPolarity": "Absolute",
+              "produceCscanData": true,
+              "synchronization": {
+                "mode": "Pulse"
+              }
+            },
+            {
+              "id": 2,
+              "name": "Gate B",
+              "start": 1.1e-6,
+              "length": 1.25e-6,
+              "threshold": 25.0,
+              "geometry": "TrueDepth",
+              "peakDetection": "Maximum",
+              "timeSelection": "Peak",
+              "thresholdPolarity": "Absolute",
+              "produceCscanData": false,
+              "synchronization": {
+                "mode": "Pulse"
+              }
+            }
+          ]
+        }
+      },
+      "dataset": {
+        "storageMode": "Paintbrush",
+        "ascan": {
+          "velocity": 5890,
+          "skewAngle": 0.0,
+          "refractedAngle": 0.0,
+          "amplitude": {
+            "path": "/Domain/DataGroups/0/Datasets/0/Amplitude",
+            "dimensions": [
+              {
+                "axis": "UCoordinate",
+                "quantity": 300,
+                "resolution": 0.001,
+                "offset": 0.015
+              },
+              {
+                "axis": "VCoordinate",
+                "quantity": 3,
+                "resolution": 0.001,
+                "offset": -0.022
+              },
+              {
+                "axis": "Ultrasound",
+                "quantity": 568,
+                "resolution": 10.0e-9,
+                "offset": 0.0
+              }
+            ],
+            "dataValue": {
+              "unit": "Percent",
+              "min": 0,
+              "max": 100
+            },
+            "dataSampling": {
+              "min": 0,
+              "max": 32767
+            }
+          },
+          "status": {
+            "path": "/Domain/DataGroups/0/Datasets/0/Status",
+            "dimensions": [
+              {
+                "axis": "UCoordinate",
+                "quantity": 300,
+                "resolution": 0.001,
+                "offset": 0.015
+              },
+              {
+                "axis": "VCoordinate",
+                "quantity": 3,
+                "resolution": 0.001,
+                "offset": -0.022
+              }
+            ],
+            "dataValue": {
+              "unit": "Bitfield",
+              "hasData": 1,
+              "noSynchro": 2
+            }
+          }
+        },
+        "gateCscans": [
+          {
+            "gateId": 1,
+            "path": "/Domain/DataGroups/0/Datasets/1/CScan",
+            "dimensions": [
+              {
+                "axis": "UCoordinate",
+                "quantity": 300,
+                "resolution": 0.001,
+                "offset": 0.015
+              },
+              {
+                "axis": "VCoordinate",
+                "quantity": 3,
+                "resolution": 0.001,
+                "offset": -0.022
+              }
+            ],
+            "crossingTime": {
+              "dataValue": {
+                "unit": "Second",
+                "min": 0.0,
+                "max": 15.0e-6
+              }
+            },
+            "peakTime": {
+              "dataValue": {
+                "unit": "Second",
+                "min": 0.0,
+                "max": 15.0e-6
+              }
+            },
+            "peak": {
+              "dataSampling": {
+                "min": 0,
+                "max": 32767
+              },
+              "dataValue": {
+                "unit": "Percent",
+                "min": 0,
+                "max": 100
+              }
+            },
+            "status": {
+              "dataValue": {
+                "unit": "Bitfield",
+                "hasData": 1,
+                "noSynchro": 2,
+                "noDetection": 4
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "dataEncodings": [
+    {
+      "id": 0,
+      "discreteGrid": {
+        "specimenId": 0,
+        "surfaceId": 0,
+        "scanPattern": "OneLineScan",
+        "uCoordinateOrientation": "ScanWidth",
+        "dimensions": [
+          {
+            "axis": "UCoordinate",
+            "quantity": 300,
+            "resolution": 0.001,
+            "offset": 0.015,
+            "motionDeviceId": 0,
+            "name": "Scan"
+          }
+        ]
+      }
+    }
+  ],
+  "motionDevices": [
+    {
+      "id": 0,
+      "encoder": {
+        "mode": "Quadrature",
+        "stepResolution": 12000.0
+      }
+    }
+  ],
+  "acquisitionUnits": [
+    {
+      "id": 0,
+      "platform": "OmniScanX3",
+      "model": "PA64x128",
+      "acquisitionRate": 100.0
+    }
+  ],
+  "probes": [
+    {
+      "id": 0,
+      "model": "5L64-A32",
+      "serie": "A32",
+      "phasedArrayLinear": {
+        "centralFrequency": 5.0e6,
+        "elements": [
+          {
+            "id": 0,
+            "pinId": 0,
+            "acquisitionUnitId": 0,
+            "connectorName": "PA",
+            "primaryIndex": 0,
+            "secondaryIndex": 0,
+            "enabled": true
+          },
+          {
+            "id": 1,
+            "pinId": 1,
+            "acquisitionUnitId": 0,
+            "connectorName": "PA",
+            "primaryIndex": 1,
+            "secondaryIndex": 0,
+            "enabled": true
+          }
+        ],
+        "primaryAxis": {
+          "elementGap": 0,
+          "elementLength": 0.0005,
+          "elementQuantity": 64,
+          "referencePoint": -0.0366,
+          "casingLength": 0.04
+        },
+        "secondaryAxis": {
+          "elementGap": 0,
+          "elementQuantity": 1,
+          "elementLength": 0.01,
+          "referencePoint": 0,
+          "casingLength": 0.000002
+        }
+      },
+      "wedgeAssociation": {
+        "wedgeId": 0,
+        "mountingLocationId": 0
+      }
+    }
+  ],
+  "wedges": [
+    {
+      "id": 0,
+      "model": "SA32-N55S",
+      "serie": "SA32",
+      "angleBeamWedge": {
+        "width": 0.03,
+        "height": 0.0331,
+        "length": 0.061,
+        "longitudinalVelocity": 2330,
+        "mountingLocations": [
+          {
+            "id": 0,
+            "wedgeAngle": 36.1,
+            "squintAngle": 0,
+            "roofAngle": 0,
+            "primaryOffset": -0.055,
+            "secondaryOffset": 0,
+            "tertiaryOffset": 0.011
+          }
+        ]
+      },
+      "positioning": {
+        "specimenId": 0,
+        "surfaceId": 0,
+        "uCoordinateOffset": 0.1,
+        "vCoordinateOffset": -0.050,
+        "skewAngle": 90
+      }
+    }
+  ],
+  "specimens": [
+    {
+      "id": 0,
+      "plateGeometry": {
+        "material": {
+          "name": "Steel, Mild",
+          "longitudinalWave": {
+            "nominalVelocity": 5890.0
+          },
+          "transversalVerticalWave": {
+            "nominalVelocity": 3240.0
+          }
+        },
+        "thickness": 0.022,
+        "surfaces": [
+          {
+            "id": 0,
+            "name": "Top"
+          },
+          {
+            "id": 1,
+            "name": "Bottom"
+          }
+        ]
+      }
+    }
+  ]
+}
