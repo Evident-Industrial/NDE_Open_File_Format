@@ -11,7 +11,7 @@ has_children: false
 
 ## General Concepts
 
-- By the .nde file format’s convention, surface id:0 is the outer surface (top of plates and outside of pipes) and surface id:1 is the inner surface (bottom of plates and inside of pipes). 
+- By the .nde file format’s convention, surface **id:0** is the outer surface (top of plates and outside of pipes) and surface **id:1** is the inner surface (bottom of plates and inside of pipes). 
 - Material is considered homogeneous and isotropic by default
 - Coupling layers are incapable of transmitting shears wave by default
 - Probe with unique resonant frequency
@@ -38,7 +38,7 @@ Angles are expressed in degrees, while all other units in the dataset are in Int
 
 - **U, V, W**: Is the **surface** coordinate system and describes positions on the specimen surface *(u, v)* and depth *(w)*. It is the main coordinate by which everything is related in each file and their definition depends on the selected **scenario**. Their orientation respect the right-hand rule to ensure consistency across files. 
 
-  - **Origin**: Set on the surface of the specimen and some preferred direction along the surface. For example, U can be set along the center line of a weld.
+  - **Origin**: Set on the surface of the specimen and some preferred direction along the surface. For example, **U** can be set along the center line of a weld.
 
   - The **U** and **V** axis properties are given in the **dataEncodings** object of the domain setup.  
 
@@ -70,6 +70,11 @@ Angles are expressed in degrees, while all other units in the dataset are in Int
   - **Scan axis**: **primary** encoding axis,
   - **Index axis**: **secondary** encoding axis.  
 
+
+| ![AxisReferential-Wedge_Elements_and_Beam-PAexample.png](/NDE_Open_File_Format/assets/images/conventions/ReferentialDatasetAxes.png){:width="50%"} |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| *Figure 1 - Summary of axes and general referential system*                                                                                               |
+
 ## Wedge Conventions
 
 - The wedge **origin** is centered at the bottom of its front face (blue axis system in the figure). 
@@ -95,11 +100,6 @@ Angles are expressed in degrees, while all other units in the dataset are in Int
 
 - **Reference Position** (.Ref): Probes are referenced to other objects (wedge, specimen, etc.) through this point. The reference position is defined from the position of the first element when the probe skew = 0. 
 
-
-
-
-
-#### 
 
 | ![AxisReferential-PlateWeld_2Probres.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PlateWeld_2Probres.png){:width="50%"} |
 |:---------------------------------------------------------------------------------------------------------------------------------:|
