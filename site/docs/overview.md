@@ -13,9 +13,9 @@ file structure for more mainstream NDT applications while enabling future
 support of more complex future solutions and additional technologies. The file
 is associated with a [standardized referential system](/NDE_Open_File_Format/docs/conventions/conventions.html#axes-and-coordinate-system) related to the inspection component as well as standardized definitions for [scenarios](/NDE_Open_File_Format/docs/general-concepts/scenarios.html) and [objects](/NDE_Open_File_Format/docs/general-concepts/objects/objects.html). Data is stored using the HDF5 file format combined with a JSON text format to describe the associated metadata.
 
-The .nde file format is one of the primary interfaces of the Unified NDT Inspection Software (UNIS) platform currently being developed by Evident.
+The .nde file format is one of the primary interfaces of the Unified NDT Inspection Software (UNIS) platform currently being developed by Evident. The .nde file format will be supported by all future NDT software applications developed by Evident.
 
-![UnisInterfaces.png](/NDE_Open_File_Format/assets/images/Overview/UNIS Platform.jpg)
+![UnisInterfaces.png](/NDE_Open_File_Format/assets/images/Overview/UNIS Platform.jpg){:width="25%"}
 
 UNIS is an open platform that can be used by all stakeholders in the NDE world to enable [NDE 4.0 and accelerate their software development](https://www.ndt.net/article/ecndt2023/presentation/ECNDT2023_PRESENTATION_364.pdf).
 

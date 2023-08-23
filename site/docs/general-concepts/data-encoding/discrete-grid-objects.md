@@ -1,12 +1,3 @@
----
-layout: default
-title: Discrete Grid Objects 
-nav_exclude: true
-parent: Data Encoding
-grand_parent: General Concepts
-nav_order: 1
----
-
 # Discrete Grid Objects 
 
 ## Definition  

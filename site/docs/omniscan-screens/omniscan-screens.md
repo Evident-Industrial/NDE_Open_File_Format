@@ -7,10 +7,6 @@ description: OmniScan Screens
 
 # OmniScan Interface Screen Shots
 
-
-
-
-
 ## Scan Plan Part
 
 ![Plan_Part.jpg](/NDE_Open_File_Format/assets/images/OmniScanScreens/Plan_Part.jpg)

@@ -1,11 +1,3 @@
----
-layout: default
-title: Surface coordinates
-parent: Notation and convention
-grand_parent: Conventions
-nav_order: 1
----
-
 # Surface coordinates
 
 In scenarios in which probe positioning is in direct relation to the surface, the position on the surface of a specimen, $(X, Y, Z)$ in global coordinates, is transformed in $(u,v)$ surface orthogonal curvilinear coordinates, see Figure 2. The $(u,v)$ coordinates are useful in the context of surface mapping because they allow for regular grid data encoding in $(u,v)$ space onto a non uniform distribution of positions in $(X,Y,Z)$ space. The $(u,v)$ coordinates computed from a reference line also corresponds to lengths measured with a measuring tape directly on the specimen’s surface: the coordinate $u$ is along the reference line (e.g. a weld line) and the coordinate $v$ is along a perpendicular direction to the former. 

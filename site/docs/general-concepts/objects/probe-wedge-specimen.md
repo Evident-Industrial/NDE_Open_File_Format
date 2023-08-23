@@ -1,12 +1,3 @@
----
-layout: default
-title: Probe, wedge and specimen 
-nav_exclude: true
-parent: Objects
-grand_parent: General Concepts
-nav_order: 1
----
-
 # Probe, wedge and specimen 
 
 ## Probe definition
@@ -16,7 +7,7 @@ Probe elements are distributed on an active surface and the corresponding coordi
  | ![Figure3.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure3.png) |
 | ![Figure3-10.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure3-10.png) |
 | ![Figure3-12.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure3-12.png) |
-| *Figure 21: Illustration of various PAUT probe design* |
+| *Illustration of various PAUT probe design* |
 
 
 | Object            | Symbol, usual script (common) | .json             | Application, Example, Note    | Units | 
@@ -34,17 +25,17 @@ Probe elements are distributed on an active surface and the corresponding coordi
 
 | ![Figure23.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure23.png) | 
 |:--:| 
-| *Figure 23: Illustration of the reference point for a linear probe with “primaryAxis"/"referencePoint" = 0.003m and “secondaryAxis "/"referencePoint"=0.* |
+| *Illustration of the reference point for a linear probe with “primaryAxis"/"referencePoint" = 0.003m and “secondaryAxis "/"referencePoint"=0.* |
 
 
 | ![Figure24.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure24.png) | 
 |:--:| 
-| *Figure 24: Probe referential and first element offsets. The origin of the probe, $O_p$, corresponds to the Reference point and to the translated wedge origin $O_w’$.* |
+| *Probe referential and first element offsets. The origin of the probe, $O_p$, corresponds to the Reference point and to the translated wedge origin $O_w’$.* |
 
 
 | ![Figure25.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure25.png) | 
 |:--:| 
-| *Figure 25: Extract for describing center frequency (fc) and fractional bandwidth (BW) * |
+| *Extract for describing center frequency (fc) and fractional bandwidth (BW) * |
 
 
 ### “phasedArrayLinear” probe object
@@ -74,12 +65,12 @@ Array of identical elements uniformly distributed in a plane along the primary a
 
 | ![Figure26.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure26.png) | 
 |:--:| 
-| *Figure 26: Linear probe example* |
+| *Linear probe example* |
 
 
 | ![Figure3-40.png](/NDE_Open_File_Format/assets/images/general-concepts/Figure3-40.png) | 
 |:--:| 
-| *Figure 27: Matrix probe example* |
+| *Matrix probe example* |
 
 
 ## Probe plane positioning in the local wedge referential 
