@@ -10,7 +10,7 @@ nav_order: 1
 ## *Technologies*
 
 The .nde file format is built on the HDF5 opensource library. Visit
-https://www.hdfgroup.org for more information.
+[https://www.hdfgroup.org](https://www.hdfgroup.org) for more information.
 
 The HDF5 data hierarchy is complemented by Java Script Object Notation (JSON) in two
 ways:

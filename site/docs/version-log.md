@@ -1,16 +1,11 @@
 ---
-title: CHANGELOG
+title: Version Log
 layout: default
 ---
 
-# CHANGELOG
+# Version Log
 
 All notable user-facing changes to this project are documented in this file.
-
-## HEAD
-
-{: .note }
-This website is built from the `HEAD` of the `main` branch of the repository.
 
 ### Changelog
 All notable changes to the format will be documented in this file.
@@ -18,7 +13,17 @@ It is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and adh
 
 #### [Unreleased]
 
-#### [3.0.0-Beta] - 2022-12-01
+#### [3.2.0] - 2023-09-30
+#### Added
+
+  
+#### Changed
+
+  
+#### Removed
+
+
+#### [3.1.1] - 2022-12-01
 #### Added
 - [EAB] Schema version 3.0.0-Beta + compatibility code to upgrade from previous version.
 - [1] New *dataset* object including an uniform description of each axes.
@@ -58,16 +63,3 @@ It is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and adh
 - [1] *ultrasoundAxis* including *ascanResolution* from beam object.
 - [1] *amplitudePercentAxis* from any configuration specialization.
 - [1] *analysisBeamGain* from *processes* list.
- 
-### [2.2.13] - 2022-10-01
-#### Added
-- TODO
-
-#### Changed
-- TODO
-
-#### Removed
-- TODO
-
-### [2.2.12] - 2022-09-01
-- Initial version supported.

@@ -11,9 +11,9 @@ Scenarios introduce a set of conventions specific to a given use case enabling a
 - **General Mapping**
     - The $(u,v)$ surface coordinates define a position on the surface but do not directly indicate an orientation of the object that is positioned. The orientation and the origin are set by the user (usually with an external reference on the specimen such as a marker.)
 
-| ![AxisReferential-Raster_Plate.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Raster_Plate.png){:width="50%"} |
+| ![AxisReferential-Raster_Plate.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Raster_Plate.png){:width="25%"} |
 |:---------------------------------------------------------------------------------------------------------------------:|
-| *Figure 5 - Raster example with the $U$ and $V$ axis.*                                                                |
+| *Raster example with the $U$ and $V$ axis.*                                                                |
 
 
 
@@ -25,4 +25,4 @@ Scenarios introduce a set of conventions specific to a given use case enabling a
 | ![AxisReferential-PipeAxialWeld.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PipeAxialWeld.png){:width="50%"} | 
 | ![AxisReferential-PipeCircWeld.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PipeCircWeld.png){:width="50%"} | 
 |:-----------------------------------------------------------------------------------------------------------------------------------:| 
-| *Figure 5 – The weld angle is defined in relation to the pipe axis.*                                                                |
+| *The weld angle is defined in relation to the pipe axis.*                                                                |

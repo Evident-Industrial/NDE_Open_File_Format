@@ -73,7 +73,7 @@ Angles are expressed in degrees, while all other units in the dataset are in Int
 
 | ![AxisReferential-Wedge_Elements_and_Beam-PAexample.png](/NDE_Open_File_Format/assets/images/conventions/ReferentialDatasetAxes.png){:width="50%"} |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| *Figure 1 - Summary of axes and general referential system*                                                                                               |
+| *Summary of axes and general referential system*                                                                                               |
 
 ## Wedge Conventions
 
@@ -87,12 +87,12 @@ Angles are expressed in degrees, while all other units in the dataset are in Int
 
 | ![AxisReferential-Wedge_Elements_and_Beam-PAexample.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Wedge_Elements_and_Beam-PAexample.png){:width="50%"} |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| *Figure 1 - Wedge parameters and referential system conventions.*                                                                                               |
+| *Wedge parameters and referential system conventions.*                                                                                               |
 
 
 | ![AxisReferential-Wedge_SkewAngle.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Wedge_SkewAngle.png){:width="50%"} |
 |:---------------------------------------------------------------------------------------------------------------------------------------------:|
-| *Figure 2 – Isometric views of different skew angles for reference. The skew angle is taken from the U-axis to the wedge Yw-axis.*            |
+| *Isometric views of different skew angles for reference. The skew angle is taken from the U-axis to the wedge Yw-axis.*            |
 
 ## Probe Conventions
 
@@ -103,10 +103,10 @@ Angles are expressed in degrees, while all other units in the dataset are in Int
 
 | ![AxisReferential-PlateWeld_2Probres.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PlateWeld_2Probres.png){:width="50%"} |
 |:---------------------------------------------------------------------------------------------------------------------------------:|
-| *Figure 3 – Example of a typical plate scenario with a weld and two probes in relation to the $U$ and $V$ axis.*                  |
+| *Example of a typical plate scenario with a weld and two probes in relation to the $U$ and $V$ axis.*                  |
 
 | ![AxisReferential-PipeWeld_2Probres.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PipeWeld_2Probres.png){:width="50%"} |
 |:-------------------------------------------------------------------------------------------------------------------------------:|
-| *Figure 4 – Example general weld scenario with an axial weld on a pipe.*                                                        |
+| *Example general weld scenario with an axial weld on a pipe.*                                                        |
 
 

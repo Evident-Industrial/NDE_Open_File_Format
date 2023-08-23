@@ -21,7 +21,7 @@ graph LR;
 
 fig 1. example of the path of an ultrasound amplitude ascan
 
-- The path contain the HDF5 path that link that particular group to its dataset.
+- The path contain the HDF5 path that link's that particular group to its dataset.
 
 ```json
 		"path": "/Domain/DataGroups/0/Datasets/0/Amplitude"
@@ -56,7 +56,7 @@ Those dimensions can varies depending on the the group and scan types.
 
 # Phased Array One Line Scan
 
-Take for exemple, this zero degree one line scan inspection which has an [Independent storageMode](/NDE_Open_File_Format/docs/conventions/conventions.html).
+Take for exemple, this zero degree one line scan inspection which has an [Independent storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
 
 ![PAOneLineScanDatatset.jpg](/NDE_Open_File_Format/assets/images/general-concepts/PAOneLineScanDatatset.jpg)
 
@@ -106,7 +106,7 @@ Take for exemple, this zero degree one line scan inspection which has an [Indepe
 
 # Phased Array Zero Degree Raster
 
-Take for exemple, this phased array raster inspection which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/conventions/conventions.html).
+Take for exemple, this phased array raster inspection which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
 
 ![PAOneLineScanDatatset.jpg](/NDE_Open_File_Format/assets/images/general-concepts/PARasterDatatset.png)
 
@@ -135,7 +135,7 @@ Take for exemple, this phased array raster inspection which has a [Paintbrush st
 
 # TFM
 
-Take for exemple, this TFM inspection which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/conventions/conventions.html).
+Take for exemple, this TFM inspection which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
 
 ![PAOneLineScanDatatset.jpg](/NDE_Open_File_Format/assets/images/general-concepts/TFMDataset.png)
 
