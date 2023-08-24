@@ -19,7 +19,7 @@ graph LR;
     amplitude-->dimensions;
 ```
 
-fig 1. example of the path of an ultrasound amplitude ascan
+Example of the path of an ultrasound amplitude ascan
 
 - The path contain the HDF5 path that link's that particular group to its dataset.
 

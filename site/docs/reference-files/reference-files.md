@@ -31,7 +31,7 @@ All files are one line scans for plate weld inspection purpose.
 
 | File Name            	| Description 		|
 | --------------------- | -----------------	|
-| [Plate_Escan.nde](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/main/Plate_Escan.nde) [[View](https://myhdf5.hdfgroup.org/view?url=https://github.com/Evident-Industrial/NDE_Open_File_Format/blob/b74fae8d51f9a57939c8b72c4a322815d6c48aa9/Plate_Escan.nde)]      	| PA E-Scan			|
+| [Plate_Escan.nde](https://github.com/Evident-Industrial/NDE_Open_File_Format/blob/main/scenarios/Plate_Escan.nde) [[View](https://myhdf5.hdfgroup.org/view?url=https://github.com/Evident-Industrial/NDE_Open_File_Format/blob/b74fae8d51f9a57939c8b72c4a322815d6c48aa9/Plate_Escan.nde){:target="_blank"}] | PA E-Scan		 |
 | Plate_Sscan.nde      	| PA S-Scan			|
 | Plate_Compound.nde    | PA Compound-Scan	|
 | DLA_WeldPlate_2gr.nde	| PA DLA probe		|
@@ -72,10 +72,3 @@ All files are one line scans for pipe axial weld inspection purpose.
 | File Name   | Description                              |
 | ----------- | ---------------------------------------- |
 | Overlay.nde | Demonstrates custom overlay integration. |
-
-
-
-
-
-??
-| Weld_UT_Raster.nde           			| Plate - One line scan - PA E-Scan		|
