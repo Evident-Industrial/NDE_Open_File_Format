@@ -17,10 +17,14 @@ remote_theme: just-the-docs/just-the-docs@v0.5.4
 
 # Aux links for the upper right navigation
 aux_links:
-  "nde doc on GitHub":
+  "Nde doc on GitHub":
     - "//github.com/Evident-Industrial/NDE_Open_File_Format" 
 
 aux_links_new_tab: true
+
+nav_external_links:
+  - title: Nde doc on GitHub
+    url: https://github.com/Evident-Industrial/NDE_Open_File_Format
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
