@@ -25,11 +25,9 @@ To communicate with the team development team for support or to provide feedback
 
 ## About the project
 
-Copyright  [EVIDENT](https://www.evidentscientific.com/), All rights reserved.
-
 ### License
 
-The NDE Format is distributed under an [MIT license](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/main/LICENSE.txt).
+The NDE Format is distributed under an [MIT license](https://github.com/Evident-Industrial/NDE_Open_File_Format/blob/main/LICENSE).
 
 ### Support
 

@@ -51,7 +51,11 @@ set(RAPIDJSON_INCLUDE_DIRS ${source_dir}/include)
 
 include_directories(.)
 
-find_package(ZLIB REQUIRED)
+find_package(ZLIB)
+
+if(NOT ZLIB_FOUND)
+    message(STATUS "Zlib not found. Download ZLIB to finish build: https://gnuwin32.sourceforge.net/packages/zlib.htm")
+endif()
 
 if (WIN32)
   if(EXISTS ${HDF5_DIR}/lib/libhdf5_cpp.lib)
