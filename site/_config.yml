@@ -17,13 +17,13 @@ remote_theme: just-the-docs/just-the-docs@v0.5.4
 
 # Aux links for the upper right navigation
 aux_links:
-  "Nde doc on GitHub":
+  "NDE_Open_File_Format on Github":
     - "//github.com/Evident-Industrial/NDE_Open_File_Format" 
 
 aux_links_new_tab: true
 
 nav_external_links:
-  - title: Nde doc on GitHub
+  - title: NDE_Open_File_Format on Github
     url: https://github.com/Evident-Industrial/NDE_Open_File_Format
 
 # Footer last edited timestamp
