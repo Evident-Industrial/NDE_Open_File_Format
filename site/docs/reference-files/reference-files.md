@@ -9,6 +9,8 @@ description: Reference Files
 # Reference Files
 
 Here are some sample NDE data files
+The NDE data files can be downloaded here using Git lfs: 
+[https://github.com/Evident-Industrial/NDE_Open_File_Format_Files](https://github.com/Evident-Industrial/NDE_Open_File_Format_Files)
 
 ### General Mapping
 All files are raster scans for corrosion mapping / composite inspection purpose.

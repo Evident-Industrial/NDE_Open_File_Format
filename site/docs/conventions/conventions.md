@@ -9,97 +9,150 @@ has_children: false
 
 # Conventions
 
-## General Concepts
-
-- By the .nde file format’s convention, surface **id:0** is the outer surface (top of plates and outside of pipes) and surface **id:1** is the inner surface (bottom of plates and inside of pipes). 
-- Material is considered homogeneous and isotropic by default
-- Coupling layers are incapable of transmitting shears wave by default
-- Probe with unique resonant frequency
-
 ## Units
 
 Angles are expressed in degrees, while all other units in the dataset are in International System (SI) units, expressed in meters and seconds unless otherwise indicated by a "unit" key. For example, the "Bitfield" and "Percent" units are used for the ascan in the dataset object. 
 
 | Quantity                 | Symbol, usual script (common) | Units         |
 | ------------------------ | ----------------------------- | ------------- |
-| **Distance, positions**  | x, y, z                       | meter [m]     |
+| **Distance, positions**  | X, Y, Z                       | meter [m]     |
 | **Time**                 | t                             | second [s]    |
-| **Mass**                 | M, m                          | kilogram [kg] |
-| **Speed**                | c, v                          | [m/s]         |
+| **Mass**                 | M                          | kilogram [kg] |
+| **Speed**                | c                         | [m/s]         |
 | **Angle**                | α, β, γ, θ, φ                 | degree [°]    |
 | **Density**              | ρ                             | [kg/$m^3$]    |
-| **Gain**                 |                               | dB            |
+| **Gain**                 | G                              | dB            |
 | **Attenuation**          | A                             | dB            |
-| **Fractional Bandwidth** |                               | %             |
+| **Fractional Bandwidth** | FBW                              | %             |
 
- 
 
 ## Axes and Coordinate System
+### About scenarios
 
-- **U, V, W**: Is the **surface** coordinate system and describes positions on the specimen surface *(u, v)* and depth *(w)*. It is the main coordinate by which everything is related in each file and their definition depends on the selected **scenario**. Their orientation respect the right-hand rule to ensure consistency across files. 
+The relationship between objects of the nde file (specimen, probe, wedge, encoder) is defined by inspection scenarios. 
 
-  - **Origin**: Set on the surface of the specimen and some preferred direction along the surface. For example, **U** can be set along the center line of a weld.
+### $(U,V,W)$; surface coordinates and depth
 
-  - The **U** and **V** axis properties are given in the **dataEncodings** object of the domain setup.  
+In scenarios in which probe positioning is in direct relation to the surface, the position on the surface of a specimen, $(X, Y, Z)$ in global coordinates, is transformed in $(U,V)$ surface orthogonal curvilinear coordinates. Take note that depending on the scenario the $(U,V)$ may be directly in distance unit (meter) but this is not systematic. 
 
-  - The **U** axis, the **primary axis**, is defined by the scenario and its orientation is given by **"uCoordinateOrientation"** in the **"dataEncodings"** object.  
-    
-  - The **V** axis, the **secondary axis**, is perpendicular to **U** and its orientation can be infered with the right-hand rule from the cross product of **U** and **W**. 
+The use of $(U,V)$ coordinates is enforced as a way to disambiguate the notions of “scan axis” and “index axis” which are interpreted depending on the scenario. 
+
+To the $(U,V)$ surface mapping coordinates a depth axis $W$ is added. The depth $W$ is defined as being normal to the local $(U,V)$ coordinates and follows the right hand rule for sign definition, resulting in a $(U,V,W)$ coordinate system 
+
+- The $W$ axis is normal to the surface and always points inside the material.
+
+- The $U$ axis is defined relative to the specimen's feature (per scenario). Its orientation is arbitrary.
+
+- The $V$ axis is perpendicular to $U$ and its orientation can be infered with the right-hand rule from the cross product of $U$ and $W$. 
   
-  - The **W** axis is normal to the surface and points inside the material. **W** is particularly useful in total focusing method (TFM) acquisition to position the data. However, in most cases, an **"Ultrasound"** axis is used to describe the data instead.  
+### Other coodinate systems
+- $(X,Y,Z)$: Global referential axis. 
+  - It is independent of the acquisition and serves to position the data on the specimen in the real world.
+  - *Origin and orientation*: Arbitrary and stays the same across files for a given specimen. It is usually defined by the user on the specimen with some marking or physical reference in the specimen environment.
+  - <ins>*NOTE*</ins>: Currently, the $X$, $Y$, and $Z$ axis are not used nor defined in the NDE file, but to show inspection results in 3D, one would have to translate everything to this coordinate system. 
 
-- **Xw, Yw, Zw**: The wedge coordinate system.  
-  
-  - **Origin**: Located in the middle and at the bottom of its front (blue axis system in the figure). 
+- $(X_w, Y_w, Z_w)$: The wedge coordinate system. 
 
-- **Xe, Ye, Ze**: The elements coordinate system.  
-  
-  - **Origin**: Located in the middle of the first element surface (green axis system in the figure). 
+    - Note that terms *wedge* is used to describe all devices that ensure a constant positionning of a probe relative to an inspected surface. 
+    - The wedge is typically positionned directly on the surface $(U,V)$ and thus link the probe position to the part.
+    - *Origin and orientation*: See appropriate wedge object conventions with the appropriate technology (ex. UT/PAUT)  for details.
 
-- **X, Y, Z**: Global referential axis. It is independent of the acquisition and serves to position the data on the specimen. These are akin to real-world coordinates defined by the user for the specimen. 
-  
-  - **Origin**: Arbitrary and stays the same across files for a given specimen. It is usually defined by the user on the specimen with some marking or physical reference in the specimen environment.  
-  
-  - <ins>**NOTE**</ins>: Currently, the **X**, **Y**, and **Z** axis are not used nor defined in the NDE file, but to show inspection results in 3D, one would have to translate everything to this coordinate system.   
+- $(U_e, V_e)$: The probe elements coordinate system
+  -  On the probe surface (i.e. they are surface coordinates)
+  - *Origin and orientation*: See appropriate probe object conventions with the appropriate technology (ex. UT/PAUT) for details.
 
-- **Beams Axis**: An axis used in the HDF5 dataset rather than a physical one where each element contains one beam's positions and parameters. It is used in PAUT scenarios when the beams do not fit well in a **U, V** grid. Giving the coordinate by beams simplifies their use in these scenarios. 
+- Beams Axis:
+    -  An axis used in the HDF5 dataset rather than a physical one where each element contains one beam's positions and parameters. It is used in PAUT scenarios when the beams do not fit well in a $U$, $V$ grid. Giving the coordinate by beams simplifies their use in these scenarios. 
 
-- **Ultrasound Axis**: Time-based information sampled by an ultrasonic acquisition system and the specified probe/wedge configuration. 
+- Ultrasound Axis: 
+    - Time-based information sampled by an ultrasonic acquisition system. The positionning in the global coordinate require accounting for ray tracing and part velocities.
 
-- **Encoding Axes**: Relates to encoder displacement and are decoupled from the other axes. These are;
-  - **Scan axis**: **primary** encoding axis,
-  - **Index axis**: **secondary** encoding axis.  
+- Encoding Axes: 
+    - Relates to encoder displacement, coupling to specimen and/or global coordinates is scenario dependant.
+
+## UT/PAUT conventions
+
+### General Concepts and hypothesis
+
+- Material is considered homogeneous and isotropic by default
+- Coupling layers are incapable of transmitting shears wave by default
+- Probe with unique resonant frequency by default
 
 
-| ![AxisReferential-Wedge_Elements_and_Beam-PAexample.png](/NDE_Open_File_Format/assets/images/conventions/ReferentialDatasetAxes.png){:width="50%"} |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| *Summary of axes and general referential system*                                                                                               |
+## UT/PAUT Wedge Conventions
+### **angleBeamWedge** object
+- Hypothesis: 
+    - Wedge body and contact surface is considered symetrical
+    - The wedge contact surface (with the specimen) is flat or curved with a simple radius of curvature.
+    - The probe(s) surface contact is flat.
 
-## Wedge Conventions
 
-- The wedge **origin** is centered at the bottom of its front face (blue axis system in the figure). 
-
-- The wedge **skew angle** is defined by the angle between the wedge and **U** axis. 
-
-- Its starting position is given in relation to the **U** and **V** axis with the **uCoordinateOffset** and **vCoordinateOffset** located in the domain setup at **wedges[0].positioning**.   
-
-- The width, height and length of the wedge are found at **wedges[0].angleBeamWedge**. 
+- The wedge coordinate system origin is centered at the bottom of its front face (blue axis system in the figure below). 
 
 | ![AxisReferential-Wedge_Elements_and_Beam-PAexample.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Wedge_Elements_and_Beam-PAexample.png){:width="50%"} |
-|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| *Wedge parameters and referential system conventions.*                                                                                               |
+|:---------------------------------------------------------------------------------------------------------------------------------------------:|
+| *Flat wedge parameters and referential system examples.*  |
 
+- The wedge coordinate system orientation is defined such as to have the $(Y_w)$ axis aligned with the wedge lenght, the $(X_w)$ axis aligned with the wedge width and the $(Z_w)$ axis aligned with the wedge height
+
+- The wedge **skew angle** is defined by the angle between the wedge and **U** axis on the surface of the part at the wedge origin.
 
 | ![AxisReferential-Wedge_SkewAngle.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Wedge_SkewAngle.png){:width="50%"} |
 |:---------------------------------------------------------------------------------------------------------------------------------------------:|
-| *Isometric views of different skew angles for reference. The skew angle is taken from the U-axis to the wedge Yw-axis.*            |
+| *Isometric views of different skew angles for reference. The skew angle is taken from the U-axis to the wedge Yw-axis.*  |
 
-## Probe Conventions
+- Its positionning on the specimen is given in relation to the $(U,V)$ coordinates with the **uCoordinateOffset** and **vCoordinateOffset** located in the domain setup at **wedges[x].positioning**.   
 
-- Position of the first element is given by; **"primaryOffset"**, **"secondaryOffset"** and **"tertiaryOffset"** found in **wedges[0].angleBeamWedge.mountingLocations**. These three offsets are given in relation to the wedge coordinate system where the primary, secondary, and tertiary offsets are on the **Yw**, **Xw**, and **Zw** axis respectively. 
+- The positionning of the probe coordinate system is achieved in the $(X_w,Y_w,Z_w)$ coordinates through the successive application of the *primary offset* (on the $(Y_w)$ axis), the *secondary offset* (on the $(X_w)$ axis) and the *tertiary offset* (on the $(Z_w)$ axis)
 
-- **Reference Position** (.Ref): Probes are referenced to other objects (wedge, specimen, etc.) through this point. The reference position is defined from the position of the first element when the probe skew = 0. 
+### Flat wedges
+<!---
+to validate (do it cover angleBeamWedge and linear 0 deg as well)
+-->
 
+- For flat wedge the application of the above rules is straightforward as there's no ambiguity for the definition of the probe positionning.
+
+### Curved Wedge
+
+ - The application of wedge on tubular component does typically involve the use of wedge with curved matching surfaces. Such wedge requires additional conventions.
+
+ - Typical configuation are axial outer diameter (AOD) or circumferential outer diameter (COD) configurations but it must be considered here that angle skew angle for outer or inner diameter inspection are also possible in this definition.
+
+- Curved wedge face are dealt with by a redefinition of the *tertiary offset* and off course by a definition of the wedge curvature itself in the wedge object. The tertiary offset is defined for a flat wedge that is machined to the desired curvature.   
+
+### **mountingLocations** Concepts and definition
+
+- A probe is maintained in position on a wedge through an interface face defined by the aforementionned **primaryOffset**, **secondaryOffset** and **tertiaryOffset** plus three angles:
+  - **wedgeAngle** $\beta$ : Angle between the normal of the interface face vs the $Z_w$ Axis
+  - **squintAngle** $\alpha$ : Angle between the projection of the probe primary axis on the $X_w$/$Y_w$ plane and the $Y_w$ axis. 
+    - Note : default squint angle is 0 deg
+  - **roofAngle** $\gamma$ : Rotation angle around the probe primary axis
+    - Note : default roof angle is 0 deg
+
+| ![CoordinateSystemWedge.jpg](/NDE_Open_File_Format/assets/images/conventions/CoordinateSystemWedge.jpg){:width="50%"} |
+|:---------------------------------------------------------------------------------------------------------------------------------------------:|
+| *Isometric view of the wedge reference system illustrating the positionning of the origin of the probe coordinate system (flat wedge example)*    
+
+  - It is possible to have multiple probe **mountingLocations** defined on a single wedge, for example in the case of Dual Linear Array (DLA) or Dual Matrix Array (DMA). 
+
+ 
+
+
+### **phasedArrayLinear** objects
+ - Hypothesis :
+     - Constant **elementLenght** and **elementGap** for $(Np)$ **elementQuantity** distributed along a first probe axis. 
+      - Constant **elementLenght** and **elementGap** for $(Ns)$ **elementQuantity** distributed along a secondary probe axis. 
+      - Probe surface may be curve along the first or secondary probe axis but not both.
+
+  - More specifically, the following use case are covered:
+    - 1D linear array with flat active face. 
+    - 1D linear array with curved active face along the primary axis (“CC” probes)
+    - 1D linear array with curved active face along the secondary axis (“CCEV” probes)
+    - 2D linear array with flat active face. 
+    - 2D linear array with curved active face along the primary axis (“CC” probes)
+    - 2D linear array with curved active face along the secondary axis (“CCEV” probes) 
+
+## Examples UT/PAUT 
 
 | ![AxisReferential-PlateWeld_2Probres.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PlateWeld_2Probres.png){:width="50%"} |
 |:---------------------------------------------------------------------------------------------------------------------------------:|

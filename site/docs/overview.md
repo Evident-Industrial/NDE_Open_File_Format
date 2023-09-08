@@ -15,13 +15,11 @@ is associated with a [standardized referential system](/NDE_Open_File_Format/doc
 
 The .nde file format is one of the primary interfaces of the Unified NDT Inspection Software (UNIS) platform currently being developed by Evident. The .nde file format will be supported by all future NDT software applications developed by Evident.
 
-![UnisInterfaces.png](/NDE_Open_File_Format/assets/images/Overview/UNIS Platform.jpg){:width="25%"}
+![UnisInterfaces.png](/NDE_Open_File_Format/assets/images/Overview/UNIS Platform.png){:width="25%"}
 
 UNIS is an open platform that can be used by all stakeholders in the NDE world to enable [NDE 4.0 and accelerate their software development](https://www.ndt.net/article/ecndt2023/presentation/ECNDT2023_PRESENTATION_364.pdf).
 
 The .nde file format is a work in progress. Evident will be releasing a new version of the file format every 3 months for the foreseeable future. Starting with file version 3.0 which was released in January 2023, the .new file format will avoid any breaking changes until further notice.
-
-To communicate with the team development team for support or to provide feedback, please contact [nde_support@evidentscientific.com](mailto:nde_support@evidentscientific.com).
 
 ## About the project
 
