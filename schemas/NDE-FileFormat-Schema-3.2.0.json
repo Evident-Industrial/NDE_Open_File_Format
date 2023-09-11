@@ -1,6 +1,155 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
+  "experimental": {
+    "description": "Experimental objects are for development purposes, may undergo adjustments based on user feedback and do not receive official compatibility support",
+    "ultrasonicMatrixCapture": {
+      "description": "_Matrix Capture UT_Describes UT Matrix Capture acquisition\n<a href=\"./features/UTMatrixCapture.html\">Detailed Documentation</a>",
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "name": { "$ref": "#/definitions/nonNullString" },
+        "usage": {
+          "$ref": "#/definitions/nonNullString",
+          "description": "Additionnal information concerning the use of the group (for example: CouplingCheck)"
+        },
+        "dataset": {
+          "$ref": "#/experimental/elementaryAscan"
+        },
+        "utMatrixCapture": {
+          "oneOf": [
+            {
+              "type": "object",
+              "description": "_Matrix Capture UT_",
+              "properties": {
+                "dataEncodingId": {
+                  "description": "Related data encoding id [dataEncodings/items/properties/id]",
+                  "$ref": "#/properties/dataEncodings/items/properties/id"
+                },
+                "fullMatrixCapture": {
+                  "type": "object",
+                  "description": "Simple definition of full matrix capture",
+                  "properties": {
+                    "probeId": {
+                      "description": "Related probe id [probes/items/properties/id]",
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "receiverProbeId": {
+                      "description": "Related receiver probe if different of pulser probe [probes/items/properties/id]",
+                      "$ref": "#/properties/probes/items/properties/id"
+                    },
+                    "pulse": { "$ref": "#/definitions/pulse" },
+                    "digitizingFrequency": {
+                      "description": "Effective sampling frequency in dataset (hertz)",
+                      "$ref": "#/definitions/frequency"
+                    },
+                    "ascanLength": {
+                      "description": "Ascan length (second). Unique",
+                      "type": "number",
+                      "minimum": 0,
+                      "exclusiveMinimum": true
+                    },
+                    "ascanStart": {
+                      "description": "Delay time (second). Unique.",
+                      "type": "number"
+                    },
+                    "pulsers": { "$ref": "#/definitions/elements" },
+                    "receivers": { "$ref": "#/definitions/elements" },
+                    "digitalBandPassFilter": {
+                      "$ref": "#/definitions/digitalBandPassFilter"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "probeId",
+                    "ascanLength",
+                    "pulsers",
+                    "receivers"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [ "dataEncodingId", "fullMatrixCapture" ]
+            }
+          ]
+        }
+      },
+      "required": [ "id", "dataset", "utMatrixCapture" ]
+    },
+    "elementaryAscan": {
+      "properties": {
+        "storageMode": { "$ref": "#/definitions/storageMode" },
+        "overwriteCriteria": {
+          "$ref": "#/definitions/overwriteCriteria"
+        },
+        "elementaryAscan": {
+          "description": "_Elementary Ascan UT_Describes Elementary AScan acquisition\n<a href=\"./features/ElementaryAScan.html\">Detailed Documentation</a>",
+          "properties": {
+            "ascanPointQuantity": {
+              "description": "Ascan point quantity for each Ascan when it constant",
+              "type": "integer",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            },
+            "ascanQuantity": {
+              "description": "Ascan quantity in stackedAscan",
+              "type": "integer",
+              "minimum": 0,
+              "exclusiveMinimum": true
+            },
+            "dimensions": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "uniqueItems": true,
+                  "items": [
+                    { "$ref": "#/definitions/axis/uCoordinate" },
+                    { "$ref": "#/experimental/stackedAscan" }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "uniqueItems": true,
+                  "items": [
+                    { "$ref": "#/definitions/axis/uCoordinate" },
+                    { "$ref": "#/definitions/axis/vCoordinate" },
+                    { "$ref": "#/experimental/stackedAscan" }
+                  ]
+                }
+              ]
+            },
+            "path": { "$ref": "#/definitions/nonNullString" },
+            "dataSampling": {
+              "type": "object",
+              "properties": {
+                "min": { "type": "integer" },
+                "max": { "type": "integer" }
+              },
+              "additionalProperties": false,
+              "required": [ "min", "max" ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [ "ascanQuantity", "dimensions", "path", "dataSampling" ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "storageMode", "elementaryAscan" ]
+    },
+    "stackedAscan": {
+      "type": "object",
+      "properties": {
+        "axis": { "enum": [ "StackedAScan" ] },
+        "quantity": { "$ref": "#/definitions/quantity" },
+        "resolution": { "$ref": "#/definitions/resolution" }
+      },
+      "additionalProperties": false,
+      "required": [ "axis", "quantity", "resolution" ]
+    }
+  },
   "definitions": {
     "id": {
       "type": "integer",
@@ -34,7 +183,7 @@
       "exclusiveMinimum": true,
       "description": "The velocity of ultrasound waves depends on the medium through which they propagate.(m/s)"
     },
-    "angle": { 
+    "angle": {
       "type": "number",
       "description": "Angle (degree)"
     },
@@ -54,7 +203,7 @@
       "minimum": 0,
       "exclusiveMinimum": true
     },
-    "offset": { 
+    "offset": {
       "type": "number",
       "description": "offset"
     },
@@ -630,89 +779,89 @@
         "receiverBeamRefractedAngle"
       ]
     },
-    "tfmDescriptions": {         
+    "tfmDescriptions": {
       "type": "array",
       "minItems": 1,
-      "items": {        
-          "type": "object",
-          "properties": {
-            "id": { "$ref": "#/definitions/id" },
-            "name": { "$ref": "#/definitions/nonNullString" },
-            "signalSource": {
-              "type": "string",
-              "enum": [ "Analytic", "Real" ]
-            },
-            "gain": { "$ref": "#/definitions/gain" },
-            "referenceAmplitude": { "type": "number" },
-            "referenceGain": { "$ref": "#/definitions/gain" },
-            "rectangularGrid": {
-              "type": "object",
-              "properties": {
-                "yImagingLimits": { "$ref": "#/definitions/range" },
-                "zImagingLimits": { "$ref": "#/definitions/range" }
-              },
-              "additionalProperties": false,
-              "required": [ "yImagingLimits", "zImagingLimits" ]
-            },
-            "fmcPulserIds": { "$ref": "#/definitions/ids" },
-            "fmcReceiverIds": { "$ref": "#/definitions/ids" },
-            "pathName": { "$ref": "#/definitions/nonNullString" },
-            "waveSet": {
-              "type": "object",
-              "properties": {
-                "pulsings": { "$ref": "#/definitions/waves" },
-                "receivings": { "$ref": "#/definitions/waves" }
-              },
-              "additionalProperties": false,
-              "required": [ "pulsings", "receivings" ]
-            },
-            "digitalBandPassFilter": {
-              "$ref": "#/definitions/digitalBandPassFilter"
-            },
-            "columns": {
-              "type": "array",
-              "minItems": 1,
-              "uniqueItems": true,
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": { "$ref": "#/definitions/id" },
-                  "gainMap": {
-                    "type": "object",
-                    "properties": {
-                      "points": {
-                        "type": "array",
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "position": { "type": "number" },
-                            "gain": { "$ref": "#/definitions/gain" }
-                          },
-                          "additionalProperties": false,
-                          "required": [ "position", "gain" ]
-                        }
-                      }
-                    },
-                    "additionalProperties": false,
-                    "required": [ "points" ]
-                  }
-                },
-                "additionalProperties": false,
-                "required": [ "id", "gainMap" ]
-              }
-            },
-            "softwareProcess": { "$ref": "#/definitions/tfmSoftwareProcess" }
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "$ref": "#/definitions/id" },
+          "name": { "$ref": "#/definitions/nonNullString" },
+          "signalSource": {
+            "type": "string",
+            "enum": [ "Analytic", "Real" ]
           },
-          "additionalProperties": false,
-          "required": [ "id", "gain", "rectangularGrid", "pathName", "waveSet" ]    
+          "gain": { "$ref": "#/definitions/gain" },
+          "referenceAmplitude": { "type": "number" },
+          "referenceGain": { "$ref": "#/definitions/gain" },
+          "rectangularGrid": {
+            "type": "object",
+            "properties": {
+              "yImagingLimits": { "$ref": "#/definitions/range" },
+              "zImagingLimits": { "$ref": "#/definitions/range" }
+            },
+            "additionalProperties": false,
+            "required": [ "yImagingLimits", "zImagingLimits" ]
+          },
+          "fmcPulserIds": { "$ref": "#/definitions/ids" },
+          "fmcReceiverIds": { "$ref": "#/definitions/ids" },
+          "pathName": { "$ref": "#/definitions/nonNullString" },
+          "waveSet": {
+            "type": "object",
+            "properties": {
+              "pulsings": { "$ref": "#/definitions/waves" },
+              "receivings": { "$ref": "#/definitions/waves" }
+            },
+            "additionalProperties": false,
+            "required": [ "pulsings", "receivings" ]
+          },
+          "digitalBandPassFilter": {
+            "$ref": "#/definitions/digitalBandPassFilter"
+          },
+          "columns": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "$ref": "#/definitions/id" },
+                "gainMap": {
+                  "type": "object",
+                  "properties": {
+                    "points": {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "position": { "type": "number" },
+                          "gain": { "$ref": "#/definitions/gain" }
+                        },
+                        "additionalProperties": false,
+                        "required": [ "position", "gain" ]
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [ "points" ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [ "id", "gainMap" ]
+            }
+          },
+          "softwareProcess": { "$ref": "#/definitions/tfmSoftwareProcess" }
+        },
+        "additionalProperties": false,
+        "required": [ "id", "gain", "rectangularGrid", "pathName", "waveSet" ]
       }
     },
     "tfmDescriptionsPWC": {
       "type": "array",
       "minItems": 1,
-      "items": {        
+      "items": {
         "type": "object",
         "properties": {
           "id": { "$ref": "#/definitions/id" },
@@ -788,7 +937,7 @@
           "softwareProcess": { "$ref": "#/definitions/tfmSoftwareProcess" }
         },
         "additionalProperties": false,
-        "required": [ "id", "gain", "rectangularGrid", "pathName", "waveSet" ]    
+        "required": [ "id", "gain", "rectangularGrid", "pathName", "waveSet" ]
       }
     },
     "waves": {
@@ -944,123 +1093,123 @@
       "required": [ "weldAngle", "material", "bevelShape", "symmetry" ]
     },
     "plateGeometry": {
-        "type": "object",
-        "description": "Describes the geometry of the plate\n\n  <a href=\"./omniscan-screens/omniscan-screens.html#scan-plan-part\">To OmniScan Screen</a>",
-        "properties": {
-            "width": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-            },
-            "length": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-            },
-            "thickness": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-            },
-            "material": { "$ref": "#/definitions/material" },
-            "surfaces": {
-                "type": "array",
-                "minItems": 1,
-                "maxItems": 2,
-                "uniqueItems": true,
-                "items": {
-                    "properties": {
-                        "id": { "$ref": "#/definitions/id" },
-                        "name": {
-                            "type": "string",
-                            "enum": [ "Top", "Bottom" ]
-                        }
-                    },
-                    "additionalProperties": false,
-                    "required": [ "id", "name" ]
-                }
-            }
+      "type": "object",
+      "description": "Describes the geometry of the plate\n\n  <a href=\"./omniscan-screens/omniscan-screens.html#scan-plan-part\">To OmniScan Screen</a>",
+      "properties": {
+        "width": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
         },
-        "additionalProperties": false,
-        "required": [ "thickness", "material", "surfaces" ]
+        "length": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "thickness": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "material": { "$ref": "#/definitions/material" },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "name": {
+                "type": "string",
+                "enum": [ "Top", "Bottom" ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "id", "name" ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "thickness", "material", "surfaces" ]
     },
     "pipeGeometry": {
-        "type": "object",
-        "properties": {
-            "length": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-            },
-            "thickness": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-            },
-            "outerRadius": {
-                "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
-            },
-            "material": { "$ref": "#/definitions/material" },
-            "surfaces": {
-                "type": "array",
-                "minItems": 1,
-                "maxItems": 2,
-                "uniqueItems": true,
-                "items": {
-                    "properties": {
-                        "id": { "$ref": "#/definitions/id" },
-                        "name": {
-                            "type": "string",
-                            "enum": [ "Inside", "Outside" ]
-                        }
-                    },
-                    "additionalProperties": false,
-                    "required": [ "id", "name" ]
-                }
-            }
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
         },
-        "additionalProperties": false,
-        "required": [ "thickness", "material", "surfaces" ],
-        "description": "Describes the geometry of the pipe"
+        "thickness": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "outerRadius": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "material": { "$ref": "#/definitions/material" },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "name": {
+                "type": "string",
+                "enum": [ "Inside", "Outside" ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "id", "name" ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "thickness", "material", "surfaces" ],
+      "description": "Describes the geometry of the pipe"
     },
     "barGeometry": {
-			"type": "object",
-			"properties": {
-				"length": {
-					"type": "number",
-					"minimum": 0,
-					"exclusiveMinimum": true
-				},
-				"diameter": {
-					"type": "number",
-					"minimum": 0,
-					"exclusiveMinimum": true
-				},
-				"material": { "$ref": "#/definitions/material" },
-				"surfaces": {
-					"type": "array",
-					"minItems": 1,
-					"maxItems": 1,
-					"uniqueItems": true,
-					"items": {
-						"properties": {
-							"id": { "$ref": "#/definitions/id" },
-							"name": {
-								"type": "string",
-								"enum": [ "Outside" ]
-							}
-						},
-						"additionalProperties": false,
-						"required": [ "id", "name" ]
-					}
-				}
-			},
-			"additionalProperties": false,
-			"required": [ "length", "diameter", "material", "surfaces" ],
-			"description": "Describes the geometry of the bar"
-		},
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "diameter": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": true
+        },
+        "material": { "$ref": "#/definitions/material" },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "name": {
+                "type": "string",
+                "enum": [ "Outside" ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [ "id", "name" ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [ "length", "diameter", "material", "surfaces" ],
+      "description": "Describes the geometry of the bar"
+    },
     "coordinate": {
       "type": "object",
       "properties": {
@@ -1103,36 +1252,36 @@
       "type": "object",
       "properties": {
         "specimenId": {
-            "anyOf": [
-                {
-                    "description": "_Plate id_",
-                    "$ref": "#/properties/specimens/items/oneOf/0/properties/id"
-                },
-                {
-                    "description": "_Pipe id_",
-                    "$ref": "#/properties/specimens/items/oneOf/1/properties/id"
-                },
-                {
-                    "description": "_Bar id_",
-                    "$ref": "#/properties/specimens/items/oneOf/2/properties/id"
-                }
-            ]
+          "anyOf": [
+            {
+              "description": "_Plate id_",
+              "$ref": "#/properties/specimens/items/oneOf/0/properties/id"
+            },
+            {
+              "description": "_Pipe id_",
+              "$ref": "#/properties/specimens/items/oneOf/1/properties/id"
+            },
+            {
+              "description": "_Bar id_",
+              "$ref": "#/properties/specimens/items/oneOf/2/properties/id"
+            }
+          ]
         },
         "surfaceId": {
-            "anyOf": [
-                {
-                    "description": "_Plate Surface id_",
-                    "$ref": "#/definitions/plateGeometry/properties/surfaces/items/properties/id"
-                },
-                {
-                    "description": "_Pipe Surface id_",
-                    "$ref": "#/definitions/pipeGeometry/properties/surfaces/items/properties/id"
-                },
-                {
-                    "description": "_Bar Surface id_",
-                    "$ref": "#/definitions/barGeometry/properties/surfaces/items/properties/id"
-                }
-            ]
+          "anyOf": [
+            {
+              "description": "_Plate Surface id_",
+              "$ref": "#/definitions/plateGeometry/properties/surfaces/items/properties/id"
+            },
+            {
+              "description": "_Pipe Surface id_",
+              "$ref": "#/definitions/pipeGeometry/properties/surfaces/items/properties/id"
+            },
+            {
+              "description": "_Bar Surface id_",
+              "$ref": "#/definitions/barGeometry/properties/surfaces/items/properties/id"
+            }
+          ]
         },
         "uCoordinateOffset": { "$ref": "#/definitions/offset" },
         "vCoordinateOffset": { "$ref": "#/definitions/offset" },
@@ -1162,11 +1311,11 @@
                 "oneOf": [
                   {
                     "description": "_In Paintbrush storageMode_",
-                    "$ref": "#/definitions/axis/vCoordinate" 
+                    "$ref": "#/definitions/axis/vCoordinate"
                   },
-                  { 
+                  {
                     "description": "_In Independent storageMode_",
-                    "$ref": "#/definitions/axis/beam" 
+                    "$ref": "#/definitions/axis/beam"
                   }
                 ]
               },
@@ -1325,13 +1474,13 @@
                       { "$ref": "#/definitions/axis/uCoordinate" },
                       {
                         "oneOf": [
-                          { 
+                          {
                             "description": "_In Paintbrush storageMode_",
-                            "$ref": "#/definitions/axis/vCoordinate" 
+                            "$ref": "#/definitions/axis/vCoordinate"
                           },
-                          { 
+                          {
                             "description": "_In Independent storageMode_",
-                            "$ref": "#/definitions/axis/beam" 
+                            "$ref": "#/definitions/axis/beam"
                           }
                         ]
                       }
@@ -1376,9 +1525,9 @@
       },
       "tfms": {
         "properties": {
-          "storageMode": { 
+          "storageMode": {
             "$ref": "#/definitions/storageMode",
-            "description": "The general <a href=\"./general-concepts/data-encoding/discrete-grid-objects.html\">Storage Mode</a> for ths dataSet"       
+            "description": "The general <a href=\"./general-concepts/data-encoding/discrete-grid-objects.html\">Storage Mode</a> for ths dataSet"
           },
           "overwriteCriteria": {
             "$ref": "#/definitions/overwriteCriteria",
@@ -1797,7 +1946,7 @@
                       "dataEncodingId": {
                         "$ref": "#/properties/dataEncodings/items/properties/id"
                       },
-                       "tofd": {
+                      "tofd": {
                         "pulserProbeId": {
                           "$ref": "#/properties/probes/items/properties/id"
                         },
@@ -1861,7 +2010,7 @@
           },
           {
             "type": "object",
-			      "description": "_Phased Array UT_",
+            "description": "_Phased Array UT_",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": {
@@ -1875,205 +2024,205 @@
               "dataset": { "$ref": "#/definitions/dataset/ascan" },
               "paut": {
                 "oneOf": [
-                {
-                  "type": "object",
-                  "description": "_Pulse Echo_",
-                  "properties": {
-                    "dataEncodingId": {
-                      "$ref": "#/properties/dataEncodings/items/properties/id"
-                    },
-                    "pulseEcho": {
-                      "type": "object",
-                      "properties": {
-                        "probeId": {
-                          "$ref": "#/properties/probes/items/properties/id"
-                        },
-                        "linearFormation": {
-                          "$ref": "#/definitions/linearFormation"
-                        },
-                        "sectorialFormation": {
-                          "$ref": "#/definitions/sectorialFormation"
-                        },
-                        "compoundFormation": {
-                          "$ref": "#/definitions/compoundFormation"
-                        }
+                  {
+                    "type": "object",
+                    "description": "_Pulse Echo_",
+                    "properties": {
+                      "dataEncodingId": {
+                        "$ref": "#/properties/dataEncodings/items/properties/id"
                       },
-                      "additionalProperties": false,
-                      "oneOf": [
-                        { "required": [ "linearFormation" ] },
-                        { "required": [ "sectorialFormation" ] },
-                        { "required": [ "compoundFormation" ] }
-                      ]
-                    },
-                    "waveMode": { "$ref": "#/definitions/waveMode" },
-                    "velocity": { "$ref": "#/definitions/velocity" },
-                    "pulse": { "$ref": "#/definitions/pulse" },
-                    "focusing": { "$ref": "#/definitions/focusing" },
-                    "beams": { "$ref": "#/definitions/paBeams" },
-                    "gates": {
-                      "oneOf": [
-                        { "$ref": "#/definitions/singlePostitionGates" },
-                        { "$ref": "#/definitions/multiPostitionGates" }
-                      ]
-                    },
-                    "rectification": { "$ref": "#/definitions/rectification" },
-                    "digitizingFrequency": { "$ref": "#/definitions/frequency" },
-                    "ascanSynchroMode": { "$ref": "#/definitions/ascanSynchroMode" },
-                    "ascanCompressionFactor": { "$ref": "#/definitions/ascanCompressionFactor" },
-                    "gain": { "$ref": "#/definitions/gain" },
-                    "wedgeDelay": {
-                      "type": "number",
-                      "minimum": 0
-                    },
-                    "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
-                    "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
-                    "referenceAmplitude": { "$ref": "#/definitions/referenceAmplitude" },
-                    "referenceGain": { "$ref": "#/definitions/gain" },
-                    "digitalBandPassFilter": { "$ref": "#/definitions/digitalBandPassFilter" },
-                    "smoothingFilter": { "$ref": "#/definitions/frequency" },
-                    "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
-                    "calibrationStates": { "$ref": "#/definitions/calibrationStates" },
-                    "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
-                    "lawFile": { "$ref": "#/definitions/lawFile" }
-                  },
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",                  
-                  "description": "_Pitch Catch_",
-                  "properties": {
-                    "dataEncodingId": {
-                      "$ref": "#/properties/dataEncodings/items/properties/id"
-                    },
-                    "pitchCatch": {
-                      "type": "object",
-                      "properties": {
-                        "pulserProbeId": {
-                          "$ref": "#/properties/probes/items/properties/id"
+                      "pulseEcho": {
+                        "type": "object",
+                        "properties": {
+                          "probeId": {
+                            "$ref": "#/properties/probes/items/properties/id"
+                          },
+                          "linearFormation": {
+                            "$ref": "#/definitions/linearFormation"
+                          },
+                          "sectorialFormation": {
+                            "$ref": "#/definitions/sectorialFormation"
+                          },
+                          "compoundFormation": {
+                            "$ref": "#/definitions/compoundFormation"
+                          }
                         },
-                        "receiverProbeId": {
-                          "$ref": "#/properties/probes/items/properties/id"
-                        },
-                        "linearFormation": {
-                          "$ref": "#/definitions/linearFormation"
-                        },
-                        "sectorialFormation": {
-                          "$ref": "#/definitions/sectorialFormation"
-                        },
-                        "compoundFormation": {
-                          "$ref": "#/definitions/compoundFormation"
-                        }
+                        "additionalProperties": false,
+                        "oneOf": [
+                          { "required": [ "linearFormation" ] },
+                          { "required": [ "sectorialFormation" ] },
+                          { "required": [ "compoundFormation" ] }
+                        ]
                       },
-                      "additionalProperties": false,
-                      "oneOf": [
-                        { "required": [ "linearFormation" ] },
-                        { "required": [ "sectorialFormation" ] },
-                        { "required": [ "compoundFormation" ] }
-                      ]
-                    },                  
-                    "waveMode": { "$ref": "#/definitions/waveMode" },
-                    "velocity": { "$ref": "#/definitions/velocity" },
-                    "pulse": { "$ref": "#/definitions/pulse" },
-                    "focusing": { "$ref": "#/definitions/focusing" },
-                    "beams": { "$ref": "#/definitions/paBeams" },
-                    "gates": {
-                      "oneOf": [
-                        { "$ref": "#/definitions/singlePostitionGates" },
-                        { "$ref": "#/definitions/multiPostitionGates" }
-                      ]
-                    },
-                    "rectification": { "$ref": "#/definitions/rectification" },
-                    "digitizingFrequency": { "$ref": "#/definitions/frequency" },
-                    "ascanSynchroMode": { "$ref": "#/definitions/ascanSynchroMode" },
-                    "ascanCompressionFactor": { "$ref": "#/definitions/ascanCompressionFactor" },
-                    "gain": { "$ref": "#/definitions/gain" },
-                    "wedgeDelay": {
-                      "type": "number",
-                      "minimum": 0
-                    },
-                    "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
-                    "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
-                    "referenceAmplitude": { "$ref": "#/definitions/referenceAmplitude" },
-                    "referenceGain": { "$ref": "#/definitions/gain" },
-                    "digitalBandPassFilter": { "$ref": "#/definitions/digitalBandPassFilter" },
-                    "smoothingFilter": { "$ref": "#/definitions/frequency" },
-                    "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
-                    "calibrationStates": { "$ref": "#/definitions/calibrationStates" },
-                    "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
-                    "lawFile": { "$ref": "#/definitions/lawFile" }
-                  },
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "description": "_Tandem_",
-                  "properties": {
-                    "dataEncodingId": {
-                      "$ref": "#/properties/dataEncodings/items/properties/id"
-                    },
-                    "tandem": {
-                      "type": "object",
-                      "properties": {
-                        "probeId": {
-                          "$ref": "#/properties/probes/items/properties/id"
-                        },
-                        "singleFormation": {
-                          "$ref": "#/definitions/singleFormation"
-                        }
+                      "waveMode": { "$ref": "#/definitions/waveMode" },
+                      "velocity": { "$ref": "#/definitions/velocity" },
+                      "pulse": { "$ref": "#/definitions/pulse" },
+                      "focusing": { "$ref": "#/definitions/focusing" },
+                      "beams": { "$ref": "#/definitions/paBeams" },
+                      "gates": {
+                        "oneOf": [
+                          { "$ref": "#/definitions/singlePostitionGates" },
+                          { "$ref": "#/definitions/multiPostitionGates" }
+                        ]
                       },
-                      "additionalProperties": false,
-                      "oneOf": [
-                        { "required": [ "singleFormation" ] }
-                      ]
+                      "rectification": { "$ref": "#/definitions/rectification" },
+                      "digitizingFrequency": { "$ref": "#/definitions/frequency" },
+                      "ascanSynchroMode": { "$ref": "#/definitions/ascanSynchroMode" },
+                      "ascanCompressionFactor": { "$ref": "#/definitions/ascanCompressionFactor" },
+                      "gain": { "$ref": "#/definitions/gain" },
+                      "wedgeDelay": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
+                      "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
+                      "referenceAmplitude": { "$ref": "#/definitions/referenceAmplitude" },
+                      "referenceGain": { "$ref": "#/definitions/gain" },
+                      "digitalBandPassFilter": { "$ref": "#/definitions/digitalBandPassFilter" },
+                      "smoothingFilter": { "$ref": "#/definitions/frequency" },
+                      "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
+                      "calibrationStates": { "$ref": "#/definitions/calibrationStates" },
+                      "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
+                      "lawFile": { "$ref": "#/definitions/lawFile" }
                     },
-                    "waveMode": { "$ref": "#/definitions/waveMode" },
-                    "velocity": { "$ref": "#/definitions/velocity" },
-                    "pulse": { "$ref": "#/definitions/pulse" },
-                    "focusing": { "$ref": "#/definitions/focusing" },
-                    "beams": { "$ref": "#/definitions/paBeams" },
-                    "gates": {
-                      "oneOf": [
-                        { "$ref": "#/definitions/singlePostitionGates" },
-                        { "$ref": "#/definitions/multiPostitionGates" }
-                      ]
-                    },
-                    "rectification": { "$ref": "#/definitions/rectification" },
-                    "digitizingFrequency": { "$ref": "#/definitions/frequency" },
-                    "ascanSynchroMode": { "$ref": "#/definitions/ascanSynchroMode" },
-                    "ascanCompressionFactor": { "$ref": "#/definitions/ascanCompressionFactor" },
-                    "gain": { "$ref": "#/definitions/gain" },
-                    "wedgeDelay": {
-                      "type": "number",
-                      "minimum": 0
-                    },
-                    "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
-                    "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
-                    "referenceAmplitude": { "$ref": "#/definitions/referenceAmplitude" },
-                    "referenceGain": { "$ref": "#/definitions/gain" },
-                    "digitalBandPassFilter": { "$ref": "#/definitions/digitalBandPassFilter" },
-                    "smoothingFilter": { "$ref": "#/definitions/frequency" },
-                    "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
-                    "calibrationStates": { "$ref": "#/definitions/calibrationStates" },
-                    "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
-                    "lawFile": { "$ref": "#/definitions/lawFile" }
+                    "additionalProperties": false
                   },
-                  "additionalProperties": false
-                }
-              ]
-            }
+                  {
+                    "type": "object",
+                    "description": "_Pitch Catch_",
+                    "properties": {
+                      "dataEncodingId": {
+                        "$ref": "#/properties/dataEncodings/items/properties/id"
+                      },
+                      "pitchCatch": {
+                        "type": "object",
+                        "properties": {
+                          "pulserProbeId": {
+                            "$ref": "#/properties/probes/items/properties/id"
+                          },
+                          "receiverProbeId": {
+                            "$ref": "#/properties/probes/items/properties/id"
+                          },
+                          "linearFormation": {
+                            "$ref": "#/definitions/linearFormation"
+                          },
+                          "sectorialFormation": {
+                            "$ref": "#/definitions/sectorialFormation"
+                          },
+                          "compoundFormation": {
+                            "$ref": "#/definitions/compoundFormation"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "oneOf": [
+                          { "required": [ "linearFormation" ] },
+                          { "required": [ "sectorialFormation" ] },
+                          { "required": [ "compoundFormation" ] }
+                        ]
+                      },
+                      "waveMode": { "$ref": "#/definitions/waveMode" },
+                      "velocity": { "$ref": "#/definitions/velocity" },
+                      "pulse": { "$ref": "#/definitions/pulse" },
+                      "focusing": { "$ref": "#/definitions/focusing" },
+                      "beams": { "$ref": "#/definitions/paBeams" },
+                      "gates": {
+                        "oneOf": [
+                          { "$ref": "#/definitions/singlePostitionGates" },
+                          { "$ref": "#/definitions/multiPostitionGates" }
+                        ]
+                      },
+                      "rectification": { "$ref": "#/definitions/rectification" },
+                      "digitizingFrequency": { "$ref": "#/definitions/frequency" },
+                      "ascanSynchroMode": { "$ref": "#/definitions/ascanSynchroMode" },
+                      "ascanCompressionFactor": { "$ref": "#/definitions/ascanCompressionFactor" },
+                      "gain": { "$ref": "#/definitions/gain" },
+                      "wedgeDelay": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
+                      "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
+                      "referenceAmplitude": { "$ref": "#/definitions/referenceAmplitude" },
+                      "referenceGain": { "$ref": "#/definitions/gain" },
+                      "digitalBandPassFilter": { "$ref": "#/definitions/digitalBandPassFilter" },
+                      "smoothingFilter": { "$ref": "#/definitions/frequency" },
+                      "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
+                      "calibrationStates": { "$ref": "#/definitions/calibrationStates" },
+                      "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
+                      "lawFile": { "$ref": "#/definitions/lawFile" }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "description": "_Tandem_",
+                    "properties": {
+                      "dataEncodingId": {
+                        "$ref": "#/properties/dataEncodings/items/properties/id"
+                      },
+                      "tandem": {
+                        "type": "object",
+                        "properties": {
+                          "probeId": {
+                            "$ref": "#/properties/probes/items/properties/id"
+                          },
+                          "singleFormation": {
+                            "$ref": "#/definitions/singleFormation"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "oneOf": [
+                          { "required": [ "singleFormation" ] }
+                        ]
+                      },
+                      "waveMode": { "$ref": "#/definitions/waveMode" },
+                      "velocity": { "$ref": "#/definitions/velocity" },
+                      "pulse": { "$ref": "#/definitions/pulse" },
+                      "focusing": { "$ref": "#/definitions/focusing" },
+                      "beams": { "$ref": "#/definitions/paBeams" },
+                      "gates": {
+                        "oneOf": [
+                          { "$ref": "#/definitions/singlePostitionGates" },
+                          { "$ref": "#/definitions/multiPostitionGates" }
+                        ]
+                      },
+                      "rectification": { "$ref": "#/definitions/rectification" },
+                      "digitizingFrequency": { "$ref": "#/definitions/frequency" },
+                      "ascanSynchroMode": { "$ref": "#/definitions/ascanSynchroMode" },
+                      "ascanCompressionFactor": { "$ref": "#/definitions/ascanCompressionFactor" },
+                      "gain": { "$ref": "#/definitions/gain" },
+                      "wedgeDelay": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "ultrasoundMode": { "$ref": "#/definitions/ultrasoundMode" },
+                      "highAmplitude": { "$ref": "#/definitions/highAmplitude" },
+                      "referenceAmplitude": { "$ref": "#/definitions/referenceAmplitude" },
+                      "referenceGain": { "$ref": "#/definitions/gain" },
+                      "digitalBandPassFilter": { "$ref": "#/definitions/digitalBandPassFilter" },
+                      "smoothingFilter": { "$ref": "#/definitions/frequency" },
+                      "averagingFactor": { "$ref": "#/definitions/averagingFactor" },
+                      "calibrationStates": { "$ref": "#/definitions/calibrationStates" },
+                      "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
+                      "lawFile": { "$ref": "#/definitions/lawFile" }
+                    },
+                    "additionalProperties": false
+                  }
+                ]
+              }
             },
             "additionalProperties": false,
             "required": [ "id", "paut", "dataset" ]
           },
           {
             "type": "object",
-			      "description": "_FMC UT_",
+            "description": "_FMC UT_",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": { "$ref": "#/definitions/nonNullString" },
-              "usage": { 
+              "usage": {
                 "$ref": "#/definitions/nonNullString",
-                "description": "Additionnal information concerning the use of the group (for example: CouplingCheck)"              
+                "description": "Additionnal information concerning the use of the group (for example: CouplingCheck)"
               },
               "dataset": {
                 "$ref": "#/definitions/dataset/tfms"
@@ -2108,11 +2257,11 @@
           },
           {
             "type": "object",
-			      "description": "_Plane Wave Capture UT_Describes a Plane Wave Imaging acquisition\n<a href=\"./features/VirtualSourceAperture.html\">Detailed Documentation</a>",
+            "description": "_Plane Wave Capture UT_Describes a Plane Wave Imaging acquisition\n<a href=\"./features/VirtualSourceAperture.html\">Detailed Documentation</a>",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": { "$ref": "#/definitions/nonNullString" },
-              "usage": { 
+              "usage": {
                 "$ref": "#/definitions/nonNullString",
                 "description": "Additionnal information concerning the use of the group (for example: CouplingCheck)"
               },
@@ -2121,7 +2270,7 @@
               },
               "planeWaveCapture": {
                 "type": "object",
-				        "description": "<a href=\"./features/VirtualSourceAperture.html\">To Documentation</a>",
+                "description": "<a href=\"./features/VirtualSourceAperture.html\">To Documentation</a>",
                 "properties": {
                   "dataEncodingId": {
                     "description": "Related data encoding id [dataEncodings/items/properties/id]",
@@ -2134,11 +2283,11 @@
                   "pulse": { "$ref": "#/definitions/pulse" },
                   "pulserFrequency": {
                     "description": "(hertz)",
-                    "$ref": "#/definitions/frequency" 
+                    "$ref": "#/definitions/frequency"
                   },
                   "digitizingFrequency": {
-                     "description": "(hertz)",
-                     "$ref": "#/definitions/frequency"
+                    "description": "(hertz)",
+                    "$ref": "#/definitions/frequency"
                   },
                   "pulseBeamsFormation": {
                     "type": "object",
@@ -2146,24 +2295,24 @@
                       "waveMode": { "$ref": "#/definitions/waveMode" },
                       "velocity": {
                         "description": "(m/s)",
-                        "$ref": "#/definitions/velocity" 
+                        "$ref": "#/definitions/velocity"
                       },
                       "waveLocation": {
                         "type": "string",
                         "description": "In which leg the plane wave must be formed",
                         "enum": [ "Wedge", "FirstLeg", "SecondLeg" ]
                       },
-                      "startAngle": { 
+                      "startAngle": {
                         "description": "(degrees)",
-                        "$ref": "#/definitions/angle" 
+                        "$ref": "#/definitions/angle"
                       },
-                      "stopAngle": { 
+                      "stopAngle": {
                         "description": "(degrees)",
-                        "$ref": "#/definitions/angle" 
+                        "$ref": "#/definitions/angle"
                       },
-                      "quantityAngle": { 
+                      "quantityAngle": {
                         "description": "Quantity of beams to be formed",
-                        "$ref": "#/definitions/quantity" 
+                        "$ref": "#/definitions/quantity"
                       },
                       "pulseBeams": {
                         "type": "array",
@@ -2173,8 +2322,10 @@
                           "type": "object",
                           "properties": {
                             "id": { "$ref": "#/definitions/id" },
-                            "refractedAngle": { 
-                            "description": "(degrees)","$ref": "#/definitions/angle" },
+                            "refractedAngle": {
+                              "description": "(degrees)",
+                              "$ref": "#/definitions/angle"
+                            },
                             "pulserDelays": {
                               "$ref": "#/definitions/elementDelays"
                             }
@@ -2210,7 +2361,6 @@
             "required": [ "id", "planeWaveCapture", "dataset" ]
           },
           {
-            "type": "object",
             "description": "_Dataset Only_",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
@@ -2222,7 +2372,8 @@
               "dataset": {
                 "oneOf": [
                   { "$ref": "#/definitions/dataset/tfms" },
-                  { "$ref": "#/definitions/dataset/ascan" }
+                  { "$ref": "#/definitions/dataset/ascan" },
+                  { "$ref": "#/experimental/elementaryAscan" }
                 ]
               }
             },
@@ -2259,10 +2410,10 @@
                   }
                 ]
               },
-             "surfaceId": {
+              "surfaceId": {
                 "anyOf": [
                   {
-					"description": "_Plate Surface id_",
+                    "description": "_Plate Surface id_",
                     "$ref": "#/definitions/plateGeometry/properties/surfaces/items/properties/id"
                   },
                   {
@@ -2587,40 +2738,40 @@
       "uniqueItems": true,
       "items": {
         "oneOf": [
-            {
-                "type": "object",
-                "description": "_Plate_balbalblab",
-                "required": [ "id", "plateGeometry" ],
-                "properties": {
-                    "id": { "$ref": "#/definitions/id" },
-                    "plateGeometry": { "$ref": "#/definitions/plateGeometry" },
-                    "weldGeometry": { "$ref": "#/definitions/weldGeometry" },
-                    "customOverlay2D": { "$ref": "#/definitions/customOverlay2D" }
-                },
-                "additionalProperties": false
+          {
+            "type": "object",
+            "description": "_Plate_balbalblab",
+            "required": [ "id", "plateGeometry" ],
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "plateGeometry": { "$ref": "#/definitions/plateGeometry" },
+              "weldGeometry": { "$ref": "#/definitions/weldGeometry" },
+              "customOverlay2D": { "$ref": "#/definitions/customOverlay2D" }
             },
-            {
-                "type": "object",
-                "description": "_Pipe_",
-                "required": [ "id", "pipeGeometry" ],
-                "properties": {
-                    "id": { "$ref": "#/definitions/id" },
-                    "pipeGeometry": { "$ref": "#/definitions/pipeGeometry" },
-                    "weldGeometry": { "$ref": "#/definitions/weldGeometry" },
-                    "customOverlay2D": { "$ref": "#/definitions/customOverlay2D" }
-                },
-                "additionalProperties": false
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "description": "_Pipe_",
+            "required": [ "id", "pipeGeometry" ],
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "pipeGeometry": { "$ref": "#/definitions/pipeGeometry" },
+              "weldGeometry": { "$ref": "#/definitions/weldGeometry" },
+              "customOverlay2D": { "$ref": "#/definitions/customOverlay2D" }
             },
-            {
-                "type": "object",
-                "description": "_Bar_",
-                "required": [ "id", "barGeometry" ],
-                "properties": {
-                    "id": { "$ref": "#/definitions/id" },
-                    "barGeometry": { "$ref": "#/definitions/barGeometry" }
-                },
-                "additionalProperties": false
-            }
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "description": "_Bar_",
+            "required": [ "id", "barGeometry" ],
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "barGeometry": { "$ref": "#/definitions/barGeometry" }
+            },
+            "additionalProperties": false
+          }
         ]
       },
       "additionalProperties": false
