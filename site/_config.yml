@@ -14,6 +14,7 @@ plugins:
 
 repository: Evident-Industrial/NDE_Open_File_Format
 remote_theme: just-the-docs/just-the-docs@v0.5.4
+#theme: just-the-docs
 
 # Aux links for the upper right navigation
 aux_links:

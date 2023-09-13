@@ -27,7 +27,7 @@ non-standardized application usage (application) and a standardized container
 for the data and setup or contextual information that describes the data
 (domain).
 
-| **Applications** |
+| **Application** |
 | --- | --- |
 | Description      | A proprietary acquisition software-specific section. This section is not meant for use by .nde readers and can be structured as per the acquisition softwares’ specifications.                                                                                                                                                                                              |
 | Open             | No.                                                                                                                                                                                                                                                                                                                                                                         |

@@ -27,10 +27,10 @@ Note that :
 - Other objects than the basic objects exist within the file. These objects are included in some specific base object. For example, 'mountingLocation' is an object found in 'wedge' object.
 - Object can be either specialized or basic. For example 'phasedArrayLinear' is a specialization of a 'probe' object. Specialized objects retain all the attributes of the source object but add new attributes under the specialization level.
 
-| ![Objects_Basic.png](/NDE_Open_File_Format/assets/images/Objects_Basic.png){:width="25%"} |
+| ![Objects_Basic.png](/NDE_Open_File_Format/assets/images/general-concepts/Objects_Basic.png){:width="25%"} |
 |:---------------------------------------------------------------------------------------------------------------------:|
 | *Example of probe object with basic and specialization attributes.*
 
-| ![Objects_Referencing.png](/NDE_Open_File_Format/assets/images/Objects_Referencing.png){:width="25%"} |
+| ![Objects_Referencing.png](/NDE_Open_File_Format/assets/images/general-concepts/Objects_Referencing.png){:width="25%"} |
 |:---------------------------------------------------------------------------------------------------------------------:|
 | *Example of probe object with references to associated wedge object and mountingLocations object.*    
