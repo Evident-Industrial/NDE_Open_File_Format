@@ -8,12 +8,12 @@ description: Reference Files
 
 # Reference Files
 
-Here are some sample NDE data files
-The NDE data files can be downloaded here using Git lfs: 
+Here are some sample NDE data files.
+The NDE data files can be downloaded here using Git LFS: 
 [https://github.com/Evident-Industrial/NDE_Open_File_Format_Files](https://github.com/Evident-Industrial/NDE_Open_File_Format_Files)
 
 ### General Mapping
-All files are raster scans for corrosion mapping / composite inspection purpose.
+All files are raster scans for corrosion mapping / composite inspection purposes.
 
 | File Name                             | Description 					|
 | ------------------------------------- | -----------------------------	|
@@ -29,7 +29,7 @@ All files are raster scans for corrosion mapping / composite inspection purpose.
 ### General Weld
 
 #### Plate Weld Inspection
-All files are one line scans for plate weld inspection purpose.
+All files are one line scans for plate weld inspection purposes.
 
 | File Name            	| Description 		|
 | --------------------- | -----------------	|
@@ -41,7 +41,7 @@ All files are one line scans for plate weld inspection purpose.
 
 
 #### Pipe Circumferential Weld Inspection
-All files are one line scans for pipe circumferential weld inspection purpose.
+All files are one line scans for pipe circumferential weld inspection purposes.
 
 | File Name                										| Description 			|
 | ------------------------------------------------------------- | --------------------- |
@@ -55,14 +55,14 @@ All files are one line scans for pipe circumferential weld inspection purpose.
 | Axial_Compound.nde       										| PA Compound-Scan		|
 | HSMT_AOD_TFM_SKEW90.nde  										| TFM					|
 | HSMT_AOD_TFM_SKEW270.nde 										| TFM					|
-| HSMT_AOD_ToFD+PA.nde     										| ToFD+PA				|
-| TOFD_PA.nde              										| ToFD on PA connector	|
-| TOFD_UT_P1R1.nde         										| ToFD on UT connector	|
+| HSMT_AOD_ToFD+PA.nde     										| TOFD+PA				|
+| TOFD_PA.nde              										| TOFD on PA connector	|
+| TOFD_UT_P1R1.nde         										| TOFD on UT connector	|
 | Test circumferential lin-sect 2 probes 4388 manual weld.nde 	| 						|
 
 
 #### Pipe Axial Weld Inspection
-All files are one line scans for pipe axial weld inspection purpose.
+All files are one line scans for pipe axial weld inspection purposes.
 
 | File Name                     | Description	|
 | ----------------------------- | ------------- |

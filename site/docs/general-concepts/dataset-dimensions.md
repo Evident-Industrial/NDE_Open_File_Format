@@ -7,7 +7,7 @@ nav_order: 5
 
 # HDF5 Dataset
 
-Interpretation of the data can be achieved by reading a JSON structure which can be accessed at the following dataset path: /Domain/Setup.
+Interpretation of the data can be achieved by reading a JSON structure, which can be accessed at the following dataset path: /Domain/Setup.
 
 ```mermaid
 graph LR;
@@ -19,15 +19,15 @@ graph LR;
     amplitude-->dimensions;
 ```
 
-Example of the path of an ultrasound amplitude ascan
+Example of the path of an ultrasound amplitude A-scan:
 
-- The path contain the HDF5 path that link's that particular group to its dataset.
+- The path contain the HDF5 path linking this particular group to its dataset.
 
 ```json
 		"path": "/Domain/DataGroups/0/Datasets/0/Amplitude"
 ```
 
-- The dataSampling gives the values range to be considered in the dataset.
+- The dataSampling gives the value range to be considered in the dataset.
 
 ```json
             "dataSampling": {
@@ -36,7 +36,7 @@ Example of the path of an ultrasound amplitude ascan
             }
 ```
 
-- The dataValue gives the same range as dataSampling in units
+- The dataValue gives the same range as dataSampling with units.
 
 ```json
             "dataValue": {
@@ -46,17 +46,17 @@ Example of the path of an ultrasound amplitude ascan
             }
 ```
 
-# dimensions
+# Dimensions
 
-The dimensions describe the different axes on the data set. ([see referential system explanation](/NDE_Open_File_Format/docs/conventions/conventions.html))
+The dimensions describe the different axes of the data set ([see referential system explanation](/NDE_Open_File_Format/docs/conventions/conventions.html)).
 
-It is an array of Dimension [Objects](/NDE_Open_File_Format/docs/general-concepts/objects/objects.html) that are always given in the same order as the HDF5 data has been created. (dim 0, 1, 2)
+It is an array of dimension [objects](/NDE_Open_File_Format/docs/general-concepts/objects/objects.html) that are always given in the same order as the HDF5 data has been created (dim 0, 1, 2).
 
-Those dimensions can varies depending on the the group and scan types.
+These dimensions can vary depending on the the group and scan types.
 
 # Phased Array One Line Scan
 
-Take for exemple, this zero degree one line scan inspection which has an [Independent storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
+For an example, see this zero degree one line scan inspection, which has an [Independent storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
 
 ![PAOneLineScanDatatset.jpg](/NDE_Open_File_Format/assets/images/general-concepts/PAOneLineScanDatatset.jpg)
 
@@ -106,7 +106,7 @@ Take for exemple, this zero degree one line scan inspection which has an [Indepe
 
 # Phased Array Zero Degree Raster
 
-Take for exemple, this phased array raster inspection which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
+For an example, see this phased array raster inspection, which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
 
 ![PAOneLineScanDatatset.jpg](/NDE_Open_File_Format/assets/images/general-concepts/PARasterDatatset.png)
 
@@ -135,7 +135,7 @@ Take for exemple, this phased array raster inspection which has a [Paintbrush st
 
 # TFM
 
-Take for exemple, this TFM inspection which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
+For an example, see this TFM inspection, which has a [Paintbrush storageMode](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
 
 ![PAOneLineScanDatatset.jpg](/NDE_Open_File_Format/assets/images/general-concepts/TFMDataset.png)
 

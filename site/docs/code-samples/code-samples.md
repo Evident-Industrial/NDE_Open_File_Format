@@ -11,15 +11,15 @@ description: Code Samples
 Here are some code samples in C++ and in Python.
 Use the CMake file to build the C++ examples. 
 
-They can be tried using gitHub CodeSpaces, running the CMake file. 
+You can try them using gitHub CodeSpaces, running the CMake file. 
 
-### **Setting up a codespaces**
+### **Setting up a codespace**
 
-1- In the main repository folder, create a code space.            <img title="" src="/NDE_Open_File_Format/assets/images/code-samples/2023-08-08-10-59-12-image.png" alt="" width="235" data-align="left">
+1. In the main repository folder, create a codespace.            <img title="" src="/NDE_Open_File_Format/assets/images/code-samples/2023-08-08-10-59-12-image.png" alt="" width="235" data-align="left">
 
-2- Visual Studio Code CodeSpaces environment                    <img title="" src="/NDE_Open_File_Format/assets/images/code-samples/2023-08-08-21-24-55-image.png" alt="" data-align="left" width="501">
+2. Open the Visual Studio Code Codespaces environment.                    <img title="" src="/NDE_Open_File_Format/assets/images/code-samples/2023-08-08-21-24-55-image.png" alt="" data-align="left" width="501">
 
-3- Install prerequisites / build using cmake 
+3. Install prerequisites / build using CMake. 
  
  Install VSC CMake Tools extension or execute the following command: 
 
@@ -29,7 +29,7 @@ cd build
 cmake ..
 make 
 ```
-4- To execute on linux: 
+4. To execute on linux: 
 
 Use VSC CMake Tools option or execute the following command: 
 ```bash 
@@ -41,13 +41,13 @@ Use VSC CMake Tools option or execute the following command:
 
 ### **read-ascan ( c++ )**
 
-File read example.
+File read example:
 
 [read-ascan sample on github.com](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/master/examples/read-ascan)
 
 ### **read-setup ( c++ )**
 
-Read setup example.
+Read setup example:
 
 [read-setup sample on github.com](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/master/examples/read-setup)
 
@@ -59,12 +59,12 @@ Read setup example.
 
 ### **create-file ( c++ )**
 
-An example on how to create an a-scan dataset and its domain setup json.
+An example of how to create an A-scan dataset and its domain setup json:
 
 [create-file sample on github.com](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/master/examples/create-file)
 
 ### **write-ascan**
 
-File write example
+File write example:
 
 [write-ascan sample on github.com](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/master/examples/write-ascan)

@@ -12,12 +12,12 @@ The [code samples](./code-samples/code-samples.html) used with the [reference fi
 
 {: .note }
 
-- [ ] Choose a particular scenario to explore ([Scenarios](./general-concepts/scenarios.html))
+- [ ] Choose a particular scenario to explore ([Scenarios](./general-concepts/scenarios.html)).
 
-- [ ] Check code sample to get setup on [CodeSpace](./code-samples/code-samples.html) (optionally on user PC)
+- [ ] Check out this code sample to get set up on [CodeSpace](./code-samples/code-samples.html) (optional on your PC).
 
-- [ ] Check out Domain-> Setup json of a [reference file](./reference-files/reference-files.html)
+- [ ] Check out Domain > Setup json for a [reference file](./reference-files/reference-files.html).
 
-- [ ] Inspect the Setup [schema](./schema_doc.html)
+- [ ] Inspect the setup [schema](./schema_doc.html).
 
-- [ ] As a reference study the [conventions and referential system](./conventions/conventions.html).
+- [ ] As a reference, study the [conventions and referential system](./conventions/conventions.html).
