@@ -3,7 +3,7 @@
   "type": "object",
   "experimental": {
     "description": "Experimental objects are for development purposes, may undergo adjustments based on user feedback and do not receive official compatibility support",
-    "ultrasonicMatrixCapture": {
+    "utMatrixCaptureConfig": {
       "description": "_Matrix Capture UT_Describes UT Matrix Capture acquisition\n<a href=\"./features/UTMatrixCapture.html\">Detailed Documentation</a>",
       "properties": {
         "id": { "$ref": "#/definitions/id" },
@@ -13,7 +13,7 @@
           "description": "Additionnal information concerning the use of the group (for example: CouplingCheck)"
         },
         "dataset": {
-          "$ref": "#/experimental/elementaryAscan"
+          "$ref": "#/experimental/elementaryAscanDataset"
         },
         "utMatrixCapture": {
           "oneOf": [
@@ -75,7 +75,7 @@
       },
       "required": [ "id", "dataset", "utMatrixCapture" ]
     },
-    "elementaryAscan": {
+    "elementaryAscanDataset": {
       "properties": {
         "storageMode": { "$ref": "#/definitions/storageMode" },
         "overwriteCriteria": {
@@ -105,7 +105,7 @@
                   "uniqueItems": true,
                   "items": [
                     { "$ref": "#/definitions/axis/uCoordinate" },
-                    { "$ref": "#/experimental/stackedAscan" }
+                    { "$ref": "#/experimental/stackedAscanAxis" }
                   ]
                 },
                 {
@@ -116,7 +116,7 @@
                   "items": [
                     { "$ref": "#/definitions/axis/uCoordinate" },
                     { "$ref": "#/definitions/axis/vCoordinate" },
-                    { "$ref": "#/experimental/stackedAscan" }
+                    { "$ref": "#/experimental/stackedAscanAxis" }
                   ]
                 }
               ]
@@ -139,9 +139,10 @@
       "additionalProperties": false,
       "required": [ "storageMode", "elementaryAscan" ]
     },
-    "stackedAscan": {
+    "stackedAscanAxis": {
       "type": "object",
       "properties": {
+        "id": { "$ref": "#/definitions/id" },
         "axis": { "enum": [ "StackedAScan" ] },
         "quantity": { "$ref": "#/definitions/quantity" },
         "resolution": { "$ref": "#/definitions/resolution" }
@@ -1598,6 +1599,7 @@
       "uCoordinate": {
         "type": "object",
         "properties": {
+          "id": { "$ref": "#/definitions/id" },
           "axis": { "enum": [ "UCoordinate" ] },
           "quantity": { "$ref": "#/definitions/quantity" },
           "resolution": { "$ref": "#/definitions/resolution" },
@@ -1618,6 +1620,7 @@
       "vCoordinate": {
         "type": "object",
         "properties": {
+          "id": { "$ref": "#/definitions/id" },
           "axis": { "enum": [ "VCoordinate" ] },
           "quantity": { "$ref": "#/definitions/quantity" },
           "resolution": { "$ref": "#/definitions/resolution" },
@@ -1633,6 +1636,7 @@
       "wCoordinate": {
         "type": "object",
         "properties": {
+          "id": { "$ref": "#/definitions/id" },
           "axis": { "enum": [ "WCoordinate" ] },
           "quantity": { "$ref": "#/definitions/quantity" },
           "resolution": { "$ref": "#/definitions/resolution" },
@@ -1644,6 +1648,7 @@
       "ultrasound": {
         "type": "object",
         "properties": {
+          "id": { "$ref": "#/definitions/id" },
           "axis": { "enum": [ "Ultrasound" ] },
           "quantity": { "$ref": "#/definitions/quantity" },
           "resolution": { "$ref": "#/definitions/resolution" },
@@ -1664,6 +1669,7 @@
               {
                 "type": "object",
                 "properties": {
+                  "id": { "$ref": "#/definitions/id" },
                   "velocity": { "$ref": "#/definitions/velocity" },
                   "skewAngle": { "$ref": "#/definitions/positiveAngle" },
                   "refractedAngle": { "$ref": "#/definitions/angle" },
@@ -2361,6 +2367,10 @@
             "required": [ "id", "planeWaveCapture", "dataset" ]
           },
           {
+            "$ref": "#/experimental/utMatrixCaptureConfig"
+          },
+          {
+            "type": "object",
             "description": "_Dataset Only_",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
@@ -2373,7 +2383,7 @@
                 "oneOf": [
                   { "$ref": "#/definitions/dataset/tfms" },
                   { "$ref": "#/definitions/dataset/ascan" },
-                  { "$ref": "#/experimental/elementaryAscan" }
+                  { "$ref": "#/experimental/elementaryAscanDataset" }
                 ]
               }
             },
