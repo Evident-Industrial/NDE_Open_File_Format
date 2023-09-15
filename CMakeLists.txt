@@ -28,7 +28,7 @@ ExternalProject_add(HDF5
   CMAKE_ARGS
     -DCMAKE_BUILD_TYPE:STRING=${BUILD_TYPE}
     -DHDF5_BUILD_CPP_LIB:BOOL=OFF
-    -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=OFF
+    -DHDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON
     -DBUILD_SHARED_LIBS:BOOL=OFF
     -DHDF5_BUILD_TOOLS:BOOL=OFF
     -DHDF5_BUILD_EXAMPLES:BOOL=OFF
@@ -51,26 +51,17 @@ set(RAPIDJSON_INCLUDE_DIRS ${source_dir}/include)
 
 include_directories(.)
 
-find_package(ZLIB)
-
-if(NOT ZLIB_FOUND)
-    message(STATUS "Zlib not found. Download ZLIB to finish build: https://gnuwin32.sourceforge.net/packages/zlib.htm")
-endif()
-
 if (WIN32)
   if(EXISTS ${HDF5_DIR}/lib/libhdf5_cpp.lib)
     set(LIBRARIES
-    "${HDF5_DIR}/lib/libhdf5.lib"
-    ZLIB::ZLIB)
+    "${HDF5_DIR}/lib/libhdf5.lib")
   else() 
     set(LIBRARIES
-    "${HDF5_DIR}/lib/libhdf5_D.lib"
-    ZLIB::ZLIB)
+    "${HDF5_DIR}/lib/libhdf5_D.lib")
   endif()
 else()
   set(LIBRARIES
     "${HDF5_DIR}/lib/libhdf5.a"
-    ZLIB::ZLIB 
     dl)
 endif()
 
