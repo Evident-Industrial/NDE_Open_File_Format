@@ -761,23 +761,26 @@
     "singleFormation": {
       "type": "object",
       "properties": {
-        "pulserFirstElementId": { "$ref": "#/definitions/id" },
-        "receiverFirstElementId": { "$ref": "#/definitions/id" },
+        "probeFirstElementId": { "$ref": "#/definitions/id" },
         "elementAperture": {
           "type": "integer",
           "minimum": 0,
           "exclusiveMinimum": true
         },
-        "pulserBeamRefractedAngle": { "$ref": "#/definitions/angle" },
-        "receiverBeamRefractedAngle": { "$ref": "#/definitions/angle" }
+        "beamRefractedAngle": { "$ref": "#/definitions/angle" },
+        "velocity": { "$ref": "#/definitions/velocity" },
+        "focusingDistance": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMinimum": true,
+          "description": "Focus distance in time unit from the elements surface at the center of the aperture"
+        }
       },
       "additionalProperties": false,
       "required": [
-        "pulserFirstElementId",
-        "receiverFirstElementId",
+        "probeFirstElementId",
         "elementAperture",
-        "pulserBeamRefractedAngle",
-        "receiverBeamRefractedAngle"
+        "beamRefractedAngle"
       ]
     },
     "tfmDescriptions": {
@@ -1884,7 +1887,18 @@
                       },
                       "softwareProcess": { "$ref": "#/definitions/utSoftwareProcess" }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                      "pulseEcho",
+                      "dataEncodingId",
+                      "waveMode",
+                      "velocity",
+                      "refractedAngle",
+                      "wedgeDelay",
+                      "ascanStart",
+                      "ascanLength",
+                      "rectification"
+                    ]
                   },
                   {
                     "type": "object",
@@ -1943,7 +1957,18 @@
                       },
                       "softwareProcess": { "$ref": "#/definitions/utSoftwareProcess" }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                      "pitchCatch",
+                      "dataEncodingId",
+                      "waveMode",
+                      "velocity",
+                      "refractedAngle",
+                      "wedgeDelay",
+                      "ascanStart",
+                      "ascanLength",
+                      "rectification"
+                    ]
                   },
                   {
                     "type": "object",
@@ -2006,7 +2031,18 @@
                       },
                       "softwareProcess": { "$ref": "#/definitions/utSoftwareProcess" }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                      "tofd",
+                      "dataEncodingId",
+                      "waveMode",
+                      "velocity",
+                      "refractedAngle",
+                      "wedgeDelay",
+                      "ascanStart",
+                      "ascanLength",
+                      "rectification"
+                    ]
                   }
                 ]
               }
@@ -2091,7 +2127,16 @@
                       "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
                       "lawFile": { "$ref": "#/definitions/lawFile" }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                      "pulseEcho",
+                      "dataEncodingId",
+                      "waveMode",
+                      "velocity",
+                      "focusing",
+                      "beams",
+                      "rectification"
+                    ]
                   },
                   {
                     "type": "object",
@@ -2157,7 +2202,16 @@
                       "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
                       "lawFile": { "$ref": "#/definitions/lawFile" }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                      "pitchCatch",
+                      "dataEncodingId",
+                      "waveMode",
+                      "velocity",
+                      "focusing",
+                      "beams",
+                      "rectification"
+                    ]
                   },
                   {
                     "type": "object",
@@ -2169,22 +2223,29 @@
                       "tandem": {
                         "type": "object",
                         "properties": {
-                          "probeId": {
+                          "pulserProbeId": {
                             "$ref": "#/properties/probes/items/properties/id"
                           },
-                          "singleFormation": {
+                          "receiverProbeId": {
+                            "$ref": "#/properties/probes/items/properties/id"
+                          },
+                          "pulserFormation": {
+                            "$ref": "#/definitions/singleFormation"
+                          },
+                          "receiverFormation": {
                             "$ref": "#/definitions/singleFormation"
                           }
                         },
                         "additionalProperties": false,
-                        "oneOf": [
-                          { "required": [ "singleFormation" ] }
+                        "required": [
+                          "pulserProbeId",
+                          "receiverProbeId",
+                          "pulserFormation",
+                          "receiverFormation"
                         ]
                       },
                       "waveMode": { "$ref": "#/definitions/waveMode" },
-                      "velocity": { "$ref": "#/definitions/velocity" },
                       "pulse": { "$ref": "#/definitions/pulse" },
-                      "focusing": { "$ref": "#/definitions/focusing" },
                       "beams": { "$ref": "#/definitions/paBeams" },
                       "gates": {
                         "oneOf": [
@@ -2212,7 +2273,14 @@
                       "softwareProcess": { "$ref": "#/definitions/paSoftwareProcess" },
                       "lawFile": { "$ref": "#/definitions/lawFile" }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "required": [
+                      "tandem",
+                      "dataEncodingId",
+                      "waveMode",
+                      "beams",
+                      "rectification"
+                    ]
                   }
                 ]
               }
@@ -2579,7 +2647,7 @@
                     "enabled": { "type": "boolean" }
                   },
                   "additionalProperties": false,
-                  "required": [ "id", "acquisitionUnitId", "connectorName" ]
+                  "required": [ "id", "pinId", "acquisitionUnitId", "connectorName" ]
                 }
               },
               "primaryAxis": { "$ref": "#/definitions/probeAxis" },
