@@ -4,7 +4,7 @@
   "experimental": {
     "description": "Experimental objects are for development purposes, may undergo adjustments based on user feedback and do not receive official compatibility support",
     "utMatrixCaptureConfig": {
-      "description": "_Matrix Capture UT_Describes UT Matrix Capture acquisition\n<a href=\"./features/UTMatrixCapture.html\">Detailed Documentation</a>",
+      "description": "_Matrix Capture UT_Describes UT Matrix Capture acquisition.",
       "properties": {
         "id": { "$ref": "#/definitions/id" },
         "name": { "$ref": "#/definitions/nonNullString" },
@@ -82,7 +82,7 @@
           "$ref": "#/definitions/overwriteCriteria"
         },
         "elementaryAscan": {
-          "description": "_Elementary Ascan UT_Describes Elementary AScan acquisition\n<a href=\"./features/ElementaryAScan.html\">Detailed Documentation</a>",
+          "description": "_Elementary Ascan UT_Describes Elementary AScan acquisition",
           "properties": {
             "ascanPointQuantity": {
               "description": "Ascan point quantity for each Ascan when it constant",
@@ -175,13 +175,11 @@
     "frequency": {
       "type": "number",
       "description": "Frequency(Hz).",
-      "minimum": 0,
-      "exclusiveMinimum": true
+      "minimum": 0
     },
     "velocity": {
       "type": "number",
       "minimum": 0,
-      "exclusiveMinimum": true,
       "description": "The velocity of ultrasound waves depends on the medium through which they propagate.(m/s)"
     },
     "angle": {
@@ -2818,7 +2816,7 @@
         "oneOf": [
           {
             "type": "object",
-            "description": "_Plate_balbalblab",
+            "description": "_Plate_",
             "required": [ "id", "plateGeometry" ],
             "properties": {
               "id": { "$ref": "#/definitions/id" },

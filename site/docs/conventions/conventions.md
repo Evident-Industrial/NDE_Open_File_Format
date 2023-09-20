@@ -70,6 +70,37 @@ To the $(U,V)$ surface mapping coordinates a depth axis $W$ is added. The depth 
 - Encoding Axes: 
     - Relates to encoder displacement, coupling to specimen and/or global coordinates is scenario dependant.
 
+## Data mapping versus the specimen (dataEncoding) conventions
+
+### General Concepts
+
+Independantly of the non-destructive evaluation method, there's always a need to relate acquisition data to the inspected specimen in terms of positionning. There exist, however, diametrically opposed use case calling for adapted methods to achieve this relationship. For example, most PAUT weld inspection with scanners will relate the data positionning relative to the surface itself with a constant resolution. On the other hand, one could acquire and store phased array acquisition with a 6 axis robot and use complex post-processing methods to achieve inspection data positionning. The **dataEncoding** object class specify how inspection data relates to the specimen. 
+
+### **DiscreteGrid** object
+
+With **discreteGrid** the relationship between data and the specimen is directly made through the scenario coordinate system (for example $(U,V)$ in the explanations below). Pratically, this is done by adding dimensions to the dataset corresponding to each of the scenario coordinate system axis. 
+
+- Hypothesis:
+    - Only one dataset of a given type, for a given group, is saved at each of the scenario coordinates.
+
+#### Link to **storageMode**
+
+There are two disctinct ways to work with **discreteGrid** when storing a given dataset. 
+
+**storageMode:"Independent"** is used to store the complete data acquisition sequence in reference to a $(U,V)$ positionning corresponding to a global acquisition device positionning. For example, a scanner comprizing many different PAUT probes each individually offset relative to the $(U,V)$ reference system could all relate to the same discreteGrid with **independant** storage mode. In this case the positionning of the data on or in the specimen requires some processing of individual beams or sensors position.
+
+**storageMode:"Paintbrush"** is used to store individual beam or sensor information directly on the corresponding $(U,V)$ position. Practically, **Paintbrush** is only possible under some hypothesis:
+- All beams or sensors operates under the same condition. For example, paint brush is possible with linear PE PAUT but is not with sectorial PE PAUT.
+- All beams or sensors can be associated with a surface position. For example, FMC acquisition can't be stored as Paintbrush because individual ascan of the FMC don't have defined surface positionning.
+- Beams or sensors surface positionning should fit perfectly on the underlying coordinate system grid. Accordingly, the **discreteGrid** coordinate system grid typically has to be created according to a probe and scanning system characteristic for a **Painbrush** storage.
+
+The obvious advantage of **Paintbrush** storage is that it natively is mapped on a specimen surface.
+  
+### **FullCycle** object
+
+In this case, all acquisition cycles are kept and so are the corresponding positionning from all available positionning devices.
+
+
 ## UT/PAUT conventions
 
 ### General Concepts and hypothesis
