@@ -4,7 +4,7 @@
   "experimental": {
     "description": "Experimental objects are for development purposes, may undergo adjustments based on user feedback and do not receive official compatibility support",
     "utMatrixCaptureConfig": {
-      "description": "_Matrix Capture UT_Describes UT Matrix Capture acquisition.",
+      "description": "<!-- _Matrix Capture UT_ --><h3 style=\"color:Red;\">This object is part of the experimental section.</h3>Experimental objects are for development purposes, may undergo adjustments based on user feedback and do not receive official compatibility support",
       "properties": {
         "id": { "$ref": "#/definitions/id" },
         "name": { "$ref": "#/definitions/nonNullString" },
@@ -19,7 +19,6 @@
           "oneOf": [
             {
               "type": "object",
-              "description": "_Matrix Capture UT_",
               "properties": {
                 "dataEncodingId": {
                   "description": "Related data encoding id [dataEncodings/items/properties/id]",
@@ -76,13 +75,14 @@
       "required": [ "id", "dataset", "utMatrixCapture" ]
     },
     "elementaryAscanDataset": {
+      "description": "",
       "properties": {
         "storageMode": { "$ref": "#/definitions/storageMode" },
         "overwriteCriteria": {
           "$ref": "#/definitions/overwriteCriteria"
         },
         "elementaryAscan": {
-          "description": "_Elementary Ascan UT_Describes Elementary AScan acquisition",
+          "description": "Describes Elementary AScan acquisition<br><br><h3 style=\"color:Red;\">This object is part of the experimental section.</h3>Experimental objects are for development purposes, may undergo adjustments based on user feedback and do not receive official compatibility support",
           "properties": {
             "ascanPointQuantity": {
               "description": "Ascan point quantity for each Ascan when it constant",
@@ -99,6 +99,7 @@
             "dimensions": {
               "oneOf": [
                 {
+                  "description": "<!-- _One line scan_ -->",
                   "type": "array",
                   "minItems": 2,
                   "maxItems": 2,
@@ -109,6 +110,7 @@
                   ]
                 },
                 {
+                  "description": "<!-- _Raster scan_ -->",
                   "type": "array",
                   "minItems": 3,
                   "maxItems": 3,
@@ -141,6 +143,7 @@
     },
     "stackedAscanAxis": {
       "type": "object",
+      "description": "<h3 style=\"color:Red;\">This object is part of the experimental section.</h3>Experimental objects are for development purposes, may undergo adjustments based on user feedback and do not receive official compatibility support",
       "properties": {
         "id": { "$ref": "#/definitions/id" },
         "axis": { "enum": [ "StackedAScan" ] },
@@ -2329,7 +2332,7 @@
           },
           {
             "type": "object",
-            "description": "_Plane Wave Capture UT_Describes a Plane Wave Imaging acquisition\n<a href=\"./features/VirtualSourceAperture.html\">Detailed Documentation</a>",
+            "description": "_Plane Wave Capture UT_Describes a Plane Wave Imaging acquisition",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": { "$ref": "#/definitions/nonNullString" },
@@ -2342,7 +2345,7 @@
               },
               "planeWaveCapture": {
                 "type": "object",
-                "description": "<a href=\"./features/VirtualSourceAperture.html\">To Documentation</a>",
+                "description": "",
                 "properties": {
                   "dataEncodingId": {
                     "description": "Related data encoding id [dataEncodings/items/properties/id]",
