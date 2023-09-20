@@ -1,4 +1,4 @@
-title: NDE documentation
+title: NDE file format documentation
 
 #favicon_ico: "/assets/images/evidenticone.png"
 
@@ -18,13 +18,13 @@ remote_theme: just-the-docs/just-the-docs@v0.5.4
 
 # Aux links for the upper right navigation
 aux_links:
-  "NDE_Open_File_Format on Github":
+  "NDE file format on Github":
     - "//github.com/Evident-Industrial/NDE_Open_File_Format" 
 
 aux_links_new_tab: true
 
 nav_external_links:
-  - title: NDE_Open_File_Format on Github
+  - title: NDE file format on Github
     url: https://github.com/Evident-Industrial/NDE_Open_File_Format
 
 # Footer last edited timestamp

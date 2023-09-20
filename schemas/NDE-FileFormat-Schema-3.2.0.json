@@ -1259,15 +1259,15 @@
         "specimenId": {
           "anyOf": [
             {
-              "description": "_Plate id_",
+              "description": "<!-- _Plate id_ -->",
               "$ref": "#/properties/specimens/items/oneOf/0/properties/id"
             },
             {
-              "description": "_Pipe id_",
+              "description": "<!-- _Pipe id_ -->",
               "$ref": "#/properties/specimens/items/oneOf/1/properties/id"
             },
             {
-              "description": "_Bar id_",
+              "description": "<!-- _Bar id_ -->",
               "$ref": "#/properties/specimens/items/oneOf/2/properties/id"
             }
           ]
@@ -1275,15 +1275,15 @@
         "surfaceId": {
           "anyOf": [
             {
-              "description": "_Plate Surface id_",
+              "description": "<!-- _Plate Surface id_ -->",
               "$ref": "#/definitions/plateGeometry/properties/surfaces/items/properties/id"
             },
             {
-              "description": "_Pipe Surface id_",
+              "description": "<!-- _Pipe Surface id_ -->",
               "$ref": "#/definitions/pipeGeometry/properties/surfaces/items/properties/id"
             },
             {
-              "description": "_Bar Surface id_",
+              "description": "<!-- _Bar Surface id_ -->",
               "$ref": "#/definitions/barGeometry/properties/surfaces/items/properties/id"
             }
           ]
@@ -1315,11 +1315,11 @@
               {
                 "oneOf": [
                   {
-                    "description": "_In Paintbrush storageMode_",
+                    "description": "<!-- _In Paintbrush storageMode_ -->",
                     "$ref": "#/definitions/axis/vCoordinate"
                   },
                   {
-                    "description": "_In Independent storageMode_",
+                    "description": "<!-- _In Independent storageMode_ -->",
                     "$ref": "#/definitions/axis/beam"
                   }
                 ]
@@ -1480,11 +1480,11 @@
                       {
                         "oneOf": [
                           {
-                            "description": "_In Paintbrush storageMode_",
+                            "description": "<!-- _In Paintbrush storageMode_ -->",
                             "$ref": "#/definitions/axis/vCoordinate"
                           },
                           {
-                            "description": "_In Independent storageMode_",
+                            "description": "<!-- _In Independent storageMode_ -->",
                             "$ref": "#/definitions/axis/beam"
                           }
                         ]
@@ -1820,7 +1820,7 @@
         "oneOf": [
           {
             "type": "object",
-            "description": "_Conventional UT_",
+            "description": "<!-- _Conventional UT_ -->",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": {
@@ -1836,7 +1836,7 @@
                 "oneOf": [
                   {
                     "type": "object",
-                    "description": "_Pulse Echo_",
+                    "description": "<!-- _Pulse Echo_ -->",
                     "properties": {
                       "dataEncodingId": {
                         "$ref": "#/properties/dataEncodings/items/properties/id"
@@ -1903,7 +1903,7 @@
                   },
                   {
                     "type": "object",
-                    "description": "_Pitch Catch_",
+                    "description": "<!-- _Pitch Catch_ -->",
                     "properties": {
                       "dataEncodingId": {
                         "$ref": "#/properties/dataEncodings/items/properties/id"
@@ -1973,7 +1973,7 @@
                   },
                   {
                     "type": "object",
-                    "description": "_TOFD_",
+                    "description": "<!-- _TOFD_ -->",
                     "properties": {
                       "dataEncodingId": {
                         "$ref": "#/properties/dataEncodings/items/properties/id"
@@ -2053,7 +2053,7 @@
           },
           {
             "type": "object",
-            "description": "_Phased Array UT_",
+            "description": "<!-- _Phased Array UT_ -->",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": {
@@ -2069,7 +2069,7 @@
                 "oneOf": [
                   {
                     "type": "object",
-                    "description": "_Pulse Echo_",
+                    "description": "<!-- _Pulse Echo_ -->",
                     "properties": {
                       "dataEncodingId": {
                         "$ref": "#/properties/dataEncodings/items/properties/id"
@@ -2141,7 +2141,7 @@
                   },
                   {
                     "type": "object",
-                    "description": "_Pitch Catch_",
+                    "description": "<!-- _Pitch Catch_ -->",
                     "properties": {
                       "dataEncodingId": {
                         "$ref": "#/properties/dataEncodings/items/properties/id"
@@ -2216,7 +2216,7 @@
                   },
                   {
                     "type": "object",
-                    "description": "_Tandem_",
+                    "description": "<!-- _Tandem_ -->",
                     "properties": {
                       "dataEncodingId": {
                         "$ref": "#/properties/dataEncodings/items/properties/id"
@@ -2291,7 +2291,7 @@
           },
           {
             "type": "object",
-            "description": "_FMC UT_",
+            "description": "<!-- _FMC UT_ -->",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": { "$ref": "#/definitions/nonNullString" },
@@ -2332,7 +2332,7 @@
           },
           {
             "type": "object",
-            "description": "_Plane Wave Capture UT_Describes a Plane Wave Imaging acquisition",
+            "description": "<!-- _Plane Wave Capture UT_ -->Describes a Plane Wave Imaging acquisition",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": { "$ref": "#/definitions/nonNullString" },
@@ -2440,7 +2440,7 @@
           },
           {
             "type": "object",
-            "description": "_Dataset Only_",
+            "description": "<!-- _Dataset Only_ -->",
             "properties": {
               "id": { "$ref": "#/definitions/id" },
               "name": { "$ref": "#/definitions/nonNullString" },
@@ -2476,15 +2476,15 @@
               "specimenId": {
                 "anyOf": [
                   {
-                    "description": "_Plate id_",
+                    "description": "<!-- _Plate id_ -->",
                     "$ref": "#/properties/specimens/items/oneOf/0/properties/id"
                   },
                   {
-                    "description": "_Pipe id_",
+                    "description": "<!-- _Pipe id_ -->",
                     "$ref": "#/properties/specimens/items/oneOf/1/properties/id"
                   },
                   {
-                    "description": "_Bar id_",
+                    "description": "<!-- _Bar id_ -->",
                     "$ref": "#/properties/specimens/items/oneOf/2/properties/id"
                   }
                 ]
@@ -2492,15 +2492,15 @@
               "surfaceId": {
                 "anyOf": [
                   {
-                    "description": "_Plate Surface id_",
+                    "description": "<!-- _Plate Surface id_ -->",
                     "$ref": "#/definitions/plateGeometry/properties/surfaces/items/properties/id"
                   },
                   {
-                    "description": "_Pipe Surface id_",
+                    "description": "<!-- _Pipe Surface id_ -->",
                     "$ref": "#/definitions/pipeGeometry/properties/surfaces/items/properties/id"
                   },
                   {
-                    "description": "_Bar Surface id_",
+                    "description": "<!-- _Bar Surface id_ -->",
                     "$ref": "#/definitions/barGeometry/properties/surfaces/items/properties/id"
                   }
                 ]
@@ -2819,7 +2819,7 @@
         "oneOf": [
           {
             "type": "object",
-            "description": "_Plate_",
+            "description": "<!-- _Plate_ -->",
             "required": [ "id", "plateGeometry" ],
             "properties": {
               "id": { "$ref": "#/definitions/id" },
@@ -2831,7 +2831,7 @@
           },
           {
             "type": "object",
-            "description": "_Pipe_",
+            "description": "<!-- _Pipe_ -->",
             "required": [ "id", "pipeGeometry" ],
             "properties": {
               "id": { "$ref": "#/definitions/id" },
@@ -2843,7 +2843,7 @@
           },
           {
             "type": "object",
-            "description": "_Bar_",
+            "description": "<!-- _Bar_ -->",
             "required": [ "id", "barGeometry" ],
             "properties": {
               "id": { "$ref": "#/definitions/id" },
