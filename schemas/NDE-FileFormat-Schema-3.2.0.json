@@ -1387,6 +1387,15 @@
             },
             "additionalProperties": false,
             "required": [ "unit", "max", "min" ]
+          },
+          "dataSampling": {
+            "type": "object",
+            "properties": {
+              "min": { "type": "integer" },
+              "max": { "type": "integer" }
+            },
+            "additionalProperties": false,
+            "required": [ "min", "max" ]
           }
         },
         "additionalProperties": false,
