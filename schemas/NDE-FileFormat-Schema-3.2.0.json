@@ -1009,13 +1009,11 @@
           "properties": {
             "width": {
               "type": "number",
-              "minimum": 0,
-              "exclusiveMinimum": true
+              "minimum": 0
             },
             "height": {
               "type": "number",
-              "minimum": 0,
-              "exclusiveMinimum": true
+              "minimum": 0
             }
           },
           "additionalProperties": false,
@@ -1026,13 +1024,11 @@
           "properties": {
             "width": {
               "type": "number",
-              "minimum": 0,
-              "exclusiveMinimum": true
+              "minimum": 0
             },
             "height": {
               "type": "number",
-              "minimum": 0,
-              "exclusiveMinimum": true
+              "minimum": 0
             }
           },
           "additionalProperties": false,
@@ -1047,8 +1043,7 @@
               "angle": { "$ref": "#/definitions/angle" },
               "height": {
                 "type": "number",
-                "minimum": 0,
-                "exclusiveMinimum": true
+                "minimum": 0
               }
             },
             "additionalProperties": false,
@@ -1061,8 +1056,7 @@
             "angle": { "$ref": "#/definitions/angle" },
             "height": {
               "type": "number",
-              "minimum": 0,
-              "exclusiveMinimum": true
+              "minimum": 0
             }
           },
           "additionalProperties": false,
@@ -1073,8 +1067,7 @@
           "properties": {
             "height": {
               "type": "number",
-              "minimum": 0,
-              "exclusiveMinimum": true
+              "minimum": 0
             }
           },
           "additionalProperties": false,
@@ -1086,8 +1079,7 @@
             "angle": { "$ref": "#/definitions/angle" },
             "height": {
               "type": "number",
-              "minimum": 0,
-              "exclusiveMinimum": true
+              "minimum": 0
             }
           },
           "additionalProperties": false,
@@ -1628,7 +1620,7 @@
           }
         },
         "additionalProperties": false,
-        "required": [ "axis", "quantity", "resolution", "offset" ]
+        "required": [ "axis", "quantity", "resolution" ]
       },
       "vCoordinate": {
         "type": "object",
@@ -1644,7 +1636,7 @@
           "name": { "$ref": "#/definitions/nonNullString" }
         },
         "additionalProperties": false,
-        "required": [ "axis", "quantity", "resolution", "offset" ]
+        "required": [ "axis", "quantity", "resolution" ]
       },
       "wCoordinate": {
         "type": "object",
@@ -1656,7 +1648,7 @@
           "offset": { "$ref": "#/definitions/offset" }
         },
         "additionalProperties": false,
-        "required": [ "axis", "quantity", "resolution", "offset" ]
+        "required": [ "axis", "quantity", "resolution" ]
       },
       "ultrasound": {
         "type": "object",
@@ -1668,7 +1660,7 @@
           "offset": { "$ref": "#/definitions/offset" }
         },
         "additionalProperties": false,
-        "required": [ "axis", "quantity", "resolution", "offset" ]
+        "required": [ "axis", "quantity", "resolution" ]
       },
       "beam": {
         "type": "object",
