@@ -83,7 +83,7 @@ With **discreteGrid** the relationship between data and the specimen is directly
 - Hypothesis:
     - Only one dataset of a given type, for a given group, is saved at each of the scenario coordinates.
 
-#### **storageMode**[**storageMode**](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
+#### [**storageMode**](/NDE_Open_File_Format/docs/schema_doc.html#groups_items_oneOf_i1_dataset_storageMode).
 
 There are two disctinct ways to work with **discreteGrid** when storing a given dataset. 
 
