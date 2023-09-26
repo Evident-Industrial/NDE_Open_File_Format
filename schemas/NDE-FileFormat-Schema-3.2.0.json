@@ -1456,7 +1456,7 @@
       },
       "ascan": {
         "properties": {
-          "storageMode": { "$ref": "#/definitions/storagemode" },
+          "storageMode": { "$ref": "#/definitions/storageMode" },
           "overwriteCriteria": {
             "$ref": "#/definitions/overwriteCriteria"
           },
