@@ -211,7 +211,7 @@
     },
     "storageMode": {
       "type": "string",
-      "description": "<a href=\"./conventions/conventions.html#storageMode\">Storage Mode</a>",
+      "description": "<a href=\"./conventions/conventions.html#storagemode\">Storage Mode</a>",
       "enum": [ "Independent", "Paintbrush" ]
     },
     "overwriteCriteria": {
@@ -1457,7 +1457,7 @@
       },
       "ascan": {
         "properties": {
-          "storageMode": { "$ref": "#/definitions/storageMode" },
+          "storageMode": { "$ref": "#/definitions/storagemode" },
           "overwriteCriteria": {
             "$ref": "#/definitions/overwriteCriteria"
           },
@@ -1533,7 +1533,7 @@
         "properties": {
           "storageMode": {
             "$ref": "#/definitions/storageMode",
-            "description": "The general <a href=\"./conventions/conventions.html#storageMode\">Storage Mode</a> for ths dataSet"
+            "description": "The general <a href=\"./conventions/conventions.html#storagemode\">Storage Mode</a> for ths dataSet"
           },
           "overwriteCriteria": {
             "$ref": "#/definitions/overwriteCriteria",
