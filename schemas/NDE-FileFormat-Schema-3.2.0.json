@@ -1411,7 +1411,7 @@
             "properties": {
               "unit": {
                 "type": "string",
-                "enum": [ "ColumnId" ]
+                "enum": [ "BeamId" ]
               },
               "min": { "type": "number" },
               "max": { "type": "number" }
