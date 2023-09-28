@@ -116,8 +116,8 @@
                   "maxItems": 3,
                   "uniqueItems": true,
                   "items": [
-                    { "$ref": "#/definitions/axis/uCoordinate" },
                     { "$ref": "#/definitions/axis/vCoordinate" },
+                    { "$ref": "#/definitions/axis/uCoordinate" },
                     { "$ref": "#/experimental/stackedAscanAxis" }
                   ]
                 }
