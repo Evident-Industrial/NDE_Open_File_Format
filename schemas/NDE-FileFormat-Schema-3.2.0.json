@@ -1587,13 +1587,13 @@
                   },
                   "additionalProperties": false,
                   "required": [ "dimensions", "path", "dataValue" ]
-                }
+                },
+                "firingSource": { "$ref": "#/definitions/dataset/tfmFiringSource" }
               },
               "additionalProperties": false,
               "required": [ "tfmDescriptionId", "amplitude", "status" ]
             }
-          },
-          "firingSource": { "$ref": "#/definitions/dataset/tfmFiringSource" }
+          }
         },
         "additionalProperties": false,
         "required": [ "storageMode", "tfms" ]
