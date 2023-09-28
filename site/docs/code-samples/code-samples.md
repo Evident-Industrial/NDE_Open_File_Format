@@ -51,11 +51,11 @@ Read setup example.
 
 [read-setup sample on github.com](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/master/examples/read-setup)
 
-### **readNDE_python ( python )**
+### **read-setup ( python )**
 
-File read example.
+Read setup example.
 
-[readNDE_python sample on github.com](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/master/examples/readNDE_python)
+[read-python sample on github.com](https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/master/examples/read-python)
 
 ### **create-file ( c++ )**
 
