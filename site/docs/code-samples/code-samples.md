@@ -9,7 +9,8 @@ description: Code Samples
 # Code Samples
 
 Here are some code samples in C++ and in Python.
-Use the CMake file to build the C++ examples. 
+
+Use the CMake file to build the C++ examples. The C++ examples use hdf5 1.14.1. You can change the hdf5 version in the CMakeLists.txt. 
 
 You can try them using gitHub CodeSpaces, running the CMake file. 
 
@@ -29,7 +30,20 @@ cd build
 cmake ..
 make 
 ```
-4. To execute on linux: 
+
+4. Depending on the hdf5 version you may need to upgrade your cmake version. To upgrade codespace cmake version you can execute the following commands: 
+
+```bash
+sudo apt purge --autoremove cmake
+wget https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz #select your desired cmake version here: https://github.com/Kitware/CMake/releases/download/
+tar -zxvf cmake-3.20.2.tar.gz
+cd cmake-3.20.2
+./bootstrap
+make
+sudo make install
+```
+
+5. To execute on linux: 
 
 Use VSC CMake Tools option or execute the following command: 
 ```bash 

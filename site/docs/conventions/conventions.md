@@ -114,9 +114,10 @@ In this case, all acquisition cycles are kept and so are the corresponding posit
 ## UT/PAUT Wedge Conventions
 ### **angleBeamWedge** object
 - Hypothesis: 
-    - Wedge body and contact surface are considered symetrical.
+    - Wedge body and contact surface are considered symmetrical.
     - The wedge contact surface (with the specimen) is flat or curved with a single radius of curvature.
     - The probe(s) surface contact is flat.
+    - The positionning of the first element on a given wedge is standardized (by design of the probe/wedge assembly).
 
 
 - The wedge coordinate system origin is centered at the bottom of its front face (blue axis system in the figure below). 
@@ -135,7 +136,8 @@ In this case, all acquisition cycles are kept and so are the corresponding posit
 
 - Its positioning on the specimen is given in relation to the $(U,V)$ coordinates with the **uCoordinateOffset** and **vCoordinateOffset** located in the domain setup at **wedges[x].positioning**.   
 
-- The positioning of the probe coordinate system is achieved in the $(X_w,Y_w,Z_w)$ coordinates through the successive application of the *primary offset* (on the $(Y_w)$ axis), the *secondary offset* (on the $(X_w)$ axis) and the *tertiary offset* (on the $(Z_w)$ axis).
+- The positioning of the probe $(U_e, V_e)$ coordinate system is achieved in the $(X_w,Y_w,Z_w)$ coordinates through the successive application of the **primaryOffset** (on the $(Y_w)$ axis), the **secondaryOffset** (on the $(X_w)$ axis) and the **tertiaryOffset** (on the $(Z_w)$ axis). The origin of the probe coordinate system is the center of the first probe element.
+- The orientation of the probe $(U_e, V_e)$ coordinate system is achieved in the $(X_w,Y_w,Z_w)$ coordinates through the successive application of the **wedgeAngle**, **squintAngle**, and **roofAngle**.
 
 ### Flat wedges
 <!---

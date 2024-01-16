@@ -4,7 +4,6 @@ title: Dataset
 parent: General Concepts
 nav_order: 5
 ---
-
 # HDF5 Dataset
 
 Interpretation of the data can be achieved by reading a JSON structure, which can be accessed at the following dataset path: /Domain/Setup.
@@ -15,7 +14,7 @@ graph LR;
     dataset-->ascan-->amplitude;
     amplitude-->path;
     amplitude-->dataSampling;
-    amplitude-->dataValue;    
+    amplitude-->dataValue;
     amplitude-->dimensions;
 ```
 
@@ -48,7 +47,7 @@ Example of the path of an ultrasound amplitude A-scan:
 
 # Dimensions
 
-The dimensions describe the different axes of the data set ([see referential system explanation](/NDE_Open_File_Format/docs/conventions/conventions.html)).
+The dimensions describe the different axes of the dataset ([see referential system explanation](/NDE_Open_File_Format/docs/conventions/conventions.html)).
 
 It is an array of dimension [objects](/NDE_Open_File_Format/docs/general-concepts/objects/objects.html) that are always given in the same order as the HDF5 data has been created (dim 0, 1, 2).
 
@@ -158,6 +157,28 @@ For an example, see this TFM inspection, which has a [Paintbrush storageMode](/N
       "offset": 0.0,
       "quantity": 64,
       "resolution": 0.00015111111111111111
+    }
+]
+```
+
+# FMC
+
+FMC's status is experimental. Its particularity is that it uses a StackedAScan axis. All A-scans from one cycle are stored one after the other. It starts from the first pulser with every received A-scan in the received order and so on.
+
+![FMCOneLineScanDataset.png](/NDE_Open_File_Format/assets/images/general-concepts/FMCOneLineScanDataset.png)
+
+```json
+"dimensions": [
+    {
+        'axis': 'UCoordinate',
+        'quantity': 1,
+        'resolution': 0.001,
+        'offset': 0.0
+    },
+    {
+        'axis': 'StackedAScan',
+        'quantity': 8192000,
+        'resolution': 1e-08
     }
 ]
 ```

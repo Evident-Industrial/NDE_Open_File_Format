@@ -6,6 +6,10 @@ layout: default
 All notable changes to the NDE format will be documented in this file.
 It is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] - 2024-01-16
+### Added
+- The Pipe specimen now includes angularOpening, which is used to describe a curved part section.
+
 
 ## [3.2.0] - 2023-09-28
 ### Changed
