@@ -170,15 +170,15 @@ FMC's status is experimental. Its particularity is that it uses a StackedAScan a
 ```json
 "dimensions": [
     {
-        'axis': 'UCoordinate',
-        'quantity': 1,
-        'resolution': 0.001,
-        'offset': 0.0
+        "axis": "UCoordinate",
+        "quantity": 1,
+        "resolution": 0.001,
+        "offset": 0.0
     },
     {
-        'axis': 'StackedAScan',
-        'quantity': 8192000,
-        'resolution': 1e-08
+        "axis": "StackedAScan",
+        "quantity": 8192000,
+        "resolution": 1e-08
     }
 ]
 ```
