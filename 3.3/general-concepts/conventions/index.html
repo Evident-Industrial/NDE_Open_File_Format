@@ -1,0 +1,1381 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../file-structure/">
+      
+      
+        <link rel="next" href="../scenarios/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon-NDE.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Conventions - NDE Open File Format</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="evident" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#conventions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="NDE Open File Format" class="md-header__button md-logo" aria-label="NDE Open File Format" data-md-component="logo">
+      
+  <img src="../../assets/images/evident-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NDE Open File Format
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Conventions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Evident-Industrial/NDE_Open_File_Format" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Evident-Industrial/NDE_Open_File_Format
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NDE Open File Format" class="md-nav__button md-logo" aria-label="NDE Open File Format" data-md-component="logo">
+      
+  <img src="../../assets/images/evident-logo.png" alt="logo">
+
+    </a>
+    NDE Open File Format
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Evident-Industrial/NDE_Open_File_Format" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Evident-Industrial/NDE_Open_File_Format
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    General Concepts
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            General Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Conventions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Conventions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Units
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#axes-and-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Axes and Coordinate System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Axes and Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      About scenarios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvw-surface-coordinates-and-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      \((U,V,W)\); surface coordinates and depth
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-coodinate-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other coodinate systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-mapping-versus-the-specimen-dataencoding-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data mapping versus the specimen (dataEncoding) conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data mapping versus the specimen (dataEncoding) conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discretegrid-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      DiscreteGrid object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DiscreteGrid object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storagemode" class="md-nav__link">
+    <span class="md-ellipsis">
+      storagemode.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fullcycle-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      FullCycle object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utpaut-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      UT/PAUT Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UT/PAUT Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-concepts-and-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Concepts and Hypothesis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utpaut-wedge-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      UT/PAUT Wedge Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UT/PAUT Wedge Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anglebeamwedge-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      angleBeamWedge object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flat-wedges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flat wedges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curved-wedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curved Wedge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mountinglocations-concepts-and-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      mountingLocations Concepts and definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phasedarraylinear-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      phasedArrayLinear objects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-utpaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples UT/PAUT
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scenarios
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Objects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema_doc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Schema
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-samples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Samples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CHANGELOG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#units" class="md-nav__link">
+    <span class="md-ellipsis">
+      Units
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#axes-and-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Axes and Coordinate System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Axes and Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      About scenarios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvw-surface-coordinates-and-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      \((U,V,W)\); surface coordinates and depth
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-coodinate-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other coodinate systems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-mapping-versus-the-specimen-dataencoding-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data mapping versus the specimen (dataEncoding) conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data mapping versus the specimen (dataEncoding) conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discretegrid-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      DiscreteGrid object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DiscreteGrid object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storagemode" class="md-nav__link">
+    <span class="md-ellipsis">
+      storagemode.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fullcycle-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      FullCycle object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utpaut-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      UT/PAUT Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UT/PAUT Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-concepts-and-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Concepts and Hypothesis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utpaut-wedge-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      UT/PAUT Wedge Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UT/PAUT Wedge Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anglebeamwedge-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      angleBeamWedge object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flat-wedges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flat wedges
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curved-wedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curved Wedge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mountinglocations-concepts-and-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      mountingLocations Concepts and definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phasedarraylinear-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      phasedArrayLinear objects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples-utpaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples UT/PAUT
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h1>
+<h2 id="units">Units<a class="headerlink" href="#units" title="Permanent link">&para;</a></h2>
+<p>Angles are expressed in degrees, while all other units in the dataset use the International System (SI), such as meters and seconds, unless otherwise indicated by a "unit" key. For example, the "Bitfield" and "Percent" units are used for the A-scan in the dataset object. </p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Symbol, usual script (common)</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Distance, positions</strong></td>
+<td>X, Y, Z</td>
+<td>meter [m]</td>
+</tr>
+<tr>
+<td><strong>Time</strong></td>
+<td>t</td>
+<td>second [s]</td>
+</tr>
+<tr>
+<td><strong>Mass</strong></td>
+<td>M</td>
+<td>kilogram [kg]</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td>c</td>
+<td>[m/s]</td>
+</tr>
+<tr>
+<td><strong>Angle</strong></td>
+<td>α, β, γ, θ, φ</td>
+<td>degree [°]</td>
+</tr>
+<tr>
+<td><strong>Density</strong></td>
+<td>ρ</td>
+<td>[kg/m<sup>3</sup>]</td>
+</tr>
+<tr>
+<td><strong>Gain</strong></td>
+<td>G</td>
+<td>dB</td>
+</tr>
+<tr>
+<td><strong>Attenuation</strong></td>
+<td>A</td>
+<td>dB</td>
+</tr>
+<tr>
+<td><strong>Fractional Bandwidth</strong></td>
+<td>FBW</td>
+<td>%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="axes-and-coordinate-system">Axes and Coordinate System<a class="headerlink" href="#axes-and-coordinate-system" title="Permanent link">&para;</a></h2>
+<h3 id="about-scenarios">About scenarios<a class="headerlink" href="#about-scenarios" title="Permanent link">&para;</a></h3>
+<p>The relationship between objects in the .nde file (specimen, probe, wedge, encoder) is defined by inspection scenarios. </p>
+<h3 id="uvw-surface-coordinates-and-depth"><span class="arithmatex">\((U,V,W)\)</span>; surface coordinates and depth<a class="headerlink" href="#uvw-surface-coordinates-and-depth" title="Permanent link">&para;</a></h3>
+<p>For scenarios in which probe positioning is in direct relation to the surface, the position on the surface of a specimen, <span class="arithmatex">\((X, Y, Z)\)</span> in global coordinates, is transformed into <span class="arithmatex">\((U,V)\)</span> surface orthogonal curvilinear coordinates. Take note that depending on the scenario, the <span class="arithmatex">\((U,V)\)</span> may be directly in distance unit (meter), but this is not systematic. </p>
+<p>The use of <span class="arithmatex">\((U,V)\)</span> coordinates is enforced as a way to disambiguate the notions of “scan axis” and “index axis,” which are interpreted depending on the scenario. </p>
+<p>To the <span class="arithmatex">\((U,V)\)</span> surface mapping coordinates a depth axis <span class="arithmatex">\(W\)</span> is added. The depth <span class="arithmatex">\(W\)</span> is defined as being normal to the local <span class="arithmatex">\((U,V)\)</span> coordinates and follows the right-hand rule for sign definition, resulting in a <span class="arithmatex">\((U,V,W)\)</span> coordinate system </p>
+<ul>
+<li>
+<p>The <span class="arithmatex">\(W\)</span> axis is normal to the surface and always points inside the material.</p>
+</li>
+<li>
+<p>The <span class="arithmatex">\(U\)</span> axis is defined relative to the specimen's feature (per scenario). Its orientation is arbitrary.</p>
+</li>
+<li>
+<p>The <span class="arithmatex">\(V\)</span> axis is perpendicular to <span class="arithmatex">\(U\)</span> and its orientation can be infered with the right-hand rule from the cross product of <span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(W\)</span>. </p>
+</li>
+</ul>
+<h3 id="other-coodinate-systems">Other coodinate systems<a class="headerlink" href="#other-coodinate-systems" title="Permanent link">&para;</a></h3>
+<ul>
+<li><span class="arithmatex">\((X,Y,Z)\)</span>: Global referential axis. </li>
+<li>It is independent of the acquisition and serves to position the data on the specimen in the real world.</li>
+<li><em>Origin and orientation</em>: Arbitrary and stays the same across files for a given specimen. It is usually defined by the user on the specimen with some marking or physical reference in the specimen environment.</li>
+</ul>
+<p><ins><em>NOTE</em></ins>: Currently, the <span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(Y\)</span>, and <span class="arithmatex">\(Z\)</span> axis are not used nor defined in the NDE file, but to show inspection results in 3D, one would have to translate everything to this coordinate system. </p>
+<ul>
+<li>
+<p><span class="arithmatex">\((X_w, Y_w, Z_w)\)</span>: Wedge coordinate system. </p>
+<ul>
+<li>Note that the term <em>wedge</em> is used to describe all devices that maintain constant positioning of a probe relative to an inspected surface. </li>
+<li>The wedge is typically positionned directly on the surface <span class="arithmatex">\((U,V)\)</span> and thus link the probe position to the part.</li>
+<li><em>Origin and orientation</em>: See appropriate wedge object conventions with the appropriate technology (ex. UT/PAUT)  for details.</li>
+</ul>
+</li>
+<li>
+<p><span class="arithmatex">\((U_e, V_e)\)</span>: The probe elements coordinate system</p>
+</li>
+<li>On the probe surface (i.e. they are surface coordinates)</li>
+<li>
+<p><em>Origin and orientation</em>: See appropriate probe object conventions with the appropriate technology (ex. UT/PAUT) for details.</p>
+</li>
+<li>
+<p>Beams Axis:</p>
+<ul>
+<li>An axis used in the HDF5 dataset rather than a physical one where each element contains one beam's positions and parameters. It is used in PAUT scenarios when the beams do not fit well in a <span class="arithmatex">\(U\)</span>, <span class="arithmatex">\(V\)</span> grid. Giving the coordinate by beams simplifies their use in these scenarios. </li>
+</ul>
+</li>
+<li>
+<p>Ultrasound Axis: </p>
+<ul>
+<li>Time-based information sampled by an ultrasonic acquisition system. The positioning in the global coordinates requires accounting for ray tracing and part velocities.</li>
+</ul>
+</li>
+<li>
+<p>Encoding Axes: </p>
+<ul>
+<li>Relates to encoder displacement, coupling to specimen and/or global coordinates is scenario dependant.</li>
+</ul>
+</li>
+</ul>
+<h2 id="data-mapping-versus-the-specimen-dataencoding-conventions">Data mapping versus the specimen (dataEncoding) conventions<a class="headerlink" href="#data-mapping-versus-the-specimen-dataencoding-conventions" title="Permanent link">&para;</a></h2>
+<h3 id="general-concepts">General Concepts<a class="headerlink" href="#general-concepts" title="Permanent link">&para;</a></h3>
+<p>Independantly of the non-destructive evaluation method, there's always a need to relate acquisition data to the inspected specimen in terms of positionning. There exist, however, diametrically opposed use case calling for adapted methods to achieve this relationship. For example, most PAUT weld inspection with scanners will relate the data positionning relative to the surface itself with a constant resolution. On the other hand, one could acquire and store phased array acquisition with a 6 axis robot and use complex post-processing methods to achieve inspection data positionning. The <strong>dataEncoding</strong> object class specify how inspection data relates to the specimen. </p>
+<h3 id="discretegrid-object"><strong>DiscreteGrid</strong> object<a class="headerlink" href="#discretegrid-object" title="Permanent link">&para;</a></h3>
+<p>With <strong>discreteGrid</strong> the relationship between data and the specimen is directly made through the scenario coordinate system (for example <span class="arithmatex">\((U,V)\)</span> in the explanations below). Pratically, this is done by adding dimensions to the dataset corresponding to each of the scenario coordinate system axis. </p>
+<ul>
+<li>Hypothesis:<ul>
+<li>Only one dataset of a given type, for a given group, is saved at each of the scenario coordinates.</li>
+</ul>
+</li>
+</ul>
+<h4 id="storagemode"><a href="../../schema_doc/#groups_items_oneOf_i1_dataset_storageMode"><strong>storagemode</strong></a>.<a class="headerlink" href="#storagemode" title="Permanent link">&para;</a></h4>
+<p>There are two disctinct ways to work with <strong>discreteGrid</strong> when storing a given dataset. </p>
+<p><strong>storageMode:"Independent"</strong> is used to store the complete data acquisition sequence in reference to a <span class="arithmatex">\((U,V)\)</span> positionning corresponding to a global acquisition device positionning. For example, a scanner comprizing many different PAUT probes each individually offset relative to the <span class="arithmatex">\((U,V)\)</span> reference system could all relate to the same discreteGrid with <strong>independant</strong> storage mode. In this case the positionning of the data on or in the specimen requires some processing of individual beams or sensors position.</p>
+<p><strong>storageMode:"Paintbrush"</strong> is used to store individual beam or sensor information directly on the corresponding <span class="arithmatex">\((U,V)\)</span> position. Practically, <strong>Paintbrush</strong> is only possible under some hypothesis:
+- All beams or sensors operates under the same condition. For example, paint brush is possible with linear PE PAUT but is not with sectorial PE PAUT.
+- All beams or sensors can be associated with a surface position. For example, FMC acquisition can't be stored as Paintbrush because individual ascan of the FMC don't have defined surface positionning.
+- Beams or sensors surface positionning should fit perfectly on the underlying coordinate system grid. Accordingly, the <strong>discreteGrid</strong> coordinate system grid typically has to be created according to a probe and scanning system characteristic for a <strong>Painbrush</strong> storage.</p>
+<p>The obvious advantage of <strong>Paintbrush</strong> storage is that it natively is mapped on a specimen surface.</p>
+<h3 id="fullcycle-object"><strong>FullCycle</strong> object<a class="headerlink" href="#fullcycle-object" title="Permanent link">&para;</a></h3>
+<p>In this case, all acquisition cycles are kept and so are the corresponding positionning from all available positionning devices.</p>
+<h2 id="utpaut-conventions">UT/PAUT Conventions<a class="headerlink" href="#utpaut-conventions" title="Permanent link">&para;</a></h2>
+<h3 id="general-concepts-and-hypothesis">General Concepts and Hypothesis<a class="headerlink" href="#general-concepts-and-hypothesis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Material is considered homogeneous and isotropic by default.</li>
+<li>Coupling layers are incapable of transmitting shear wave by default.</li>
+<li>Probe with unique resonant frequency by default.</li>
+</ul>
+<h2 id="utpaut-wedge-conventions">UT/PAUT Wedge Conventions<a class="headerlink" href="#utpaut-wedge-conventions" title="Permanent link">&para;</a></h2>
+<h3 id="anglebeamwedge-object"><strong>angleBeamWedge</strong> object<a class="headerlink" href="#anglebeamwedge-object" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Hypothesis: </p>
+<ul>
+<li>Wedge body and contact surface are considered symmetrical.</li>
+<li>The wedge contact surface (with the specimen) is flat or curved with a single radius of curvature.</li>
+<li>The probe(s) surface contact is flat.</li>
+<li>The positionning of the first element on a given wedge is standardized (by design of the probe/wedge assembly).</li>
+</ul>
+</li>
+<li>
+<p>The wedge coordinate system origin is centered at the bottom of its front face (blue axis system in the figure below). </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="AxisReferential-Wedge_Elements_and_Beam-PAexample.png" src="../../assets/images/general-concepts/conventions/AxisReferential-Wedge_Elements_and_Beam-PAexample.png" width="50%" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Flat wedge parameters and referential system examples.</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>The wedge coordinate system orientation is defined such as to have the <span class="arithmatex">\((Y_w)\)</span> axis aligned with the wedge length; the <span class="arithmatex">\((X_w)\)</span> axis aligned with the wedge width and the <span class="arithmatex">\((Z_w)\)</span> axis aligned with the wedge height</p>
+</li>
+<li>
+<p>The wedge <strong>skew angle</strong> is defined by the angle between the wedge and <strong>U</strong> axis on the surface of the part at the wedge origin.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="AxisReferential-Wedge_SkewAngle.png" src="../../assets/images/general-concepts/conventions/AxisReferential-Wedge_SkewAngle.png" width="50%" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Isometric views of different skew angles for reference. The skew angle is taken from the U-axis to the wedge Yw-axis.</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Its positioning on the specimen is given in relation to the <span class="arithmatex">\((U,V)\)</span> coordinates with the <strong>uCoordinateOffset</strong> and <strong>vCoordinateOffset</strong> located in the domain setup at <strong>wedges[x].positioning</strong>.   </p>
+</li>
+<li>
+<p>The positioning of the probe <span class="arithmatex">\((U_e, V_e)\)</span> coordinate system is achieved in the <span class="arithmatex">\((X_w,Y_w,Z_w)\)</span> coordinates through the successive application of the <strong>primaryOffset</strong> (on the <span class="arithmatex">\((Y_w)\)</span> axis), the <strong>secondaryOffset</strong> (on the <span class="arithmatex">\((X_w)\)</span> axis) and the <strong>tertiaryOffset</strong> (on the <span class="arithmatex">\((Z_w)\)</span> axis). The origin of the probe coordinate system is the center of the first probe element.</p>
+</li>
+<li>The orientation of the probe <span class="arithmatex">\((U_e, V_e)\)</span> coordinate system is achieved in the <span class="arithmatex">\((X_w,Y_w,Z_w)\)</span> coordinates through the successive application of the <strong>wedgeAngle</strong>, <strong>squintAngle</strong>, and <strong>roofAngle</strong>.</li>
+</ul>
+<h3 id="flat-wedges">Flat wedges<a class="headerlink" href="#flat-wedges" title="Permanent link">&para;</a></h3>
+<!---
+to validate (do it cover angleBeamWedge and linear 0 deg as well)
+-->
+
+<ul>
+<li>For flat wedges, the application of the above rules is straightforward as there's no ambiguity for the definition of the probe positioning.</li>
+</ul>
+<h3 id="curved-wedge">Curved Wedge<a class="headerlink" href="#curved-wedge" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The application of a wedge on a tubular component  typically involves the use of a wedge with a matching curved surface. Such wedges require additional conventions.</p>
+</li>
+<li>
+<p>Typical configurations are axial outer diameter (AOD) or circumferential outer diameter (COD). Note that a skew angle for outer or inner diameter inspection is also possible in this definition.</p>
+</li>
+<li>
+<p>The curved wedge face is handled by redefining the <em>tertiary offset</em> and by defining the actual wedge curvature in the wedge object. The tertiary offset is defined for a flat wedge that is machined to the desired curvature.   </p>
+</li>
+</ul>
+<h3 id="mountinglocations-concepts-and-definition"><strong>mountingLocations</strong> Concepts and definition<a class="headerlink" href="#mountinglocations-concepts-and-definition" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A probe is maintained in position on a wedge through an interface face defined by the aforementionned <strong>primaryOffset</strong>, <strong>secondaryOffset</strong> and <strong>tertiaryOffset</strong> plus three angles:</li>
+<li><strong>wedgeAngle</strong> <span class="arithmatex">\(\beta\)</span> : Angle between the normal of the interface face vs the <span class="arithmatex">\(Z_w\)</span> Axis</li>
+<li><strong>squintAngle</strong> <span class="arithmatex">\(\alpha\)</span> : Angle between the projection of the probe primary axis on the <span class="arithmatex">\(X_w\)</span>/<span class="arithmatex">\(Y_w\)</span> plane and the <span class="arithmatex">\(Y_w\)</span> axis. <ul>
+<li>Note : default squint angle is 0 deg</li>
+</ul>
+</li>
+<li><strong>roofAngle</strong> <span class="arithmatex">\(\gamma\)</span> : Rotation angle around the probe primary axis<ul>
+<li>Note : default roof angle is 0 deg</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="CoordinateSystemWedge.jpg" src="../../assets/images/general-concepts/conventions/CoordinateSystemWedge.jpg" width="50%" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Isometric view of the wedge reference system illustrating the positionning of the origin of the probe coordinate system (flat wedge example)</em></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>It is possible to have multiple probe <strong>mountingLocations</strong> defined on a single wedge, for example in the case of Dual Linear Array (DLA) or Dual Matrix Array (DMA) probes. </li>
+</ul>
+<h3 id="phasedarraylinear-objects"><strong>phasedArrayLinear</strong> objects<a class="headerlink" href="#phasedarraylinear-objects" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Hypothesis :</p>
+<ul>
+<li>Constant <strong>elementLength</strong> and <strong>elementGap</strong> for <span class="arithmatex">\((Np)\)</span> <strong>elementQuantity</strong> distributed along a primary probe axis. </li>
+<li>Constant <strong>elementLength</strong> and <strong>elementGap</strong> for <span class="arithmatex">\((Ns)\)</span> <strong>elementQuantity</strong> distributed along a secondary probe axis. </li>
+<li>Probe surface may be curved along the first or secondary probe axis but not both.</li>
+</ul>
+</li>
+<li>
+<p>Specifically, the following use cases are covered:</p>
+<ul>
+<li>1D linear array with flat active face. </li>
+<li>1D linear array with curved active face along the primary axis (“CC” probes)</li>
+<li>1D linear array with curved active face along the secondary axis (“CCEV” probes)</li>
+<li>2D linear array with flat active face. </li>
+<li>2D linear array with curved active face along the primary axis (“CC” probes)</li>
+<li>2D linear array with curved active face along the secondary axis (“CCEV” probes) </li>
+</ul>
+</li>
+</ul>
+<h2 id="examples-utpaut">Examples UT/PAUT<a class="headerlink" href="#examples-utpaut" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="AxisReferential-PlateWeld_2Probres.png" src="../../assets/images/general-concepts/conventions/AxisReferential-PlateWeld_2Probres.png" width="50%" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Example of a typical plate scenario with a weld and two probes in relation to the <span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(V\)</span> axis.</em></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="AxisReferential-PipeWeld_2Probres.png" src="../../assets/images/general-concepts/conventions/AxisReferential-PipeWeld_2Probres.png" width="50%" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Example general weld scenario with an axial weld on a pipe.</em></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - 2024 Evident Industrial
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/evident-scientific/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Evident-Industrial" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
