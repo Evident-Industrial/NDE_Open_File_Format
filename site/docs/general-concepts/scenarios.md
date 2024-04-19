@@ -1,8 +1,6 @@
 ---
-layout: default
-title: Scenarios
-parent: General Concepts
-nav_order: 3
+hide:
+  - toc
 ---
 
 # Scenarios
@@ -22,7 +20,7 @@ Many nondestructive inspection scan plans are referenced to the surface of a spe
 
     - The $(0,0)$ position on the surface is arbitrarily defined by the user.
 
-| ![AxisReferential-Raster_Plate.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-Raster_Plate.png){:width="25%"} |
+| ![AxisReferential-Raster_Plate.png](../assets/images/general-concepts/scenarios/AxisReferential-Raster_Plate.png){width="40%"} |
 |:---------------------------------------------------------------------------------------------------------------------:|
 | *Raster example with the $U$ and $V$ axis.*                                                                |
 
@@ -41,7 +39,10 @@ Many nondestructive inspection scan plans are referenced to the surface of a spe
 
     -  Scan patterns can be entirely described on the surface of specimen as a set of orthogonal axes parallel and orthogonal to the weld.
 
-| ![AxisReferential-PipeAxialWeld.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PipeAxialWeld.png){:width="50%"} | 
-| ![AxisReferential-PipeCircWeld.png](/NDE_Open_File_Format/assets/images/conventions/AxisReferential-PipeCircWeld.png){:width="50%"} | 
+| ![AxisReferential-PipeAxialWeld.png](../assets/images/general-concepts/scenarios/AxisReferential-PipeAxialWeld.png){width="70%"} | 
 |:-----------------------------------------------------------------------------------------------------------------------------------:| 
-| *The weld angle is defined in relation to the pipe axis.*                                                                |
+| *The weld angle is defined in relation to the pipe axis. Axial weld.*                                                                |
+
+| ![AxisReferential-PipeCircWeld.png](../assets/images/general-concepts/scenarios/AxisReferential-PipeCircWeld.png){width="70%"} | 
+|:-----------------------------------------------------------------------------------------------------------------------------------:| 
+| *The weld angle is defined in relation to the pipe axis. Girth weld.*                                                                |

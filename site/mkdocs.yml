@@ -1,0 +1,69 @@
+site_name: NDE Open File Format
+theme: 
+  name: material
+  logo: assets/images/evident-logo.png
+  favicon: assets/images/favicon-NDE.png
+  font:
+    text: Roboto
+  palette:
+    scheme: evident
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.copy
+    - navigation.top
+extra_css:
+  - stylesheets/extra.css
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/linkedin 
+      link: https://www.linkedin.com/company/evident-scientific/
+    - icon: fontawesome/brands/github
+      link: https://github.com/Evident-Industrial
+repo_url: https://github.com/Evident-Industrial/NDE_Open_File_Format
+repo_name: Evident-Industrial/NDE_Open_File_Format
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: false
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
+  - md_in_html
+  - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+     url_download: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+nav:
+ - Home: index.md
+ - Quickstart: quickstart.md
+ - General Concepts: 
+     - File Structure: general-concepts/file-structure.md
+     - Conventions: general-concepts/conventions.md
+     - Scenarios: general-concepts/scenarios.md
+     - Objects: general-concepts/objects.md
+     - Dataset: general-concepts/dataset.md
+ - Schema: schema_doc.md
+ - Code Samples: code-samples.md
+ - Reference Files: reference-files.md
+ - CHANGELOG: changelog.md
+copyright: Copyright &copy; 2023 - 2024 Evident Industrial

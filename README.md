@@ -28,7 +28,7 @@ If you have any questions, contact Evident at nde_support@evidentscientific.com
 ## FAQs
 1. **What does NDE stand for?**
 
-Nondestructive evaluation 
+Non destructive evaluation 
 
 2. **What technology does the NDE open file format use ?** 
 

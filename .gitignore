@@ -5,6 +5,7 @@ _site
 .vs
 .BuildScript.log
 .vscode
+.venv
 Gemfile.lock
 vendor
 Dockerfile
