@@ -1,6 +1,7 @@
 site_name: NDE Open File Format
 theme: 
   name: material
+  custom_dir: overrides
   logo: assets/images/evident-logo.png
   favicon: assets/images/favicon-NDE.png
   font:
