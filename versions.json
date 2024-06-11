@@ -1,14 +1,14 @@
 [
   {
+    "version": "4.0-prerelease",
+    "title": "4.0-prerelease",
+    "aliases": []
+  },
+  {
     "version": "3.3",
     "title": "3.3",
     "aliases": [
       "latest"
     ]
-  },
-  {
-    "version": "4.0-prerelease",
-    "title": "4.0-prerelease",
-    "aliases": []
   }
 ]
