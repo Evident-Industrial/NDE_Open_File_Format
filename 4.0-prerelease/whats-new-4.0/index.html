@@ -376,6 +376,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#addition-of-the-json-properties-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addition of the JSON Properties dataset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#support-of-advanced-ultrasonic-acquisitions" class="md-nav__link">
     <span class="md-ellipsis">
       Support of advanced ultrasonic acquisitions
@@ -457,6 +466,27 @@
   
   <span class="md-ellipsis">
     Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transitioning-3.3-4.0/upgrade-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadata structure upgrade guide
   </span>
   
 
@@ -678,6 +708,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#addition-of-the-json-properties-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Addition of the JSON Properties dataset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#support-of-advanced-ultrasonic-acquisitions" class="md-nav__link">
     <span class="md-ellipsis">
       Support of advanced ultrasonic acquisitions
@@ -725,43 +764,56 @@
   <h1>What's new in 4.0</h1>
 
 <h2 id="motivations">Motivations<a class="headerlink" href="#motivations" title="Permanent link">&para;</a></h2>
-<p>The existing version of the .NDE file format has limited support for Eddy current modality, advanced ultrasonic features, and future developments. Therefore, an update introducing breaking changes was necessary to establish a more flexible structure capable of seamlessly adapting to and accommodating new requirements or needs, while still maintaining a high level of standardization. This new structure will, for example, enable intergroup relationships within the JSON Setup dataset without compromising the simplicity of straightforward cases.</p>
+<p>The existing version of the .NDE file format has limited support for Eddy current modality, advanced ultrasonic features, and future developments. Therefore, an update introducing breaking changes was necessary to establish a more flexible structure capable of seamlessly adapting to and accommodating new requirements or needs, while still maintaining a high level of standardization. This new structure will, for example, enables intergroup relationships within the JSON Setup dataset while preserving the simplicity of straightforward use cases.</p>
 <h2 id="new-concepts">New concepts<a class="headerlink" href="#new-concepts" title="Permanent link">&para;</a></h2>
-<p>NDE 4.0 introduces a new way of structuring the .NDE File Format (mainly in the JSON Setup dataset) but also some new concepts:</p>
+<p>NDE 4.0 introduces a new way of structuring the .NDE File Format but also some new concepts.</p>
+<p>Within the JSON formatted <strong>Setup</strong> dataset:</p>
 <ul>
 <li>
-<p><strong>DataClass</strong> – Allows to quickly indentify the type of data associated with a Dataset. This attribute is standardized, documented, and added to the description of a datasets array item in the JSON Setup dataset structure. This was not standardized in previous versions and only had similar functionalities through the naming of previous dataset object sub-objects. </p>
+<p><strong>DataClass</strong> – Allows to quickly identify the type of data associated with a Dataset. This attribute is standardized, documented, and included to the description of a datasets array item in the JSON Setup dataset structure. This was not standardized in previous versions and only had similar functionalities through the naming of previous dataset object sub-objects. </p>
 </li>
 <li>
-<p><strong>Processes</strong> – A better way to describe how parameters are applied during acquisition or analysis and their impact on the resulting datasets. This object is standardized, documented, and added to the JSON Setup dataset structure. This was not standardized in previous versions and only had similar component in the description of the acquisition parameters found in the dataset object of the JSON Setup dataset structure. </p>
-</li>
-<li>
-<p><strong>Client Schema</strong> – To define a client application limitations with respect to the base .NDE JSON Schema. This concept will be added to the documentation to help users wanting to support only a portion of the .NDE standard. </p>
+<p><strong>Processes</strong> – A better way to describe how parameters are applied during acquisition or analysis and their impact on the resulting datasets. This object is standardized, documented, and added to the JSON Setup dataset structure. This was not standardized in previous versions and only had similar component in the description of the acquisition parameters found in the dataset object of the JSON Setup dataset structure.</p>
 </li>
 </ul>
+<p>The JSON formatted <strong>Properties</strong> dataset:  the approach for handling file-wide metadata was changed to adopt the same as the rest of the acquisition metadata with the Setup dataset. Hence, all metadata previously stored as HDF5 attributes at the root of the file are now stored within the Properties dataset, still located at the root of the file, and can be validated against a dedicated JSON Schema. <a href="#addition-of-the-json-properties-dataset">See below</a> for more information.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To avoid confusion between <a href="https://portal.hdfgroup.org/hdf5/v1_14_4/_h5_g__u_g.html#sec_group">HDF5 Groups</a> and <a href="#updated-groups-structure-with-datasets-and-processes">Groups</a> defined within the .NDE standard, the term "path" will be preferred to designate an HDF5 Group. </p>
 </div>
 <h2 id="modifications-to-the-hdf-structure">Modifications to the HDF Structure<a class="headerlink" href="#modifications-to-the-hdf-structure" title="Permanent link">&para;</a></h2>
-<p>The overall HDF structure remains unchanged with a container for nonstandardized application usage (<strong>/Applications</strong>) and a standardized container for the data and setup or any contextual information that describes the data (<strong>/Domain</strong>).</p>
+<p>The overall HDF structure spirit remains unchanged with a container for nonstandardized application usage (<strong>/Private</strong>) and a standardized container for the data and setup or any contextual information that describes the data (<strong>/Public</strong>). </p>
+<ul>
+<li>The name of those root containers was slightly revisited to be more meaningful, hence the previous <strong>/Applications</strong> section is renamed <strong>/Private</strong>
+   and the previous <strong>/Domain</strong> section is renamed <strong>/Public</strong>.</li>
+</ul>
 <!--- ![new_hdf_structure](./assets/images/4.0/new_hdf_structure.png){ width="600" } --->
 
 <ul>
 <li>
-<p>Groups, that may contain inspection data but also other context information, were previously found under the <strong>/Domain/DataGroups</strong> path. They are now stored under the <strong>/Domain/Groups</strong> path to reflect the JSON Setup dataset structure as illustrated below. </p>
+<p>Groups, that may contain inspection data but also other context information, were previously found under the <strong>/Domain/DataGroups</strong> path. They are now stored under the <strong>/Public/Groups</strong> path to reflect the JSON Setup dataset structure as illustrated below. </p>
 <pre class="mermaid"><code>flowchart TD
-    subgraph "Version 4.0"
-    .nde4[.NDE] --&gt; Applications4[Applications]
-    .nde4[.NDE] --&gt; Domain4[Domain]
-    Domain4[Domain] --&gt; Setup4[Setup]
-    Domain4[Domain] --&gt; Groups4[Groups]
+    subgraph tre["Version 4.0"]
+    direction LR
+    .nde4[.nde]:::root --&gt; Private["/Private"]:::group
+    .nde4[.nde] --&gt; Public["/Public*"]:::group
+    .nde4[.nde] --&gt; Properties["/Properties*"]:::dataset
+    Public["/Public*"] --&gt; Setup4["/Setup*"]:::dataset
+    Public["/Public*"] --&gt; Groups4["/Groups"]:::group
+    style tre color:#000000
+    classDef root fill:#005cb9,stroke:#000000,color:#000000
+    classDef group fill:#ffc72c,stroke:#000000,color:#000000
+    classDef dataset fill:#fff,stroke:#000000,color:#000000
     end
     subgraph "Version 3.3"
-    .nde3[.NDE] --&gt; Applications3[Applications]
-    .nde3[.NDE] --&gt; Domain3[Domain]
-    Domain3[Domain] --&gt; Setup3[Setup]
-    Domain3[Domain] --&gt; DataGroups3[DataGroups]
+    direction LR
+    .nde3[.nde]:::root --&gt; Applications["/Applications"]:::group
+    .nde3[.nde] --&gt; Domain["/Domain*"]:::group
+    Domain["/Domain*"] --&gt; Setup3["/Setup*"]:::dataset
+    Domain["/Domain*"] --&gt; Groups3["/Groups"]:::group
+    classDef root fill:#005cb9,stroke:#000000,color:#000000
+    classDef group fill:#ffc72c,stroke:#000000,color:#000000
+    classDef dataset fill:#fff,stroke:#000000,color:#000000
     end</code></pre>
 </li>
 <li>
@@ -769,21 +821,23 @@
 <pre class="mermaid"><code>flowchart TD
     subgraph "Version 4.0"
         direction LR
-        Groups4[Groups] --&gt; 04[0]
-        04 --&gt; Datasets4[Datasets]
-        Datasets4[Datasets] --&gt; 0-AScanAmplitude
-        Datasets4[Datasets] --&gt; 1-AScanStatus
-        Datasets4[Datasets] --&gt; 2-FiringSource
+        Groups4[Groups]:::gen --&gt; 04[0]:::gen
+        04 --&gt; Datasets4[Datasets]:::gen
+        Datasets4[Datasets] --&gt; 0-AScanAmplitude:::gen
+        Datasets4[Datasets] --&gt; 1-AScanStatus:::gen
+        Datasets4[Datasets] --&gt; 2-FiringSource:::gen
+        classDef gen fill:#fff,stroke:#000000,color:#000000
     end
     subgraph "Version 3.3"
         direction LR
-        DataGroups3[DataGroups] --&gt; 03_1[0]
-        03_1 --&gt; Dataset3[Dataset]
-        Dataset3[Dataset] --&gt; 03_2[0]
-        03_2 --&gt; Amplitude
-        03_2 --&gt; Status
-        Dataset3[Dataset] --&gt; 13_2[1]
-        13_2 --&gt; FiringSource
+        DataGroups3[DataGroups]:::gen --&gt; 03_1[0]:::gen
+        03_1 --&gt; Dataset3[Dataset]:::gen
+        Dataset3[Dataset] --&gt; 03_2[0]:::gen
+        03_2 --&gt; Amplitude:::gen
+        03_2 --&gt; Status:::gen
+        Dataset3[Dataset] --&gt; 13_2[1]:::gen
+        13_2 --&gt; FiringSource:::gen
+        classDef gen fill:#fff,stroke:#000000,color:#000000
     end</code></pre>
 </li>
 </ul>
@@ -792,22 +846,27 @@
 <!---  ![new_group_structure](./assets/images/4.0/new_group_structure.png){ width="600" } --->
 
 <h2 id="modifications-to-the-json-setup-dataset">Modifications to the JSON Setup dataset<a class="headerlink" href="#modifications-to-the-json-setup-dataset" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A <strong>pre-release</strong> version of the new JSON Schema used to validate the <strong>Setup</strong> dataset can be <a href="https://nde-public-files.s3.ca-central-1.amazonaws.com/4.0/pre-release/NDE-Setup.json">downloaded here</a>. </p>
+</div>
 <h3 id="updated-groups-structure-with-datasets-and-processes">Updated groups structure with datasets <strong>and processes</strong><a class="headerlink" href="#updated-groups-structure-with-datasets-and-processes" title="Permanent link">&para;</a></h3>
 <p>The concept of process is introduced and added to the description of groups, making the groups structure more standardized and enabling distinction between the information relative to the data contained in datasets and the parameters used to create or modify these datasets. </p>
-<p>Processes are described by their <em>id</em>, their <em>inputs</em> and <em>outputs</em> and a specific object listing all its <em>parameters</em>. Previous acquisition parameters objects - such as <em>paut</em> - and nested softwareProcess objects - such as <em>thickness</em> - are now converted to processes array items. By adopting this more general structure, possibilities are endless and notably enable intergroup relationships. Hence, processes can be chained and may have other processes or datasets as input as illustrated in the example below.</p>
-<pre class="mermaid"><code>    flowchart LR
+<p>Processes are described by their <em>id</em>, their <em>inputs</em> and <em>outputs</em> and a specific object listing all its <em>parameters</em>. Previous acquisition parameters objects - such as <em>paut</em> - and nested softwareProcess objects - such as <em>thickness</em> - are now converted to processes array items. By adopting this more general structure, possibilities are endless and notably enables intergroup relationships. Hence, processes can be chained and may have other processes as input as illustrated in the example below.</p>
+<pre class="mermaid"><code>    flowchart TD
     subgraph "Group 1"
-    Process1Gr1[⚙️ Process 1] --&gt; Process2Gr1[⚙️ Process 2]
-    Process1Gr1[⚙️ Process 1] ----&gt; Dataset1Gr1[📊 Dataset 1]
-    Process2Gr1[⚙️ Process 2] --&gt; Process3Gr1[⚙️ Process 3]
-    Process3Gr1[⚙️ Process 3] --&gt; Dataset2Gr1[📊 Dataset 2]
+    Process1Gr1[⚙️ Process 1]:::gen --&gt; Process2Gr1[⚙️ Process 2]:::gen
+    Process1Gr1[⚙️ Process 1] ----&gt; Dataset1Gr1[📊 Dataset 1]:::gen
+    Process2Gr1[⚙️ Process 2] --&gt; Process3Gr1[⚙️ Process 3]:::gen
+    Process3Gr1[⚙️ Process 3] --&gt; Dataset2Gr1[📊 Dataset 2]:::gen
+    classDef gen fill:#fff,stroke:#000000,color:#000000
     end
     subgraph "Group 2"
-    Dataset1Gr1 --&gt; Process1Gr2[⚙️ Process 1]
-    Dataset2Gr1 --&gt; Process1Gr2[⚙️ Process 1]
-    Process1Gr2[⚙️ Process 1] ----&gt; Dataset1Gr2[📊 Dataset 1]
-    Process1Gr2[⚙️ Process 1] ----&gt; Dataset2Gr2[📊 Dataset 2]
-    Process1Gr2[⚙️ Process 1] ----&gt; Dataset3Gr2[📊 Dataset 3]
+    Process1Gr1:::gen --&gt; Process1Gr2[⚙️ Process 1]:::gen
+    Process1Gr2[⚙️ Process 1] ----&gt; Dataset1Gr2[📊 Dataset 1]:::gen
+    Process1Gr2[⚙️ Process 1] ----&gt; Dataset2Gr2[📊 Dataset 2]:::gen
+    Process1Gr2[⚙️ Process 1] ----&gt; Dataset3Gr2[📊 Dataset 3]:::gen
+    classDef gen fill:#fff,stroke:#000000,color:#000000
     end
 </code></pre>
 <p>Here is an example showing the difference between a typical JSON Setup dataset structure in version 3.3 and version 4.0 with new groups structure:</p>
@@ -828,18 +887,19 @@
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;ultrasonicPhasedArray&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="c1">// (1)!</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">],</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nt">&quot;acquisitionUnits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nt">&quot;motionDevices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nt">&quot;dataMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="c1">// (2)!</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="nt">&quot;specimens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nt">&quot;probes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="nt">&quot;wedges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="p">}</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;dataMappingId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nt">&quot;ultrasonicPhasedArray&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="c1">// (1)!</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">],</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nt">&quot;acquisitionUnits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nt">&quot;motionDevices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="nt">&quot;dataMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="c1">// (2)!</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nt">&quot;specimens&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="nt">&quot;probes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="nt">&quot;wedges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="p">}</span>
 </span></code></pre></div>
 <ol>
 <li>The same <strong>paut</strong> object as defined in version 3.3, renamed <strong>ultrasonicPhasedArray</strong>, is now nested inside a process object. </li>
@@ -929,6 +989,10 @@ Hence, it is now easier to distinguish metadata related to a HDF Dataset (with m
 <td>Type of implementation for this process, typically <code>Hardware</code> or <code>Sotfware</code></td>
 </tr>
 <tr>
+<td>dataMappingId [integer]</td>
+<td>The unique id of the dataMapping object related to the process</td>
+</tr>
+<tr>
 <td><code>process specific object</code> [object]</td>
 <td>A specific object to describe process parameters, such as <code>ultrasonicPhasedArray</code> or <code>ultrasonicThickness</code></td>
 </tr>
@@ -944,22 +1008,23 @@ Hence, it is now easier to distinguish metadata related to a HDF Dataset (with m
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;implementation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hardware&quot;</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;ultrasonicPhasedArray&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&quot;pulseEcho&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;waveMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Longitudinal&quot;</span><span class="p">,</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="s2">&quot;...&quot;</span><span class="p">}</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">      </span><span class="nt">&quot;implementation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Software&quot;</span><span class="p">,</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="nt">&quot;thickness&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00275</span><span class="p">,</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="s2">&quot;...&quot;</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">]</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;dataMappingId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;ultrasonicPhasedArray&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;pulseEcho&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;waveMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Longitudinal&quot;</span><span class="p">,</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="s2">&quot;...&quot;</span><span class="p">}</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="nt">&quot;outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="nt">&quot;implementation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Software&quot;</span><span class="p">,</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">      </span><span class="nt">&quot;thickness&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00275</span><span class="p">,</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="s2">&quot;...&quot;</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="p">]</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -978,7 +1043,7 @@ Hence, it is now easier to distinguish metadata related to a HDF Dataset (with m
 </div>
 </div>
 <h3 id="updated-datasets-structure">Updated <strong>datasets</strong> structure<a class="headerlink" href="#updated-datasets-structure" title="Permanent link">&para;</a></h3>
-<p>The structure of datasets was also affected to be more general and versatile. Note that the dataset object is now plural - <em>dataset</em><strong>s</strong> - and is an array with standardize structure comprising an <em>id</em>, a <em>rendering</em> object, a <em>dataClass</em> and - inherited from version 3.3 - a <em>path</em> and a <em>dimensions</em> object. </p>
+<p>The structure of datasets was also affected to be more general and versatile. Note that the dataset object is now plural - <em>dataset</em><strong>s</strong> - and is an array with standardize structure comprising an <em>id</em>, a <em>dataTransformations</em> array, a <em>dataClass</em> and - inherited from version 3.3 - a <em>path</em> and a <em>dimensions</em> object. </p>
 <p><strong>Datasets</strong> array - replacing the previous <strong>dataset</strong> object</p>
 <table>
 <thead>
@@ -993,16 +1058,24 @@ Hence, it is now easier to distinguish metadata related to a HDF Dataset (with m
 <td>The unique id of the dataset inside its parent group</td>
 </tr>
 <tr>
-<td>rendering [object]</td>
-<td>A rendering object describing the process and its specific output used to create the dataset. A rendering object must be specified only if the dataset is intended to be displayed.</td>
-</tr>
-<tr>
-<td>path* [string]</td>
-<td>The path to the dataset in the HDF structure</td>
+<td>dataTransformations [array]</td>
+<td>A dataTransformations array references the last process of each process chain in charge of transforming the data to be displayed.</td>
 </tr>
 <tr>
 <td>dataClass* [string]</td>
 <td>The dataClass of the dataset, such as <code>AScanAmplitude</code>, <code>AScanStatus</code> or <code>FiringSource</code></td>
+</tr>
+<tr>
+<td>storageMode [string]</td>
+<td>The type of storage of mode, such as <code>Paintbrush</code> or <code>Independent</code></td>
+</tr>
+<tr>
+<td>dataValue [object]</td>
+<td>The values the dataset can take, both raw values and values converted to the corresponding unit</td>
+</tr>
+<tr>
+<td>path* [string]</td>
+<td>The path to the dataset in the HDF structure</td>
 </tr>
 <tr>
 <td>dimensions* [object]</td>
@@ -1011,62 +1084,152 @@ Hence, it is now easier to distinguish metadata related to a HDF Dataset (with m
 </tbody>
 </table>
 <p>Here is an example showing the difference between a typical dataset object in version 3.3 and the new datasets array in version 4.0:</p>
-<h3 id="dataencodings-is-renamed-and-updated"><strong>dataEncodings</strong> is renamed and updated<a class="headerlink" href="#dataencodings-is-renamed-and-updated" title="Permanent link">&para;</a></h3>
-<p>The <strong>dataEncodings</strong> object is renamed <strong>dataMappings</strong> to avoid confusion with other types of encoding.
-Its structure is slightly modified with <em>specimenId</em> and <em>surfaceId</em> properties moved up one level in the JSON structure.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">4.0</label><label for="__tabbed_3_2">3.3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&quot;dataMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;specimenId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;surfaceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">&quot;discreteGrid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">&quot;scanPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OneLineScan&quot;</span><span class="p">,</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nt">&quot;uCoordinateOrientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Length&quot;</span><span class="p">,</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="nt">&quot;dimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UCoordinate&quot;</span><span class="p">,</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Scan&quot;</span><span class="p">,</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="nt">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">301</span><span class="p">,</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nt">&quot;resolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">]}</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}]</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&quot;datasets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">&quot;dataTransformations&quot;</span><span class="p">:[</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="nt">&quot;processId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="nt">&quot;dataClass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AScanAmplitude&quot;</span><span class="p">,</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="nt">&quot;storageMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Paintbrush&quot;</span><span class="p">,</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nt">&quot;dataValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32767</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="nt">&quot;unitMin&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nt">&quot;unitMax&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">200.0</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Percent&quot;</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Public/Groups/0/Datasets/0-AScanAmplitude&quot;</span><span class="p">,</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="nt">&quot;dimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="p">]</span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;dataEncodings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;discreteGrid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;specimenId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;surfaceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;scanPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OneLineScan&quot;</span><span class="p">,</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">&quot;uCoordinateOrientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Length&quot;</span><span class="p">,</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">&quot;dimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="p">{</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UCoordinate&quot;</span><span class="p">,</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Scan&quot;</span><span class="p">,</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="nt">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">301</span><span class="p">,</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="nt">&quot;resolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">]}</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}]</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&quot;dataset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;ascan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">      </span><span class="nt">&quot;velocity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2700.0</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">&quot;skewAngle&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">&quot;refractedAngle&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="nt">&quot;amplitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="nt">&quot;dataSampling&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">          </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">          </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32767</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="nt">&quot;dataValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">          </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">          </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">          </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Percent&quot;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Domain/DataGroups/0/Datasets/0/Amplitude&quot;</span><span class="p">,</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">        </span><span class="nt">&quot;dimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nt">&quot;overwriteCriteria&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Last&quot;</span><span class="p">,</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="nt">&quot;storageMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Paintbrush&quot;</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="p">}</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
+<h3 id="dataencodings-is-renamed-and-updated"><strong>dataEncodings</strong> is renamed and updated<a class="headerlink" href="#dataencodings-is-renamed-and-updated" title="Permanent link">&para;</a></h3>
+<p>The <strong>dataEncodings</strong> object is renamed <strong>dataMappings</strong> to avoid confusion with other types of encoding.
+Its structure is slightly modified with <em>specimenId</em> and <em>surfaceId</em> properties moved up one level in the JSON structure.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">4.0</label><label for="__tabbed_4_2">3.3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&quot;dataMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;specimenId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">&quot;surfaceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">&quot;discreteGrid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">&quot;scanPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OneLineScan&quot;</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">&quot;uCoordinateOrientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Length&quot;</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nt">&quot;dimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UCoordinate&quot;</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Scan&quot;</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="nt">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">301</span><span class="p">,</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="nt">&quot;resolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="p">]}</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p">}]</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&quot;dataEncodings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;discreteGrid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&quot;specimenId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">&quot;surfaceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&quot;scanPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OneLineScan&quot;</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">&quot;uCoordinateOrientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Length&quot;</span><span class="p">,</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">&quot;dimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UCoordinate&quot;</span><span class="p">,</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Scan&quot;</span><span class="p">,</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="nt">&quot;quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">301</span><span class="p">,</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="nt">&quot;resolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="p">]}</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="p">}]</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="addition-of-the-json-properties-dataset">Addition of the JSON Properties dataset<a class="headerlink" href="#addition-of-the-json-properties-dataset" title="Permanent link">&para;</a></h2>
+<p>Previously, file-wide metadata were stored as HDF5 attributes at the root of the file. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">3.3</label><label for="__tabbed_5_2">4.0</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><figure markdown="span">
+<a class="glightbox" href="../assets/images/4.0/old-metadata.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="old-metadata.png" src="../assets/images/4.0/old-metadata.png" width="400" /></a>
+</figure></p>
+</div>
+<div class="tabbed-block">
+<p><figure markdown="span">
+<a class="glightbox" href="../assets/images/4.0/new-metadata.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="old-metadata.png" src="../assets/images/4.0/new-metadata.png" width="700" /></a>
+</figure></p>
+</div>
+</div>
+</div>
+<p>To allow more flexibility and scalibility in the future, those file-wide metadata are transfered to a new JSON-formatted dataset named <strong>Properties</strong> and located at the root of the HDF5 hierarchy. Currently, this JSON-formatted dataset contains the same information as previous attributes in a <strong>file</strong> object as well as a new <strong>methods</strong> array to specify the NDT methods covered in the file (as described by <a href="https://www.asnt.org/what-is-nondestructive-testing/methods">ASNT</a>). More objects will be added to the <strong>Properties</strong> dataset in the near future. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A <strong>pre-release</strong> version of the new JSON Schema used to validate the <strong>Properties</strong> dataset can be <a href="https://nde-public-files.s3.ca-central-1.amazonaws.com/4.0/pre-release/NDE-Properties.json">downloaded here</a>.</p>
+</div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">   </span><span class="nt">&quot;file&quot;</span><span class="p">:{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">      </span><span class="nt">&quot;createdByAppName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MXU&quot;</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">      </span><span class="nt">&quot;createdByAppVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5.18.1.0&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="nt">&quot;createdByAppCompany&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Evident&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="nt">&quot;creationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-12T20:28:30+01:00&quot;</span><span class="p">,</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="nt">&quot;creationFormatVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4.0.0-Dev&quot;</span><span class="p">,</span><span class="w">    </span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="nt">&quot;modifiedByAppName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MXU&quot;</span><span class="p">,</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">      </span><span class="nt">&quot;modifiedByAppVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5.18.1.0&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="nt">&quot;modifiedByAppCompany&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Evident&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="nt">&quot;modificationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-12T20:32:30+01:00&quot;</span><span class="p">,</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="nt">&quot;formatVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4.0.0-Dev&quot;</span><span class="p">,</span><span class="w">    </span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">      </span><span class="nt">&quot;notice&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pre-release Version&quot;</span><span class="p">,</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">   </span><span class="p">},</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">   </span><span class="nt">&quot;methods&quot;</span><span class="p">:[</span><span class="s2">&quot;UT&quot;</span><span class="p">]</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="support-of-advanced-ultrasonic-acquisitions">Support of advanced ultrasonic acquisitions<a class="headerlink" href="#support-of-advanced-ultrasonic-acquisitions" title="Permanent link">&para;</a></h2>
-<p>Advanced ultrasonic acquisitions such as FMC, HMC, PWI and Sparse Array will be officially supported through a dedicated <strong>ultrasonicMatrixCapture</strong> process object in the JSON Setup dataset. The acquired elementary AScans will be stacked and stored in a dedicated dataset. </p>
+<p>Advanced ultrasonic acquisitions such as FMC, HMC, PWI and Sparse Array will be officially supported through a dedicated <strong>ultrasonicMatrixCapture</strong> process object in the JSON Setup dataset. The acquired elementary AScans will be stacked and stored in a <strong>AScanAmplitude</strong> dataset. </p>
 <h2 id="enriched-documentation">Enriched documentation<a class="headerlink" href="#enriched-documentation" title="Permanent link">&para;</a></h2>
 <p>The overall documentation will be enriched with more detailed explanations, additionnal examples and code snippets, new and standardized illustrations and step-by-step guides for simple cases. </p>
 <h2 id="coming-soon">Coming soon<a class="headerlink" href="#coming-soon" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Support of additionnal metadata</li>
 <li>Support of C-Scans data</li>
 <li>Support of Eddy-current modality</li>
 <li>... and many more !</li>

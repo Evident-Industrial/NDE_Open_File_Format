@@ -12,7 +12,7 @@
         <link rel="prev" href="../../whats-new-4.0/">
       
       
-        <link rel="next" href="../upgrade-hdf-structure/">
+        <link rel="next" href="../upgrade-metadata/">
       
       
       <link rel="icon" href="../../assets/images/favicon-NDE.png">
@@ -379,6 +379,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../upgrade-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadata structure upgrade guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../upgrade-hdf-structure/" class="md-nav__link">
         
   
@@ -534,13 +555,15 @@
 
   <h1>Overview</h1>
 
-<p>With the introduction of .NDE 4.0, modifications were made <a href="../../whats-new-4.0/#modifications-to-the-hdf-structure">to the HDF structure</a>  and <a href="../../whats-new-4.0/#modifications-to-the-json-setup-metadata-file">to the JSON Setup dataset</a>.  </p>
+<p>With the introduction of .NDE 4.0, modifications were made <a href="../../whats-new-4.0/#modifications-to-the-hdf-structure">to the HDF structure</a>  and <a href="../../whats-new-4.0/#modifications-to-the-json-setup-dataset">to the JSON Setup dataset</a>.  </p>
 <p>You may want to upgrade your application such as it is still compatible with new .NDE files. </p>
 <h2 id="upgrading-your-application-to-readwrite-nde-files-from-version-33-to-version-40">Upgrading your application to read/write .NDE files from version 3.3 to version 4.0<a class="headerlink" href="#upgrading-your-application-to-readwrite-nde-files-from-version-33-to-version-40" title="Permanent link">&para;</a></h2>
 <p>We recommend the following procedure to upgrade your application reading and/or writing .NDE version 3.3 files to be able to read and/or write .NDE version 4.0 files:</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Update the routine in charge of reading/writing the HDF datasets currently located under <strong>/Domain/DataGroups</strong>  to the new <strong>/Domain/Groups</strong> path following the <a href="../upgrade-hdf-structure/">upgrade guide</a>.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Update the routine in charge of reading/writing the JSON Setup dataset located under <strong>/Domain/Setup</strong> following the <a href="../upgrade-json-setup/">upgrade guide</a>. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Update the routine in charge of reading/writing the HDF root attributes for the new metadata JSON Properties dataset located under the new <strong>/Properties</strong> path following the <a href="../upgrade-metadata/">upgrade guide</a>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Update the routine in charge of reading/writing the HDF datasets currently located under <strong>/Domain/DataGroups</strong>  to the new <strong>/Public/Groups</strong> path following the <a href="../upgrade-hdf-structure/">upgrade guide</a>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Update the routine in charge of reading/writing the JSON Setup dataset currently located under <strong>/Domain/Setup</strong>  to the new <strong>/Public/Setup</strong> path following the <a href="../upgrade-json-setup/">upgrade guide</a>. </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Update any routine in charge of reading/writing data located under <strong>/Applications</strong>  to the new <strong>/Private</strong> path. </li>
 </ul>
 
 

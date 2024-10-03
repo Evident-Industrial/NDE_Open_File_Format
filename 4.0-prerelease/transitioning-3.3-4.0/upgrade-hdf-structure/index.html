@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../overview/">
+        <link rel="prev" href="../upgrade-metadata/">
       
       
         <link rel="next" href="../upgrade-json-setup/">
@@ -331,6 +331,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../upgrade-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metadata structure upgrade guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -570,8 +591,8 @@
 
   <h1>HDF structure upgrade guide</h1>
 
-<h3 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h3>
-<p>Note the correlation between terms used in version 3.3 and in new terms used in version 4.0. </p>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h2>
+<p>Note the correspondance between terms used in version 3.3 and in new terms used in version 4.0. </p>
 <table>
 <thead>
 <tr>
@@ -594,8 +615,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="convert-datasettypes-to-dataclasses">Convert <strong>DatasetTypes</strong> to <strong>DataClasses</strong><a class="headerlink" href="#convert-datasettypes-to-dataclasses" title="Permanent link">&para;</a></h3>
-<p>The following correlations need to be made between previous DatasetTypes and new DataClasses:</p>
+<h2 id="convert-datasettypes-to-dataclasses">Convert <strong>DatasetTypes</strong> to <strong>DataClasses</strong><a class="headerlink" href="#convert-datasettypes-to-dataclasses" title="Permanent link">&para;</a></h2>
+<p>The following correspondance needs to be made between previous DatasetTypes and new DataClasses:</p>
 <table>
 <thead>
 <tr>
@@ -683,18 +704,13 @@
 <td>FiringSource</td>
 </tr>
 <tr>
-<td>Value (for Amplitude TFM)</td>
-<td>TFMAmplitude</td>
-</tr>
-<tr>
-<td>Value (for PCI)</td>
-<td>TFMPhase</td>
+<td>Value (for TFM Images)</td>
+<td>TfmValue</td>
 </tr>
 </tbody>
 </table>
-<p>Note that for TFM datasets, you will need to determine through the JSON Setup dataset whether it was an Amplitude TFM or a PCI so as to specify the correct DataClass.</p>
-<h3 id="update-datasets-paths">Update datasets paths<a class="headerlink" href="#update-datasets-paths" title="Permanent link">&para;</a></h3>
-<p>It results in the following correlation table for each dataset path. Note that TFM datasets were previously stored under a dedicated sub-path which is now removed for standardization. </p>
+<h2 id="update-datasets-paths">Update datasets paths<a class="headerlink" href="#update-datasets-paths" title="Permanent link">&para;</a></h2>
+<p>It results in the following correspondance table for each dataset path. Note that TFM datasets were previously stored under a dedicated sub-path which is now removed for standardization. </p>
 <table>
 <thead>
 <tr>
@@ -782,7 +798,7 @@
 </tr>
 </tbody>
 </table>
-<p>The following <strong>examples</strong> are provided for each DatasetType/DataClass for better understanding: </p>
+<p>The following <strong>examples</strong> are provided for each supported DatasetType/DataClass for better understanding: </p>
 <table>
 <thead>
 <tr>
@@ -871,7 +887,7 @@
 </tr>
 <tr>
 <td>/DataGroups/1/Datasets/0/TFM/Value</td>
-<td>/Groups/1/Datasets/0-TFMAmplitude</td>
+<td>/Groups/1/Datasets/0-TfmValue</td>
 </tr>
 <tr>
 <td>/DataGroups/1/Datasets/0/TFM/Status</td>

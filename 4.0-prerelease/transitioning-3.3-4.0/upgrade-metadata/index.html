@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../examples/">
+        <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../faq/">
+        <link rel="next" href="../upgrade-hdf-structure/">
       
       
-      <link rel="icon" href="../assets/images/favicon-NDE.png">
+      <link rel="icon" href="../../assets/images/favicon-NDE.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
-        <title>History - NDE Open File Format</title>
+        <title>Metadata structure upgrade guide - NDE Open File Format</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,16 +46,16 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -64,7 +64,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#06102024-initial-publication-of-nde-40-pre-release-page" class="md-skip">
+        <a href="#convert-hdf5-root-attributes-to-the-new-json-properties-structure" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +101,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="NDE Open File Format" class="md-header__button md-logo" aria-label="NDE Open File Format" data-md-component="logo">
+    <a href="../.." title="NDE Open File Format" class="md-header__button md-logo" aria-label="NDE Open File Format" data-md-component="logo">
       
-  <img src="../assets/images/evident-logo.png" alt="logo">
+  <img src="../../assets/images/evident-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              History
+              Metadata structure upgrade guide
             
           </span>
         </div>
@@ -207,9 +207,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="NDE Open File Format" class="md-nav__button md-logo" aria-label="NDE Open File Format" data-md-component="logo">
+    <a href="../.." title="NDE Open File Format" class="md-nav__button md-logo" aria-label="NDE Open File Format" data-md-component="logo">
       
-  <img src="../assets/images/evident-logo.png" alt="logo">
+  <img src="../../assets/images/evident-logo.png" alt="logo">
 
     </a>
     NDE Open File Format
@@ -236,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -256,7 +256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../whats-new-4.0/" class="md-nav__link">
+      <a href="../../whats-new-4.0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -273,17 +273,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -297,7 +299,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Transitioning from 3.3 to 4.0
@@ -311,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transitioning-3.3-4.0/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -329,10 +331,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../transitioning-3.3-4.0/upgrade-metadata/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Metadata structure upgrade guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -341,6 +361,33 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convert-hdf5-root-attributes-to-the-new-json-properties-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert HDF5 root attributes to the new JSON Properties structure
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -353,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transitioning-3.3-4.0/upgrade-hdf-structure/" class="md-nav__link">
+      <a href="../upgrade-hdf-structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -374,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transitioning-3.3-4.0/upgrade-json-setup/" class="md-nav__link">
+      <a href="../upgrade-json-setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -402,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,28 +466,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    History
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../history/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -449,51 +478,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#06102024-initial-publication-of-nde-40-pre-release-page" class="md-nav__link">
-    <span class="md-ellipsis">
-      06/10/2024 Initial publication of .NDE 4.0 pre-release page.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#06112024-update-of-the-info-message-on-overview-page" class="md-nav__link">
-    <span class="md-ellipsis">
-      06/11/2024 Update of the Info message on Overview page.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10022024-updates-previous-to-nde-40-release" class="md-nav__link">
-    <span class="md-ellipsis">
-      10/02/2024 Updates previous to .NDE 4.0 release.
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -505,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -543,27 +527,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#06102024-initial-publication-of-nde-40-pre-release-page" class="md-nav__link">
+  <a href="#convert-hdf5-root-attributes-to-the-new-json-properties-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      06/10/2024 Initial publication of .NDE 4.0 pre-release page.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#06112024-update-of-the-info-message-on-overview-page" class="md-nav__link">
-    <span class="md-ellipsis">
-      06/11/2024 Update of the Info message on Overview page.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10022024-updates-previous-to-nde-40-release" class="md-nav__link">
-    <span class="md-ellipsis">
-      10/02/2024 Updates previous to .NDE 4.0 release.
+      Convert HDF5 root attributes to the new JSON Properties structure
     </span>
   </a>
   
@@ -587,18 +553,156 @@
   
 
 
-  <h1>History</h1>
+  <h1>Metadata structure upgrade guide</h1>
 
-<h3 id="06102024-initial-publication-of-nde-40-pre-release-page"><strong>06/10/2024</strong> Initial publication of .NDE 4.0 pre-release page.<a class="headerlink" href="#06102024-initial-publication-of-nde-40-pre-release-page" title="Permanent link">&para;</a></h3>
-<h3 id="06112024-update-of-the-info-message-on-overview-page"><strong>06/11/2024</strong> Update of the Info message on Overview page.<a class="headerlink" href="#06112024-update-of-the-info-message-on-overview-page" title="Permanent link">&para;</a></h3>
-<h3 id="10022024-updates-previous-to-nde-40-release"><strong>10/02/2024</strong> Updates previous to .NDE 4.0 release.<a class="headerlink" href="#10022024-updates-previous-to-nde-40-release" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Applications and Domain sections renaming (Private and Public respectively)</li>
-<li>New metadata Properties dataset</li>
-<li>Addition of the totalFocusingMethod and ultrasonicMatrixCapture processes</li>
-<li>Update of the example files </li>
-<li>Other general updates</li>
-</ul>
+<h2 id="convert-hdf5-root-attributes-to-the-new-json-properties-structure">Convert HDF5 root attributes to the new JSON Properties structure<a class="headerlink" href="#convert-hdf5-root-attributes-to-the-new-json-properties-structure" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A <strong>pre-release</strong> version of the new JSON Schema used to validate the <strong>Properties</strong> dataset can be <a href="https://nde-public-files.s3.ca-central-1.amazonaws.com/4.0/pre-release/NDE-Properties.json">downloaded here</a>.</p>
+</div>
+<p>The following correspondancy can be made between old HDF5 attributes and the new Properties JSON dataset. Note that the <strong>methods</strong> array lists was added to specify the NDT methods covered in the file (as described by <a href="https://www.asnt.org/what-is-nondestructive-testing/methods">ASNT</a>) and should be set to "UT" for all files in version 3.3. and earlier. </p>
+<table>
+<thead>
+<tr>
+<th><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111 111.63">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #005cb9;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        font-family: OpenSansRoman-ExtraBold, 'Open Sans';
+        font-size: 55.17px;
+        font-variation-settings: 'wght' 800, 'wdth' 100;
+        font-weight: 700;
+      }
+
+      .cls-3, .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <rect class="cls-1" y=".63" width="111" height="111" rx="20" ry="20"/>
+    <g>
+      <path class="cls-2" d="M41.14,65.11c0,2.44-.52,4.55-1.57,6.32-1.04,1.77-2.43,3.22-4.16,4.35-1.73,1.13-3.61,1.97-5.65,2.54v.21c4.11.52,7.28,1.77,9.53,3.75,2.24,1.98,3.36,4.8,3.36,8.44,0,2.82-.75,5.4-2.25,7.73-1.5,2.34-3.84,4.2-7.01,5.6-3.17,1.4-7.24,2.1-12.22,2.1-3.33,0-6.18-.25-8.52-.74-2.35-.49-4.63-1.17-6.83-2.04v-11.55c2.23,1.15,4.53,2,6.89,2.55s4.51.83,6.46.83c3.38,0,5.69-.48,6.92-1.44,1.23-.96,1.85-2.25,1.85-3.87,0-1.17-.29-2.17-.88-2.99-.59-.82-1.67-1.46-3.26-1.9-1.58-.45-3.86-.67-6.81-.67h-3.17v-10.46h3.24c2.63,0,4.71-.23,6.25-.7,1.54-.47,2.65-1.11,3.33-1.92.68-.81,1.02-1.74,1.02-2.8,0-1.36-.53-2.37-1.58-3.03-1.06-.66-2.45-.99-4.19-.99-1.55,0-3.01.21-4.37.63-1.36.42-2.55.89-3.56,1.41-1.01.52-1.77.94-2.29,1.27l-5.78-9.3c2.14-1.46,4.58-2.69,7.34-3.7,2.76-1.01,6.37-1.51,10.83-1.51,5.31,0,9.48,1.06,12.52,3.17,3.04,2.11,4.56,5.02,4.56,8.73Z"/>
+      <path class="cls-2" d="M48.64,99.59c0-2.49.73-4.24,2.2-5.25,1.47-1.01,3.23-1.51,5.3-1.51,1.95,0,3.64.51,5.07,1.51,1.43,1.01,2.15,2.76,2.15,5.25s-.72,4.09-2.15,5.14c-1.43,1.06-3.12,1.58-5.07,1.58-2.07,0-3.83-.53-5.3-1.58-1.47-1.06-2.2-2.77-2.2-5.14Z"/>
+      <path class="cls-2" d="M104.25,65.11c0,2.44-.52,4.55-1.57,6.32-1.04,1.77-2.43,3.22-4.16,4.35-1.73,1.13-3.61,1.97-5.65,2.54v.21c4.11.52,7.28,1.77,9.53,3.75,2.24,1.98,3.36,4.8,3.36,8.44,0,2.82-.75,5.4-2.25,7.73-1.5,2.34-3.84,4.2-7.01,5.6-3.17,1.4-7.24,2.1-12.22,2.1-3.33,0-6.18-.25-8.52-.74-2.35-.49-4.63-1.17-6.83-2.04v-11.55c2.23,1.15,4.53,2,6.89,2.55s4.51.83,6.46.83c3.38,0,5.69-.48,6.92-1.44,1.23-.96,1.85-2.25,1.85-3.87,0-1.17-.29-2.17-.88-2.99-.59-.82-1.67-1.46-3.26-1.9-1.58-.45-3.86-.67-6.81-.67h-3.17v-10.46h3.24c2.63,0,4.71-.23,6.25-.7,1.54-.47,2.65-1.11,3.33-1.92.68-.81,1.02-1.74,1.02-2.8,0-1.36-.53-2.37-1.58-3.03-1.06-.66-2.45-.99-4.19-.99-1.55,0-3.01.21-4.37.63-1.36.42-2.55.89-3.56,1.41-1.01.52-1.77.94-2.29,1.27l-5.78-9.3c2.14-1.46,4.58-2.69,7.34-3.7,2.76-1.01,6.37-1.51,10.83-1.51,5.31,0,9.48,1.06,12.52,3.17,3.04,2.11,4.56,5.02,4.56,8.73Z"/>
+    </g>
+    <text class="cls-3" transform="translate(1.46 47.28)"><tspan x="0" y="0">nde</tspan></text>
+  </g>
+</svg></span> HDF5 Attributes</th>
+<th><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111 111.63">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #005cb9;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        font-family: OpenSansRoman-ExtraBold, 'Open Sans';
+        font-size: 55.17px;
+        font-variation-settings: 'wght' 800, 'wdth' 100;
+        font-weight: 700;
+      }
+
+      .cls-3, .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <rect class="cls-1" y=".63" width="111" height="111" rx="20" ry="20"/>
+    <g>
+      <path class="cls-2" d="M44.52,95.47h-5.67v9.97h-13.74v-9.97H4.58v-10.21l21.41-31.31h12.86v31.13h5.67v10.39ZM25.11,85.08v-5.99c0-.54.01-1.22.04-2.04.02-.82.05-1.65.09-2.48.04-.83.07-1.54.11-2.11.04-.58.06-.89.09-.93h-.39c-.45,1.06-.86,1.93-1.23,2.62-.38.69-.87,1.51-1.48,2.45l-5.71,8.49h8.49Z"/>
+      <path class="cls-2" d="M48.64,99.59c0-2.49.73-4.24,2.2-5.25,1.47-1.01,3.23-1.51,5.3-1.51,1.95,0,3.64.51,5.07,1.51,1.43,1.01,2.15,2.76,2.15,5.25s-.72,4.09-2.15,5.14c-1.43,1.06-3.12,1.58-5.07,1.58-2.07,0-3.83-.53-5.3-1.58-1.47-1.06-2.2-2.77-2.2-5.14Z"/>
+      <path class="cls-2" d="M106.19,79.76c0,4.13-.33,7.83-.99,11.08s-1.71,6.02-3.15,8.29c-1.44,2.28-3.35,4.02-5.72,5.21-2.37,1.2-5.28,1.8-8.73,1.8-4.3,0-7.82-1.05-10.57-3.15-2.75-2.1-4.77-5.12-6.08-9.05-1.3-3.93-1.96-8.66-1.96-14.18s.59-10.32,1.78-14.28c1.19-3.96,3.14-6.99,5.86-9.1,2.72-2.11,6.38-3.17,10.95-3.17,4.3,0,7.81,1.05,10.55,3.15,2.74,2.1,4.76,5.13,6.08,9.09,1.31,3.96,1.97,8.73,1.97,14.32ZM82.84,79.76c0,3.36.12,6.18.37,8.45.25,2.28.72,3.99,1.41,5.12.69,1.14,1.68,1.71,2.98,1.71s2.28-.57,2.96-1.71c.68-1.14,1.15-2.84,1.41-5.11.26-2.27.39-5.09.39-8.47s-.13-6.25-.39-8.52c-.26-2.28-.73-4-1.41-5.16-.68-1.16-1.67-1.74-2.96-1.74s-2.28.58-2.98,1.74c-.69,1.16-1.16,2.88-1.41,5.16-.25,2.28-.37,5.12-.37,8.52Z"/>
+    </g>
+    <text class="cls-3" transform="translate(1.46 47.28)"><tspan x="0" y="0">nde</tspan></text>
+  </g>
+</svg></span> Properties dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Original Application Name</strong> - HDF5 Attribute at /</td>
+<td><strong>createdByAppName</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Original Application Version</strong> - HDF5 Attribute at /</td>
+<td><strong>createdByAppVersion</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Original Company Name</strong> - HDF5 Attribute at /</td>
+<td><strong>createdByAppCompany</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Date created</strong> - HDF5 Attribute at /</td>
+<td><strong>creationDate</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Original Format Version</strong> - HDF5 Attribute at /</td>
+<td><strong>creationFormatVersion</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Application Name</strong> - HDF5 Attribute at /</td>
+<td><strong>modifiedByAppName</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Application Version</strong> - HDF5 Attribute at /</td>
+<td><strong>modifiedByAppVersion</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Company Name</strong> - HDF5 Attribute at /</td>
+<td><strong>modifiedByAppCompany</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Date modified</strong> - HDF5 Attribute at /</td>
+<td><strong>modificationDate</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Format Version</strong> - HDF5 Attribute at /</td>
+<td><strong>formatVersion</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td><strong>Notice</strong> - HDF5 Attribute at /</td>
+<td><strong>notice</strong> - in Properties JSON under file object</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td><strong>methods</strong> - in Properties JSON, methods array</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example of a Properties dataset located at the root of the HDF5 structure. </p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="nt">&quot;file&quot;</span><span class="p">:{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">      </span><span class="nt">&quot;createdByAppName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MXU&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">&quot;createdByAppVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5.18.1.0&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;createdByAppCompany&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Evident&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;creationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-12T20:28:30+01:00&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;creationFormatVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4.0.0-Dev&quot;</span><span class="p">,</span><span class="w">    </span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&quot;modifiedByAppName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MXU&quot;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;modifiedByAppVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5.18.1.0&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;modifiedByAppCompany&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Evident&quot;</span><span class="p">,</span><span class="w">   </span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;modificationDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-12T20:32:30+01:00&quot;</span><span class="p">,</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;formatVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4.0.0-Dev&quot;</span><span class="p">,</span><span class="w">    </span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">&quot;notice&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pre-release Version&quot;</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">   </span><span class="p">},</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">   </span><span class="nt">&quot;methods&quot;</span><span class="p">:[</span><span class="s2">&quot;UT&quot;</span><span class="p">]</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</span></code></pre></div>
 
 
 
@@ -681,12 +785,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.top", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.top", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
