@@ -1,36 +1,20 @@
-# NDE-Open-File-Format
+# NDE Open File Format
 
-1. [General Info](#general-info)
-2. [Technologies](#technologies)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+Welcome to the official .NDE Open File Format repository containing its documentation and resources such as JSON Schemas. This page will guide you in quickly finding the right resources for your needs.
 
-## General Info
-The .nde open file is a unified and open file format for nondestructive testing (NDT).
+<figure markdown="span">
+  ![NDE Concept](site/docs/assets/images/home/nde_concept.png){ width="500" }
+</figure>
 
-The file format supports the industry’s NDE 4.0 initiatives by increasing data accessibility, flexibility, and customization potential. The aim of this file format is to facilitate sharing NDT data between multiple stakeholders. Data is stored using the HDF5 file format combined with a JSON text format to describe the associated metadata.
+The **NDE Open File Format** refers to any data file stored using the [HDF5 container library](https://www.hdfgroup.org/) and [JSON](https://www.json.org/) text format following the HDF5 Structure and JSON Metadata requirements detailed in [the documentation](https://ndeformat.com/). Such a file should be saved using the **.nde** extension. 
 
-Please refer to this documentation to learn more about the file format: https://evident-industrial.github.io/NDE_Open_File_Format/
+The NDE Open File Format is designed for storing nondestructive testing (NDT) data. It is platform-independent and modality-agnostic, offering a relatively simple file structure for mainstream NDT applications while supporting future complex solutions and technologies. It currently supports the Ultrasonic (UT) modality and will soon support the Eddy Current (ET) modality.
 
+## Documentation 
 
-## Technologies 
-The **NDE open file** format is base on HDF5. To learn more about HDF5, visit: https://www.hdfgroup.org/solutions/hdf5/. 
-
-To help you navigate NDE files, you can download the HDFView tool: https://www.hdfgroup.org/downloads/hdfview/ or use the online HDF5 tool: https://myhdf5.hdfgroup.org/
-
-The **examples** folder of this repository https://github.com/Evident-Industrial/NDE_Open_File_Format/tree/main/examples are based on C++17 and Python examples of how to use HDF5. 
-
-The C++ examples can be run with [CMake](https://cmake.org/) version >= 3.12. See the Code Samples section for more info: https://evident-industrial.github.io/NDE_Open_File_Format/docs/code-samples/code-samples.html
+The official documentation of the .NDE Open File Format is available at [ndeformat.com](https://ndeformat.com/) and is generated from the files located in the "site" directory of this repository. 
 
 ## Collaboration
+
 If you have any questions, contact Evident at nde_support@evidentscientific.com
-
-## FAQs
-1. **What does NDE stand for?**
-
-Non destructive evaluation 
-
-2. **What technology does the NDE open file format use ?** 
-
-HDF5 : https://www.hdfgroup.org/solutions/hdf5/
 

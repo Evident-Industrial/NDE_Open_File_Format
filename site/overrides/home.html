@@ -1,0 +1,117 @@
+{% extends "main.html" %}
+
+
+{% block container %}
+
+<head>
+    <link rel="stylesheet" href="dist/css/style.css">
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+
+<body class="is-boxed has-animations" style="height: 100%;">
+    <div class="body-wrap md-content">
+        
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+	                        <h1 class="hero-title mt-0">An Open File Format for the NDE Community</h1>
+	                        <p class="hero-paragraph textwhite">Leverage your inspection data and develop your own applications. <b>Version 4.0 just got released</b> 🚀  </p>
+	                        <div class="hero-cta"><a class="button button-primary" href="./getting-started/">Getting started</a><a class="button" href="./examples/">examples</a></div>
+						</div>
+                        <div class="hero-copy">
+                            <img src="dist/images/nde_logo_white.png" alt="NDE Logo">
+						</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features section">
+                <div class="container">
+					<div class="features-inner section-inner has-bottom-divider">
+                        <div class="features-wrap">
+                            <div class="feature text-center is-revealing" style="visibility: visible;">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img src="dist/images/lock_open_75dp_FFFFFF.svg" alt="Feature 01">
+                                    </div>
+                                    <h4 class="feature-title mt-24">No proprietary software</h4>
+                                    <p class="text-sm mb-0 textwhite">Access your data with standard and open source tools. No SDK or API required. </p>
+                                </div>
+                            </div>
+							<div class="feature text-center is-revealing" style="visibility: visible;">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img src="dist/images/money_off_75dp_FFFFFF.svg" alt="Feature 02">
+                                    </div>
+                                    <h4 class="feature-title mt-24">Free of charge</h4>
+                                    <p class="text-sm mb-0 textwhite">You can't be charged for an open-source based format. Ready for compliance with EU Data Act.</p>
+                                </div>
+                            </div>
+                            <div class="feature text-center is-revealing" style="visibility: visible;">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img src="dist/images/fact_check_75dp_FFFFFF.svg" alt="Feature 03">
+                                    </div>
+                                    <h4 class="feature-title mt-24">Standardized</h4>
+                                    <p class="text-sm mb-0 textwhite">.NDE File Specifications are openly documented and ressources available on this page and GitHub repository.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pricing section">
+                <div class="container-sm">
+                    <div class="pricing-inner section-inner">
+                        <div class="pricing-header text-center">
+                            <h2 class="section-title mt-0">Open to collaboration</h2>
+                            <p class="section-paragraph mb-0 textwhite">You would like to collaborate with us for new functionnalities, modalities and improvement?</p>
+                        </div>
+                        <br>
+						<div class="pricing-tables-wrap">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing" style="visibility: visible;">
+                                    <div class="pricing-table-main">
+                                        <ul class="pricing-table-features list-reset text-xs textwhite">
+                                            <li>
+                                                <span>Vendors</span>
+                                            </li>
+                                            <li>
+                                                <span>Service providers</span>
+                                            </li>
+                                            <li>
+                                                <span>Asset owners</span>
+                                            </li>
+											<li>
+												<span>Academics</span>
+											</li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-table-cta mb-8">
+                                        <a class="button button-primary button-shadow button-block" href="mailto:nde_support@evidentscientific.com">Contact us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+			
+        </main>
+
+        
+    </div>
+
+    <script src="dist/js/main.min.js"></script>
+
+
+</body>
+
+
+{% endblock %}

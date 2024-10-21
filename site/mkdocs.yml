@@ -2,7 +2,7 @@ site_name: NDE Open File Format
 theme: 
   name: material
   custom_dir: overrides
-  logo: assets/images/evident-logo.png
+  logo: assets/images/nde_logo_white.png
   favicon: assets/images/favicon-NDE.png
   font:
     text: Roboto
@@ -12,10 +12,17 @@ theme:
     repo: fontawesome/brands/github
   features:
     - content.code.copy
+    - content.code.annotate
     - navigation.top
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
 extra_css:
   - stylesheets/extra.css
 extra:
+  analytics:
+    provider: google
+    property: G-ZMZJZB7ZKD
   version:
     provider: mike
   social:
@@ -26,8 +33,14 @@ extra:
 repo_url: https://github.com/Evident-Industrial/NDE_Open_File_Format
 repo_name: Evident-Industrial/NDE_Open_File_Format
 markdown_extensions:
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.superfences
   - admonition
   - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: false
@@ -50,21 +63,91 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg 
+      options:
+        custom_icons:
+          - overrides/.icons 
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+plugins: 
+  - glightbox
+  - search
+validation:
+  links:
+    absolute_links: relative_to_docs
+hooks:
+  - overrides/hooks/shortcodes.py
 nav:
- - Home: index.md
- - Quickstart: quickstart.md
- - General Concepts: 
-     - File Structure: general-concepts/file-structure.md
-     - Conventions: general-concepts/conventions.md
-     - Scenarios: general-concepts/scenarios.md
-     - Objects: general-concepts/objects.md
-     - Dataset: general-concepts/dataset.md
- - Schema: schema_doc.md
- - Code Samples: code-samples.md
- - Reference Files: reference-files.md
- - CHANGELOG: changelog.md
-copyright: Copyright &copy; 2023 - 2024 Evident Industrial
+ - Home: 
+      - index.md
+      - Getting Started: 
+        - getting-started/index.md
+        - NDE and UNIS Open Platform: getting-started/nde-and-unis.md
+        - Collaboration: getting-started/collaboration.md
+ - HDF5 Structure:
+      - HDF5 Structure: hdf5-structure/index.md
+      - Properties dataset: json-metadata/properties/index.md
+      - Public group: hdf5-structure/public-group.md
+      - Setup dataset: json-metadata/setup/index.md
+      - Private group: hdf5-structure/private-group.md
+ - JSON Metadata:
+      - JSON Metadata: json-metadata/index.md
+      - Properties: 
+        - json-metadata/properties/index.md
+        - Data Model: json-metadata/properties/data-model.md
+        - JSON Schema: json-metadata/properties/schema_doc.md
+      - Setup:
+        - json-metadata/setup/index.md
+        - Conventions:  json-metadata/setup/conventions.md
+        - Data Model: 
+          - json-metadata/setup/data-model/index.md
+          - Scenarios: json-metadata/setup/scenarios.md
+          - Probes: json-metadata/setup/data-model/probes.md
+          - Wedges: json-metadata/setup/data-model/wedges.md
+          - Specimens: json-metadata/setup/data-model/specimens.md
+          - Data Mappings: json-metadata/setup/data-model/data-mappings.md
+          - Motion Devices: json-metadata/setup/data-model/motion-devices.md
+          - Acquisition Units: json-metadata/setup/data-model/acquisition-units.md
+          - Groups: 
+            - json-metadata/setup/data-model/groups/index.md
+            - Datasets: json-metadata/setup/data-model/groups/datasets.md
+            - Processes: 
+                - Introduction: json-metadata/setup/data-model/groups/processes.md
+                - ultrasonicConventional: json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md
+                - ultrasonicPhasedArray: json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md
+                - ultrasonicMatrixCapture: json-metadata/setup/data-model/groups/processes/ultrasonicMatrixCapture.md
+                - totalFocusingMethod: json-metadata/setup/data-model/groups/processes/totalFocusingMethod.md
+                - tfmBoxGates: json-metadata/setup/data-model/groups/processes/tfmBoxGates.md
+                - thickness: json-metadata/setup/data-model/groups/processes/thickness.md
+                - gain: json-metadata/setup/data-model/groups/processes/gain.md                     
+        - JSON Schema: json-metadata/setup/schema_doc.md
+ - Examples: 
+      - examples/index.md
+      - Example Files: 
+        - examples/example-files/index.md
+      - Code Samples: 
+        - examples/code-samples/index.md
+        - Reading UT A-Scans: examples/code-samples/reading-ut-ascans.md
+        - Reading TFM Images: examples/code-samples/reading-tfm-images.md
+        - Writing UT A-Scans: examples/code-samples/writing-ut-ascans.md
+ - Versioning: 
+      - versioning/index.md
+      - Version 4.0:
+         - What's new in 4.0: versioning/version-4.0/whats-new-4.0.md
+         - Upgrade from 3.3 to 4.0: 
+            - Overview: versioning/version-4.0/transitioning-3.3-4.0/overview.md
+            - Metadata structure upgrade guide: versioning/version-4.0/transitioning-3.3-4.0/upgrade-metadata.md
+            - HDF structure upgrade guide: versioning/version-4.0/transitioning-3.3-4.0/upgrade-hdf-structure.md
+            - JSON Setup upgrade guide: versioning/version-4.0/transitioning-3.3-4.0/upgrade-json-setup.md
+         - Examples: versioning/version-4.0/examples.md
+ - Supporting Software:
+      - supporting-software/index.md
+      - Evident: 
+          - supporting-software/evident/omniscan-mxu.md
+ - FAQ:
+      - faq/index.md
+copyright: Copyright &copy; 2023 - 2024 Evident Corporation

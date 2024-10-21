@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.3 129">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-family: OpenSansRoman-Bold, 'Open Sans';
+        font-size: 94.61px;
+        font-variation-settings: 'wght' 700, 'wdth' 100;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque_1">
+    <path class="cls-1" d="M128.3,1v127H1.3V1h127M129.3,0H.3v129h129V0h0Z"/>
+    <text class="cls-2" transform="translate(0 89.49)"><tspan x="0" y="0">UT</tspan></text>
+    <rect x="8.3" y="107" width="113" height="6"/>
+  </g>
+</svg>
