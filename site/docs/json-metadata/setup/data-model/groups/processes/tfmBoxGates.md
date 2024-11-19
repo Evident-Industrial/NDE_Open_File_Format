@@ -2,16 +2,16 @@
 
 The **tfmBoxGates** array serves as a box-type gate process description for a TFM image
 
-| Property        | Type    | Unit | Description                                                       |
-| :-------------- | :------ | :--: | :---------------------------------------------------------------- |
-| **id***         | integer |  -   | Unique id for the TfmBoxGates item within the TfmBoxGates process |
-| **threshold**   | number  |  %   | Threshold level on the TFM image dynamic range                    |
-| **yImagingMin** | number  |  m   | The start position of the box gate against the y axis             |
-| **yImagingMax** | number  |  m   | The end position of the box gate against the y axis               |
-| **zImagingMin** | number  |  m   | The start position of the box gate against the z axis             |
-| **zImagingMax** | number  |  m   | The end position of the box gate against the z axis               |
+| Property          | Type    | Unit | Description                                                       |
+| :---------------- | :------ | :--: | :---------------------------------------------------------------- |
+| **id** `required` | integer |  -   | Unique id for the TfmBoxGates item within the TfmBoxGates process |
+| **threshold**     | number  |  %   | Threshold level on the TFM image dynamic range                    |
+| **yImagingMin**   | number  |  m   | The start position of the box gate against the y axis             |
+| **yImagingMax**   | number  |  m   | The end position of the box gate against the y axis               |
+| **zImagingMin**   | number  |  m   | The start position of the box gate against the z axis             |
+| **zImagingMax**   | number  |  m   | The end position of the box gate against the z axis               |
 
-```json
+```json title="Example"
 "tfmBoxGates": [
     {
         "id": 1,
@@ -22,5 +22,4 @@ The **tfmBoxGates** array serves as a box-type gate process description for a TF
         "zImagingMax": 0.0237505
     }
 ]
-
 ```

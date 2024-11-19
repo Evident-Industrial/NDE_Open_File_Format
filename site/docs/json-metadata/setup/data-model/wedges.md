@@ -36,8 +36,8 @@ Hypothesis and conventions:
   - The wedge contact surface (with the specimen) is flat or curved with a single radius of curvature.
   - The probe(s) contact surface is flat.
   - The positionning of the probe first element on a given wedge, which correspond to the so-called *mounting location*, is standardized (by design of the probe/wedge assembly).
-  - The wedge coordinate system $(X_W, Y_W, Z_W)$ origin is centered at the bottom of its front face (see figure below).
-  - The wedge coordinate system orientation is defined such as to have the $(Y_w)$ axis aligned with the wedge length; the $(X_w)$ axis aligned with the wedge width and the $(Z_w)$ axis aligned with the wedge height 
+  - The wedge coordinate system $(x_w, y_w, z_w)$ origin is centered at the bottom of its front face (see figure below).
+  - The wedge coordinate system orientation is defined such as to have the $(y_w)$ axis aligned with the wedge length; the $(x_w)$ axis aligned with the wedge width and the $(z_w)$ axis aligned with the wedge height 
 
 ![angleBeamWedge.png](../../../assets/images/json-metadata/setup/data-model/wedges/angleBeamWedge.png)
 
@@ -96,9 +96,57 @@ The **positioning** object describes the wedge position with respect to the spec
 | :------------------------------- | :------ | :---------------------------------------------------------------- |
 | **specimendId** `required`       | integer | The related specimend id (plate, pipe, bar)                       |
 | **surfaceId** `required`         | integer | The related surface id (plate surface, pipe surface, bar surface) |
-| **uCoordinateOffset** `required` | number  | The offset against U axis ??                                      |
-| **vCoordinateOffset** `required` | number  | The offset against V axis or coordinate object ?                  |
+| **uCoordinateOffset** `required` | number  | The offset against $u$ axis                                       |
+| **vCoordinateOffset** `required` | number  | The offset against $v$ axis or coordinate object                  |
 | **skewAngle** `required`         | number  | The skew angle in degrees                                         |
 
 
 **Related objects**: [specimens](specimens.md#specimens-array), [surfaces](specimens.md#surfaces-array)
+
+![positioning.png](../../../assets/images/json-metadata/setup/data-model/wedges/positioning.png){width="500px"}
+
+## Examples
+
+Examples of Phased Array and Single/Dual Element wedges definitions extracted from Evident catalogue. 
+
+??? example "Phased Array Wedges Examples"
+
+    === "SA32-N55S"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-SA32-N55S.json"
+        ``` 
+    === "SA15-N30S-IH 2-3-5"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-SA15-N30S-IH 2-3-5.json"
+        ```
+    === "HydroFORM"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-HydroFORM.json"
+        ``` 
+    === "SPWZ1-N60L-IHC"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-SPWZ1-N60L-IHC.json"
+        ``` 
+    === "SA26-DN55L-FD25-SS-IHC-AOD24"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-SA26-DN55L-FD25-SS-IHC-AOD24.json"
+        ```
+    === "SA27-DN55L-FD15-IHC-AOD18"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-SA27-DN55L-FD15-IHC-AOD18.json"
+        ```
+    === "Integrated wedge"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-XAIW-0012.json"
+        ```
+
+??? example "Single and Dual Element Wedges Examples"
+
+    === "ST1-25L-IHC"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-ST1-25L-IHC.json"
+        ``` 
+    === "10CCEV35-32-A15"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-D713.json"
+        ```

@@ -2,22 +2,26 @@
 
 Let's follow this simple procedure for writing UT A-Scans to an .nde file: 
 
-- [ ] Create the JSON formatted [Properties](../../json-metadata/properties/index.md) dataset with minimal information
-- [ ] Validate this JSON against the Properties JSON Schema
-- [ ] Create the JSON formatted [Setup](../../json-metadata/setup/index.md) dataset with minimal information
-- [ ] Validate this JSON against the Setup JSON Schema
-- [ ] Generate fake A-Scans to be saved in an AScanAmplitude dataset
-- [ ] Save everything in an .NDE file
+- [x] JSON formatted [**Properties**](../../json-metadata/properties/index.md) dataset:
+    - Create the dataset according to the **Properties** [data model](../../json-metadata/properties/data-model.md)
+    - Validate the dataset structure against the [Properties JSON Schema](../../json-metadata/properties/schema_doc.md)
+- [x] JSON formatted [**Setup**](../../json-metadata/setup/index.md) dataset:
+    - Create the dataset according to the **Setup** [data model](../../json-metadata/setup/data-model/index.md)
+    - Validate this JSON against the [Setup JSON Schema](../../json-metadata/setup/schema_doc.md)
+- [x] Simulate or collect A-Scans to be saved in a **AScanAmplitude** dataset
+- [x] Save datasets according to the .NDE [HDF5 structure](../../hdf5-structure/index.md)
 
+## JSON formatted **Properties** dataset
 
-## Create the JSON formatted Properties dataset with minimal information
+### Create the dataset
 
-Following the [**Properties** dataset data model documentation](../../json-metadata/properties/data-model.md), we only need to specify the `creationDate` and `formatVersion` in the **file** object and the related method in the **methods** array. 
+Following the [**Properties**](../../json-metadata/properties/index.md) dataset [data model documentation](../../json-metadata/properties/data-model.md), the only required properties are the `$schema`,  `creationDate` and `formatVersion` in the **file** object and the related method in the **methods** array. 
 
 The **Properties** dataset results in the following: 
 
 ``` json
 {
+   "$schema": "./Properties-Schema-4.0.0.json",
    "file":{
       "creationDate": "2024-10-16T20:28:30+01:00",
       "formatVersion": "4.0.0"
@@ -26,9 +30,9 @@ The **Properties** dataset results in the following:
 }
 ```
 
-## Validate Properties JSON against the Properties JSON Schema
+### Validate the dataset structure
 
-Then, check that the JSON file validate against the **Properties** schema, assuming you saved the above **Properties** JSON under `properties_ut_ascans.json`: 
+Then, check that the JSON file validate against the **Properties** [JSON Schema](../../json-metadata/properties/schema_doc.md), assuming you saved the above [**Properties**](../../json-metadata/properties/index.md) JSON under `properties_ut_ascans.json`: 
 
 ``` python
 import fastjsonschema
@@ -47,9 +51,11 @@ except fastjsonschema.JsonSchemaException as e:
 
 The above validation should not return any error code. 
 
-## Create the JSON formatted Setup dataset with minimal information
+## JSON formatted **Setup** dataset
 
-Following the [**Setup** dataset data model documentation](../../json-metadata/setup/data-model/index.md), there are a couple of object we need to populate to end up with a valid dataset: 
+### Create the dataset
+
+Following the [**Setup**](../../json-metadata/setup/index.md) dataset [data model documentation](../../json-metadata/setup/data-model/index.md), there are a couple of object we need to populate to end up with a valid dataset: 
 
 ``` json
 {
@@ -65,206 +71,35 @@ Following the [**Setup** dataset data model documentation](../../json-metadata/s
 }
 ```
 
-The first three are straightforward and reference the schema version used to validate the JSON, the version of the file format and the scenario used. As we are not scanning a weld, let's adopt the *General Mapping* scenario conventions: 
+The first three properties are straightforward and reference the schema version used to validate the JSON, the version of the file format and the scenario used. As we are not scanning a weld, let's adopt the *General Mapping* scenario conventions: 
 
 ``` json
 {
-  "$schema": "./NDE-FileFormat-Schema-4.0.0.json",
+  "$schema": "./Setup-Schema-4.0.0.json",
   "version": "4.0.0",
   "scenario": "General Mapping",
 }
 ```
 
-The following objects cover: 
+The remaining objects and arrays cover: 
 
-- The definition of groups, its datasets and processes: in our case a single group, a `AScanAmplitude` dataset and a ultrasonicConventional acquisition process
-- The definition of the acquisition unit: in our case, the OmniScan X4 64x128
-- The definition of a specimen: in our case, we will consider a 25 mm thick mild steel plate 
-- The definition of the probe: in our case, we will use a C109 fingertip contact probe 
-- The definition of the wedge: as we will be in contact, we will define a wedge with most of its dimensions equal to 0
+- The definition of groups, its datasets and processes: in our case a single group, a `AScanAmplitude` dataset and an [ultrasonicConventional](../../json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md) acquisition process
+- The definition of the [acquisition unit](../../json-metadata/setup/data-model/acquisition-units.md): in the example below, the OmniScan X4 64x128
+- The definition of a [specimen](../../json-metadata/setup/data-model/specimens.md): in the example below,  a 25 mm thick mild steel plate 
+- The definition of the [probe](../../json-metadata/setup/data-model/probes.md): in the example below, a C109 fingertip contact probe
+- The definition of the [wedge](../../json-metadata/setup/data-model/wedges.md): as we will be in contact, we will define a wedge with most of its dimensions equal to 0
 
 As the process of creating these JSON objects can be tedious the first time, we'll provide a template incorporating the above parameters to facilitate this demonstration.
 
 ??? example "**Setup** template"
 
     ``` json
-    {
-    "$schema": "./NDE-FileFormat-Schema-4.0.0-Dev.json",
-    "version": "4.0.0-Dev",
-    "scenario": "General Mapping",
-    "groups": [
-        {
-        "id": 0,
-        "name": "GR-1",
-        "datasets": [
-            {
-            "id": 0,
-            "dataTransformations": [
-                {
-                "processId": 0
-                }
-            ],
-            "dataClass": "AScanAmplitude",
-            "storageMode": "Paintbrush",
-            "dataValue": {
-                "min": -1,
-                "max": 1,
-                "unitMin": -100.0,
-                "unitMax": 100.0,
-                "unit": "Percent"
-            },
-            "path": "/Public/Groups/0/Datasets/0-AScanAmplitude",
-            "dimensions": [
-                {
-                "axis": "UCoordinate",
-                "offset": 0.0,
-                "quantity": 5,
-                "resolution": 0.001,
-                },
-                {
-                "axis": "VCoordinate",
-                "offset": 0.0,
-                "quantity": 1,
-                "resolution": 0.001
-                },
-                {
-                "axis": "Ultrasound",
-                "offset": 0.0,
-                "quantity": 3000,
-                "resolution": 1E-08
-                }
-            ]
-            }
-        ],
-        "processes": [
-            {
-            "inputs": [],
-            "outputs": [
-                {
-                "id": 0,
-                "datasetId": 0,
-                "dataClass": "AScanAmplitude"
-                }
-            ],
-            "id": 0,
-            "implementation": "Hardware",
-            "ultrasonicConventional": {
-                "pulseEcho": {
-                    "probeId": 0
-                },
-                "waveMode": "Longitudinal",
-                "velocity": 5890.0,
-                "wedgeDelay": 0.0,
-                "digitizingFrequency": 100000000.0,
-                "rectification": "None",
-                "beams": [
-                {
-                    "id": 0,
-                    "refractedAngle": 0.0,
-                    "ascanStart": 0.0,
-                    "ascanLength": 30E-6
-                }
-                ]
-            }
-            }
-        ]
-        }
-    ],
-    "acquisitionUnits": [
-        {
-        "id": 0,
-        "platform": "X4",
-        "name": "MXU",
-        "model": "Orion_64x128",
-        "serialNumber": "QC-0090228",
-        "acquisitionRate": 120.0
-        }
-    ],
-    "specimens": [
-        {
-        "id": 0,
-        "plateGeometry": {
-            "width": 0.3,
-            "length": 0.3,
-            "thickness": 0.025,
-            "surfaces": [
-            {
-                "id": 0,
-                "name": "Top"
-            }
-            ],
-            "material": {
-            "name": "Steel_Mild",
-            "longitudinalWave": {
-                "nominalVelocity": 5890.0,
-                "attenuationCoefficient": 0.087
-            },
-            "transversalVerticalWave": {
-                "nominalVelocity": 3240.0,
-                "attenuationCoefficient": 0.174
-            },
-            "density": 7.8
-            }
-        }
-        }
-    ],
-    "probes": [
-        {
-        "id": 0,
-        "model": "C109",
-        "serie": "CONTACT",
-        "conventionalRound": {
-            "centralFrequency": 5000000.0,
-            "diameter": 0.0127,
-            "elements": [
-            {
-                "id": 0,
-                "acquisitionUnitId": 0,
-                "connectorName": "P1"
-            }
-            ]
-        },
-        "wedgeAssociation": {
-            "wedgeId": 0,
-            "mountingLocationId": 0
-        }
-        }
-    ],
-    "wedges": [
-        {
-        "id": 0,
-        "model": "Contact",
-        "serie": "Default",
-        "angleBeamWedge": {
-            "width": 0.1,
-            "height": 0.1,
-            "length": 0.1,
-            "longitudinalVelocity": 2330.0,
-            "mountingLocations": [
-            {
-                "id": 0,
-                "wedgeAngle": 0.0,
-                "primaryOffset": -1E-05,
-                "secondaryOffset": 0.0,
-                "tertiaryOffset": 0.0
-            }
-            ]
-        },
-        "positioning": {
-            "specimenId": 0,
-            "surfaceId": 0,
-            "uCoordinateOffset": 0.0,
-            "vCoordinateOffset": 0.0,
-            "skewAngle": 90.0
-        }
-        }
-    ]
-    }
+    --8<-- "docs/examples/code-samples/setup_ut_ascans.json"
     ```
 
-## Validate Setup JSON against the Setup JSON Schema
+### Validate the dataset structure
 
-Then, check that the JSON file validate against the **Setup** schema, assuming you saved the above **Setup** JSON under `setup_ut_ascans.json`: 
+Then, check that the JSON file validate against the **Setup** [JSON Schema](../../json-metadata/setup/schema_doc.md), assuming you saved the above [**Setup**](../../json-metadata/setup/index.md) JSON under `setup_ut_ascans.json`: 
 
 ``` python
 setup = json.load(open('setup_ut_ascans.json', 'r'))
@@ -282,7 +117,7 @@ except fastjsonschema.JsonSchemaException as e:
 The above validation should not return any error code. 
 
 
-## Generate fake A-Scans to be saved in an AScanAmplitude dataset
+## Simulate or collect A-Scans
 
 We will generate 5 fake A-Scans corresponding to 5 theoretical scanner positions. Each A-Scan will have a 5 MHz center frequency, a 60 % bandwidth and 3000 samples. Fake A-Scans will be stored in a 5 x 1 x 3000 numpy array named `ascans` that we will use as our `AScanAmplitude` type dataset. 
 
@@ -327,7 +162,7 @@ As the generation of fake A-Scans is out of the scope of this documentation, we 
     ```
 
 
-## Save everything in a .NDE file 
+## Save datasets according to the .NDE HDF5 structure
 
 We now need to create the .NDE file using the HDF5 library following the [HDF5 Structure](../../hdf5-structure/index.md) specific to any .NDE file. The **Properties** JSON will be saved at the root of this structure, the **Setup** JSON will be saved under the `/Public/` path and the A-Scans will be saved in Group 0 under `/Public/Groups/0/Datasets`. 
 

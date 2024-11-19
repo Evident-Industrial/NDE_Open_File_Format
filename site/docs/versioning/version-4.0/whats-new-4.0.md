@@ -90,10 +90,7 @@ The overall HDF structure spirit remains unchanged with a container for nonstand
 <!---  ![new_group_structure](./assets/images/4.0/new_group_structure.png){ width="600" } --->
 
 
-## Modifications to the JSON Setup dataset
-
-!!! info
-    A **pre-release** version of the new JSON Schema used to validate the **Setup** dataset can be [downloaded here](https://nde-public-files.s3.ca-central-1.amazonaws.com/4.0/pre-release/NDE-Setup.json). 
+## Modifications to the JSON Setup dataset 
 
 ### Updated groups structure with datasets **and processes**
 
@@ -417,10 +414,6 @@ Previously, file-wide metadata were stored as HDF5 attributes at the root of the
 
 
 To allow more flexibility and scalibility in the future, those file-wide metadata are transfered to a new JSON-formatted dataset named **Properties** and located at the root of the HDF5 hierarchy. Currently, this JSON-formatted dataset contains the same information as previous attributes in a **file** object as well as a new **methods** array to specify the NDT methods covered in the file (as described by [ASNT](https://www.asnt.org/what-is-nondestructive-testing/methods)). More objects will be added to the **Properties** dataset in the near future. 
-
-
-!!! info
-    A **pre-release** version of the new JSON Schema used to validate the **Properties** dataset can be [downloaded here](https://nde-public-files.s3.ca-central-1.amazonaws.com/4.0/pre-release/NDE-Properties.json).
 
 ``` json
 {

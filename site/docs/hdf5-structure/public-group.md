@@ -2,10 +2,11 @@
 
 ``` mermaid
 flowchart LR
-  .nde[.nde]:::root --> Public["/Public*"]:::group
+  .nde[**.nde**]:::root --> Public["/Public*"]:::group
   Public["/Public*"] --> Setup["/Setup*"]:::dataset
   Public["/Public*"] --> Groups["/Groups"]:::group
-  classDef root fill:#005cb9,stroke:#000000,color:#fff
+  .nde@{ shape: text}
+  classDef root fill:#fff
   classDef group fill:#ffc72c,stroke:#000000,color:#000000
   classDef dataset fill:#fff,stroke:#000000,color:#000000
 ```

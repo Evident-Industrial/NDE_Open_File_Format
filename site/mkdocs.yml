@@ -71,7 +71,6 @@ markdown_extensions:
           - overrides/.icons 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 plugins: 
   - glightbox
@@ -105,7 +104,7 @@ nav:
         - Conventions:  json-metadata/setup/conventions.md
         - Data Model: 
           - json-metadata/setup/data-model/index.md
-          - Scenarios: json-metadata/setup/scenarios.md
+          - Scenarios: json-metadata/setup/data-model/scenarios.md
           - Probes: json-metadata/setup/data-model/probes.md
           - Wedges: json-metadata/setup/data-model/wedges.md
           - Specimens: json-metadata/setup/data-model/specimens.md
@@ -116,7 +115,7 @@ nav:
             - json-metadata/setup/data-model/groups/index.md
             - Datasets: json-metadata/setup/data-model/groups/datasets.md
             - Processes: 
-                - Introduction: json-metadata/setup/data-model/groups/processes.md
+                - json-metadata/setup/data-model/groups/processes/index.md
                 - ultrasonicConventional: json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md
                 - ultrasonicPhasedArray: json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md
                 - ultrasonicMatrixCapture: json-metadata/setup/data-model/groups/processes/ultrasonicMatrixCapture.md
@@ -134,8 +133,11 @@ nav:
         - Reading UT A-Scans: examples/code-samples/reading-ut-ascans.md
         - Reading TFM Images: examples/code-samples/reading-tfm-images.md
         - Writing UT A-Scans: examples/code-samples/writing-ut-ascans.md
+        - Writing FMC A-Scans: examples/code-samples/writing-fmc-ascans.md
  - Versioning: 
       - versioning/index.md
+      - CHANGELOG: versioning/changelog.md
+      - Documentation Updates: versioning/documentation-updates.md
       - Version 4.0:
          - What's new in 4.0: versioning/version-4.0/whats-new-4.0.md
          - Upgrade from 3.3 to 4.0: 

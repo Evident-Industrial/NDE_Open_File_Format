@@ -39,25 +39,25 @@ $(U,V,W)$
 
 For scenarios in which probe positioning is in direct relation to the surface, the position on the surface of a specimen, $(X, Y, Z)$ in global coordinates, is transformed into $(U,V)$ surface orthogonal curvilinear coordinates. Take note that depending on the scenario, the $(U,V)$ may be directly in distance unit (meter), but this is not systematic. 
 
-The use of $(U,V)$ coordinates is enforced as a way to disambiguate the notions of “scan axis” and “index axis,” which are interpreted depending on the scenario. 
-
 To the $(U,V)$ surface mapping coordinates a depth axis $W$ is added. The depth $W$ is defined as being normal to the local $(U,V)$ coordinates and follows the right-hand rule for sign definition, resulting in a $(U,V,W)$ coordinate system 
 
 - The $W$ axis is normal to the surface and always points inside the material.
 - The $U$ axis is defined relative to the specimen's feature (per scenario). Its orientation is arbitrary.
 - The $V$ axis is perpendicular to $U$ and its orientation can be inferred with the right-hand rule from the cross product of $U$ and $W$. 
 
-### Trajectory coordinate system
+### Local coordinate system
 
 $(u,v,w)$
 
-![trajectory_cs.png](../../assets/images/json-metadata/setup/conventions/trajectory_cs.png){width="300px"}
+![local_cs.png](../../assets/images/json-metadata/setup/conventions/local_cs.png){width="300px"}
 
-- The trajectory is the path mechanically followed at the surface of the specimen by the scanner.
-- The trajectory $(u,v)$ curvilinear coordinates (not necessarily in distance units) are linked to the position encoders (in distance units).
-- The trajectory parameter $u$ is often along the continuous scanning axis, while the $v$ parameter describes the orthogonal direction.
-- The trajectory parameter $w$ is along the specimen's local normal. 
-- Multiple wedges coordinate system $(x_w, y_w, z_w)$ attached to a scanner can be defined using the appropriate offsets along the trajectory.
+A local coordinate system $(u,v)$ is associated with each scanned area on the specimen surface $(U,V)$. Additionally, the use of $(u,v)$ coordinates is enforced as a way to disambiguate the notions of “scan axis” and “index axis,” which are interpreted depending on the scenario. 
+
+- The path mechanically followed at the surface of the specimen by the scanner can be referenced in the local coordinate system for simple paths such as one-line and raster scanning.
+- The local $(u,v)$ curvilinear coordinates (not necessarily in distance units) are linked to the position encoders (in distance units).
+- The parameter $u$ is often along the continuous scanning axis, while the $v$ parameter describes the orthogonal direction.
+- The parameter $w$ is along the specimen's local normal. 
+- Multiple wedges coordinate systems $(x_w, y_w, z_w)$ attached to a scanner can be defined using the appropriate offsets with respect to the local frame.
 
 ###  Wedge coordinate system
 
@@ -65,7 +65,7 @@ $(x_w, y_w, z_w)$
 
 ![trajectory_cs.png](../../assets/images/json-metadata/setup/conventions/wedge_cs.png){width="300px"}
 
-- The wedge reference frame is typically positionned directly on the surface $(U,V)$ through the trajectory $(u,v)$, and thus links the probe position to the specimen.
+- The wedge coordinate system $(x_w, y_w, z_w)$  is typically positioned directly on the surface $(U,V)$ through the local frame $(u,v)$, and thus links the probe position to the specimen.
 - *Origin and orientation*: See appropriate wedge object conventions with the appropriate technology (ex. UT/PAUT)  for details.
 
 <ins>*NOTE*</ins>: The term *wedge* is used to describe any device that maintain constant positioning of a probe relative to an inspected surface.
@@ -74,6 +74,9 @@ $(x_w, y_w, z_w)$
 
 $(x_m, y_m, z_m)$
 
+![mountingLocation_cs.png](../../assets/images/json-metadata/setup/conventions/mountingLocation_cs.png){width="300px"}
+
+A mounting location coordinate system $(x_m, y_m, z_m)$ is positioned from the wedge reference frame using three offsets (primaryOffset, secondaryOffset and tertiaryOffset) and three angles (wedgeAngle, squintAngle and roofAngle). See the [mountingLocations array](./data-model/wedges.md#mountinglocations-array) section for more information. 
 
 ###  Probe coordinate system
 
@@ -121,16 +124,3 @@ The main advantage of **Paintbrush** storage is that data is natively mapped on 
 - Material is considered linear, homogeneous, and isotropic by default.
 - Coupling layers are incapable of transmitting shear waves by default.
 - Probe with single nominal center frequency by default.
-
-
-## Examples UT/PAUT 
-
-| ![AxisReferential-PlateWeld_2Probres.png](../../assets/images/json-metadata/setup/conventions/AxisReferential-PlateWeld_2Probres.png){width="50%"} |
-|:---------------------------------------------------------------------------------------------------------------------------------:|
-| *Example of a typical plate scenario with a weld and two probes in relation to the $U$ and $V$ axis.*                  |
-
-| ![AxisReferential-PipeWeld_2Probres.png](../../assets/images/json-metadata/setup/conventions/AxisReferential-PipeWeld_2Probres.png){width="50%"} |
-|:-------------------------------------------------------------------------------------------------------------------------------:|
-| *Example general weld scenario with an axial weld on a pipe.*                                                        |
-
-

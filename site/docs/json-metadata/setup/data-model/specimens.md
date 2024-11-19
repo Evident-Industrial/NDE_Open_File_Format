@@ -14,12 +14,12 @@ The **specimens** array lists the specimens on which the inspection is carried o
 </thead>
 <tbody>
   <tr>
-    <td><b>id*</b></td>
+    <td><b>id</b>  <code>required</code></td>
     <td>integer</td>
     <td>The unique specimen id in the JSON structure</td>
   </tr>
   <tr>
-    <td>One of the following sub-object: 
+    <td>One of the following <code>required</code> sub-object: 
         <ul>
           <li><b><a href="#plategeometry-object">plateGeometry</a></b></li>
           <li><b><a href="#pipegeometry-object">pipeGeometry</a></b></li>
@@ -55,6 +55,7 @@ The **plateGeometry** object describes a generic plate geometry.
 | **material** `required`  | object |  -   | A [material](#material-object) object |
 | **surfaces** `required`  | array  |  -   | A [surfaces](#surfaces-array) array   |
 
+![plateGeometry.png](../../../assets/images/json-metadata/setup/data-model/specimens/plateGeometry.png){ width="400" }
 
 ### **pipeGeometry** object
 
@@ -69,6 +70,8 @@ The **pipeGeometry** object describes a generic pipe geometry.
 | **material** `required`  | object |  -   | A [material](#material-object) object |
 | **surfaces** `required`  | array  |  -   | A [surfaces](#surfaces-array) array   |
 
+![pipeGeometry.png](../../../assets/images/json-metadata/setup/data-model/specimens/pipeGeometry.png){ width="600" }
+
 ### **barGeometry** object
 
 The **barGeometry** object describes a generic bar geometry. 
@@ -79,6 +82,8 @@ The **barGeometry** object describes a generic bar geometry.
 | **diameter** `required` | number |  m   | The bar diameter                      |
 | **material** `required` | object |  -   | A [material](#material-object) object |
 | **surfaces** `required` | array  |  -   | A [surfaces](#surfaces-array) array   |
+
+![barGeometry.png](../../../assets/images/json-metadata/setup/data-model/specimens/barGeometry.png){ width="400" }
 
 #### **material** object
 
@@ -95,20 +100,26 @@ This object describes generic material properties.
 
 The **wave** object describes an ultrasonic wave. 
 
-| Property                       | Type   | Unit | Description                             |
-| :----------------------------- | :----- | :--- | :-------------------------------------- |
-| **nominalVelocity** `required` | number | m/s  | Speed of sound in the material          |
-| **attenuationCoefficient**     | number |      | Attenuation coefficient in the material |
+| Property                       | Type   |   Unit   | Description                             |
+| :----------------------------- | :----- | :------: | :-------------------------------------- |
+| **nominalVelocity** `required` | number |   m/s    | Speed of sound in the material          |
+| **attenuationCoefficient**     | number | dB/m/MHz | Attenuation coefficient in the material |
 
 
 #### **surfaces** array
 
 This array lists surfaces.
 
-| Property | Type | Description |
-|:---------|:-----|:------|
-| **id** `required` | integer | If of the surface ...  |
-| **name** `required` | string | Name of the surface, one of: `Top`, `Bottom` |
+| Property            | Type    | Description                                                         |
+| :------------------ | :------ | :------------------------------------------------------------------ |
+| **id** `required`   | integer | Id of the surface                                                   |
+| **name** `required` | string  | Name of the surface, one of: `Top`, `Bottom`, `Inside` or `Outside` |
+
+Note: 
+
+- plateGeometry: `Top` or `Bottom`
+- pipeGeometry: `Inside` or `Outside`
+- barGeometry: `Outside`
 
 ### **weldGeometry** object
 

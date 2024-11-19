@@ -21,8 +21,8 @@ Example:
 "acquisitionUnits": [
     {
       "id": 0,
-      "platform": "OmniScanX3",
-      "model": "Freedom_64x128",
+      "platform": "OmniScan X4",
+      "model": "OmniScan X4 64x128PR",
       "serialNumber": "12345XYZ",
       "name": "MXU",
       "acquisitionRate": 120.0

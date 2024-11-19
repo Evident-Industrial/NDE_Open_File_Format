@@ -6,8 +6,8 @@ The data model presented in this page sub-sections follows the hierarchical stru
 
 ``` json
 {
-"$schema": "...",
-"version": "...",
+"$schema": "./Setup-Schema-4.0.0.json",
+"version": "4.0.0",
 "scenario": "...",
 "groups": [],
 "acquisitionUnits": [],
@@ -25,4 +25,4 @@ Note that:
 - Most of the objects have an ‘id’ attribute
 - Arrays are expressed with a 's' (even if there's only one object)
 - Reference to an array item is made by expressing the name of the array (without the 's') + 'Id' 
-    - For example a reference to an object in the probes list would be `probeId`
+  - For example a reference to an object in the probes list would be `probeId`

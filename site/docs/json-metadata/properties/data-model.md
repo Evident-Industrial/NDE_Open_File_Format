@@ -2,6 +2,14 @@
 
 This page details the different JSON objects and arrays with their expected values, associated description and examples related to the **Properties** JSON formatted dataset. 
 
+## **$schema** property
+
+The **$schema** specifies the name of the JSON Schema used to validate the **Properties** JSON formatted dataset. 
+
+``` json 
+"$schema": "./Properties-Schema-4.0.0.json"
+```
+
 ## **file** object
 
 The **file** object describes generic file creation and modification properties. 
@@ -21,9 +29,7 @@ The **file** object describes generic file creation and modification properties.
 | **notice**                   | string | Short string describing the file characteristics (e.g. “Pre-release”)                                                        |
 | **description**              | string | A long string describing the file characteristics                                                                            |
 
-Example:
-
-``` json
+```json title="Example"
 "file": {
    "createdByAppName": "MXU",
    "createdByAppVersion": "5.17.1.1",
@@ -43,9 +49,7 @@ Example:
 
 The **methods** array lists the NDT methods used in the file. Only the `UT` method is allowed so far. 
 
-Example:
-
-``` json
+```json title="Example"
 "methods": ["UT"]
 ```
 
@@ -71,7 +75,7 @@ An operator designates anyone interacting with the file. The **operators** array
 | **companyName** | string  | Company the inspector/operator belongs to              |
 
 
-``` json
+```json title="Example"
 "operator":[
    {
    "id": "hlamb1849",
@@ -106,7 +110,7 @@ The **location** object describes the physical location where the acquisition wa
 | **state**       | string | The state where the data was collected                                                                    |
 | **country**     | string | The country where the data was collected                                                                  |
 
-``` json
+```json title="Example"
 "location":{
    "companyName": "ACME PETROLEUM",
    "companySite": "ZONE 51",
@@ -130,7 +134,7 @@ The **component** object gives references on the inspected component.
 | **model**        | string | The model of the component under investigation |
 | **serialNumber** | string | The S/N of the component under investigation   |
 
-``` json
+```json title="Example"
 "component":{
    "name": "Crazy_pipe",
    "model": "coated_pipe_300",
@@ -151,7 +155,7 @@ The **job** object gives information about the project and business context in w
 | **inspectionName** | string | The name of the inspection            |
 | **inspectionId**   | string | The Id or reference of the inspection |
 
-``` json
+```json title="Example"
 "job":{
    "projectName": "ACME PIPING",
    "projectId": "KXL_101",

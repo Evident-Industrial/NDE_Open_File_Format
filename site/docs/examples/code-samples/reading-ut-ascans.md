@@ -1,6 +1,6 @@
 # Reading A-Scans from a UT scan 
 
-Let's take the [example file](../example-files/index.md#manual-weld-scanning-using-conventional-ultrasound) provided for simple UT Manual Weld Scanning and see how we can display some A-Scans from this file. 
+Let's take the [example file](../example-files/index.md#manual-weld-scanning-using-conventional-ultrasound-ut) provided for simple UT Manual Weld Scanning and see how we can display some A-Scans from this file. 
 
 Start by loading the [Setup](../../json-metadata/setup/index.md) JSON formatted dataset from the .nde file and parse it to a Python dictionary. 
 

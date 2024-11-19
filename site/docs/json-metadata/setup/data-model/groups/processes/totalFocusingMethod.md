@@ -2,40 +2,40 @@
 
 The **totalFocusingMethod** object serves as a Total Focusing Method (TFM) process description.
 
-| Property               | Type    | Unit | Description                                                              |
-| :--------------------- | :------ | :--: | :----------------------------------------------------------------------- |
-| **id***                | integer |  -   | Unique id for the totalFocusingMethod object within the process          |
-| **name**               | string  |  -   | Cusotm name of the totalFocusingMethod object                            |
-| **signalSource**       | string  |  -   | Signal used to compute the TFM, one of `Analytic` or `Real`              |
-| **gain***              | number  |  dB  | Gain applied to the TFM image                                            |
-| **referenceAmplitude** | number  |  %   |                                                                          |
-| **referenceGain**      | number  |  dB  |                                                                          |
-| **rectangularGrid***   | object  |  -   | [rectangularGrid](#rectangulargrid-object) object                        |
-| **fmcPulserIds**       | array   |  -   | Array listing the ids of the pulsers used to compute the TFM image       |
-| **fmcReceiverIds**     | array   |  -   | Array listing the ids of the receivers used to compute the TFM image     |
-| **pathName***          | string  |  -   | Wave path name, often reffered as "mode" or "view" (e.g.: "T-T", "LL-T") |
-| **waveSet***           | object  |  -   | [waveSet](#waveset-object) object                                        |
-| **columns**            | array   |  -   | [columns](#columns-array) array                                          |
+| Property                       | Type    | Unit | Description                                                              |
+| :----------------------------- | :------ | :--: | :----------------------------------------------------------------------- |
+| **id** `required`              | integer |  -   | Unique id for the totalFocusingMethod object within the process          |
+| **name**                       | string  |  -   | Cusotm name of the totalFocusingMethod object                            |
+| **signalSource**               | string  |  -   | Signal used to compute the TFM, one of `Analytic` or `Real`              |
+| **gain** `required`            | number  |  dB  | Gain applied to the TFM image                                            |
+| **referenceAmplitude**         | number  |  %   |                                                                          |
+| **referenceGain**              | number  |  dB  |                                                                          |
+| **rectangularGrid** `required` | object  |  -   | [rectangularGrid](#rectangulargrid-object) object                        |
+| **fmcPulserIds**               | array   |  -   | Array listing the ids of the pulsers used to compute the TFM image       |
+| **fmcReceiverIds**             | array   |  -   | Array listing the ids of the receivers used to compute the TFM image     |
+| **pathName** `required`        | string  |  -   | Wave path name, often reffered as "mode" or "view" (e.g.: "T-T", "LL-T") |
+| **waveSet** `required`         | object  |  -   | [waveSet](#waveset-object) object                                        |
+| **columns**                    | array   |  -   | [columns](#columns-array) array                                          |
 
 
 ## **rectangularGrid** object 
 
 The **rectangularGrid** object describes the dimensions of the Region of Interest (ROI) used to compute the TFM.
 
-| Property            | Type   | Description                   |
-| :------------------ | :----- | :---------------------------- |
-| **yImagingLimits*** | object | [range](#range-object) object |
-| **zImagingLimits*** | object | [range](#range-object) object |
+| Property                      | Type   | Description                   |
+| :---------------------------- | :----- | :---------------------------- |
+| **yImagingLimits** `required` | object | [range](#range-object) object |
+| **zImagingLimits** `required` | object | [range](#range-object) object |
 
 ### **range** object 
 
-| Property        | Type   | Unit | Description                   |
-| :-------------- | :----- | :--: | ----------------------------- |
-| **min***        | number |  m   | Starting position of the grid |
-| **max***        | number |  m   | Ending position of the grid   |
-| **resolution*** | number |  m   | Resolution of the grid        |
+| Property                  | Type   | Unit | Description                   |
+| :------------------------ | :----- | :--: | ----------------------------- |
+| **min** `required`        | number |  m   | Starting position of the grid |
+| **max** `required`        | number |  m   | Ending position of the grid   |
+| **resolution** `required` | number |  m   | Resolution of the grid        |
 
-```json
+```json title="Example"
 "rectangularGrid": {
     "yImagingLimits": {
         "min": 0.001,
@@ -54,12 +54,12 @@ The **rectangularGrid** object describes the dimensions of the Region of Interes
 
 The **waveSet** object describes the pathName in more details, listing the 
 
-| Property        | Type  | Description                                                                                                       |
-| :-------------- | :---- | :---------------------------------------------------------------------------------------------------------------- |
-| **pulsings***   | array | Array containing the list of modes (or views) for the forward path, one of `Longitudinal`, `TransversalVertical`  |
-| **receivings*** | array | Array containing the list of modes (or views) for the backward path, one of `Longitudinal`, `TransversalVertical` |
+| Property                  | Type  | Description                                                                                                       |
+| :------------------------ | :---- | :---------------------------------------------------------------------------------------------------------------- |
+| **pulsings** `required`   | array | Array containing the list of modes (or views) for the forward path, one of `Longitudinal`, `TransversalVertical`  |
+| **receivings** `required` | array | Array containing the list of modes (or views) for the backward path, one of `Longitudinal`, `TransversalVertical` |
 
-```json 
+```json title="Example"
 "waveSet": {
     "pulsings": [
         "TransversalVertical",
@@ -75,30 +75,30 @@ The **waveSet** object describes the pathName in more details, listing the
 
 The **columns** array helps describing the Time-Corrected Gain (TCG) parameters used for each column of the TFM image 
 
-| Property     | Type    | Description                                                |
-| :----------- | :------ | :--------------------------------------------------------- |
-| **id***      | integer | Unique column id of the TFM image                          |
-| **gainMap*** | object  | An object containing TCG [**points**](#points-array) array |
+| Property               | Type    | Description                                                |
+| :--------------------- | :------ | :--------------------------------------------------------- |
+| **id** `required`      | integer | Unique column id of the TFM image                          |
+| **gainMap** `required` | object  | An object containing TCG [**points**](#points-array) array |
 
 ### **gainMap** object
 
 The **gainMap** contain the information related to the gain applied to each the TFM image for TCG
 
-| Property    | Type  | Description                           |
-| :---------- | :---- | :------------------------------------ |
-| **points*** | array | TCG [**points**](#points-array) array |
+| Property              | Type  | Description                           |
+| :-------------------- | :---- | :------------------------------------ |
+| **points** `required` | array | TCG [**points**](#points-array) array |
 
 #### **points** array
 
 The **points** array lists the Time-Corrected Gain (TCG) points, with the corresponding gain to apply for a given position in the column of the TFM image. 
 
-| Property      | Type   | Unit | Description                                   |
-| :------------ | :----- | :--: | :-------------------------------------------- |
-| **position*** | number |  m   | Vertical position of the point in the TFM ROI |
-| **gain***     | number |  dB  | Gain in decibel                               |
+| Property                | Type   | Unit | Description                                   |
+| :---------------------- | :----- | :--: | :-------------------------------------------- |
+| **position** `required` | number |  m   | Vertical position of the point in the TFM ROI |
+| **gain** `required`     | number |  dB  | Gain in decibel                               |
 
 
-```json
+```json title="Example"
 "columns": [
     {
     "id": 0,
@@ -144,7 +144,7 @@ The **points** array lists the Time-Corrected Gain (TCG) points, with the corres
 
 ## Example
 
-```json 
+```json
 "totalFocusingMethod": {
     "id": 0,
     "name": "TT-L View",

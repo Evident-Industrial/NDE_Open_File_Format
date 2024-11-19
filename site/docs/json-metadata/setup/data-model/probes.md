@@ -16,7 +16,7 @@ The **probes** array describes a generic probe comprising a list of properties.
 </thead>
 <tbody>
   <tr>
-    <td><b>id*</b></td>
+    <td><b>id</b>  <code>required</code></td>
     <td>integer</td>
     <td>The unique probe id in the JSON structure</td>
   </tr>
@@ -41,11 +41,11 @@ The **probes** array describes a generic probe comprising a list of properties.
     <td>A <a href="#wedgeassociation-object">wedgeAssociation</a> object</td>
   </tr>
   <tr>
-    <td>One of the following sub-object: 
+    <td>One of the following <code>required</code> sub-object: 
         <ul>
-            <li><b><a href="#conventionalround-object">conventionalRound*</a></b></li>
-            <li><b><a href="#conventionalrectangular-object">conventionalRectangular*</a></b></li>
-            <li><b><a href="#phasedarraylinear-object">phasedArrayLinear*</a></b></li>
+            <li><b><a href="#conventionalround-object">conventionalRound</a></b></li>
+            <li><b><a href="#conventionalrectangular-object">conventionalRectangular</a></b></li>
+            <li><b><a href="#phasedarraylinear-object">phasedArrayLinear</a></b></li>
         </ul> 
     </td>
     <td>object</td>
@@ -60,17 +60,15 @@ The **probes** array describes a generic probe comprising a list of properties.
 The **conventionalRound** object describes a conventional single-element ultrasonic probe having a round shape. 
 
 
-| Property                        | Type   | Unit | Description                                    |
-| :------------------------------ | :----- | :--: | :--------------------------------------------- |
-| **centralFrequency** `required` | number |  Hz  | The central frequency of the probe             |
-| **diameter** `required`         | number |  m   | The diameter of the probe probe active element |
-| **elements** `required`         | array  |  -   | The probe [elements](#elements-array) array    |
+| Property                        | Type   | Unit | Description                                                          |
+| :------------------------------ | :----- | :--: | :------------------------------------------------------------------- |
+| **centralFrequency** `required` | number |  Hz  | The central frequency of the probe                                   |
+| **diameter** `required`         | number |  m   | The diameter of the probe probe active element                       |
+| **elements** `required`         | array  |  -   | An [elements](#elements-array) array (only one element in this case) |
 
 ![conventionalRound.png](../../../assets/images/json-metadata/setup/data-model/probes/conventionalRound.png)
 
-Example:
-
-``` json
+```json title="Example"
 "conventionalRound": {
   "centralFrequency": 5000000.0,
   "diameter": 0.00635,
@@ -88,18 +86,16 @@ Example:
 
 The **conventionalRectangular** object describes a conventional single-element ultrasonic probe having a rectangular shape. 
 
-| Property                        | Type   | Unit | Description                            |
-| :------------------------------ | :----- | :--: | :------------------------------------- |
-| **centralFrequency** `required` | number |  Hz  | The central frequency of the probe     |
-| **length** `required`           | number |  m   | The length of the probe active element |
-| **width** `required`            | number |  m   | The width of the probe active element  |
-| **elements** `required`         | array  |  -   | [elements](#elements-array)            |
+| Property                        | Type   | Unit | Description                                                          |
+| :------------------------------ | :----- | :--: | :------------------------------------------------------------------- |
+| **centralFrequency** `required` | number |  Hz  | The central frequency of the probe                                   |
+| **length** `required`           | number |  m   | The length of the probe active element                               |
+| **width** `required`            | number |  m   | The width of the probe active element                                |
+| **elements** `required`         | array  |  -   | An [elements](#elements-array) array (only one element in this case) |
 
 ![conventionalRectangular.png](../../../assets/images/json-metadata/setup/data-model/probes/conventionalRectangular.png)
 
-Example:
-
-``` json
+```json title="Example"
 "conventionalRectangular": {
   "length": 0.02,
   "width": 0.01,
@@ -121,7 +117,7 @@ The **phasedArrayLinear** object describes a phased array ultrasonic probe havin
 | Property                        | Type   | Unit | Description                                                                                          |
 | :------------------------------ | :----- | :--: | :--------------------------------------------------------------------------------------------------- |
 | **centralFrequency** `required` | number |  Hz  | The central frequency of all elements of the probe                                                   |
-| **elements**                    | array  |  -   | The probe [elements](#elements-array) array                                                          |
+| **elements**                    | array  |  -   | An [elements](#elements-array) array                                                          |
 | **primaryAxis** `required`      | object |  -   | A [probeAxis](#probeaxis-object) object describing the primary axis of the phased array linear probe |
 | **secondaryAxis** `required`    | object |  -   | A [probeAxis](#probeaxis-object) objectdescribing the primary axis of the phased array linear probe  |
 
@@ -148,6 +144,8 @@ The **elements** array lists the elements of a probe and there properties.
 | **secondaryIndex**               | integer | Element numbering against the probe secondary axis                                        |
 | **enable**                       | boolean | Whether the element is activated or not                                                   |
 
+**Related objects**: [acquisitionUnits](../data-model/acquisition-units.md)
+
 #### **probeAxis** object
 
 Teh **probeAxis** object describes a given probe axis. 
@@ -170,9 +168,7 @@ Hypothesis:
 
 ![probeAxis.png](../../../assets/images/json-metadata/setup/data-model/probes/probeAxis.png)
 
-Example: 
-
-``` json
+```json title="Example"
 "phasedArrayLinear": {
   "centralFrequency": 5000000.0,
   "elements": [
@@ -224,9 +220,9 @@ The **wedgeAssociation** object describes the association of a probe with a wedg
 | **mountingLocationId** `required` | integer | The associated mounting location Id                      |
 | **orientation**                   | string  | Probe mounting orientation, one of `Normal` or `Reverse` |
 
-Example: 
+**Related objects**: [wedges](../data-model/wedges.md), [mountingLocations](../data-model/wedges.md#mountinglocations-array)
 
-``` json
+```json title="Example"
 "wedgeAssociation": {
   "wedgeId": 0,
   "mountingLocationId": 0,
@@ -234,59 +230,53 @@ Example:
 }
 ```
 
-## Example
+## Examples
 
-Example of a probes array item for a 5L64-A32 phased array linear probe. 
+Examples of Phased Array and Single/Dual Element probes definitions extracted from Evident catalogue. 
 
-``` json
-"probes": [
-    {
-      "id": 0,
-      "model": "5L64-A32",
-      "serie": "A32",
-      "phasedArrayLinear": {
-        "centralFrequency": 5000000.0,
-        "elements": [
-          {
-            "id": 0,
-            "pinId": 0,
-            "acquisitionUnitId": 0,
-            "connectorName": "PA",
-            "primaryIndex": 0,
-            "secondaryIndex": 0,
-            "enabled": true
-          },
-          {
-            "id": 1,
-            "pinId": 1,
-            "acquisitionUnitId": 0,
-            "connectorName": "PA",
-            "primaryIndex": 1,
-            "secondaryIndex": 0,
-            "enabled": true
-          },
-          {...}
-        ],
-        "primaryAxis": {
-          "elementGap": 0.0,
-          "elementQuantity": 64,
-          "elementLength": 0.0005,
-          "referencePoint": -0.0366,
-          "casingLength": 0.04
-        },
-        "secondaryAxis": {
-          "elementGap": 0.0,
-          "elementQuantity": 1,
-          "elementLength": 0.01,
-          "referencePoint": 0.0,
-          "casingLength": 2E-06
-        }
-      },
-      "wedgeAssociation": {
-        "wedgeId": 0,
-        "mountingLocationId": 0,
-        "orientation": "Normal"
-      }
-    }
-]
-```
+??? example "Phased Array Probes Examples"
+
+    === "5L64-A32"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-5L64-A32.json"
+        ``` 
+    === "10CCEV35-32-A15"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-10CCEV35-32-A15.json"
+        ```
+    === "7.5L64-I4"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-7.5L64-I4.json"
+        ``` 
+    === "7.5L60-PWZ1"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-7.5L60-PWZ1.json"
+        ``` 
+    === "5DL32-32X12-A26"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-5DL32-32X12-A26.json"
+        ```
+    === "4DM16X2SM-16X6-A27"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-4DM16X2SM-16X6-A27.json"
+        ```
+    === "2L8-DGS1"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-2L8-DGS1.json"
+        ```
+
+??? example "Single and Dual Element Probes Examples"
+
+    === "V103"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-V103.json"
+        ``` 
+    === "10CCEV35-32-A15"
+        ``` json
+        --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-D713.json"
+        ```
+
+
+
+
+    

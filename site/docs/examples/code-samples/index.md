@@ -49,9 +49,12 @@ Some simple reading example codes are provided below to get your hands on the st
 
     ---
 
+    ![nde_fmc_ascans.png](../../assets/images/examples/code-samples/nde_fmc_ascans.png)
+
+
     In this example, you will learn how to write an FMC to an .NDE file. 
 
-    :soon: Coming soon. 
+     [:material-cursor-default-click: Go to this example](writing-fmc-ascans.md)
     
 
 </div>

@@ -16,7 +16,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
     ---
 
-    ![OmniScan X4](../assets/images/supporting-software/OmniScan_X4.jpg)
+    ![OmniScan X4](../assets/images/supporting-software/OmniScan_X4.png)
 
     The embedded software powering the OmniScan product line.
 

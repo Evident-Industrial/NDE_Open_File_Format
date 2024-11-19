@@ -8,21 +8,19 @@ Where theory meets practice. Explore our library of example files and code snipp
 
 <div class="grid cards" markdown>
 
--   :material-file:{ .lg .middle } __Example Files__
+-   :material-file:{ .lg .middle } __[Example Files]__
 
     ---
 
     Examples of .nde files for different scenarios showing how the information is structured for typical use cases. 
 
-    [:material-cursor-default-click: Explore examples](example-files/index.md)
-
--   :material-code-block-parentheses:{ .lg .middle } __Code Samples__
+-   :material-code-block-parentheses:{ .lg .middle } __[Code Samples]__
 
     ---
 
     Code samples in Python demonstrating how you can build your own application to read an write .nde files. 
 
-    [:material-cursor-default-click: Explore examples](code-samples/index.md)
-
-
 </div>
+
+  [Example Files]: example-files/index.md
+  [Code Samples]: code-samples/index.md

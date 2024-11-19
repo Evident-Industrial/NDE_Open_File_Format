@@ -2,8 +2,9 @@
 
 ``` mermaid
 flowchart LR
-  .nde[.nde]:::root --> Private["/Private"]:::group
-  classDef root fill:#005cb9,stroke:#000000,color:#fff
+  .nde[**.nde**]:::root --> Private["/Private"]:::group
+  .nde@{ shape: text}
+  classDef root fill:#fff
   classDef group fill:#ffc72c,stroke:#000000,color:#000000
   classDef dataset fill:#fff,stroke:#000000,color:#000000
 ```

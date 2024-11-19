@@ -2,7 +2,7 @@
 icon: material/file-tree
 ---
 
-The HDF5 Library serves as the backbone of the NDE File Format. The NDE File Format uses the HDF5 library along with the data model defined in this documentation to provide a consistent, flexible and powerful format for the NDT Industry. 
+The [HDF5 Library](https://www.hdfgroup.org/) serves as the backbone of the NDE File Format. The NDE File Format uses the HDF5 library along with the data model defined in this documentation to provide a consistent, flexible and powerful format for the NDT Industry. 
 
 The .nde inherits from the **hierarchical** characteristic of the HDF5 framework, hence its data model can be represented as a **tree structure** similar to a file system structure with folders and files. Within the HDF5 framework, folders are called **groups** and files are called **datasets**.
 
@@ -14,17 +14,18 @@ Each .nde file should follow this basic structure:
 
 ``` mermaid
 flowchart LR
-  .nde[".nde"]:::root --> Private["/Private"]:::group
-  .nde[".nde"]:::root --> Public["/Public*"]:::group
-  .nde[".nde"]:::root --> Properties["/Properties*"]:::dataset
+  .nde[**.nde**]:::root --> Private["/Private"]:::group
+  .nde[**.nde**]:::root --> Public["/Public `required`"]:::group
+  .nde[**.nde**]:::root --> Properties["/Properties*"]:::dataset
   Public["/Public*"] --> Setup["/Setup*"]:::dataset
   Public["/Public*"] --> Groups["/Groups"]:::group
+  .nde@{ shape: text}
   click Public "public-group"
   click Private "private-group"
   click Properties "/json-metadata/properties"
   click Setup "/json-metadata/setup"
   click Groups "public-group#groups-group-and-subgroups"
-  classDef root fill:#005cb9,stroke:#000000,color:#fff
+  classDef root fill:#fff
   classDef group fill:#ffc72c,stroke:#000000,color:#000000
   classDef dataset fill:#fff,stroke:#000000,color:#000000
 ```

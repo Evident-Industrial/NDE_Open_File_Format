@@ -22,11 +22,8 @@ This object describes a generic encoder used to register the position of a motio
 | **mode** `required`           | string |   -    | One of the following encoder pulse mode used for recording the position: `Quadrature`,`ClockDir`,`PulseUp`,`PulseDown` |
 | **stepResolution** `required` | number | m/step | Resolution of the encoder                                                                                              |
 | **preset**                    | number |   -    | Preset value                                                                                                           |
-| **acquisitionDirection**      | string |   -    | One of the following possibility, i.e acquiring in one direction or both: `Unidirectional`, `Bidirectional`            |
 
-Example:
-
-```json
+```json title="Example"
 "motionDevices": [
     {
       "id": 0,
@@ -34,8 +31,7 @@ Example:
       "encoder": {
         "mode": "Quadrature",
         "stepResolution": 12.0,
-        "preset": 0.0,
-        "acquisitionDirection": "Bidirectional"
+        "preset": 0.0
       }
     }
 ]
