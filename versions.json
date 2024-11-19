@@ -1,20 +1,10 @@
 [
   {
-    "version": "4.0-prerelease",
-    "title": "4.0-prerelease",
-    "aliases": []
-  },
-  {
     "version": "4.0",
     "title": "4.0",
     "aliases": [
       "latest"
     ]
-  },
-  {
-    "version": "4.0-Beta",
-    "title": "4.0-Beta",
-    "aliases": []
   },
   {
     "version": "3.3",
