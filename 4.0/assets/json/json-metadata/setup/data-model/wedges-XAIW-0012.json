@@ -1,0 +1,30 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "XAIW-0012",
+    "serie": "XAIW",
+    "angleBeamWedge": {
+      "width": 0.016800000000000002,
+      "height": 0.00897,
+      "length": 0.021587000000000002,
+      "longitudinalVelocity": 2330.0,
+      "mountingLocations": [
+        {
+          "id": 0,
+          "wedgeAngle": 37.5,
+          "primaryOffset": -0.02,
+          "secondaryOffset": 0.0,
+          "tertiaryOffset": 0.0040999999999999995
+        }
+      ],
+      "pocketDepth": 0.0
+    },
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0.0,
+      "vCoordinateOffset": 0.0,
+      "skewAngle": 90.0
+    }
+  }
+]
