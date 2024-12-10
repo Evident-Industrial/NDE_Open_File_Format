@@ -22,7 +22,7 @@ The following correspondance needs to be made between previous DatasetTypes and 
 
 ## Update datasets paths
 
-It results in the following correspondance table for each dataset path. Note that TFM datasets were previously stored under a dedicated sub-path which is now removed for standardization. 
+Find the correspondance between datasets paths between versions 3.3 and 4.0. Note that TFM datasets were previously stored under a dedicated subpath, which is now removed for standardization. 
 
 | Type | :nde-3-3: Previous datasets path                                                | :nde-4-0: New datasets path                               |
 | ---- | ------------------------------------------------------------------------------- | --------------------------------------------------------- |

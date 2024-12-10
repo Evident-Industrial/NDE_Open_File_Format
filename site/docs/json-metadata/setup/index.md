@@ -11,11 +11,11 @@ flowchart LR
   classDef dataset fill:#fff,stroke:#000000,color:#000000
 ```
 
-The Setup dataset is **mandatory** and located inside the Public group of the .nde file HDF5 structure. It contains all the metadata useful to retrieve the acquisition context and to read or process the acquired datasets (probes, specimens, acquisitions units etc.) and is formatted in a JSON. 
+The Setup dataset is **mandatory** and located inside the Public group of the .nde file HDF5 structure. It contains all the metadata useful for retrieving the acquisition context and reading or processing the acquired datasets (probes, specimens, acquisitions units, etc.) and is formatted in a JSON. 
 
 The structure of the formatted JSON included in the **Setup** dataset can be validated against [a dedicated JSON schema](../setup/schema_doc.md). 
 
-The [data model](data-model/index.md) related to the Properties dataset details the different JSON objects and arrays with their expected values, associated description and examples. 
+The [data model](data-model/index.md) related to the Properties dataset details the different JSON objects and arrays with their expected values, associated description, and examples. 
 
 
 ``` mermaid

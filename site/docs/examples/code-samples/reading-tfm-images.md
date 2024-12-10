@@ -1,6 +1,6 @@
 # Reading TFM Images
 
-Let's take the [example file](../example-files/index.md#manual-weld-scanning-using-total-focusing-method-tfm) provided for Manual Weld Scanning using Total Focusing Method (TFM) and see how we can display some TFM images from this file. 
+To learn how to display a TFM image from an .nde data file, follow the steps outlined below, which are based on this  [example file](../example-files/index.md#manual-weld-scanning-using-the-total-focusing-method-tfm) of a manual weld scan using the total focusing method (TFM). 
 
 
 Start by loading the [Setup](../../json-metadata/setup/index.md) JSON formatted dataset from the .nde file and parse it to a Python dictionary. 
@@ -80,7 +80,7 @@ We see that the file contains multiple groups, and TFM groups start at Group ID 
 
 As an example, for the T-T waveset, we now know that we have 201 increments against the U axis (spaced by 1 mm) and that each TFM image has a dimension of 119 (V axis) x 80 (W axis) pixels. The vertical resolution of each image is 1.58 mm and the horizontal resolution is 1.69 mm. 
 
-Let's plot the 100th TFM Image of this scan: 
+Let's plot the 100th TFM image of this scan: 
 
 
 ``` python

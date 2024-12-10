@@ -1,6 +1,6 @@
-# Datasets related arrays and objects
+# Dataset Related Arrays and Objects
 
-A dataset is a container for data of homogeneous nature, characterized by standardized data classes, with its volume necessitating storage within the HDF5 structure. Through the process it originates, it establishes a connection between the data and physical reality (time/space). 
+A dataset is a container for data of a homogeneous nature, characterized by standardized data classes, with its volume necessitating storage within the HDF5 structure. Through the process it originates, the dataset establishes a connection between the data and physical reality (time/space). 
 
 ## **datasets** array
 
@@ -13,13 +13,13 @@ The **datasets** array describes datasets properties and how they relate to the 
 | **storageMode**           | string  | One of `Independent` or `Paintbrush`. See the [storageMode conventions](../../conventions.md#storage-mode).                   |
 | **dataTransformations**   | array   | A [dataTransformations](#datatransformations-array) array describing the various operations to perform on the dataset         |
 | **path**                  | string  | The path to the dataset in the HDF5 structure                                                                                 |
-| **dataClass**             | string  | One of `AScanAmplitude`, `AScanStatus`, `TfmValue`, `TfmStatus`, `FiringSource`, `CScanPeak`, `CScanStatus`, `CScanTime`      |
+| **dataClass**             | string  | One of the following: `AScanAmplitude`, `AScanStatus`, `TfmValue`, `TfmStatus`, `FiringSource`, `CScanPeak`, `CScanStatus`, `CScanTime`      |
 | **dataValue** `required`  | object  | A [dataValue](#datavalue-object) object                                                                                       |
-| **dimensions** `required` | array   | One of the following array configuration: [`UCoordinate`, `VCoordinate`, `Ultrasound`], [`UCoordinate`, `Beam`, `Ultrasound`] |
+| **dimensions** `required` | array   | One of the following array configurations: [`UCoordinate`, `VCoordinate`, `Ultrasound`], [`UCoordinate`, `Beam`, `Ultrasound`] |
 
 ### **dataTransformations** array
 
-The **dataTransformations** array always reference the last process of the processes chain to consider for all transformations that should be applied to the dataset. See the [typical groups structure examples](../groups/index.md#examples-of-typical-groups-structure). 
+The **dataTransformations** array always references the last process of the processes chain to consider for all transformations that should be applied to the dataset. See the [typical groups structure examples](../groups/index.md#examples-of-typical-groups-structures). 
 
 | Property                 | Type    | Description                                                                      |
 | :----------------------- | :------ | :------------------------------------------------------------------------------- |
@@ -36,9 +36,9 @@ The **dataTransformations** array always reference the last process of the proce
 
 ### **dataValue** object
 
-The **dataValue** object describes the range or possible values a dataset can take. 
+The **dataValue** object describes the range or possible values a dataset can contain. 
 
-**For `AScanAmplitude`, `TfmValue`, `CScanPeak`, `CScanStatus` and `CScanTime` data classes (dataClass)**
+**For `AScanAmplitude`, `TfmValue`, `CScanPeak`, `CScanStatus`, and `CScanTime` data classes (dataClass)**
 
 | Property               | Type    | Description                                                     |
 | :--------------------- | :------ | :-------------------------------------------------------------- |
@@ -46,7 +46,7 @@ The **dataValue** object describes the range or possible values a dataset can ta
 | **max** `required`     | number  | Maximum value possible of the dataset                           |
 | **unitMin** `required` | integer | Minimum value possible of the dataset in the corresponding unit |
 | **unitMax** `required` | integer | Maximum value possible of the dataset in the corresponding unit |
-| **unit** `required`    | string  | One of: `Percent`, `Coherence`, `Seconds`                       |
+| **unit** `required`    | string  | One of the following: `Percent`, `Coherence`, `Seconds`                       |
 
 To map a value from the range [min, max] to [unitMin, unitMax], use the following formula:
 
@@ -64,12 +64,12 @@ $$
 }
 ```
 
-**For `AScanStatus`, `TfmStatus` and `CScanStatus` data classes (dataClass)**
+**For `AScanStatus`, `TfmStatus`, and `CScanStatus` data classes (dataClass)**
 
 | Property                 | Type    | Description                     |
 | :----------------------- | :------ | :------------------------------ |
 | **hasData** `required`   | integer | Has data status value           |
-| **noSynchro** `required` | integer | No synchronisation status value |
+| **noSynchro** `required` | integer | No synchronization status value |
 | **saturated** `required` | integer | Saturated status value          |
 | **unit** `required`      | string  | One of: `Bitfield`              |
 
@@ -100,13 +100,13 @@ So hasData + saturated converts to:
 The **dimensions** array describes the different dimensions (axes) of the dataset(s).
 
 !!! info "Important"
-    **Dimensions are always given in the same order as the HDF5 dataset dimensions**
+    **Dimensions are always given in the same order as the HDF5 dataset dimensions.**
 
-**For `UCoordinate`, `VCoordinate`, `WCoordinate`, `Ultrasound` and `StackedAScan` axes (axis)**
+**For `UCoordinate`, `VCoordinate`, `WCoordinate`, `Ultrasound`, and `StackedAScan` axes (axis)**:
 
 | Property                  | Type    |  Unit  | Description                                                                               |
 | :------------------------ | :------ | :----: | :---------------------------------------------------------------------------------------- |
-| **axis** `required`       | string  |   -    | One of `UCoordinate`, `VCoordinate`, `WCoordinate`, `Ultrasound`,`StackedAScan` |
+| **axis** `required`       | string  |   -    | One of the following: `UCoordinate`, `VCoordinate`, `WCoordinate`, `Ultrasound`,`StackedAScan` |
 | **offset**                | number  | m or s | Offset to position the dataset                                                            |
 | **quantity** `required`   | integer |   -    | Size of the dataset against this axis (dimension)                                         |
 | **resolution** `required` | number  | m or s | Resolution of the dataset against this axis (dimension)                                   |
@@ -133,11 +133,11 @@ The **dimensions** array describes the different dimensions (axes) of the datase
   }
 ]
 ```
-**For `Beam` axis**
+**For the `Beam` axis**:
 
 | Property              | Type   | Description                   |
 | :-------------------- | :----- | :---------------------------- |
-| **axis** `required`   | string | One of `Beam`                 |
+| **axis** `required`   | string | `Beam`                 |
 | **beams**  `required` | array  | A [beams](#beams-array) array |
 
 #### **beams** array 
@@ -195,7 +195,7 @@ These dimensions can vary depending on the the group and scan types.
 
 Examples of typical datasets dimensions for common applications.
 
-####  Phased Array One Line Scan
+####  Phased array one line scan
 
 ![PAOneLineScanDatatset.jpg](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/PAOneLineScanDatatset.jpg)
 
@@ -243,7 +243,7 @@ Examples of typical datasets dimensions for common applications.
 ]
 ```
 
-#### Phased Array Zero Degree Raster
+#### Phased array zero degree raster
 
 ![PAOneLineScanDatatset.jpg](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/PARasterDatatset.png)
 

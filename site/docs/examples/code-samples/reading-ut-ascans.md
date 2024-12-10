@@ -1,6 +1,6 @@
 # Reading A-Scans from a UT scan 
 
-Let's take the [example file](../example-files/index.md#manual-weld-scanning-using-conventional-ultrasound-ut) provided for simple UT Manual Weld Scanning and see how we can display some A-Scans from this file. 
+To learn how to display A-scan images from an .nde data file, follow the steps outlined below, which are based on this [example file](../example-files/index.md#manual-weld-scanning-using-conventional-ultrasonic-testing-ut) provided for a simple UT manual weld scan. 
 
 Start by loading the [Setup](../../json-metadata/setup/index.md) JSON formatted dataset from the .nde file and parse it to a Python dictionary. 
 
@@ -46,7 +46,7 @@ Group ID: 0, Group Name: GR-1
   Dataset ID: 1, Data Class: AScanStatus, Data Path: /Public/Groups/0/Datasets/1-AScanStatus
 ```
 
-We see that the file contains one group, named *GR-1* and two datasets. A-Scans will be stored in a dataset having a *AScanAmplitude* Data Class and its path is `/Public/Groups/0/Datasets/0-AScanAmplitude`
+We see that the file contains one group, named *GR-1* and two datasets. A-scans will be stored in a dataset attributed a *AScanAmplitude* Data Class and its path is `/Public/Groups/0/Datasets/0-AScanAmplitude`
 
 Let's now display the size of this specific dataset, still from the Setup dataset metadata.
 
@@ -71,9 +71,9 @@ AScanAmplitude Dataset Dimensions:
  Axis: Ultrasound, Quantity: 568, Resolution: 6.000000000000001e-08
 ```
 
-So we now know that we have 401 A-Scans registered at different position along the U axis and that each A-Scan has a length of 568 points, each points being spaced by 60 nanoseconds.  
+So we now know that we have 401 A-scans registered at different positions along the U axis and that each A-scan has a length of 568 points, each point being spaced by 60 nanoseconds.  
 
-Let's plot the 200th A-Scan: 
+Let's plot the 200th A-scan: 
 
 ``` python
 
@@ -122,7 +122,7 @@ You should end up with the following figure:
 
 ![ascan_ut_scan.png](../../assets/images/examples/code-samples/ascan_ut_scan.png)
 
-Alternatively, we could also plot the B-Scan:
+Alternatively, we could also plot the B-scan:
 
 ``` python
 # Plot the B-Scan (image of stacked A-Scans)

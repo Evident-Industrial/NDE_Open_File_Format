@@ -1,4 +1,4 @@
-# Motion devices related arrays and objects
+# Motion Device Related Arrays and Objects
 
 ## **motionDevices** array
 

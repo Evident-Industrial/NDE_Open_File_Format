@@ -1,10 +1,10 @@
-# Processes related arrays and objects
+# Process Related Arrays and Objects
 
 A process describes an operation aimed at creating, modifying, or formatting data, which are ultimately stored or referenced within a dataset. Processes have inputs and outputs and can be directly linked to a dataset or to another process.
 
 A list of processes related to a particular group provides information on how the data was created, including an acquisition instrument configuration, specific hardware process, or software process.
 
-The processes can be chained to create a particular data using a "**processId**" to the previous process in the chain. 
+The processes can be chained to create a particular data using a "**processId**" linking to the previous process in the chain. 
 
 ``` mermaid
 classDiagram
@@ -16,7 +16,7 @@ classDiagram
 
 ## **processes** array
 
-This array describes multiple processes
+This array describes multiple processes.
 
 | Property           | Type    | Description                                                                                          |
 | :----------------- | :------ | :--------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ This array describes multiple processes
 | **inputs**         | object  | An [inputs](#inputs-object) object describing the different inputs of the process                    |
 | **outputs**        | object  | An [outputs](#outputs-object) object describing the different outputs of the process                 |
 | **dataMappingId**  | integer | The unique Id of the referenced [dataMappings](../../data-mappings.md#datamappings-array) array |
-| One of the following  <code>required</code> sub-object: <ul><li><b><a href="./ultrasonicConventional">ultrasonicConventional</a></b></li><li><b><a href="./ultrasonicPhasedArray">ultrasonicPhasedArray</a></b></li><li><b><a href="./ultrasonicMatrixCapture">ultrasonicMatrixCapture</a></b></li><li><b><a href="./totalFocusingMethod">totalFocusingMethod</a></b></li><li><b><a href="./tfmBoxGates">tfmBoxGates</a></b></li><li><b><a href="./thickness">thickness</a></b></li><li><b><a href="./gain">gain</a></b></li></ul> |         |      |                                                              |
+| One of the following  <code>required</code> subobjects: <ul><li><b><a href="./ultrasonicConventional">ultrasonicConventional</a></b></li><li><b><a href="./ultrasonicPhasedArray">ultrasonicPhasedArray</a></b></li><li><b><a href="./ultrasonicMatrixCapture">ultrasonicMatrixCapture</a></b></li><li><b><a href="./totalFocusingMethod">totalFocusingMethod</a></b></li><li><b><a href="./tfmBoxGates">tfmBoxGates</a></b></li><li><b><a href="./thickness">thickness</a></b></li><li><b><a href="./gain">gain</a></b></li></ul> |         |      |                                                              |
 
 
 ### **inputs** object

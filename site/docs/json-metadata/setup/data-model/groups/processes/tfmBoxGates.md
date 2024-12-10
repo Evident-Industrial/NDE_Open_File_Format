@@ -1,4 +1,4 @@
-# **tfmBoxGates** array
+# **tfmBoxGates** Array
 
 The **tfmBoxGates** array serves as a box-type gate process description for a TFM image
 

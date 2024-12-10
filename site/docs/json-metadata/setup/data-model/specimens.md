@@ -1,8 +1,8 @@
-# Specimens related arrays and objects
+# Specimen Related Arrays and Objects
 
 ## **specimens** array
 
-The **specimens** array lists the specimens on which the inspection is carried on. 
+The **specimens** array lists the specimens on which the inspection is performed. 
 
 <table>
 <thead>
@@ -113,7 +113,7 @@ This array lists surfaces.
 | Property            | Type    | Description                                                         |
 | :------------------ | :------ | :------------------------------------------------------------------ |
 | **id** `required`   | integer | Id of the surface                                                   |
-| **name** `required` | string  | Name of the surface, one of: `Top`, `Bottom`, `Inside` or `Outside` |
+| **name** `required` | string  | Name of the surface, one of the following: `Top`, `Bottom`, `Inside`, or `Outside` |
 
 Note: 
 
@@ -130,10 +130,10 @@ The **weldGeometry** object describes a generic weld geometry.
 | **weldAngle** `required`  | number |  °   | The weld angle                                                               |
 | **material** `required`   | object |  -   | A [material](#material-object) object                                        |
 | **bevelShape** `required` | string |  -   | The bevel shape, one of: `U`, `V`                                            |
-| **symmetry** `required`   | string |  -   | The weld symmetry type, one of: `Symmetric`, `StraightLeft`, `StraightRight` |
-| **heatAffectedZoneWidth** | number |  m   | The ZAT width                                                                |
+| **symmetry** `required`   | string |  -   | The weld symmetry type, one of the following: `Symmetric`, `StraightLeft`, or `StraightRight` |
+| **heatAffectedZoneWidth** | number |  m   | The HAZ width                                                                |
 | **offset**                | number |  m   |                                                                              |
-| **upperCap**              | object |  -   | A [upperCap](#uppercap-object) object                                        |
+| **upperCap**              | object |  -   | An [upperCap](#uppercap-object) object                                        |
 | **lowerCap**              | object |  -   | A [lowerCap](#lowercap-object) object                                        |
 | **fills**                 | object |  -   | A [fills](#fills-array) array                                                |
 | **hotPass**               | object |  -   | A [hotPass](#hotpass-object) object                                          |
@@ -162,7 +162,7 @@ The **lowerCap** object describes a weld lower cap.
 
 #### **fills** array
 
-The **fills** array describes a weld fills.
+The **fills** array describes a weld fill.
 
 | Property              | Type   | Unit | Description |
 | :-------------------- | :----- | :--: | :---------- |
@@ -171,7 +171,7 @@ The **fills** array describes a weld fills.
 
 #### **hotPass** object
 
-The **hotPass** object describes a weld hot pass
+The **hotPass** object describes a weld hot pass.
 
 | Property              | Type   | Unit | Description |
 | :-------------------- | :----- | :--: | :---------- |

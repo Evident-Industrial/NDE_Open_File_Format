@@ -1,8 +1,8 @@
 # Code Samples
 
-## Reading .NDE files
+## Reading NDE files
 
-Some simple reading example codes are provided below to get your hands on the structure of the file and better understand where to look at when searching for raw data or information. 
+Some examples of reading codes are provided below so you can get a look at the file structure and gain a better understanding of the steps required.
 
 
 <div class="grid cards" markdown>
@@ -13,7 +13,7 @@ Some simple reading example codes are provided below to get your hands on the st
 
     ![ascan_ut_scan.png](../../assets/images/examples/code-samples/ascan_ut_scan.png)
 
-    In this example, you will learn how to read A-Scans from a manual weld scan using conventional ultrasound (UT).
+    In this example, you will learn how to read A-scans from a manual weld scan using conventional ultrasonic testing (UT).
 
     [:material-cursor-default-click: Go to this example](reading-ut-ascans.md)
 
@@ -23,7 +23,7 @@ Some simple reading example codes are provided below to get your hands on the st
 
     ![tfm_image.png](../../assets/images/examples/code-samples/tfm_image.png)
 
-    In this example, you will learn how to read images from a manual weld scan using the Total Focusing Method (TFM). 
+    In this example, you will learn how to read images from a manual weld scan using the total focusing method (TFM). 
 
     [:material-cursor-default-click: Go to this example](reading-tfm-images.md)
     
@@ -31,7 +31,8 @@ Some simple reading example codes are provided below to get your hands on the st
 </div>
 
 
-## Writing .NDE files
+## Writing NDE files
+Some examples of writing codes are provided below to demonstrate the file structure and give you a better understanding of the steps required.
 
 <div class="grid cards" markdown>
 
@@ -41,7 +42,7 @@ Some simple reading example codes are provided below to get your hands on the st
 
     ![nde_ut_ascans.png](../../assets/images/examples/code-samples/nde_ut_ascans.png)
 
-    In this example, you will learn how to write an .NDE file from a collection of UT A-Scans.
+    In this example, you will learn how to write an .nde file from a collection of UT A-scans.
 
     [:material-cursor-default-click: Go to this example](writing-ut-ascans.md)
 
@@ -52,7 +53,7 @@ Some simple reading example codes are provided below to get your hands on the st
     ![nde_fmc_ascans.png](../../assets/images/examples/code-samples/nde_fmc_ascans.png)
 
 
-    In this example, you will learn how to write an FMC to an .NDE file. 
+    In this example, you will learn how to write an FMC to an .nde file. 
 
      [:material-cursor-default-click: Go to this example](writing-fmc-ascans.md)
     

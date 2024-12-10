@@ -1,8 +1,8 @@
-# Data mappings related arrays and objects
+# Data Mapping Related Arrays and Objects
 
-Independently of the non-destructive evaluation method, there's always a need to relate acquisition data to the inspected specimen in terms of positioning. There exist, however, diametrically opposed use cases calling for adapted methods to achieve this relationship. For example, most PAUT weld inspection with scanners will relate the data positioning relative to the surface itself with a constant resolution. 
+Independently of the nondestructive evaluation method, there's always a need to relate acquisition data to the inspected specimen in terms of positioning. There exist, however, diametrically opposed use cases calling for adapted methods to achieve this relationship. For example, most PAUT weld inspections with scanners will relate the data positioning relative to the surface itself with a constant resolution. 
 
-On the other hand, one could acquire and store phased array acquisition with a 6 axis robot and use complex post-processing methods to achieve inspection data positioning. The **dataMappings** array specify how inspection data relates to the specimen. 
+On the other hand, one could acquire and store phased array acquisition data with a 6-axis robot and use complex post-processing methods to achieve inspection data positioning. The **dataMappings** array specifies how inspection data relates to the specimen. 
 
 ## **dataMappings** array
 
@@ -21,8 +21,8 @@ The **discreteGrid** object describes the properties of the scanning grid and it
 
 | Property                              |  Type  | Description                                                                                             |
 | :------------------------------------ | :----: | :------------------------------------------------------------------------------------------------------ |
-| **scanPattern** `required`            | string | One of the following scan pattern: `OneLineScan`, `RasterScan`                                          |
-| **uCoordinateOrientation** `required` | string | One of the following U coordinate orientation: `Around`, `Along`, `Width`, `Length`                     |
+| **scanPattern** `required`            | string | One of the following scan patterns: `OneLineScan` or `RasterScan`                                          |
+| **uCoordinateOrientation** `required` | string | One of the following U coordinate orientations: `Around`, `Along`, `Width`, or `Length`                     |
 | **dimensions** `required`             | array  | An array of [UCoordinate](#ucoordinate-object) and/or [VCoordinate](#vcoordinate-object) axis object(s) |
 
 **Related objects**: [specimens](specimens.md#specimens-array), [surfaces](specimens.md#surfaces-array)
@@ -39,7 +39,7 @@ The **UCoordinate** object describes the discrete grid U dimension.
 | **offset**                | number  |  m   | The axis offset                                                                                                                                      |
 | **motionDeviceId**        | integer |  -   | Reference to the unique Id of a [motionDevice](motion-devices.md#motiondevices-array) object                                                         |
 | **name**                  | string  |  -   | The name or reference of this dimension.                                                                                                             |
-| **lastCellRewrited**      | integer |  -   | When the acquisition has been done in Time mode (no encoder) this axis is a circular buffer in which the first position is given in lastCellRewrited |
+| **lastCellRewrited**      | integer |  -   | When the acquisition is performed in Time mode (no encoder), this axis is a circular buffer in which the first position is given in lastCellRewrited |
 
 **Related objects**: [motionDevice](motion-devices.md#motiondevices-array)
 

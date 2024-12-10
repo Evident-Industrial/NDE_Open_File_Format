@@ -10,7 +10,7 @@ icon: material/history
 
     ---
 
-    The official CHANGELOG of the .NDE Open File Format, listing all technical changes using semantic versioning. 
+    The official CHANGELOG of the .nde open file format, listing all technical changes using semantic versioning. 
 
 -   :material-lightbulb-alert:{ .lg .middle } __[Documentation Updates]__
 

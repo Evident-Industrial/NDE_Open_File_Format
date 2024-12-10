@@ -1,8 +1,8 @@
-# **Setup** data model
+# **Setup** Data Model
 
 This page and its subsections detail the different JSON objects and arrays with their expected values, associated description and examples related to the **Setup** JSON formatted dataset. 
 
-The data model presented in this page sub-sections follows the hierarchical structure of the **Setup** JSON formatted dataset:
+The data model presented in this page's subsections follows the hierarchical structure of the **Setup** JSON formatted dataset:
 
 ``` json
 {

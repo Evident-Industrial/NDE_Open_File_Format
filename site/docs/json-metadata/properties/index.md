@@ -9,7 +9,7 @@ flowchart LR
   classDef dataset fill:#fff,stroke:#000000,color:#000000
 ```
 
-The Properties dataset is **mandatory** and located at the root of .NDE file HDF5 structure. It contains metadata relative to the properties of the file as well as generic information useful to index and classify different .NDE files without digging into the details of the inspection and data that can be found in the [Setup](../setup/index.md) dataset. This dataset is formatted in a JSON.   
+The Properties dataset is **mandatory** and located at the root of the .nde file HDF5 structure. It contains metadata relative to the properties of the file as well as generic information useful for indexing and classifying different .nde files without digging into the details of the inspection and data that can be found in the [Setup](../setup/index.md) dataset. This dataset is formatted in a JSON.   
 
 The structure of the formatted JSON included in the **Properties** dataset can be validated against [a dedicated JSON schema](../properties/schema_doc.md). 
 

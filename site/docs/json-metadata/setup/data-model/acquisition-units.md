@@ -1,8 +1,8 @@
-# Acquisition unit related arrays and objects
+# Acquisition Unit Related Arrays and Objects
 
 ## **acquisitionUnits** array
 
-This **acquisitionUnits** array lists the acquisitions units used for the capture of the datasets and there parameters.
+The **acquisitionUnits** array lists the acquisitions units used for the capture of the datasets and their parameters.
 
 | Property                       | Type    | Unit | Description                                                                                                                                            |
 | :----------------------------- | :------ | :--: | :----------------------------------------------------------------------------------------------------------------------------------------------------- |

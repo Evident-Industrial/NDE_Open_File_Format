@@ -4,7 +4,7 @@ toc_depth: 3
 
 # CHANGELOG
 
-All notable changes to the .NDE file format will be documented on this page. It is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+All notable changes to the .nde file format will be documented on this page. It is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [4.0.0] - <small>November 12, 2024</small>
 
@@ -23,7 +23,7 @@ The 4.0.0 version is a big leap and the changes are described [in a dedicated se
 #### Added
 - New planeWaveCapture group configuration.
 - New tandem PAUT group configuration.
-- Experimental Elementary A-Scan dataset using StackedAScan axis.
+- Experimental elementary A-scan dataset using StackedAScan axis.
 - Experimental utMatrixCapture group with fullMatrixCapture configuration.
 - Improved object description reused for documentation.
 - Add id property to beams and dimensions array.

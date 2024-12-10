@@ -1,6 +1,6 @@
-# **Properties** data model
+# **Properties** Data Model
 
-This page details the different JSON objects and arrays with their expected values, associated description and examples related to the **Properties** JSON formatted dataset. 
+This page details the different JSON objects and arrays with their expected values, associated description, and examples related to the **Properties** JSON formatted dataset. 
 
 ## **$schema** property
 
@@ -20,12 +20,12 @@ The **file** object describes generic file creation and modification properties.
 | **createdByAppVersion**      | string | Version of the application used to create the file                                                                           |
 | **createdByAppCompany**      | string | Name of the company editing the application used to create the file                                                          |
 | **creationDate** `required`  | string | Creation date of the file (date-time as per [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6))           |
-| **creationFormatVersion**    | string | Original File Format Version (X.Y.Z) at the time of creation of the file (in case the file was converted)                    |
+| **creationFormatVersion**    | string | Original file format version (X.Y.Z) at the time of creation of the file (in case the file was converted)                    |
 | **modifiedByAppName**        | string | Name of the application used to modify the file                                                                              |
 | **modifiedByAppVersion**     | string | Version of the application used to modify the file                                                                           |
 | **modifiedByAppCompany**     | string | Name of the company editing the application used to modify the file                                                          |
 | **modificationDate**         | string | Last modification date of the file  (date-time as per [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)) |
-| **formatVersion** `required` | string | NDE File Format Version (X.Y.Z)                                                                                              |
+| **formatVersion** `required` | string | NDE file format version (X.Y.Z)                                                                                              |
 | **notice**                   | string | Short string describing the file characteristics (e.g. “Pre-release”)                                                        |
 | **description**              | string | A long string describing the file characteristics                                                                            |
 
@@ -69,7 +69,7 @@ An operator designates anyone interacting with the file. The **operators** array
 
 | Property        | Type    | Description                                            |
 | :-------------- | :------ | :----------------------------------------------------- |
-| **id**          | integer | Unique id of the operator (eg: badge id, employee id…) |
+| **id**          | integer | Unique id of the operator (e.g.: badge id, employee id…) |
 | **name**        | string  | Operator name                                          |
 | **role**        | String  | [Inspector, Reviewer, Analyzer, …]                     |
 | **companyName** | string  | Company the inspector/operator belongs to              |

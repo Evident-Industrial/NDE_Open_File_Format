@@ -34,4 +34,4 @@ jobs:
               mike
       - run: git pull      
       - run: cd ./site && mike deploy --push --update-aliases 4.0 latest
-      - run: cd ./site && mike set-default --push latest
+      - run: cd ./site && mike set-default --push 4.0

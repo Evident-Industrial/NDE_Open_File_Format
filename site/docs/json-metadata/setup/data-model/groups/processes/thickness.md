@@ -1,4 +1,4 @@
-# **thickness** object
+# **thickness** Object
 
 The **thickness** object serves as thickness measurement process description.
 
@@ -16,7 +16,7 @@ The **gates** array lists the different gates used for the thickness measurement
 | Property                     | Type   | Description                                                                       |
 | :--------------------------- | :----- | :-------------------------------------------------------------------------------- |
 | **id** `required`            | number | The unique id of the gate                                                         |
-| **gateDetection** `required` | string | Type of gate detection, one of `Crossing`, `MaximumPeak`, `FirstPeak`, `LastPeak` |
+| **gateDetection** `required` | string | Type of gate detection, one of the following: `Crossing`, `MaximumPeak`, `FirstPeak`, `LastPeak` |
 
 ## Example
 

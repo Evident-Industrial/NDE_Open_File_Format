@@ -1,10 +1,10 @@
-#Probes related arrays and objects
+#Probes Related Arrays and Objects
 
-Ultrasonic **probes** are transducers that generate and receive high-frequency sound waves to inspect materials for internal flaws, thickness measurements, or material characterization.
+Ultrasonic **probes** are transducers that generate and receive high-frequency sound waves to inspect materials for internal flaws, measure the thickness, or perform material characterization.
 
 ## **probes** array
 
-The **probes** array describes a generic probe comprising a list of properties.
+The **probes** array describes a generic probe featuring a list of properties.
 
 <table>
 <thead>
@@ -28,7 +28,7 @@ The **probes** array describes a generic probe comprising a list of properties.
   <tr>
     <td><b>serie</b></td>
     <td>string</td>
-    <td>The probe serie reference</td>
+    <td>The probe series reference</td>
   </tr>
   <tr>
     <td><b>serialNumber</b></td>
@@ -41,7 +41,7 @@ The **probes** array describes a generic probe comprising a list of properties.
     <td>A <a href="#wedgeassociation-object">wedgeAssociation</a> object</td>
   </tr>
   <tr>
-    <td>One of the following <code>required</code> sub-object: 
+    <td>One of the following <code>required</code> subobjects: 
         <ul>
             <li><b><a href="#conventionalround-object">conventionalRound</a></b></li>
             <li><b><a href="#conventionalrectangular-object">conventionalRectangular</a></b></li>
@@ -57,7 +57,7 @@ The **probes** array describes a generic probe comprising a list of properties.
 
 ### **conventionalRound** object
 
-The **conventionalRound** object describes a conventional single-element ultrasonic probe having a round shape. 
+The **conventionalRound** object describes a conventional single-element ultrasonic probe that is round. 
 
 
 | Property                        | Type   | Unit | Description                                                          |
@@ -84,13 +84,13 @@ The **conventionalRound** object describes a conventional single-element ultraso
 
 ### **conventionalRectangular** object
 
-The **conventionalRectangular** object describes a conventional single-element ultrasonic probe having a rectangular shape. 
+The **conventionalRectangular** object describes a conventional single-element ultrasonic probe that is rectangular. 
 
 | Property                        | Type   | Unit | Description                                                          |
 | :------------------------------ | :----- | :--: | :------------------------------------------------------------------- |
 | **centralFrequency** `required` | number |  Hz  | The central frequency of the probe                                   |
-| **length** `required`           | number |  m   | The length of the probe active element                               |
-| **width** `required`            | number |  m   | The width of the probe active element                                |
+| **length** `required`           | number |  m   | The length of the probe's active element                               |
+| **width** `required`            | number |  m   | The width of the probe's active element                                |
 | **elements** `required`         | array  |  -   | An [elements](#elements-array) array (only one element in this case) |
 
 ![conventionalRectangular.png](../../../assets/images/json-metadata/setup/data-model/probes/conventionalRectangular.png)
@@ -112,7 +112,7 @@ The **conventionalRectangular** object describes a conventional single-element u
 
 ### **phasedArrayLinear** object 
 
-The **phasedArrayLinear** object describes a phased array ultrasonic probe having a linear shape. 
+The **phasedArrayLinear** object describes a phased array ultrasonic probe that has a linear shape. 
 
 | Property                        | Type   | Unit | Description                                                                                          |
 | :------------------------------ | :----- | :--: | :--------------------------------------------------------------------------------------------------- |
@@ -123,16 +123,16 @@ The **phasedArrayLinear** object describes a phased array ultrasonic probe havin
 
 Currently, the following use cases are covered by the phasedArrayLinear object definition:
 
-  - 1D linear array with flat active face. 
-  - 1D linear array with curved active face along the primary axis.
-  - 1D linear array with curved active face along the secondary axis.
-  - 2D linear array with flat active face. 
-  - 2D linear array with curved active face along the primary axis.
-  - 2D linear array with curved active face along the secondary axis.
+  - 1D linear array with flat active face 
+  - 1D linear array with curved active face along the primary axis
+  - 1D linear array with curved active face along the secondary axis
+  - 2D linear array with flat active face 
+  - 2D linear array with curved active face along the primary axis
+  - 2D linear array with curved active face along the secondary axis
 
 #### **elements** array
 
-The **elements** array lists the elements of a probe and there properties. 
+The **elements** array lists the elements of a probe and their properties. 
 
 | Property                         |  Type   | Description                                                                               |
 | :------------------------------- | :-----: | :---------------------------------------------------------------------------------------- |
@@ -148,7 +148,7 @@ The **elements** array lists the elements of a probe and there properties.
 
 #### **probeAxis** object
 
-Teh **probeAxis** object describes a given probe axis. 
+The **probeAxis** object describes a given probe axis. 
 
 Illustration
 
@@ -232,9 +232,9 @@ The **wedgeAssociation** object describes the association of a probe with a wedg
 
 ## Examples
 
-Examples of Phased Array and Single/Dual Element probes definitions extracted from Evident catalogue. 
+Examples of phased array and single- and dual-element probe definitions based on specifications in the Evident probe catalog.  
 
-??? example "Phased Array Probes Examples"
+??? example "Phased array probe examples"
 
     === "5L64-A32"
         ``` json
@@ -265,7 +265,7 @@ Examples of Phased Array and Single/Dual Element probes definitions extracted fr
         --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-2L8-DGS1.json"
         ```
 
-??? example "Single and Dual Element Probes Examples"
+??? example "Single and dual element probe examples"
 
     === "V103"
         ``` json

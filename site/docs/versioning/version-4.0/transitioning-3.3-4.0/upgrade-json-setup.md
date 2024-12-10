@@ -1,4 +1,4 @@
-A greater number of changes have been made to the JSON Setup dataset, especially within the groups object. Hence, we will go through modifications impacting each one of the higher level objects in the JSON file hierarchy which are represented below. Note that only the name of the dataEncodings object was updated to dataMappings at this level:
+Numerous changes have been made to the JSON Setup dataset, especially within the groups object. This page presents all the modifications impacting each one of the higher level objects in the JSON file hierarchy, which are represented below. Note that only the name of the dataEncodings object was updated to dataMappings at this level:
 
 
 === "4.0"
@@ -37,7 +37,7 @@ A greater number of changes have been made to the JSON Setup dataset, especially
 
 ## $schema
 
-This key needs to be updated to the last version of the JSON schema which is version 4.0.0
+This key needs to be updated to the latest version of the JSON schema, which is version 4.0.0
 
 === "4.0"
 
@@ -57,7 +57,7 @@ This key needs to be updated to the last version of the JSON schema which is ver
 
 ## version
 
-This key needs to be updated to the last version of the .NDE standard which is 4.0.0
+This key needs to be updated to the latest version of the .nde standard, which is 4.0.0.
 
 === "4.0"
 
@@ -77,7 +77,7 @@ This key needs to be updated to the last version of the .NDE standard which is 4
 
 ## scenario
 
-No modifications were made to this object so far. The official release of .NDE 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
+No modifications were made to this object so far. The official release of .nde version 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
 
 ## groups
 
@@ -93,7 +93,7 @@ The overal groups structure needs to be upgraded with the following modification
 | paut [object]     | :x: :twisted_rightwards_arrows: | :white_check_mark: | Replaced by the [ultrasonicPhasedArray](#ultrasonicphasedarray-process)  processes array item   |
 | fmc [object]      | :x: :twisted_rightwards_arrows: | :white_check_mark: | Replaced by the [ultrasonicMatrixCapture and totaFocusingMethod](#ultrasonicmatrixcapture-and-totalfocusingmethod-processes)  processes array items   |
 | datasets [array]  |    :white_check_mark: :new:     |         -          | New [datasets array](#converting-dataset-object-properties-to-datasets-array) array             |
-| processes [array] |    :white_check_mark: :new:     |         -          | New [processes array](#converting-ut-paut-fmc-objects-to-processes-array-items) array           |
+| processes [array] |    :white_check_mark: :new:     |         -          | New [processes array](#converting-ut-paut-and-fmc-objects-to-processes-array-items) array           |
 
 :white_check_mark: = property conserved | :white_check_mark: :new: = new property | :x: :twisted_rightwards_arrows: = property removed and replaced
 
@@ -114,9 +114,9 @@ Previous **dataset** object in version 3.3:
 | firingSource [object]          |     0      | :x: :twisted_rightwards_arrows: Replaced by a [FiringSource](#firingsource-datasets) dataset                                          |
 | storageMode [string]           |     0      | :arrow_right: Moved inside each datasets item definition                                                                              |
 | dataSampling [object]          |     2      | :material-merge: Merged with the dataValue object                                                                                     |
-| dataValue [object]             |     2      | :arrow_right: Moved with its childs inside each datasets item definition                                                              |
-| path [string]                  |     2      | :arrow_right: Moved with its childs inside each datasets item definition                                                              |
-| dimensions  [object]           |     2      | :arrow_right: Moved with its childs inside each datasets item definition                                                              |
+| dataValue [object]             |     2      | :arrow_right: Moved with its child components inside each datasets item definition                                                              |
+| path [string]                  |     2      | :arrow_right: Moved with its child components inside each datasets item definition                                                              |
+| dimensions  [object]           |     2      | :arrow_right: Moved with its child components inside each datasets item definition                                                              |
 | overwriteCriteria [string]     |     0      | :x: Removed as not necessary                                                                                                          |
 
    
@@ -137,10 +137,9 @@ New **datasets** array in version 4.0:
 
 #### AScanAmplitude datasets
 
-Let's see how a version 3.3 ascan{amplitude}(1) dataset can be converted to a AScanAmplitude datasets item in version 4.0:
-{ .annotate}
+The following example shows how a version 3.3 ascan{amplitude} dataset can be converted to a AScanAmplitude datasets item in version 4.0:
 
-1. This notation is used to define and object{and one of its child} inside within the JSON hierarchy. 
+This notation is used to define and object{and a child} inside the JSON hierarchy. 
 
 === "4.0"
 
@@ -243,7 +242,7 @@ Let's see how a version 3.3 ascan{amplitude}(1) dataset can be converted to a AS
 !!! note
     This type of dataset is specific to the files saved with an Evident instrument and may be different with other vendors.
 
-Let's see how a version 3.3 ascan{status} dataset can be converted to a AScanStatus datasets item in version 4.0:
+The following example shows how a version 3.3 ascan{status} dataset can be converted to a AScanStatus datasets item in version 4.0:
 
 === "4.0"
 
@@ -325,7 +324,7 @@ Let's see how a version 3.3 ascan{status} dataset can be converted to a AScanSta
 !!! note
     This type of dataset is specific to the files saved with an Evident instrument and may be different with other vendors. 
 
-Let's see how a version 3.3 firingSource dataset can be converted to a FiringSource datasets item in version 4.0:
+This example shows how a version 3.3 firingSource dataset can be converted to a FiringSource datasets item in version 4.0:
 
 === "4.0"
 
@@ -396,25 +395,25 @@ Let's see how a version 3.3 firingSource dataset can be converted to a FiringSou
     ```
 
 
-### Converting **ut**, **paut**, **fmc** objects to processes array items
+### Converting **ut**, **paut**, and **fmc** objects to processes array items
 
 Each new processes array item has the same basic structure: 
 
 | Property                | Comment                                                                                                      |
 | :---------------------- | :----------------------------------------------------------------------------------------------------------- |
 | id* [integer]           | The unique process id in the JSON structure                                                                  |
-| implementation [string] | The process implementation type, can be `Software` or `Hardware`                                             |
+| implementation [string] | The process implementation type, which can be `Software` or `Hardware`                                             |
 | inputs [object]         | An inputs array describing the different inputs of the process                                               |
 | outputs [object]        | An outputs array describing the different outputs of the process                                             |
-| dataMappingId [number]  | Previously found inside paut, ut or tfmDescription object, refers to the corresponding dataMapping object Id |
-| One of the following sub-object: <ul><li>ultrasonicConventional</li><li>ultrasonicPhasedArray</li><li>ultrasonicMatrixCapture</li><li>totalFocusingMethod</li><li>tfmBoxGates</li><li>thickness</li><li>gain</li></ul> |              |                                                              
+| dataMappingId [number]  | Previously found inside a paut, ut, or tfmDescription object, refers to the corresponding dataMapping object Id |
+| One of the following subobjects: <ul><li>ultrasonicConventional</li><li>ultrasonicPhasedArray</li><li>ultrasonicMatrixCapture</li><li>totalFocusingMethod</li><li>tfmBoxGates</li><li>thickness</li><li>gain</li></ul> |              |                                                              
 
 
-Converting previous **ut**, **paut**, **fmc** and **tfmDescriptions** objects to new **processes** array items require some slight modifications. Please refer to the following tables for correspondance between previous properties and new ones. 
+Converting previous **ut**, **paut**, **fmc**, and **tfmDescriptions** objects to new **processes** array items require some slight modifications. Please refer to the following tables for correspondance between previous properties and new ones. 
 
 #### ultrasonicPhasedArray process
 
-Most of the previous **paut** object properties remain unchanged in the new ultrasonicPhasedArray object now found inside the processes array. 
+Most of the previous **paut** object properties remain unchanged in the new ultrasonicPhasedArray object, which is now found inside the processes array. 
 
 
 | Property                        | :nde-4-0: ultrasonicPhasedArray{} |  :nde-3-3: paut{}  | Comment                                                                 |
@@ -444,10 +443,10 @@ Most of the previous **paut** object properties remain unchanged in the new ultr
 
 Additionally, please note that some irrelevant parameters associated with the instrument configuration were removed: 
 
-- from the **gates** array: **produceCscanData**, **peakDetection** and **timeSelection**
-- from the **tcg** object (inside the **beams** array): **enabled**
+- Removed from the **gates** array: **produceCscanData**, **peakDetection** and **timeSelection**
+- Removed from the **tcg** object (inside the **beams** array): **enabled**
   
-Let's see how a version 3.3 **paut** object can be converted to a **ultrasonicPhasedArray** processes array item in version 4.0:
+The following shows how a version 3.3 **paut** object can be converted to a **ultrasonicPhasedArray** processes array item in version 4.0:
 
 === "4.0"
 
@@ -517,8 +516,8 @@ Let's see how a version 3.3 **paut** object can be converted to a **ultrasonicPh
     ```
 
     1. As per convention, a process with an Id = 0 defines the group. This group is hence a "Phased Array" group.  
-    2. This object is almost identical to the previous *paut* object
-    3. This process replaces the previous **softwareProcess** inside the **paut** object
+    2. This object is almost identical to the previous *paut* object.
+    3. This process replaces the previous **softwareProcess** inside the **paut** object.
 
 === "3.3"
 
@@ -596,10 +595,10 @@ Most of the previous **ut** object properties remain unchanged in the new ultras
 
 Additionally, please note that some irrelevant parameters associated with the instrument configuration were removed: 
 
-- from the **gates** array: **produceCscanData**, **peakDetection** and **timeSelection**
-- from the **tcg** object: **enabled**
+- Removed from the **gates** array: **produceCscanData**, **peakDetection** and **timeSelection**
+- Removed from the **tcg** object: **enabled**
   
-Let's see how a version 3.3 **ut** object can be converted to a **ultrasonicConventional** processes array item in version 4.0:
+The following shows how a version 3.3 **ut** object can be converted to a **ultrasonicConventional** processes array item in version 4.0:
 
 === "4.0"
 
@@ -676,8 +675,8 @@ Let's see how a version 3.3 **ut** object can be converted to a **ultrasonicConv
     ```
     
     1. As per convention, a process with an Id = 0 defines the group. This group is hence a "Ultrasonic Conventional" group.  
-    2. This object is almost identical to the previous *ut* object
-    3. This process replaces the previous **softwareProcess** inside the **ut** object
+    2. This object is almost identical to the previous *ut* object.
+    3. This process replaces the previous **softwareProcess** inside the **ut** object.
 
 === "3.3"
 
@@ -725,7 +724,7 @@ Let's see how a version 3.3 **ut** object can be converted to a **ultrasonicConv
 
 Previously, a TFM was described by a **fmc** object in which a **tfmDescriptions** was nested. These are now two different processes in two different groups that are interconnected. 
 
-Converting previous **fmc** objects to new **ultrasonicMatrixCapture** array items require some important modifications. Please refer to the following tables for correspondance between previous properties and new ones. 
+Converting previous **fmc** objects to new **ultrasonicMatrixCapture** array items require some significant modifications. Please refer to the following tables for correspondance between previous properties and new ones. 
 
 Previous **fmc** object in version 3.3:
 
@@ -744,15 +743,15 @@ New **ultrasonicMatrixCapture** object in version 4.0:
 
 | Property                       | JSON Depth | Comment                                                                                                   |
 | ------------------------------ | :--------: | --------------------------------------------------------------------------------------------------------- |
-| acquisitionPattern [string]    |     0      | :new: Indicate which type of acquisition pattern is used, such as `FMC`, `PWI` or `Sparse`                |
+| acquisitionPattern [string]    |     0      | :new: Indicates which type of acquisition pattern is used, such as `FMC`, `PWI`, or `Sparse`                |
 | digitizingFrequency [number]   |     0      | Same as digitizingFrequency in version 3.3                                                                |
 | pulserFrequency [number]       |     0      | Same as pulserFrequency in version 3.3                                                                    |
 | digitalBandPassFilter [number] |     0      | Same as digitalBandPassFilter found in tfmDescriptions array in version 3.3                               |
-| waveforms [array]              |     0      | :new: Describe any type of waveform that could be used for firing a transducer element                    |
+| waveforms [array]              |     0      | :new: Describes any type of waveform that could be used for firing a transducer element                    |
 | waveforms[{pulse}] [object]    |     1      | Same as pulse in version 3.3                                                                              |
-| beams [array]                  |     0      | :new: List all the different beams used for acquisitions, in a similar structure as ultrasonicPhasedArray |
+| beams [array]                  |     0      | :new: Lists all the different beams used for acquisitions, in a similar structure as ultrasonicPhasedArray |
 
-Let's see how a version 3.3 **fmc** object can be converted to **ultrasonicMatrixCapture** and **fullMatrixCapture** processes in version 4.0:
+The following shows how a version 3.3 **fmc** object can be converted to **ultrasonicMatrixCapture** and **fullMatrixCapture** processes in version 4.0:
 
 === "4.0"
 
@@ -847,7 +846,7 @@ Let's see how a version 3.3 **fmc** object can be converted to **ultrasonicMatri
     2. The **waveformId** was added to each pulsers array items to cover more advanced cases.
     3. The **ascanStart** was added to each receivers array items to cover more advanced cases.
     4. The **ascanLength** was added to each receivers array items to cover more advanced cases.
-    5. The **totalFocusingMethod** parameters are now described in a dedicated process (see below)
+    5. The **totalFocusingMethod** parameters are now described in a dedicated process (see below).
 
 === "3.3"
 
@@ -908,7 +907,7 @@ Most of the previous **tfmDescriptions** object properties remain unchanged in t
 | columns [array]                |       :white_check_mark:        |     :white_check_mark:      |                                                               |
 | softwareProcess [object]       | :x: :twisted_rightwards_arrows: |     :white_check_mark:      | Moved to a dedicated **tfmBoxGates** processes array item     |
   
-Let's see how a version 3.3 **tfmDescriptions** object can be converted to a **totalFocusingMethod** processes array item in version 4.0:
+The following shows how a version 3.3 **tfmDescriptions** object can be converted to a **totalFocusingMethod** processes array item in version 4.0:
 
 
 === "4.0"
@@ -957,9 +956,9 @@ The **dataEncodings** object is renamed **dataMappings** to avoid confusion with
 
 The following properties need to be moved up one level in the JSON structure: *specimenId* and *surfaceId*.
 
-The terms `ScanLength`, `ScanWidth`, `ScanAlong` and `ScanAround`  used for the **uCoordinatedOrientation** parameter were renamed `Length`, `Width`, `Along` and `Around` respectively to remove the notion of Scan axis from this parameter. 
+The terms `ScanLength`, `ScanWidth`, `ScanAlong` and `ScanAround`  used for the **uCoordinatedOrientation** parameter were renamed `Length`, `Width`, `Along` and `Around` respectively to remove the notion of scan axis from this parameter. 
 
-Let's see how a version 3.3 **dataEncodings** object can be converted to a **dataMappings** object in version 4.0:
+The following shows how a version 3.3 **dataEncodings** object can be converted to a **dataMappings** object in version 4.0:
 
 === "4.0"
 
@@ -1009,19 +1008,19 @@ Let's see how a version 3.3 **dataEncodings** object can be converted to a **dat
 
 ## probes
 
-No modifications were made to this object so far. The official release of .NDE 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
+No modifications were made to this object so far. The official release of .nde 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
 
 ## wedges
 
-No modifications were made to this object so far. The official release of .NDE 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
+No modifications were made to this object so far. The official release of .nde 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
 
 ## specimens
 
-No modifications were made to this object so far. The official release of .NDE 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
+No modifications were made to this object so far. The official release of .nde 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
 
 ## acquisitionUnits
 
-No modifications were made to this object so far. The official release of .NDE 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
+No modifications were made to this object so far. The official release of .nde 4.0 will confirm whether this object can be duplicated safely from 3.3. to 4.0. 
 
 ## motionDevices
 

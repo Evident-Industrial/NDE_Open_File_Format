@@ -1,26 +1,26 @@
-# **totalFocusingMethod** object
+# **totalFocusingMethod** Object
 
-The **totalFocusingMethod** object serves as a Total Focusing Method (TFM) process description.
+The **totalFocusingMethod** object serves as a total focusing method (TFM) process description.
 
 | Property                       | Type    | Unit | Description                                                              |
 | :----------------------------- | :------ | :--: | :----------------------------------------------------------------------- |
 | **id** `required`              | integer |  -   | Unique id for the totalFocusingMethod object within the process          |
-| **name**                       | string  |  -   | Cusotm name of the totalFocusingMethod object                            |
-| **signalSource**               | string  |  -   | Signal used to compute the TFM, one of `Analytic` or `Real`              |
+| **name**                       | string  |  -   | Custom name of the totalFocusingMethod object                            |
+| **signalSource**               | string  |  -   | Signal used to compute the TFM, either: `Analytic` or `Real`              |
 | **gain** `required`            | number  |  dB  | Gain applied to the TFM image                                            |
 | **referenceAmplitude**         | number  |  %   |                                                                          |
 | **referenceGain**              | number  |  dB  |                                                                          |
 | **rectangularGrid** `required` | object  |  -   | [rectangularGrid](#rectangulargrid-object) object                        |
 | **fmcPulserIds**               | array   |  -   | Array listing the ids of the pulsers used to compute the TFM image       |
 | **fmcReceiverIds**             | array   |  -   | Array listing the ids of the receivers used to compute the TFM image     |
-| **pathName** `required`        | string  |  -   | Wave path name, often reffered as "mode" or "view" (e.g.: "T-T", "LL-T") |
+| **pathName** `required`        | string  |  -   | Wave path name, often referred to as a "mode" or "view" (e.g.: "T-T", "LL-T") |
 | **waveSet** `required`         | object  |  -   | [waveSet](#waveset-object) object                                        |
 | **columns**                    | array   |  -   | [columns](#columns-array) array                                          |
 
 
 ## **rectangularGrid** object 
 
-The **rectangularGrid** object describes the dimensions of the Region of Interest (ROI) used to compute the TFM.
+The **rectangularGrid** object describes the dimensions of the region of interest (ROI) used to compute the TFM.
 
 | Property                      | Type   | Description                   |
 | :---------------------------- | :----- | :---------------------------- |
@@ -52,12 +52,12 @@ The **rectangularGrid** object describes the dimensions of the Region of Interes
 
 ## **waveSet** object 
 
-The **waveSet** object describes the pathName in more details, listing the 
+The **waveSet** object describes the pathName in more details, listing the modes (or views) of the wave paths.
 
 | Property                  | Type  | Description                                                                                                       |
 | :------------------------ | :---- | :---------------------------------------------------------------------------------------------------------------- |
-| **pulsings** `required`   | array | Array containing the list of modes (or views) for the forward path, one of `Longitudinal`, `TransversalVertical`  |
-| **receivings** `required` | array | Array containing the list of modes (or views) for the backward path, one of `Longitudinal`, `TransversalVertical` |
+| **pulsings** `required`   | array | Array containing the list of modes (or views) for the forward path, either: `Longitudinal`or `TransversalVertical`  |
+| **receivings** `required` | array | Array containing the list of modes (or views) for the backward path, either: `Longitudinal`or `TransversalVertical` |
 
 ```json title="Example"
 "waveSet": {
@@ -73,7 +73,7 @@ The **waveSet** object describes the pathName in more details, listing the
 
 ## **columns** array 
 
-The **columns** array helps describing the Time-Corrected Gain (TCG) parameters used for each column of the TFM image 
+The **columns** array describes the time-corrected gain (TCG) parameters used for each column of the TFM image 
 
 | Property               | Type    | Description                                                |
 | :--------------------- | :------ | :--------------------------------------------------------- |
@@ -82,7 +82,7 @@ The **columns** array helps describing the Time-Corrected Gain (TCG) parameters 
 
 ### **gainMap** object
 
-The **gainMap** contain the information related to the gain applied to each the TFM image for TCG
+The **gainMap** contain the information related to the gain applied to the TFM image for the TCG.
 
 | Property              | Type  | Description                           |
 | :-------------------- | :---- | :------------------------------------ |
@@ -90,12 +90,12 @@ The **gainMap** contain the information related to the gain applied to each the 
 
 #### **points** array
 
-The **points** array lists the Time-Corrected Gain (TCG) points, with the corresponding gain to apply for a given position in the column of the TFM image. 
+The **points** array lists the time-corrected gain (TCG) points, with the corresponding gain to apply for a given position in the column of the TFM image. 
 
 | Property                | Type   | Unit | Description                                   |
 | :---------------------- | :----- | :--: | :-------------------------------------------- |
 | **position** `required` | number |  m   | Vertical position of the point in the TFM ROI |
-| **gain** `required`     | number |  dB  | Gain in decibel                               |
+| **gain** `required`     | number |  dB  | Gain in decibels                               |
 
 
 ```json title="Example"

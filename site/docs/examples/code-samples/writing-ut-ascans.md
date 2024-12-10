@@ -1,6 +1,6 @@
 # Writing UT A-Scans
 
-Let's follow this simple procedure for writing UT A-Scans to an .nde file: 
+To learn how to write UT A-scans to an .nde file, follow this simple procedure: 
 
 - [x] JSON formatted [**Properties**](../../json-metadata/properties/index.md) dataset:
     - Create the dataset according to the **Properties** [data model](../../json-metadata/properties/data-model.md)
@@ -8,14 +8,14 @@ Let's follow this simple procedure for writing UT A-Scans to an .nde file:
 - [x] JSON formatted [**Setup**](../../json-metadata/setup/index.md) dataset:
     - Create the dataset according to the **Setup** [data model](../../json-metadata/setup/data-model/index.md)
     - Validate this JSON against the [Setup JSON Schema](../../json-metadata/setup/schema_doc.md)
-- [x] Simulate or collect A-Scans to be saved in a **AScanAmplitude** dataset
-- [x] Save datasets according to the .NDE [HDF5 structure](../../hdf5-structure/index.md)
+- [x] Simulate or collect A-scans to be saved in a **AScanAmplitude** dataset
+- [x] Save datasets according to the .nde [HDF5 structure](../../hdf5-structure/index.md)
 
 ## JSON formatted **Properties** dataset
 
 ### Create the dataset
 
-Following the [**Properties**](../../json-metadata/properties/index.md) dataset [data model documentation](../../json-metadata/properties/data-model.md), the only required properties are the `$schema`,  `creationDate` and `formatVersion` in the **file** object and the related method in the **methods** array. 
+According to the [**Properties**](../../json-metadata/properties/index.md) dataset [data model documentation](../../json-metadata/properties/data-model.md), the only required properties are the `$schema`,  `creationDate`, and `formatVersion` in the **file** object and the related method in the **methods** array. 
 
 The **Properties** dataset results in the following: 
 
@@ -32,7 +32,7 @@ The **Properties** dataset results in the following:
 
 ### Validate the dataset structure
 
-Then, check that the JSON file validate against the **Properties** [JSON Schema](../../json-metadata/properties/schema_doc.md), assuming you saved the above [**Properties**](../../json-metadata/properties/index.md) JSON under `properties_ut_ascans.json`: 
+Then, validate the JSON file against the **Properties** [JSON Schema](../../json-metadata/properties/schema_doc.md), assuming you saved the above [**Properties**](../../json-metadata/properties/index.md) JSON under `properties_ut_ascans.json`: 
 
 ``` python
 import fastjsonschema
@@ -49,13 +49,13 @@ except fastjsonschema.JsonSchemaException as e:
     print(f"Properties JSON failed validation: {e}")
 ```
 
-The above validation should not return any error code. 
+The above validation should not return any error codes. 
 
 ## JSON formatted **Setup** dataset
 
 ### Create the dataset
 
-Following the [**Setup**](../../json-metadata/setup/index.md) dataset [data model documentation](../../json-metadata/setup/data-model/index.md), there are a couple of object we need to populate to end up with a valid dataset: 
+According to the [**Setup**](../../json-metadata/setup/index.md) dataset [data model documentation](../../json-metadata/setup/data-model/index.md), there are a couple of objects we need to populate to end up with a valid dataset: 
 
 ``` json
 {
@@ -71,7 +71,7 @@ Following the [**Setup**](../../json-metadata/setup/index.md) dataset [data mode
 }
 ```
 
-The first three properties are straightforward and reference the schema version used to validate the JSON, the version of the file format and the scenario used. As we are not scanning a weld, let's adopt the *General Mapping* scenario conventions: 
+The first three properties are straightforward and reference the schema version used to validate the JSON, the version of the file format, and the scenario used. As we are not scanning a weld, let's adopt the *General Mapping* scenario conventions: 
 
 ``` json
 {
@@ -83,13 +83,13 @@ The first three properties are straightforward and reference the schema version 
 
 The remaining objects and arrays cover: 
 
-- The definition of groups, its datasets and processes: in our case a single group, a `AScanAmplitude` dataset and an [ultrasonicConventional](../../json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md) acquisition process
+- The definition of the groups, datasets, and processes: in our case, a single group, a `AScanAmplitude` dataset, and an [ultrasonicConventional](../../json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md) acquisition process
 - The definition of the [acquisition unit](../../json-metadata/setup/data-model/acquisition-units.md): in the example below, the OmniScan X4 64x128
 - The definition of a [specimen](../../json-metadata/setup/data-model/specimens.md): in the example below,  a 25 mm thick mild steel plate 
 - The definition of the [probe](../../json-metadata/setup/data-model/probes.md): in the example below, a C109 fingertip contact probe
 - The definition of the [wedge](../../json-metadata/setup/data-model/wedges.md): as we will be in contact, we will define a wedge with most of its dimensions equal to 0
 
-As the process of creating these JSON objects can be tedious the first time, we'll provide a template incorporating the above parameters to facilitate this demonstration.
+As the process of creating these JSON objects can be tedious the first time, the following template incorporates the above parameters to facilitate this demonstration.
 
 ??? example "**Setup** template"
 
@@ -99,7 +99,7 @@ As the process of creating these JSON objects can be tedious the first time, we'
 
 ### Validate the dataset structure
 
-Then, check that the JSON file validate against the **Setup** [JSON Schema](../../json-metadata/setup/schema_doc.md), assuming you saved the above [**Setup**](../../json-metadata/setup/index.md) JSON under `setup_ut_ascans.json`: 
+Then, validate the JSON file against the **Setup** [JSON Schema](../../json-metadata/setup/schema_doc.md), assuming you saved the above [**Setup**](../../json-metadata/setup/index.md) JSON under `setup_ut_ascans.json`: 
 
 ``` python
 setup = json.load(open('setup_ut_ascans.json', 'r'))
@@ -114,16 +114,16 @@ except fastjsonschema.JsonSchemaException as e:
     print(f"Setup JSON failed validation: {e}")
 ```
 
-The above validation should not return any error code. 
+The above validation should not return any error codes. 
 
 
-## Simulate or collect A-Scans
+## Simulate or collect A-scans
 
-We will generate 5 fake A-Scans corresponding to 5 theoretical scanner positions. Each A-Scan will have a 5 MHz center frequency, a 60 % bandwidth and 3000 samples. Fake A-Scans will be stored in a 5 x 1 x 3000 numpy array named `ascans` that we will use as our `AScanAmplitude` type dataset. 
+We will generate 5 fake A-scans corresponding to 5 theoretical scanner positions. Each A-scan will have a 5 MHz center frequency, a 60 % bandwidth and 3000 samples. The fake A-scans will be stored in a 5 x 1 x 3000 numpy array named `ascans` that we will use as our `AScanAmplitude` type dataset. 
 
-As the generation of fake A-Scans is out of the scope of this documentation, we simply provide the example code below for your convenience.
+As the generation of fake A-scans is out of the scope of this documentation, the example code below is provided for your convenience.
 
-??? example "Fake A-Scans generation"
+??? example "Fake A-scan generation"
 
     ``` python
     # Constants
@@ -162,9 +162,9 @@ As the generation of fake A-Scans is out of the scope of this documentation, we 
     ```
 
 
-## Save datasets according to the .NDE HDF5 structure
+## Save the datasets according to the .nde HDF5 structure
 
-We now need to create the .NDE file using the HDF5 library following the [HDF5 Structure](../../hdf5-structure/index.md) specific to any .NDE file. The **Properties** JSON will be saved at the root of this structure, the **Setup** JSON will be saved under the `/Public/` path and the A-Scans will be saved in Group 0 under `/Public/Groups/0/Datasets`. 
+We now need to create the .nde file using the HDF5 library and according to the [HDF5 Structure](../../hdf5-structure/index.md) specific to any .nde file. The **Properties** JSON will be saved at the root of this structure, the **Setup** JSON will be saved under the `/Public/` path, and the A-scans will be saved in Group 0 under `/Public/Groups/0/Datasets`. 
 
 ``` python 
 with h5py.File('ut_ascans.nde', 'w') as hdf5_file:

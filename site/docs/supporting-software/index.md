@@ -2,13 +2,13 @@
 icon: material/apps
 ---
 
-# Supporting software
+# Supporting Software
 
-Software that reads or writes .NDE files are listed on this page. Depending on the level of integration and specialization, some software will only be compatible with .NDE files produced with a specific instrument or software (in cases where the [Private](../hdf5-structure/private-group.md) section is used mostly). However, data access and interoperability is still provided through the [Public](../hdf5-structure/public-group.md) section of the file. 
+Software that reads or writes .nde files are listed on this page. Depending on the level of integration and specialization, some software will only be compatible with .nde files produced with a specific instrument or software (mainly in cases where the [Private](../hdf5-structure/private-group.md) section is used). However, data access and interoperability is still provided through the [Public](../hdf5-structure/public-group.md) section of the file. 
 
 Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you want your software to be added to this list. 
 
-## Evident
+# EVIDENT products
 
 <div class="grid cards" markdown>
 
@@ -18,7 +18,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
     ![OmniScan X4](../assets/images/supporting-software/OmniScan_X4.png)
 
-    The embedded software powering the OmniScan product line.
+    The onboard software powering the OmniScan product line.
 
     ---
 
@@ -26,7 +26,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
     :material-file: Write OmniScan X3 and X4 .nde files
 
--   :evident-omnipc:{ .lg .middle } __OmniPC__
+-   :evident-omnipc:{ .lg .middle } __OmniPC&trade;__
 
     ---
 
@@ -40,7 +40,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
     :material-file: Read OmniScan X3 and X4 .nde files
 
--   :evident-aeroview:{ .lg .middle } __AeroView__
+-   :evident-aeroview:{ .lg .middle } __AeroView&trade;__
 
     ---
 
@@ -54,10 +54,10 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
     :material-file: Read/Write .nde files
 
--   :evident-weldsight:{ .lg .middle } __WeldSight__
+-   :evident-weldsight:{ .lg .middle } __WeldSight&trade;__
 
     ---
-    ![WeldSight](../assets/images/supporting-software/weldsight.png)
+    ![WeldSight&trade;](../assets/images/supporting-software/weldsight.png)
 
     A comprehensive acquisition and analysis software for advanced weld inspections.
     

@@ -1,6 +1,6 @@
 # Writing FMC A-Scans
 
-Let's follow this simple procedure for writing elementary A-Scans from an FMC acquisition to a .NDE file: 
+To learn how to write elementary A-scans from an FMC acquisition to an .nde file, follow this simple procedure: 
 
 - [x] JSON formatted [**Properties**](../../json-metadata/properties/index.md) dataset:
     - Create the dataset according to the **Properties** [data model](../../json-metadata/properties/data-model.md)
@@ -8,15 +8,15 @@ Let's follow this simple procedure for writing elementary A-Scans from an FMC ac
 - [x] JSON formatted [**Setup**](../../json-metadata/setup/index.md) dataset:
     - Create the dataset according to the **Setup** [data model](../../json-metadata/setup/data-model/index.md)
     - Validate this JSON against the [Setup JSON Schema](../../json-metadata/setup/schema_doc.md)
-- [x] Collect Elementary A-Scans to be saved in a **AScanAmplitude** dataset
-- [x] Save datasets according to the .NDE [HDF5 structure](../../hdf5-structure/index.md)
+- [x] Collect elementary A-scans to be saved in a **AScanAmplitude** dataset
+- [x] Save the datasets according to the .nde [HDF5 structure](../../hdf5-structure/index.md)
 
 
 ## JSON formatted **Properties** dataset
 
 ### Create the dataset
 
-Following the [**Properties**](../../json-metadata/properties/index.md) dataset [data model documentation](../../json-metadata/properties/data-model.md), the only required properties are the `$schema`,  `creationDate` and `formatVersion` in the **file** object and the related method in the **methods** array. 
+According to the [**Properties**](../../json-metadata/properties/index.md) dataset [data model documentation](../../json-metadata/properties/data-model.md), the only required properties are the `$schema`,  `creationDate`, and `formatVersion` in the **file** object and the related method in the **methods** array. 
 
 The **Properties** dataset results in the following: 
 
@@ -33,7 +33,7 @@ The **Properties** dataset results in the following:
 
 ### Validate the dataset structure
 
-Then, check that the JSON file validate against the **Properties** [JSON Schema](../../json-metadata/properties/schema_doc.md), assuming you saved the above [**Properties**](../../json-metadata/properties/index.md) JSON under `properties_fmc.json`: 
+Then, validate the JSON file against the **Properties** [JSON Schema](../../json-metadata/properties/schema_doc.md), assuming you saved the above [**Properties**](../../json-metadata/properties/index.md) JSON under `properties_fmc.json`: 
 
 ``` python
 import fastjsonschema
@@ -50,13 +50,13 @@ except fastjsonschema.JsonSchemaException as e:
     print(f"Properties JSON failed validation: {e}")
 ```
 
-The above validation should not return any error code. 
+The above validation should not return any error codes. 
 
 ## JSON formatted **Setup** dataset
 
 ### Create the dataset
 
-Following the [**Setup**](../../json-metadata/setup/index.md) dataset [data model documentation](../../json-metadata/setup/data-model/index.md), there are a couple of object we need to populate to end up with a valid dataset: 
+According to the [**Setup**](../../json-metadata/setup/index.md) dataset [data model documentation](../../json-metadata/setup/data-model/index.md), there are a couple of objects we need to populate to end up with a valid dataset: 
 
 ``` json
 {
@@ -84,13 +84,13 @@ The first three properties are straightforward and reference the schema version 
 
 The remaining objects and arrays cover: 
 
-- The definition of groups, its datasets and processes: in our case a single group, a `AScanAmplitude` dataset and an [ultrasonicMatrixCapture](../../json-metadata/setup/data-model/groups/processes/ultrasonicMatrixCapture.md) acquisition process
+- The definition of the groups, datasets, and processes: in our case a single group, a `AScanAmplitude` dataset, and an [ultrasonicMatrixCapture](../../json-metadata/setup/data-model/groups/processes/ultrasonicMatrixCapture.md) acquisition process
 - The definition of the [acquisition unit](../../json-metadata/setup/data-model/acquisition-units.md): in the example below, the OmniScan X4 64x128
 - The definition of a [specimen](../../json-metadata/setup/data-model/specimens.md): in the example below,  a 25 mm thick mild steel plate 
 - The definition of the [probe](../../json-metadata/setup/data-model/probes.md): in the example below, a 5L64 linear array
 - The definition of the [wedge](../../json-metadata/setup/data-model/wedges.md): as we will be in contact, we will define a wedge with most of its dimensions equal to 0
 
-As the process of creating these JSON objects and arrays can be tedious the first time, we'll provide a template incorporating the above parameters to facilitate this demonstration.
+As the process of creating these JSON objects and arrays can be tedious the first time, the following template incorporates the above parameters to facilitate this demonstration.
 
 ??? example "**Setup** template"
 
@@ -100,7 +100,7 @@ As the process of creating these JSON objects and arrays can be tedious the firs
 
 ### Validate the dataset structure
 
-Then, check that the JSON file validate against the **Setup** [JSON Schema](../../json-metadata/setup/schema_doc.md), assuming you saved the above [**Setup**](../../json-metadata/setup/index.md) JSON under `setup_fmc.json`: 
+Then, validate the JSON file against the **Setup** [JSON Schema](../../json-metadata/setup/schema_doc.md), assuming you saved the above [**Setup**](../../json-metadata/setup/index.md) JSON under `setup_fmc.json`: 
 
 ``` python
 setup = json.load(open('setup_fmc.json', 'r'))
@@ -115,15 +115,15 @@ except fastjsonschema.JsonSchemaException as e:
     print(f"Setup JSON failed validation: {e}")
 ```
 
-The above validation should not return any error code. 
+The above validation should not return any error codes. 
 
-## Collect Elementary A-Scans
+## Collect elementary A-scans
 
-Collect a FMC using the instrument of your choice and make sure you format the matrix of elementary A-Scans following this structure: 
+Collect an FMC using the instrument of your choice and make sure you format the matrix of elementary A-scans following this structure: 
 
 ![FMCOneLineScanDataset.png](../../assets/images/json-metadata/setup/data-model/groups/datasets/FMCOneLineScanDataset.png)
 
-Your FMC matrix should be a 2 dimensional array having the following dimensions:
+Your FMC matrix should be a 2 dimensional array with the following dimensions:
 
 - **First dimension**: Number of mechanical positions
 - **Second dimension**: $AScanLength \times N_{Emitters} \times N_{Receivers}$
@@ -141,9 +141,9 @@ def acquire_fmc_frame()
 fmc[0, :] = acquire_fmc_frame()
 ```
 
-## Save datasets according to the .NDE HDF5 structure
+## Save the datasets according to the .nde HDF5 structure
 
-We now need to create the .NDE file using the HDF5 library following the [HDF5 Structure](../../hdf5-structure/index.md) specific to any .NDE file. The **Properties** JSON will be saved at the root of this structure, the **Setup** JSON will be saved under the `/Public/` path and the A-Scans will be saved in Group 0 under `/Public/Groups/0/Datasets`. 
+We now need to create the .nde file using the HDF5 library following the [HDF5 Structure](../../hdf5-structure/index.md) specific to any .nde file. The **Properties** JSON will be saved at the root of this structure, the **Setup** JSON will be saved under the `/Public/` path, and the A-scans will be saved in Group 0 under `/Public/Groups/0/Datasets`. 
 
 ``` python 
 with h5py.File('ut_ascans.nde', 'w') as hdf5_file:

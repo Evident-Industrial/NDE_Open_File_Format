@@ -4,7 +4,9 @@ icon: material/cards
 
 # Examples 
 
-Where theory meets practice. Explore our library of example files and code snippets for a deeper understanding of the .nde format.
+This is where theory meets practice!
+
+Explore our library of example files and code snippets to gain a deeper understanding of the .nde format.
 
 <div class="grid cards" markdown>
 
@@ -18,7 +20,7 @@ Where theory meets practice. Explore our library of example files and code snipp
 
     ---
 
-    Code samples in Python demonstrating how you can build your own application to read an write .nde files. 
+    Code samples in Python demonstrating how you can build your own application to read and write .nde files. 
 
 </div>
 

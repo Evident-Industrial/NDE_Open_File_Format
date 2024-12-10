@@ -1,4 +1,5 @@
 site_name: NDE Open File Format
+site_url: 'https://ndeformat.com/' 
 theme: 
   name: material
   custom_dir: overrides

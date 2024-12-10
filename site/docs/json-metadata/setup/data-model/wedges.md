@@ -1,16 +1,16 @@
-# Wedges related arrays and objects
+# Wedge Related Arrays and Objects
 
 **Wedges** are used to direct ultrasonic waves into a test material at a specific angle, enabling the detection of flaws at different orientations. It helps convert wave modes and ensures efficient energy transfer between the probe (transducer) and the test piece.
 
 ## **wedges** array
 
-Teh **wedges** array lists the wedge(s) used with the associated probe(s).
+The **wedges** array lists the wedge(s) used with the associated probe(s).
 
 | Property                      | Type    | Description                                                                                                          |
 | :---------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------- |
 | **id** `required`             | integer | The unique wedge id in the JSON structure referenced in [wedgeAssociation](probes.md#wedgeassociation-object) object |
 | **model** `required`          | string  | The wedge model reference                                                                                                          |
-| **serie**                     | string  | The wedge serie reference                                                                                                          |
+| **serie**                     | string  | The wedge series reference                                                                                                          |
 | **serialNumber**              | string  | The wedge serial number                                                                                                  |
 | **angleBeamWedge** `required` | object  | An [angleBeamWedge](#anglebeamwedge-object) object                                                                   |
 | **positioning** `required`    | object  | A [positioning](#positioning-object)  object                                                                         |
@@ -26,7 +26,7 @@ The **angleBeamWedge** object describes an angle beam wedge.
 | **width** `required`                | number |  m   | The width of the wedge                                               |
 | **height** `required`               | number |  m   | The height of the wedge                                              |
 | **length** `required`               | number |  m   | The length of the wedge                                              |
-| **longitudinalVelocity** `required` | number | m/s  | The ultrasound waves longitudinal velocity inside the wedge material |
+| **longitudinalVelocity** `required` | number | m/s  | The ultrasound waves' longitudinal velocity inside the wedge material |
 | **mountingLocations** `required`    | array  |  -   | A [mountingLocations](#mountinglocations-array) array                |
 | **pocketDepth**                     | number |  m   | The pocket depth of the wedge                                        |
 
@@ -37,7 +37,7 @@ Hypothesis and conventions:
   - The probe(s) contact surface is flat.
   - The positionning of the probe first element on a given wedge, which correspond to the so-called *mounting location*, is standardized (by design of the probe/wedge assembly).
   - The wedge coordinate system $(x_w, y_w, z_w)$ origin is centered at the bottom of its front face (see figure below).
-  - The wedge coordinate system orientation is defined such as to have the $(y_w)$ axis aligned with the wedge length; the $(x_w)$ axis aligned with the wedge width and the $(z_w)$ axis aligned with the wedge height 
+  - The wedge coordinate system orientation is defined so the $(y_w)$ axis is aligned with the wedge length, the $(x_w)$ axis aligned with the wedge width, and the $(z_w)$ axis aligned with the wedge height. 
 
 ![angleBeamWedge.png](../../../assets/images/json-metadata/setup/data-model/wedges/angleBeamWedge.png)
 
@@ -47,7 +47,7 @@ Hypothesis and conventions:
 
 - For flat wedges, the application of the above rules is straightforward as there's no ambiguity for the definition of the probe positioning.
 
-**Curved Wedge**
+**Curved wedges**
 
  - The application of a wedge on a tubular component  typically involves the use of a wedge with a matching curved surface. Such wedges require additional conventions.
 
@@ -63,16 +63,16 @@ The **mountingLocations** array describes the mounting location(s) of the wedge.
 | Property                       | Type    | Unit   | Description                                                                            |
 | :----------------------------- | :------ | :----- | :------------------------------------------------------------------------------------- |
 | **id** `required`              | integer | -      | The mounting location id referenced in [anglebeamWedge](#anglebeamwedge-object) object |
-| **wedgeAngle** `required`      | number  | degree | The wedge angle in degree                                                              |
-| **squintAngle**                | number  | degree | The wedge squint angle in degree                                                       |
-| **roofAngle**                  | number  | degree | The wedge roof angle in degree                                                         |
+| **wedgeAngle** `required`      | number  | degree | The wedge angle in degrees                                                              |
+| **squintAngle**                | number  | degree | The wedge squint angle in degrees                                                       |
+| **roofAngle**                  | number  | degree | The wedge roof angle in degrees                                                         |
 | **primaryOffset** `required`   | number  | m      | The wedge primary offset                                                               |
 | **secondaryOffset** `required` | number  | m      | The wedge secondary offset                                                             |
 | **tertiaryOffset** `required`  | number  | m      | The wedge tertiary offset                                                              |
 
 Hypothesis and conventions: 
 
-- A probe is maintained in position on a wedge through an interface face, named *mounting location*, which origin $(x_m, y_m, z_m)$ is defined by the aforementionned **primaryOffset**, **secondaryOffset** and **tertiaryOffset** plus three angles:
+- A probe is maintained in position on a wedge through an interface face, named the *mounting location*, and its origin $(x_m, y_m, z_m)$ is defined by the aforementionned **primaryOffset**, **secondaryOffset**, and **tertiaryOffset** plus three angles:
   - **wedgeAngle** $\beta$ : Angle between the normal of the interface face, $z_m$, and the $z_w$ axis
   - **squintAngle** $\alpha$ : Angle between the projection of the probe primary axis on the $x_w$/$y_w$ plane, $y_m$, and the $y_w$ axis. 
   - **roofAngle** $\gamma$ : Angle between $x_m$ and $x_w$, defined by a rotation around the probe primary axis.
@@ -81,7 +81,7 @@ Hypothesis and conventions:
 
 - Its positioning on the specimen is given in relation to the $(u,v)$ coordinates with the **uCoordinateOffset** and **vCoordinateOffset** located in the Setup JSON formatted dataset at **wedges[x].positioning**.   
 
-- The positioning of the probe $(x_p, y_p, z_p)$ coordinate system is achieved in the $(x_w,y_w,y_w)$ coordinates through the successive application of the **primaryOffset** (on the $(y_w)$ axis), the **secondaryOffset** (on the $(x_w)$ axis) and the **tertiaryOffset** (on the $(y_w)$ axis). The origin of the probe coordinate system is the center of the first probe element.
+- The positioning of the probe $(x_p, y_p, z_p)$ coordinate system is achieved in the $(x_w,y_w,y_w)$ coordinates through the successive application of the **primaryOffset** (on the $(y_w)$ axis), the **secondaryOffset** (on the $(x_w)$ axis), and the **tertiaryOffset** (on the $(y_w)$ axis). The origin of the probe coordinate system is the center of the first probe element.
 - The orientation of the probe $(x_p, y_p, z_p)$ coordinate system is achieved in the $(x_w,y_w,y_w)$ coordinates through the successive application of the **wedgeAngle**, **squintAngle**, and **roofAngle**.
 - It is possible to have multiple probe **mountingLocations** defined on a single wedge, for example in the case of Dual Linear Array (DLA) or Dual Matrix Array (DMA) probe
 
@@ -94,10 +94,10 @@ The **positioning** object describes the wedge position with respect to the spec
 
 | Property                         | Type    | Description                                                       |
 | :------------------------------- | :------ | :---------------------------------------------------------------- |
-| **specimendId** `required`       | integer | The related specimend id (plate, pipe, bar)                       |
+| **specimendId** `required`       | integer | The related specimen id (plate, pipe, bar)                       |
 | **surfaceId** `required`         | integer | The related surface id (plate surface, pipe surface, bar surface) |
-| **uCoordinateOffset** `required` | number  | The offset against $u$ axis                                       |
-| **vCoordinateOffset** `required` | number  | The offset against $v$ axis or coordinate object                  |
+| **uCoordinateOffset** `required` | number  | The offset relative to the $u$ axis                                       |
+| **vCoordinateOffset** `required` | number  | The offset relative to the $v$ axis or coordinate object                  |
 | **skewAngle** `required`         | number  | The skew angle in degrees                                         |
 
 
@@ -107,9 +107,9 @@ The **positioning** object describes the wedge position with respect to the spec
 
 ## Examples
 
-Examples of Phased Array and Single/Dual Element wedges definitions extracted from Evident catalogue. 
+Examples of phased array and single- and dual-element wedge definitions based on specifications in the Evident probe catalog.  
 
-??? example "Phased Array Wedges Examples"
+??? example "Phased array wedge examples"
 
     === "SA32-N55S"
         ``` json
@@ -140,7 +140,7 @@ Examples of Phased Array and Single/Dual Element wedges definitions extracted fr
         --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-XAIW-0012.json"
         ```
 
-??? example "Single and Dual Element Wedges Examples"
+??? example "Single and dual element wedge examples"
 
     === "ST1-25L-IHC"
         ``` json

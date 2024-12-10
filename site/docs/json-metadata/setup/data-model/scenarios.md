@@ -2,9 +2,9 @@
 
 Scenarios introduce a set of conventions specific to a given use case, enabling a simple description of the specimen and associated probe and wedge positioning. 
 
-Many nondestructive inspection scan plans are referenced to the surface of a specimen. Scenarios corresponding to those use cases link the probe or wedge positioning through $(U,V)$ surface coordinates. 
+Many nondestructive inspection scan plans are referenced to the surface of a specimen. Scenarios corresponding to these use cases link the probe or wedge positioning through $(U,V)$ surface coordinates. 
 
-## **General Mapping** Scenario
+## **General Mapping** scenario
 
 Hypotheses:
 
@@ -19,14 +19,14 @@ Hypotheses:
 | *Raster example with the $U$ and $V$ axis.*                                                                |
 
 
-## **General Weld** Scenario
+## **General Weld** scenario
 
 Hypotheses:
 
   - The scenario relates to the inspection of a single straight or curved weld or joint.
   - The surface line $(u,0)$ is collinear with the center of said weld or joint.
   - The probe positioning vs. the related specimen surface is constant for all $(u,v)$ position (skew angle, liftoff, etc.) or automatically compensated (i.e., adaptive acoustic, liftoff compensation, electronic).
-  -  For pipe geometry, the orientation of the weld is defined in relation to the pipe axis. With an angle of 0° for an axial weld and 90° for a circumferential one. Any angle in between describes a helix weld.
+  -  For pipe geometry, the orientation of the weld is defined in relation to the pipe axis. With an angle of 0° for an axial weld and 90° for a circumferential one. Any angle in between describes a helical weld.
   -  Scan patterns can be entirely described on the surface of specimen as a set of orthogonal axes parallel and orthogonal to the weld.
 
 
@@ -37,8 +37,8 @@ Hypotheses:
 
 | ![AxisReferential-PipeAxialWeld.png](../../../assets/images/json-metadata/setup/data-model/scenarios/AxisReferential-PipeAxialWeld.png){width="70%"} |
 | :-----------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                       *The weld angle is defined in relation to the pipe axis. Axial weld.*                                       |
+|                                       *Axial weld: The weld angle is defined in relation to the pipe axis.*                                       |
 
 | ![AxisReferential-PipeCircWeld.png](../../../assets/images/json-metadata/setup/data-model/scenarios/AxisReferential-PipeCircWeld.png){width="70%"} |
 | :---------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                      *The weld angle is defined in relation to the pipe axis. Girth weld.*                                      |
+|                                      *Girth weld: The weld angle is defined in relation to the pipe axis.*                                      |

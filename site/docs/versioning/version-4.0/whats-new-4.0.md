@@ -1,30 +1,30 @@
 
 ## Motivations
 
-The existing version of the .NDE file format has limited support for Eddy current modality, advanced ultrasonic features, and future developments. Therefore, an update introducing breaking changes was necessary to establish a more flexible structure capable of seamlessly adapting to and accommodating new requirements or needs, while still maintaining a high level of standardization. This new structure will, for example, enables intergroup relationships within the JSON Setup dataset while preserving the simplicity of straightforward use cases.
+Versions of the .nde file format prior to version 4.0 offered limited support for the eddy current modality, advanced ultrasonic features, and future developments. Therefore, an update introducing breaking changes was necessary to establish a more flexible structure capable of seamlessly adapting to and accommodating new requirements or needs, while still maintaining a high level of standardization. For example, this new structure enables intergroup relationships within the JSON Setup dataset while preserving the simplicity of straightforward use cases.
 
 ## New concepts
 
-NDE 4.0 introduces a new way of structuring the .NDE File Format but also some new concepts.
+NDE version 4.0 introduces a new way of structuring the .nde file format as well as some new concepts.
 
 Within the JSON formatted **Setup** dataset:
 
-- **DataClass** – Allows to quickly identify the type of data associated with a Dataset. This attribute is standardized, documented, and included to the description of a datasets array item in the JSON Setup dataset structure. This was not standardized in previous versions and only had similar functionalities through the naming of previous dataset object sub-objects. 
+- **DataClass** – Enables quick identification of the type of data associated with a Dataset. This attribute is standardized, documented, and included in the description of a datasets array item in the JSON Setup dataset structure. This was not standardized in previous versions and only had similar functionalities through the naming of previous dataset object subobjects. 
 
-- **Processes** – A better way to describe how parameters are applied during acquisition or analysis and their impact on the resulting datasets. This object is standardized, documented, and added to the JSON Setup dataset structure. This was not standardized in previous versions and only had similar component in the description of the acquisition parameters found in the dataset object of the JSON Setup dataset structure.
+- **Processes** – A better way to describe how parameters are applied during acquisition or analysis and their impact on the resulting datasets. This object is standardized, documented, and added to the JSON Setup dataset structure. This was not standardized in previous versions and only had a similar component in the description of the acquisition parameters found in the dataset object of the JSON Setup dataset structure.
 
-The JSON formatted **Properties** dataset:  the approach for handling file-wide metadata was changed to adopt the same as the rest of the acquisition metadata with the Setup dataset. Hence, all metadata previously stored as HDF5 attributes at the root of the file are now stored within the Properties dataset, still located at the root of the file, and can be validated against a dedicated JSON Schema. [See below](#addition-of-the-json-properties-dataset) for more information.
+The JSON formatted **Properties** dataset: The approach for handling file-wide metadata was changed to adopt the same as the rest of the acquisition metadata with the Setup dataset. Hence, all metadata previously stored as HDF5 attributes at the root of the file are now stored within the Properties dataset, still located at the root of the file, and can be validated against a dedicated JSON Schema. [See below](#addition-of-the-json-properties-dataset) for more information.
 
 
 !!! note
-    To avoid confusion between [HDF5 Groups](https://portal.hdfgroup.org/hdf5/v1_14_4/_h5_g__u_g.html#sec_group) and [Groups](#updated-groups-structure-with-datasets-and-processes) defined within the .NDE standard, the term "path" will be preferred to designate an HDF5 Group. 
+    To avoid confusion between [HDF5 Groups](https://portal.hdfgroup.org/hdf5/v1_14_4/_h5_g__u_g.html#sec_group) and [Groups](#updated-groups-structure-with-datasets-and-processes) defined within the .nde standard, the term "path" will be preferred to designate an HDF5 Group. 
 
 
-## Modifications to the HDF Structure 
+## Modifications to the HDF structure 
 
-The overall HDF structure spirit remains unchanged with a container for nonstandardized application usage (**/Private**) and a standardized container for the data and setup or any contextual information that describes the data (**/Public**). 
+The overall spirit of the HDF structure remains unchanged with a container for nonstandardized application usage (**/Private**) and a standardized container for the data and setup or any contextual information that describes the data (**/Public**). 
 
-- The name of those root containers was slightly revisited to be more meaningful, hence the previous **/Applications** section is renamed **/Private**
+- The name of those root containers has been slightly revisited to be more meaningful, hence the previous **/Applications** section is renamed **/Private**
    and the previous **/Domain** section is renamed **/Public**.
 
 <!--- ![new_hdf_structure](./assets/images/4.0/new_hdf_structure.png){ width="600" } --->
@@ -96,7 +96,7 @@ The overall HDF structure spirit remains unchanged with a container for nonstand
 
 The concept of process is introduced and added to the description of groups, making the groups structure more standardized and enabling distinction between the information relative to the data contained in datasets and the parameters used to create or modify these datasets. 
 
-Processes are described by their *id*, their *inputs* and *outputs* and a specific object listing all its *parameters*. Previous acquisition parameters objects - such as *paut* - and nested softwareProcess objects - such as *thickness* - are now converted to processes array items. By adopting this more general structure, possibilities are endless and notably enables intergroup relationships. Hence, processes can be chained and may have other processes as input as illustrated in the example below.
+Processes are described by their *id*, their *inputs* and *outputs* and a specific object listing all its *parameters*. Previous acquisition parameters objects—such as *paut*—and nested softwareProcess objects—such as *thickness*—are now converted to processes array items. By adopting this more general structure, the possibilities are endless and intergroup relationships enabled. Hence, processes can be chained and may have other processes as input, as illustrated in the example below.
 
 ``` mermaid
     flowchart TD
@@ -117,7 +117,7 @@ Processes are described by their *id*, their *inputs* and *outputs* and a specif
 
 ```
 
-Here is an example showing the difference between a typical JSON Setup dataset structure in version 3.3 and version 4.0 with new groups structure:
+Here is an example showing the difference between a typical JSON Setup dataset structure in version 3.3 and version 4.0 with the new groups structure:
 
 === "4.0"
 
@@ -152,7 +152,7 @@ Here is an example showing the difference between a typical JSON Setup dataset s
     ```
     
     1. The same **paut** object as defined in version 3.3, renamed **ultrasonicPhasedArray**, is now nested inside a process object. 
-    2. **dataEncodings** is renamed **dataMappings** in version 4.0 to avoid misinterpretation with other encoding types.
+    2. **dataEncodings** is renamed **dataMappings** in version 4.0 to avoid confusion with other encoding types.
 
 === "3.3"
 
@@ -201,23 +201,23 @@ Hence, it is now easier to distinguish metadata related to a HDF Dataset (with m
 
 Additionnaly, the role of each group structure layer is clearly defined: 
 
-- **Group**: A group comprises datasets and processes that are inherently interconnected. Group identity is defined by its first process (processes[{"id": 0}]). A dataset invariably originates from a process.
+- **Group**: A group comprises datasets and processes that are inherently interconnected. A group's identity is defined by its first process (processes[{"id": 0}]). A dataset invariably originates from a process.
 
-- **Dataset**: A dataset is the minimum description of the content of a container for data of homogeneous nature, characterized by standardized data classes, with its volume potentially necessitating storage within the HDF5 structure. Through the process it originates, it establishes a connection between the data and physical reality (time and space).
+- **Dataset**: A dataset is the minimum description of the content of a container for data of a homogeneous nature, characterized by standardized data classes, with its volume potentially necessitating storage within the HDF5 structure. Through the process it originates, it establishes a connection between the data and physical reality (time and space).
 
 - **Process**: A process describes an operation aimed at creating, modifying, or formatting data, which are ultimately stored or referenced within a dataset. Processes have inputs and outputs and can be directly linked to a dataset or to another process. 
 
 
 ### New **processes** structure
 
-The new concept of processes is introduced as an array comprising as many items as required to describe the processes chain leading to a dataset. Previous acquisition parameters objects - such as *paut* - and nested softwareProcess objects - such as *thickness* - are now converted to processes array items.
+The new concept of processes is introduced as an array comprising as many items as required to describe the processes chain leading to a dataset. Previous acquisition parameters objects—such as *paut*—and nested softwareProcess objects—such as *thickness*—are now converted to processes array items.
 
-The **processes** array
+The **processes** array:
 
 | Property                           | Description                                                                                                |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | id* [number]                       | The unique id of the process inside its parent group                                                       |
-| inputs [object]                    | An object listing the group, process and output id used as inputs of the process.                          |
+| inputs [object]                    | An object listing the group, process, and output id used as inputs of the process.                          |
 | outputs [object]                   | An object listing the dataset id and, if needed, the specific parameters of this output.                   |
 | implementation [string]            | Type of implementation for this process, typically `Hardware` or `Sotfware`                                |4
 | dataMappingId [integer]            | The unique id of the dataMapping object related to the process                                             |
@@ -272,19 +272,19 @@ Here is an example showing the difference between a specific *paut* acquisition 
 
 ### Updated **datasets** structure 
 
-The structure of datasets was also affected to be more general and versatile. Note that the dataset object is now plural - *dataset***s** - and is an array with standardize structure comprising an *id*, a *dataTransformations* array, a *dataClass* and - inherited from version 3.3 - a *path* and a *dimensions* object. 
+The structure of datasets was also modified to be more general and versatile. Note that the dataset object is now plural—*dataset***s**—and is an array with standardize structure comprising an *id*, a *dataTransformations* array, a *dataClass* and—inherited from version 3.3—a *path* and a *dimensions* object. 
 
-**Datasets** array - replacing the previous **dataset** object
+**Datasets** array—replacing the previous **dataset** object:
 
 | Property                    | Description                                                                                                                                        |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id* [number]                | The unique id of the dataset inside its parent group                                                                                               |
 | dataTransformations [array] | A dataTransformations array references the last process of each process chain in charge of transforming the data to be displayed.                  |
-| dataClass* [string]         | The dataClass of the dataset, such as `AScanAmplitude`, `AScanStatus` or `FiringSource`                                                            |
+| dataClass* [string]         | The dataClass of the dataset, such as `AScanAmplitude`, `AScanStatus`, or `FiringSource`                                                            |
 | storageMode [string]        | The type of storage of mode, such as `Paintbrush` or `Independent`                                                                                 |
 | dataValue [object]          | The values the dataset can take, both raw values and values converted to the corresponding unit                                                    |
 | path* [string]              | The path to the dataset in the HDF structure                                                                                                       |
-| dimensions* [object]        | A dimension object describing the dimensions of the HDF5 dataset and information ralative to the specimen surface grid through the referenced axis |
+| dimensions* [object]        | A dimension object describing the dimensions of the HDF5 dataset and information relative to the specimen surface grid through the referenced axis |
 
     
 Here is an example showing the difference between a typical dataset object in version 3.3 and the new datasets array in version 4.0:
@@ -413,7 +413,7 @@ Previously, file-wide metadata were stored as HDF5 attributes at the root of the
     </figure>
 
 
-To allow more flexibility and scalibility in the future, those file-wide metadata are transfered to a new JSON-formatted dataset named **Properties** and located at the root of the HDF5 hierarchy. Currently, this JSON-formatted dataset contains the same information as previous attributes in a **file** object as well as a new **methods** array to specify the NDT methods covered in the file (as described by [ASNT](https://www.asnt.org/what-is-nondestructive-testing/methods)). More objects will be added to the **Properties** dataset in the near future. 
+To allow more flexibility and scalibility in the future, these file-wide metadata are transfered to a new JSON-formatted dataset named **Properties** and located at the root of the HDF5 hierarchy. Currently, this JSON-formatted dataset contains the same information as previous attributes in a **file** object as well as a new **methods** array to specify the NDT methods covered in the file (as described by [ASNT](https://www.asnt.org/what-is-nondestructive-testing/methods)). More objects will be added to the **Properties** dataset in the near future. 
 
 ``` json
 {
@@ -436,17 +436,17 @@ To allow more flexibility and scalibility in the future, those file-wide metadat
 
 ## Support of advanced ultrasonic acquisitions
 
-Advanced ultrasonic acquisitions such as FMC, HMC, PWI and Sparse Array will be officially supported through a dedicated **ultrasonicMatrixCapture** process object in the JSON Setup dataset. The acquired elementary AScans will be stacked and stored in a **AScanAmplitude** dataset. 
+Advanced ultrasonic acquisitions such as FMC, HMC, PWI, and Sparse Array are supported through a dedicated **ultrasonicMatrixCapture** process object in the JSON Setup dataset. The acquired elementary A-scans will be stacked and stored in a **AScanAmplitude** dataset. 
 
 
 ## Enriched documentation
 
-The overall documentation will be enriched with more detailed explanations, additionnal examples and code snippets, new and standardized illustrations and step-by-step guides for simple cases. 
+The overall documentation will be enriched with more detailed explanations, additionnal examples and code snippets, new and standardized illustrations, and step-by-step guides for simple cases. 
 
 ## Coming soon
 
-- Support of C-Scans data
-- Support of Eddy-current modality
-- ... and many more !
+- Support of C-scan data
+- Support of the eddy current modality
+- ... and much more !
 
 
