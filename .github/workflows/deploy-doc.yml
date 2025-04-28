@@ -4,6 +4,7 @@ on:
     branches:
       - master 
       - main
+      - 4.0.0
 permissions:
   contents: write
 jobs:
