@@ -1,0 +1,42 @@
+"probes": [
+  {
+    "id": 0,
+    "model": "D713",
+    "serie": "DUAL",
+    "conventionalRound": {
+      "centralFrequency": 10000000.0,
+      "diameter": 0.00635,
+      "elements": [
+        {
+          "id": 0,
+          "acquisitionUnitId": 0,
+          "connectorName": "P1"
+        }
+      ]
+    },
+    "wedgeAssociation": {
+      "wedgeId": 0,
+      "mountingLocationId": 0
+    }
+  },
+  {
+    "id": 1,
+    "model": "D713",
+    "serie": "DUAL",
+    "conventionalRound": {
+      "centralFrequency": 10000000.0,
+      "diameter": 0.00635,
+      "elements": [
+        {
+          "id": 0,
+          "acquisitionUnitId": 0,
+          "connectorName": "R1"
+        }
+      ]
+    },
+    "wedgeAssociation": {
+      "wedgeId": 0,
+      "mountingLocationId": 1
+    }
+  }
+]

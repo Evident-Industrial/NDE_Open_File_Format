@@ -1,0 +1,30 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "SA32-N55S",
+    "serie": "SA32",
+    "angleBeamWedge": {
+      "width": 0.03,
+      "height": 0.03315,
+      "length": 0.0615,
+      "longitudinalVelocity": 2330.0,
+      "mountingLocations": [
+        {
+          "id": 0,
+          "wedgeAngle": 36.1,
+          "primaryOffset": -0.055520000000000007,
+          "secondaryOffset": 0.0,
+          "tertiaryOffset": 0.011
+        }
+      ],
+      "pocketDepth": 0.0
+    },
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0.0,
+      "vCoordinateOffset": 0.0,
+      "skewAngle": 90.0
+    }
+  }
+]

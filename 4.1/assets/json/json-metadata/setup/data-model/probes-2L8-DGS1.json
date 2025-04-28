@@ -1,0 +1,103 @@
+"probes": [
+  {
+    "id": 0,
+    "model": "2L8-DGS1",
+    "serie": "DGS1",
+    "phasedArrayLinear": {
+      "centralFrequency": 2000000.0,
+      "elements": [
+        {
+          "id": 0,
+          "pinId": 0,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 0,
+          "secondaryIndex": 0,
+          "enabled": true
+        },
+        {
+          "id": 1,
+          "pinId": 1,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 1,
+          "secondaryIndex": 0,
+          "enabled": true
+        },
+        {
+          "id": 2,
+          "pinId": 2,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 2,
+          "secondaryIndex": 0,
+          "enabled": true
+        },
+        {
+          "id": 3,
+          "pinId": 3,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 3,
+          "secondaryIndex": 0,
+          "enabled": true
+        },
+        {
+          "id": 4,
+          "pinId": 4,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 4,
+          "secondaryIndex": 0,
+          "enabled": true
+        },
+        {
+          "id": 5,
+          "pinId": 5,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 5,
+          "secondaryIndex": 0,
+          "enabled": true
+        },
+        {
+          "id": 6,
+          "pinId": 6,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 6,
+          "secondaryIndex": 0,
+          "enabled": true
+        },
+        {
+          "id": 7,
+          "pinId": 7,
+          "acquisitionUnitId": 0,
+          "connectorName": "PA",
+          "primaryIndex": 7,
+          "secondaryIndex": 0,
+          "enabled": true
+        }
+      ],
+      "primaryAxis": {
+        "elementGap": 0.0,
+        "elementQuantity": 8,
+        "elementLength": 0.001,
+        "referencePoint": -0.02,
+        "casingLength": 0.0273
+      },
+      "secondaryAxis": {
+        "elementGap": 0.0,
+        "elementQuantity": 1,
+        "elementLength": 0.0090000000000000011,
+        "referencePoint": 0.0,
+        "casingLength": 2E-06
+      }
+    },
+    "wedgeAssociation": {
+      "wedgeId": 0,
+      "mountingLocationId": 0,
+      "orientation": "Normal"
+    }
+  }
+]
