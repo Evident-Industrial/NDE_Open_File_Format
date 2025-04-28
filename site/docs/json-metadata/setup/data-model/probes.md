@@ -157,7 +157,7 @@ Illustration
 | **elementGap** `required`      | number  |  m   | The spacing between two adjacent elements                                                                |
 | **elementQuantity** `required` | integer |  -   | The number of elements in the array along this axis                                                      |
 | **elementLength** `required`   | number  |  m   | The length of a single element of the array where all elements have the same length along this axis      |
-| **referencePoint** `required`  | number  |  -   | The distance between the casing embedding the array and the center of the first element  along this axis |
+| **referencePoint** `required`  | number  |  m   | The distance between the casing embedding the array and the center of the first element  along this axis |
 | **casingLength**               | number  |  m   | The length of the casing embedding the array along this axis                                             |
 
 Hypothesis:
@@ -234,7 +234,7 @@ The **wedgeAssociation** object describes the association of a probe with a wedg
 
 Examples of phased array and single- and dual-element probe definitions based on specifications in the Evident probe catalog.  
 
-??? example "Phased array probe examples"
+??? quote "Phased array probe examples"
 
     === "5L64-A32"
         ``` json
@@ -265,7 +265,7 @@ Examples of phased array and single- and dual-element probe definitions based on
         --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-2L8-DGS1.json"
         ```
 
-??? example "Single and dual element probe examples"
+??? quote "Single and dual element probe examples"
 
     === "V103"
         ``` json

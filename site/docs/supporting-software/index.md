@@ -36,7 +36,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
     
     ---
 
-    [:material-download: Download](https://www.olympus-ims.com/en/downloads/detail/?0[downloads][id]=276828775)
+    [:material-download: Download](https://evidentscientific.com/en/downloads?product=OmniPC+6)
 
     :material-file: Read OmniScan X3 and X4 .nde files
 
@@ -50,7 +50,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
     
     ---
 
-    [:material-arrow-right: Learn more](https://www.olympus-ims.com/en/aeroview/)
+    [:material-arrow-right: Learn more](https://ims.evidentscientific.com/en/products/software/aeroview)
 
     :material-file: Read/Write .nde files
 
@@ -63,7 +63,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
     
     ---
 
-    [:material-arrow-right: Learn more](https://www.olympus-ims.com/weldsight/)
+    [:material-arrow-right: Learn more](https://ims.evidentscientific.com/en/products/software/aeroview)
 
     :material-file: Read OmniScan .nde files
 

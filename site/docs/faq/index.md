@@ -35,7 +35,7 @@ Can't find the answer to your question? Need support? [**Please reach out to us*
 
 ??? question "Regarding .nde files produced by Evident instruments, will I still be able to use OpenViewSDK?"
 
-    Evident will end support of OpenViewSDK after the release of the .nde file format version 4.0. Hence, OpenViewSDK won't be compatible with .nde 4.0 files. 
+    Evident will end support of OpenViewSDK after the release of the .nde file format version 4.0. Hence, OpenViewSDK won't be compatible with .nde 4.0 and 4.1 files. 
 
 ??? question "Will Evident software still support previous versions of .nde files?"
 

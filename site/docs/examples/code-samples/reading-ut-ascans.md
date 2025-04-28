@@ -8,7 +8,7 @@ Start by loading the [Setup](../../json-metadata/setup/index.md) JSON formatted 
 import h5py
 import json
 
-nde_file = h5py.File('Manual_Weld_UT.nde', 'r')
+nde_file = h5py.File('Weld_Plate_UT-sk90.nde', 'r')
 
 # Navigate to the path in the HDF5 file where the Setup JSON dataset is stored
 setup_json = nde_file['Public/Setup'][()]
@@ -108,10 +108,10 @@ time_axis = np.linspace(
 
 # Plot the 200th A-Scan
     plt.figure(figsize=(10, 6))
-    plt.plot(time_axis, ascans[199, 0, :], label="200th A-Scan")
-    plt.title("200th A-Scan from GR-1 AScanAmplitude Dataset")
+    plt.plot(time_axis, normalized_ascans[99, 0, :], label="100th A-Scan")
+    plt.title("100th A-Scan from GR-1 AScanAmplitude Dataset")
     plt.xlabel("Time (s)")
-    plt.ylabel("Amplitude")
+    plt.ylabel("Amplitude (%)")
     plt.grid(True)
     plt.legend()
     plt.show()

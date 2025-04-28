@@ -50,7 +50,7 @@ The **pitchCatch** object describes the probes used in an acquisition pattern wh
 
 ## **tandem** object 
 
-The **tandem** object describes the time-of-flight diffraction (TOFD) technique parameters and the associated beam formation.
+The **tandem** object describes a self-tandem acquisition and the associated beam formation.
 
 | Property              | Type    | Unit | Description                                           |
 | :-------------------- | :------ | :--: | :---------------------------------------------------- |
@@ -240,7 +240,7 @@ Same structure for **sensitivityCalibration**, **tcgCalibration**, **velocityCal
 
 ## Examples
 
-??? example "ultrasonicPhasedArray processes examples for different configurations"
+??? quote "ultrasonicPhasedArray processes examples for different configurations"
 
     === "Sectorial Scan"
         ``` json

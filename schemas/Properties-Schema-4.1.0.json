@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nonNullString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "method": {
+      "type": "array",
+      "items": {
+        "enum": ["UT"],
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "formatVersion": {
+      "type": "string",
+      "enum": [ "4.0.0", "4.1.0" ]
+    }
+  },
+  "properties": {
+    "$schema": {"$ref": "#/definitions/nonNullString"},
+    "file": {
+      "type": "object",
+      "properties": {
+        "createdByAppName": {"$ref": "#/definitions/nonNullString"},
+        "createdByAppVersion": {"$ref": "#/definitions/nonNullString"},
+        "createdByAppCompany": {"$ref": "#/definitions/nonNullString"},
+        "creationDate": {"$ref": "#/definitions/date"},
+        "creationFormatVersion": {"$ref": "#/definitions/nonNullString"},
+        "modifiedByAppName": {"$ref": "#/definitions/nonNullString"},
+        "modifiedByAppVersion": {"$ref": "#/definitions/nonNullString"},
+        "modifiedByAppCompany": {"$ref": "#/definitions/nonNullString"},
+        "modificationDate": {"$ref": "#/definitions/date"},
+        "formatVersion": {"$ref": "#/definitions/formatVersion"},
+        "notice": {"$ref": "#/definitions/nonNullString"},
+        "description": {"$ref": "#/definitions/nonNullString"}
+      },
+      "required": [
+        "creationDate",
+        "formatVersion"
+      ],
+      "additionalProperties": false
+    },
+    "methods": {"$ref": "#/definitions/method"}
+  },
+  "required": [
+    "$schema",
+    "file",
+    "methods"
+  ]
+}

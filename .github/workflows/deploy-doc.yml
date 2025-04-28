@@ -33,5 +33,5 @@ jobs:
               mkdocs-print-site-plugin \
               mike
       - run: git pull      
-      - run: cd ./site && mike deploy --push --update-aliases 4.0 latest
-      - run: cd ./site && mike set-default --push 4.0
+      - run: cd ./site && mike deploy --push --update-aliases 4.1 latest
+      - run: cd ./site && mike set-default --push 4.1

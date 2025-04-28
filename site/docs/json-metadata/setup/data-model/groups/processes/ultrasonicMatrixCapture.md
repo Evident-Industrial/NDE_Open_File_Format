@@ -106,7 +106,7 @@ Arbitrary waveforms will be introduced later.
 
 ## Examples
 
-??? example "ultrasonicMatrixCapture processes examples for different configurations"
+??? quote "ultrasonicMatrixCapture processes examples for different configurations"
 
     === "FMC"
         ``` json

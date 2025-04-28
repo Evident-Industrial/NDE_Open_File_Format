@@ -1,5 +1,5 @@
 site_name: NDE Open File Format
-site_url: 'https://ndeformat.com/' 
+site_url: https://ndeformat.com
 theme: 
   name: material
   custom_dir: overrides
@@ -11,6 +11,8 @@ theme:
     scheme: evident
   icon:
     repo: fontawesome/brands/github
+    admonition:
+      quote: material/code-braces
   features:
     - content.code.copy
     - content.code.annotate
@@ -18,6 +20,8 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.indexes
+    - navigation.instant
+    - announce.dismiss
 extra_css:
   - stylesheets/extra.css
 extra:
@@ -86,6 +90,7 @@ nav:
       - index.md
       - Getting Started: 
         - getting-started/index.md
+        - NDE Concept and Structure: getting-started/nde-concept-and-structure.md
         - NDE and UNIS Open Platform: getting-started/nde-and-unis.md
         - Collaboration: getting-started/collaboration.md
  - HDF5 Structure:

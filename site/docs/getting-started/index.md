@@ -16,6 +16,7 @@ You've heard about the .nde open file format, but you're unsure where it origina
 
 <div class="grid cards" markdown>
 
+- :material-layers: [__NDE Concept and Structure__](nde-concept-and-structure.md) – Understanding the Format’s Rationale
 - :material-layers: [__NDE and UNIS Open Platform__](nde-and-unis.md) – From inception to a complete NDT open platform
 - :material-account-group: [__Collaboration__](collaboration.md) – How to contribute to the NDE file format
 - :material-file-question: [__FAQs__](../faq/index.md) –  Find answers to frequently asked questions about the .nde format

@@ -6,14 +6,52 @@
 
 The **wedges** array lists the wedge(s) used with the associated probe(s).
 
-| Property                      | Type    | Description                                                                                                          |
-| :---------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------- |
-| **id** `required`             | integer | The unique wedge id in the JSON structure referenced in [wedgeAssociation](probes.md#wedgeassociation-object) object |
-| **model** `required`          | string  | The wedge model reference                                                                                                          |
-| **serie**                     | string  | The wedge series reference                                                                                                          |
-| **serialNumber**              | string  | The wedge serial number                                                                                                  |
-| **angleBeamWedge** `required` | object  | An [angleBeamWedge](#anglebeamwedge-object) object                                                                   |
-| **positioning** `required`    | object  | A [positioning](#positioning-object)  object                                                                         |
+<table>
+<thead>
+  <tr>
+    <th>Property</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>id</b>  <code>required</code></td>
+    <td>integer</td>
+    <td>The unique wedge id in the JSON structure referenced in <a href="../probes#wedgeassociation-object">wedgeAssociation</a> object</td>
+  </tr>
+  <tr>
+    <td><b>model</b>  <code>required</code></td>
+    <td>string</td>
+    <td>The wedge model reference</td>
+  </tr>
+  <tr>
+    <td><b>serie</b></td>
+    <td>string</td>
+    <td>The wedge series reference </td>
+  </tr>
+  <tr>
+    <td><b>serialNumber</b></td>
+    <td>string</td>
+    <td>The wedge serial number</td>
+  </tr>
+  <tr>
+    <td>One of the following <code>required</code> sub-object: 
+        <ul>
+          <li><b><a href="#anglebeamwedge-object">angleBeamWedge</a></b></li>
+          <li><b><a href="#fluidcolumn-object">fluidColumn</a></b></li>
+        </ul>  
+    </td>
+    <td>object</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>positioning</b></td>
+    <td>object</td>
+    <td>A <a href="#positioning-object">positioning</a> object</td>
+  </tr>
+</tbody>
+</table>
 
 **Related objects**: [wedgeAssociation](probes.md#wedgeassociation-object)
 
@@ -21,14 +59,14 @@ The **wedges** array lists the wedge(s) used with the associated probe(s).
 
 The **angleBeamWedge** object describes an angle beam wedge. 
 
-| Property                            | Type   | Unit | Description                                                          |
-| :---------------------------------- | :----- | :--: | :------------------------------------------------------------------- |
-| **width** `required`                | number |  m   | The width of the wedge                                               |
-| **height** `required`               | number |  m   | The height of the wedge                                              |
-| **length** `required`               | number |  m   | The length of the wedge                                              |
+| Property                            | Type   | Unit | Description                                                           |
+| :---------------------------------- | :----- | :--: | :-------------------------------------------------------------------- |
+| **width** `required`                | number |  m   | The width of the wedge                                                |
+| **height** `required`               | number |  m   | The height of the wedge                                               |
+| **length** `required`               | number |  m   | The length of the wedge                                               |
 | **longitudinalVelocity** `required` | number | m/s  | The ultrasound waves' longitudinal velocity inside the wedge material |
-| **mountingLocations** `required`    | array  |  -   | A [mountingLocations](#mountinglocations-array) array                |
-| **pocketDepth**                     | number |  m   | The pocket depth of the wedge                                        |
+| **mountingLocations** `required`    | array  |  -   | A [mountingLocations](#mountinglocations-array) array                 |
+| **pocketDepth**                     | number |  m   | The pocket depth of the wedge                                         |
 
 Hypothesis and conventions: 
 
@@ -55,6 +93,15 @@ Hypothesis and conventions:
 
 - The curved wedge face is handled by redefining the *tertiary offset* and by defining the actual wedge curvature in the wedge object. The tertiary offset is defined for a flat wedge that is machined to the desired curvature.   
 
+### **fluidColumn** object
+
+The **fluidColumn** object describes a fluid column between the probe and the specimen, similarly to the [angleBeamWedge](#anglebeamwedge-object) object.  
+
+| Property                            | Type   | Unit | Description                                                           |
+| :---------------------------------- | :----- | :--: | :-------------------------------------------------------------------- |
+| **nominalHeight** `required`        | number |  m   | The nominal height of the fluid column                                |
+| **longitudinalVelocity** `required` | number | m/s  | The ultrasound waves' longitudinal velocity inside the wedge material |
+| **mountingLocations** `required`    | array  |  -   | A [mountingLocations](#mountinglocations-array) array                 |
 
 #### **mountingLocations** array
 
@@ -109,7 +156,7 @@ The **positioning** object describes the wedge position with respect to the spec
 
 Examples of phased array and single- and dual-element wedge definitions based on specifications in the Evident probe catalog.  
 
-??? example "Phased array wedge examples"
+??? quote "Phased array wedge examples"
 
     === "SA32-N55S"
         ``` json
@@ -140,7 +187,7 @@ Examples of phased array and single- and dual-element wedge definitions based on
         --8<-- "docs/assets/json/json-metadata/setup/data-model/wedges-XAIW-0012.json"
         ```
 
-??? example "Single and dual element wedge examples"
+??? quote "Single and dual element wedge examples"
 
     === "ST1-25L-IHC"
         ``` json

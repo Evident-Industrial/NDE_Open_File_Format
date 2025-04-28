@@ -6,8 +6,8 @@ The data model presented in this page's subsections follows the hierarchical str
 
 ``` json
 {
-"$schema": "./Setup-Schema-4.0.0.json",
-"version": "4.0.0",
+"$schema": "./Setup-Schema-4.1.0.json",
+"version": "4.1.0",
 "scenario": "...",
 "groups": [],
 "acquisitionUnits": [],

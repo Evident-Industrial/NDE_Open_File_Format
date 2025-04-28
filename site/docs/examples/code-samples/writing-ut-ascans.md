@@ -21,10 +21,10 @@ The **Properties** dataset results in the following:
 
 ``` json
 {
-   "$schema": "./Properties-Schema-4.0.0.json",
+   "$schema": "./Properties-Schema-4.1.0.json",
    "file":{
       "creationDate": "2024-10-16T20:28:30+01:00",
-      "formatVersion": "4.0.0"
+      "formatVersion": "4.1.0"
    },
    "methods":["UT"]
 }
@@ -75,8 +75,8 @@ The first three properties are straightforward and reference the schema version 
 
 ``` json
 {
-  "$schema": "./Setup-Schema-4.0.0.json",
-  "version": "4.0.0",
+  "$schema": "./Setup-Schema-4.1.0.json",
+  "version": "4.1.0",
   "scenario": "General Mapping",
 }
 ```
@@ -103,7 +103,7 @@ Then, validate the JSON file against the **Setup** [JSON Schema](../../json-meta
 
 ``` python
 setup = json.load(open('setup_ut_ascans.json', 'r'))
-setup_schema = json.load(open('NDE-FileFormat-Schema-4.0.0.json', 'r'))
+setup_schema = json.load(open('NDE-FileFormat-Schema-4.1.0.json', 'r'))
 
 setup_validator = fastjsonschema.compile(setup_schema)
 

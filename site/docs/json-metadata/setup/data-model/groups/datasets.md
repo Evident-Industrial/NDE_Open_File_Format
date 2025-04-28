@@ -6,16 +6,16 @@ A dataset is a container for data of a homogeneous nature, characterized by stan
 
 The **datasets** array describes datasets properties and how they relate to the acquisition and post-processing processes.
 
-| Property                  | Type    | Description                                                                                                                   |
-| :------------------------ | :------ | :---------------------------------------------------------------------------------------------------------------------------- |
-| **id**                    | integer | The unique dataset id within the group                                                                                        |
-| **name**                  | string  | The name of the dataset                                                                                                       |
-| **storageMode**           | string  | One of `Independent` or `Paintbrush`. See the [storageMode conventions](../../conventions.md#storage-mode).                   |
-| **dataTransformations**   | array   | A [dataTransformations](#datatransformations-array) array describing the various operations to perform on the dataset         |
-| **path**                  | string  | The path to the dataset in the HDF5 structure                                                                                 |
-| **dataClass**             | string  | One of the following: `AScanAmplitude`, `AScanStatus`, `TfmValue`, `TfmStatus`, `FiringSource`, `CScanPeak`, `CScanStatus`, `CScanTime`      |
-| **dataValue** `required`  | object  | A [dataValue](#datavalue-object) object                                                                                       |
-| **dimensions** `required` | array   | One of the following array configurations: [`UCoordinate`, `VCoordinate`, `Ultrasound`], [`UCoordinate`, `Beam`, `Ultrasound`] |
+| Property                  | Type    | Description                                                                                                                             |
+| :------------------------ | :------ | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| **id**                    | integer | The unique dataset id within the group                                                                                                  |
+| **name**                  | string  | The name of the dataset                                                                                                                 |
+| **storageMode**           | string  | One of `Independent` or `Paintbrush`. See the [storageMode conventions](../../conventions.md#storage-mode).                             |
+| **dataTransformations**   | array   | A [dataTransformations](#datatransformations-array) array describing the various operations to perform on the dataset                   |
+| **path**                  | string  | The path to the dataset in the HDF5 structure                                                                                           |
+| **dataClass**             | string  | One of the following: `AScanAmplitude`, `AScanStatus`, `TfmValue`, `TfmStatus`, `FiringSource`, `CScanPeak`, `CScanStatus`, `CScanTime` |
+| **dataValue** `required`  | object  | A [dataValue](#datavalue-object) object                                                                                                 |
+| **dimensions** `required` | array   | A [dimensions](#dimensions-array) array. See the [supported datasets](#supported-datasets) section for the possible configurations.     |
 
 ### **dataTransformations** array
 
@@ -104,12 +104,12 @@ The **dimensions** array describes the different dimensions (axes) of the datase
 
 **For `UCoordinate`, `VCoordinate`, `WCoordinate`, `Ultrasound`, and `StackedAScan` axes (axis)**:
 
-| Property                  | Type    |  Unit  | Description                                                                               |
-| :------------------------ | :------ | :----: | :---------------------------------------------------------------------------------------- |
+| Property                  | Type    |  Unit  | Description                                                                                    |
+| :------------------------ | :------ | :----: | :--------------------------------------------------------------------------------------------- |
 | **axis** `required`       | string  |   -    | One of the following: `UCoordinate`, `VCoordinate`, `WCoordinate`, `Ultrasound`,`StackedAScan` |
-| **offset**                | number  | m or s | Offset to position the dataset                                                            |
-| **quantity** `required`   | integer |   -    | Size of the dataset against this axis (dimension)                                         |
-| **resolution** `required` | number  | m or s | Resolution of the dataset against this axis (dimension)                                   |
+| **offset**                | number  | m or s | Offset to position the dataset                                                                 |
+| **quantity** `required`   | integer |   -    | Size of the dataset against this axis (dimension)                                              |
+| **resolution** `required` | number  | m or s | Resolution of the dataset against this axis (dimension)                                        |
 
 ``` json title="Example"
 "dimensions": [
@@ -191,128 +191,57 @@ Note: The **uCoordinateOffset** and **vCoordinateOffset** are only applicable wh
 
 These dimensions can vary depending on the the group and scan types.
 
-### Typical datasets dimensions
+## Supported datasets
 
-Examples of typical datasets dimensions for common applications.
+The datasets shape may vary depending on the type of scanning that is performed. Hence, two scanning types are defined: 
 
-####  Phased array one line scan
+- **One Line Scanning**: One Line Scanning means that the probe is mechanically moved against a single axis on the surface of the specimen.
+- **Raster Scanning**: Raster Scanning means that the probe is mechanically moved against two axes on the surface of the specimen.
 
-![PAOneLineScanDatatset.jpg](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/PAOneLineScanDatatset.jpg)
 
-```json
-"dimensions": [
-  {
-    "axis": "UCoordinate",
-    "quantity": 22,
-    "resolution": 0.001
-  },
-  {
-    "axis": "Beam",
-    "beams": [
-      {
-        "velocity": 3240.0,
-        "skewAngle": 90.0,
-        "refractedAngle": 45.0,
-        "uCoordinateOffset": 0.004,
-        "vCoordinateOffset": -0.069689058139837418,
-        "ultrasoundOffset": 0.0
-      },
-      {
-        "velocity": 3240.0,
-        "skewAngle": 90.0,
-        "refractedAngle": 45.0,
-        "uCoordinateOffset": 0.004,
-        "vCoordinateOffset": -0.069111085619919382,
-        "ultrasoundOffset": 0.0
-      },
-      {
-        "velocity": 3240.0,
-        "skewAngle": 90.0,
-        "refractedAngle": 45.0,
-        "uCoordinateOffset": 0.004,
-        "vCoordinateOffset": -0.068533113100001347,
-        "ultrasoundOffset": 0.0
-      }
-    ]
-  },
-  {
-    "axis": "Ultrasound",
-    "quantity": 620,
-    "resolution": 1.3E-07
-  }
-]
-```
+###  Conventional ultrasonic testing (UT)
 
-#### Phased array zero degree raster
+For conventional ultrasonic testing (UT), two datasets are supported: one containing the raw A-Scans (`dataClass = AScanAmplitude`), and another containing the status information (`dataClass = AScanStatus`, see above) for each A-Scan. The dimensions of each dataset can be organized as illustrated below. 
 
-![PAOneLineScanDatatset.jpg](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/PARasterDatatset.png)
+![UTDatasets.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/UTDatasets.png){ width="350" }
 
-```json
-"dimensions": [
-  {
-    "axis": "UCoordinate",
-    "offset": 0.0,
-    "quantity": 351,
-    "resolution": 0.001
-  },
-  {
-    "axis": "VCoordinate",
-    "offset": -0.07455,
-    "quantity": 114,
-    "resolution": 0.001
-  },
-  {
-    "axis": "Ultrasound",
-    "offset": 0.0,
-    "quantity": 568,
-    "resolution": 2E-08
-  }
-]
-```
+Example files: [Manual weld scanning](../../../../examples/example-files/index.md#manual-weld-scanning-using-conventional-ultrasonic-testing-ut)
 
-#### TFM
+###  Phased array ultrasonic testing (PAUT)
 
-![PAOneLineScanDatatset.jpg](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/TFMDataset.png)
+For phased array ultrasonic testing (PAUT), two datasets are supported: one containing the raw A-Scans (`dataClass = AScanAmplitude`), and another containing the status information (`dataClass = AScanStatus`, see above) for each A-Scan. The dimensions of each dataset can be organized as illustrated below. Three cases are presented, depending on the type of scanning and [storage mode](../../conventions.md#storage-mode).
 
-```json
-"dimensions": [
-    {
-      "axis": "UCoordinate",
-      "offset": 0.0,
-      "quantity": 1055,
-      "resolution": 0.001
-    },
-    {
-      "axis": "VCoordinate",
-      "offset": -0.012969999999999999,
-      "quantity": 175,
-      "resolution": 0.00015120689655172411
-    },
-    {
-      "axis": "WCoordinate",
-      "offset": 0.0,
-      "quantity": 64,
-      "resolution": 0.00015111111111111111
-    }
-]
-```
+=== "One Line Scanning"
+    ![PAOneLineScanDatasets.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/PAOneLineScanDatasets.png){ width="350" }
+    
+    Example files: [Manual weld scanning](../../../../examples/example-files/index.md#manual-weld-scanning-using-phased-array-ultrasonic-testing-paut), [Semiautomated weld scanning ](../../../../examples/example-files/index.md#semiautomated-weld-scanning-using-time-of-flight-diffraction-tofd-and-phased-array-ultrasonic-testing-paut)
+=== "0° Raster Scanning"
+    ![PARasterScanPaintbrushDatasets.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/PARasterScanPaintbrushDatasets.png){ width="350" }
 
-#### FMC
+    Note that an additional dataset with `dataClass = FiringSource` is also used in this configuration but not documented to date. 
 
-![FMCOneLineScanDataset.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/FMCOneLineScanDataset.png)
+    Example files: [Composite wheel probe scanning](../../../../examples/example-files/index.md#composite-wheel-probe-scanning-using-phased-array-ultrasonic-testing-paut), [Corrosion inspection](../../../../examples/example-files/index.md#corrosion-inspection-using-phased-array-ultrasonic-testing-paut), [Pipe elbow corrosion](../../../../examples/example-files/index.md#pipe-elbow-corrosion-inspection-using-phased-array-ultrasonic-testing-paut)
+=== "Angle Beam Raster Scanning"
+    ![PARasterScanIndependentDatasets.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/PARasterScanIndependentDatasets.png){ width="350" }
 
-```json
-"dimensions": [
-    {
-      "axis": "UCoordinate",
-      "quantity": 1,
-      "resolution": 0.001,
-      "offset": 0.0
-    },
-    {
-      "axis": "StackedAScan",
-      "quantity": 8192000,
-      "resolution": 1e-08
-    }
-]
-```
+    Example files: [Composite wheel probe scanning](../../../../examples/example-files/index.md#composite-wheel-probe-scanning-using-phased-array-ultrasonic-testing-paut)
+
+###  Total focusing method and its derivatives (TFM/PCI/PWI)
+
+For total focusing method and its derivatives (TFM/PCI/PWI), two datasets are supported: one containing the reconstructed images (`dataClass = TfmValue`), and another containing the status information (`dataClass = TfmStatus`, see above) for each image. The dimensions of each dataset can be organized as illustrated below.
+
+![TFMDatasets.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/TFMPCIPWIDatasets.png){ width="350" }
+
+Example files: [Manual weld scanning](../../../../examples/example-files/index.md#manual-weld-scanning-using-the-total-focusing-method-tfm), [Girth weld scanning](../../../../examples/example-files/index.md#girth-weld-scanning-using-the-total-focusing-method-tfm),  [Composite X-Y scanning](../../../../examples/example-files/index.md#composite-x-y-scanning-using-the-total-focusing-method-tfm)
+
+####  Full Matrix Capture (FMC)
+
+For Full Matrix Capture (FMC), one dataset type is supported which contains the elementary A-Scans (`dataClass = AScanAmplitude`). The dimensions of the dataset can be organized as illustrated below.
+
+![FMCDatasets.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/FMCDatasets.png){ width="350" }
+
+The stackedAScan dimension is organized as illustrated below:
+
+![stackedAScan.png](../../../../assets/images/json-metadata/setup/data-model/groups/datasets/stackedAScan.png){ width="350" }
+
+Example file: [Full matrix capture](../../../../examples/example-files/index.md#full-matrix-capture-fmc-acquisition)
