@@ -13,7 +13,7 @@ The Properties dataset is **mandatory** and located at the root of the .nde file
 
 The structure of the formatted JSON included in the **Properties** dataset can be validated against [a dedicated JSON schema](../properties/schema_doc.md). 
 
-The [data model](data-model.md) related to the Properties dataset details the different JSON objects and arrays with their expected values, associated description and examples. 
+The [data model](data-model.md) related to the **Properties** dataset details the different JSON objects and arrays with their expected values, associated description and examples. 
 
 ``` mermaid
 classDiagram

@@ -118,10 +118,10 @@ The **digitalBandPassFilter** object describes the band-pass filter parameters a
 
 The **tcg** object lists the time-corrected gain (TCG) parameters used for the acquisition.
 
-| Property               | Type   | Description                              |
-| :--------------------- | :----- | :--------------------------------------- |
+| Property               | Type   | Description                               |
+| :--------------------- | :----- | :---------------------------------------- |
 | **synchroMode**        | string | Either: `Pulse` or `AscanSynchroRelative` |
-| **points**  `required` | array  | A TCG [**points**](#points-array) array    |
+| **points**  `required` | array  | A TCG [**points**](#points-array) array   |
 
 ### **points** array
 
@@ -205,9 +205,7 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
     "id": 0,
     "refractedAngle": 60.0,
     "ascanStart": 0.0,
-    "ascanLength": 3.408E-05,
-    "uCoordinateOffset": 0.0,
-    "vCoordinateOffset": -0.030900000000000004
+    "ascanLength": 3.408E-05
     }
 ]
 ```
@@ -306,9 +304,7 @@ Same structure for **sensitivityCalibration**, **tcgCalibration**, **velocityCal
         "id": 0,
         "refractedAngle": 60.0,
         "ascanStart": 0.0,
-        "ascanLength": 3.408E-05,
-        "uCoordinateOffset": 0.0,
-        "vCoordinateOffset": -0.030900000000000004
+        "ascanLength": 3.408E-05
         }
     ]
 }

@@ -5,4 +5,5 @@ hide:
   - toc
   - navigation
 icon: material/home
+glightbox: false
 ---

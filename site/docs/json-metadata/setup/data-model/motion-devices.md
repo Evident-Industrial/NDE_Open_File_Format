@@ -20,10 +20,13 @@ This object describes a generic encoder used to register the position of a motio
 | :---------------------------- | :----- | :----: | :--------------------------------------------------------------------------------------------------------------------- |
 | **serialNumber**              | string |   -    | The serial number of the encoder                                                                                       |
 | **mode** `required`           | string |   -    | One of the following encoder pulse mode used for recording the position: `Quadrature`,`ClockDir`,`PulseUp`,`PulseDown` |
-| **stepResolution** `required` | number | m/step | Resolution of the encoder                                                                                              |
+| **stepResolution** `required` | number | step/m | Resolution of the encoder                                                                                              |
 | **preset**                    | number |   -    | Preset value                                                                                                           |
 
-```json title="Example"
+
+## Example
+
+```json
 "motionDevices": [
     {
       "id": 0,

@@ -15,14 +15,14 @@ The **acquisitionUnits** array lists the acquisitions units used for the capture
 
 **Related objects**: [probe](probes.md#probes-array), [elements](probes.md#elements-array)
 
-Example: 
+## Example
 
 ```json
 "acquisitionUnits": [
     {
       "id": 0,
       "platform": "OmniScan X4",
-      "model": "OmniScan X4 64x128PR",
+      "model": "OmniScan X4 - 64:128PR",
       "serialNumber": "12345XYZ",
       "name": "MXU",
       "acquisitionRate": 120.0

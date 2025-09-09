@@ -3,8 +3,8 @@ site_url: https://ndeformat.com
 theme: 
   name: material
   custom_dir: overrides
-  logo: assets/images/nde_logo_white.png
-  favicon: assets/images/favicon-NDE.png
+  logo: assets/images/NDE-Logo-White.png
+  favicon: assets/images/NDE-Favicon.png
   font:
     text: Roboto
   palette:
@@ -158,4 +158,4 @@ nav:
           - supporting-software/evident/omniscan-mxu.md
  - FAQ:
       - faq/index.md
-copyright: Copyright &copy; 2023 - 2024 Evident Corporation
+copyright: Copyright &copy; 2023 - 2025 Evident Corporation

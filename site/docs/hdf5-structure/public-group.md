@@ -29,9 +29,9 @@ Datasets that contain inspection data are stored hierarchically using the follow
 
 ``` mermaid
 flowchart LR
-  Groups["/Groups"]:::group --> GroupId["/[GroupId]"]
-  GroupId["/[GroupId]"]:::group --> Datasets["/Datasets"]
-  Datasets["/Datasets"]:::group --> DatasetId-DataClass["/[DatasetId-DataClass]"]:::dataset
+  Groups["/Groups"]:::group --> GroupId["/[**GroupId**]"]
+  GroupId["/[**GroupId**]"]:::group --> Datasets["/Datasets"]
+  Datasets["/Datasets"]:::group --> DatasetId-DataClass["/[**DatasetId**-**DataClass**]"]:::dataset
   classDef root fill:#005cb9,stroke:#000000,color:#fff
   classDef group fill:#ffc72c,stroke:#000000,color:#000000
   classDef dataset fill:#fff,stroke:#000000,color:#000000
@@ -41,7 +41,7 @@ flowchart LR
 
 - **DatasetId** must be a unique integer within a group identifying a specific dataset. 
 
-- **DataClass** must be a string attributed one of the supported values: `AScanAmplitude`, `AScanStatus`, `TFMValue`, or `TFMStatus`. It enables the quick identification of the type of data associated with a dataset. The additional `FiringSource` data class can be found in some Evident .nde files but this type of dataset is only used internally for the moment.
+- **DataClass** must be a string attributed one of the supported values: `AScanAmplitude`, `AScanStatus`, `TfmValue`, `TfmStatus`, `FiringSource`, `CScanPeak`, `CScanStatus`, or `CScanTime`. It enables the quick identification of the type of data associated with a dataset. The additional `FiringSource` data class can be found in some Evident .nde files but this type of dataset is only used internally for the moment.
 
 **Note that the Groups HDF5 group structure matches the description of [groups in the JSON formatted Setup dataset](../json-metadata/setup/data-model/groups/index.md). Please refer to this section for more information on datasets structure.**
 

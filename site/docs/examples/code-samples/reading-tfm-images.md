@@ -11,7 +11,7 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
-nde_file = h5py.File('Weld_Plate_4TFM_sk90.nde', 'r')
+nde_file = h5py.File('Weld_Plate_4TFM_sk90-4.1.nde', 'r')
 
 # Navigate to the path in the HDF5 file where the Setup JSON dataset is stored
 setup_json = nde_file['Public/Setup'][()]

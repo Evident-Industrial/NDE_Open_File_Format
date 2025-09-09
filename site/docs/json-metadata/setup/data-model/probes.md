@@ -271,7 +271,7 @@ Examples of phased array and single- and dual-element probe definitions based on
         ``` json
         --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-V103.json"
         ``` 
-    === "10CCEV35-32-A15"
+    === "D713"
         ``` json
         --8<-- "docs/assets/json/json-metadata/setup/data-model/probes-D713.json"
         ```

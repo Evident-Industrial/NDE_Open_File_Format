@@ -15,7 +15,7 @@ The Setup dataset is **mandatory** and located inside the Public group of the .n
 
 The structure of the formatted JSON included in the **Setup** dataset can be validated against [a dedicated JSON schema](../setup/schema_doc.md). 
 
-The [data model](data-model/index.md) related to the Properties dataset details the different JSON objects and arrays with their expected values, associated description, and examples. 
+The [data model](data-model/index.md) related to the **Setup** dataset details the different JSON objects and arrays with their expected values, associated description, and examples. 
 
 
 ``` mermaid

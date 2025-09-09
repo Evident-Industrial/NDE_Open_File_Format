@@ -13,4 +13,4 @@ The **Private** HDF5 group and all of its subgroups are **optional** and conside
 
 Each application that creates, reads, or modifies the file can add specific information here. This container can be used as deemed necessary by the application software that creates the .nde file, including but not limited to storing setup information, customized data, or metadata, etc. 
 
-**Not everything under this group is covered by the present documentation** and it should not be used for information that should be shared between different applications. 
+**Everything under this group is not covered by the present documentation** and it should not be used for information that should be shared between different applications. 
