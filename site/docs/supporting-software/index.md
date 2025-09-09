@@ -36,7 +36,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
     
     ---
 
-    [:material-download: Download](https://evidentscientific.com/en/downloads?product=OmniPC+6)
+    [:material-download: Download](https://ims.evidentscientific.com/en/downloads?product=OmniPC+6)
 
     :material-file: Read OmniScan X3 and X4 .nde files
 

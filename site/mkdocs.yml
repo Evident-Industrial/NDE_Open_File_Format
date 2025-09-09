@@ -32,7 +32,7 @@ extra:
     provider: mike
   social:
     - icon: fontawesome/brands/linkedin 
-      link: https://www.linkedin.com/company/evident-scientific/
+      link: https://www.linkedin.com/company/evident-industrial/
     - icon: fontawesome/brands/github
       link: https://github.com/Evident-Industrial
 repo_url: https://github.com/Evident-Industrial/NDE_Open_File_Format
