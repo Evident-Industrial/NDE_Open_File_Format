@@ -2,6 +2,12 @@
 
 All notable changes to the .nde file format documentation will be documented on this page.
 
+### <small>October 16, 2025</small>
+
+Update to documentation for [NDE file format version 4.2](../versioning/changelog.md#4.2.0), comprising:
+
+- New `SynchroGateRelative` mode for [TCG](../json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md#tcg-object) 
+- New `inverted` parameter for [encoder](../json-metadata/setup/data-model/motion-devices.md#encoder-object) description 
 
 ### <small>September 9, 2025</small>
 

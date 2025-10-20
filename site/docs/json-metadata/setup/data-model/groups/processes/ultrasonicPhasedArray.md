@@ -146,10 +146,10 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 
 ### **tcg** object 
 
-| Property              | Type   | Description                              |
-| :-------------------- | :----- | :--------------------------------------- |
-| **synchroMode**       | string | Either: `Pulse` or `AscanSynchroRelative` |
-| **points** `required` | array  | A TCG [**points**](#points-array) array  |
+| Property              | Type   | Description                                                      |
+| :-------------------- | :----- | :--------------------------------------------------------------- |
+| **synchroMode**       | string | Either: `Pulse`, `AscanSynchroRelative` or `SynchroGateRelative` |
+| **points** `required` | array  | A TCG [**points**](#points-array) array                          |
 
 #### **points** array        
 

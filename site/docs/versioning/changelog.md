@@ -6,6 +6,13 @@ toc_depth: 3
 
 All notable changes to the .nde file format will be documented on this page. It is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+### [4.2.0] - <small>October 16, 2025</small> { id="4.2.0" }
+
+#### Added
+- New `SynchroGateRelative` mode for [TCG](../json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md#tcg-object) 
+- New `inverted` parameter for [encoder](../json-metadata/setup/data-model/motion-devices.md#encoder-object) description 
+
 ### [4.1.0] - <small>April 23, 2025</small> { id="4.1.0" }
 
 #### Added
