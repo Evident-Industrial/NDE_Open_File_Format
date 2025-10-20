@@ -1,0 +1,73 @@
+{
+"datasets": [
+    {
+        "id": 0,
+        "dataTransformations": [
+        {
+            "processId": 1
+        }
+        ],
+        "dataClass": "AScanAmplitude",
+        "storageMode": "Paintbrush",
+        "dataValue": {
+        "min": 0,
+        "max": 32767,
+        "unitMin": 0.0,
+        "unitMax": 100.0,
+        "unit": "Percent"
+        },
+        "path": "/Public/Groups/0/Datasets/0-AScanAmplitude",
+        "dimensions": [
+        {
+            "axis": "UCoordinate",
+            "offset": 0.0,
+            "quantity": 151,
+            "resolution": 0.001
+        },
+        {
+            "axis": "VCoordinate",
+            "offset": -0.019549999999999998,
+            "quantity": 1,
+            "resolution": 0.001
+        },
+        {
+            "axis": "Ultrasound",
+            "offset": 0.0,
+            "quantity": 624,
+            "resolution": 8E-08
+        }
+        ]
+    },
+    {
+        "id": 1,
+        "dataTransformations": [
+        {
+            "processId": 1
+        }
+        ],
+        "dataClass": "AScanStatus",
+        "storageMode": "Paintbrush",
+        "dataValue": {
+        "hasData": 1,
+        "saturated": 2,
+        "noSynchro": 4,
+        "unit": "Bitfield"
+        },
+        "path": "/Public/Groups/0/Datasets/1-AScanStatus",
+        "dimensions": [
+        {
+            "axis": "UCoordinate",
+            "offset": 0.0,
+            "quantity": 151,
+            "resolution": 0.001
+        },
+        {
+            "axis": "VCoordinate",
+            "offset": -0.019549999999999998,
+            "quantity": 1,
+            "resolution": 0.001
+        }
+        ]
+    }
+]
+}

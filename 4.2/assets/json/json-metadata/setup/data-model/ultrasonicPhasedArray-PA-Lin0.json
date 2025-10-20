@@ -1,0 +1,5484 @@
+"ultrasonicPhasedArray": {
+    "pulseEcho": {
+    "linearFormation": {
+        "probeFirstElementId": 0,
+        "probeLastElementId": 63,
+        "elementStep": 1.0,
+        "elementAperture": 8,
+        "beamRefractedAngle": 0.0
+    },
+    "probeId": 0
+    },
+    "waveMode": "Longitudinal",
+    "velocity": 2700.0,
+    "focusing": {
+    "mode": "TrueDepth",
+    "distance": 0.05
+    },
+    "beams": [
+    {
+        "id": 0,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 0,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 1,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 2,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 3,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 4,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 5,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 6,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 7,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 0,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 1,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 2,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 3,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 4,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 5,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 6,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 7,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 1,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 1,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 2,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 3,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 4,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 5,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 6,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 7,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 8,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 1,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 2,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 3,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 4,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 5,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 6,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 7,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 8,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 2,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 2,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 3,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 4,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 5,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 6,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 7,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 8,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 9,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 2,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 3,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 4,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 5,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 6,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 7,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 8,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 9,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 3,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 3,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 4,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 5,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 6,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 7,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 8,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 9,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 10,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 3,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 4,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 5,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 6,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 7,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 8,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 9,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 10,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 4,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 4,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 5,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 6,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 7,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 8,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 9,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 10,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 11,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 4,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 5,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 6,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 7,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 8,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 9,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 10,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 11,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 5,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 5,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 6,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 7,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 8,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 9,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 10,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 11,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 12,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 5,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 6,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 7,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 8,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 9,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 10,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 11,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 12,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 6,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 6,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 7,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 8,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 9,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 10,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 11,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 12,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 13,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 6,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 7,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 8,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 9,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 10,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 11,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 12,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 13,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 7,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 7,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 8,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 9,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 10,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 11,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 12,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 13,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 14,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 7,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 8,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 9,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 10,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 11,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 12,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 13,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 14,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 8,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 8,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 9,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 10,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 11,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 12,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 13,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 14,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 15,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 8,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 9,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 10,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 11,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 12,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 13,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 14,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 15,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 9,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 9,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 10,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 11,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 12,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 13,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 14,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 15,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 16,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 9,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 10,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 11,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 12,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 13,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 14,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 15,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 16,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 10,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 10,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 11,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 12,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 13,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 14,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 15,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 16,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 17,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 10,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 11,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 12,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 13,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 14,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 15,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 16,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 17,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 11,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 11,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 12,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 13,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 14,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 15,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 16,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 17,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 18,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 11,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 12,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 13,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 14,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 15,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 16,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 17,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 18,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 12,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 12,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 13,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 14,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 15,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 16,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 17,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 18,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 19,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 12,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 13,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 14,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 15,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 16,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 17,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 18,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 19,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 13,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 13,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 14,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 15,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 16,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 17,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 18,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 19,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 20,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 13,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 14,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 15,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 16,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 17,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 18,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 19,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 20,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 14,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 14,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 15,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 16,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 17,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 18,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 19,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 20,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 21,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 14,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 15,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 16,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 17,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 18,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 19,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 20,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 21,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 15,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 15,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 16,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 17,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 18,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 19,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 20,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 21,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 22,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 15,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 16,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 17,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 18,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 19,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 20,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 21,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 22,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 16,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 16,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 17,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 18,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 19,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 20,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 21,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 22,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 23,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 16,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 17,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 18,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 19,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 20,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 21,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 22,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 23,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 17,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 17,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 18,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 19,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 20,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 21,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 22,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 23,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 24,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 17,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 18,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 19,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 20,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 21,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 22,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 23,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 24,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 18,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 18,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 19,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 20,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 21,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 22,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 23,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 24,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 25,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 18,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 19,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 20,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 21,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 22,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 23,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 24,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 25,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 19,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 19,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 20,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 21,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 22,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 23,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 24,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 25,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 26,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 19,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 20,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 21,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 22,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 23,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 24,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 25,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 26,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 20,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 20,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 21,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 22,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 23,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 24,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 25,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 26,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 27,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 20,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 21,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 22,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 23,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 24,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 25,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 26,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 27,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 21,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 21,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 22,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 23,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 24,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 25,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 26,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 27,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 28,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 21,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 22,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 23,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 24,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 25,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 26,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 27,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 28,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 22,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 22,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 23,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 24,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 25,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 26,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 27,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 28,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 29,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 22,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 23,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 24,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 25,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 26,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 27,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 28,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 29,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 23,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 23,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 24,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 25,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 26,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 27,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 28,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 29,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 30,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 23,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 24,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 25,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 26,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 27,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 28,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 29,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 30,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 24,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 24,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 25,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 26,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 27,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 28,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 29,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 30,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 31,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 24,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 25,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 26,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 27,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 28,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 29,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 30,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 31,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 25,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 25,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 26,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 27,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 28,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 29,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 30,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 31,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 32,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 25,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 26,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 27,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 28,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 29,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 30,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 31,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 32,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 26,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 26,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 27,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 28,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 29,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 30,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 31,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 32,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 33,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 26,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 27,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 28,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 29,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 30,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 31,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 32,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 33,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 27,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 27,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 28,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 29,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 30,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 31,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 32,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 33,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 34,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 27,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 28,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 29,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 30,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 31,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 32,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 33,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 34,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 28,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 28,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 29,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 30,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 31,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 32,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 33,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 34,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 35,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 28,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 29,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 30,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 31,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 32,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 33,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 34,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 35,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 29,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 29,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 30,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 31,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 32,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 33,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 34,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 35,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 36,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 29,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 30,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 31,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 32,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 33,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 34,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 35,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 36,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 30,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 30,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 31,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 32,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 33,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 34,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 35,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 36,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 37,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 30,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 31,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 32,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 33,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 34,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 35,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 36,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 37,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 31,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 31,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 32,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 33,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 34,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 35,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 36,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 37,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 38,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 31,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 32,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 33,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 34,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 35,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 36,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 37,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 38,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 32,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 32,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 33,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 34,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 35,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 36,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 37,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 38,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 39,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 32,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 33,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 34,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 35,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 36,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 37,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 38,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 39,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 33,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 33,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 34,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 35,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 36,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 37,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 38,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 39,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 40,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 33,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 34,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 35,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 36,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 37,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 38,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 39,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 40,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 34,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 34,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 35,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 36,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 37,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 38,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 39,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 40,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 41,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 34,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 35,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 36,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 37,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 38,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 39,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 40,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 41,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 35,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 35,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 36,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 37,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 38,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 39,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 40,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 41,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 42,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 35,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 36,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 37,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 38,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 39,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 40,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 41,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 42,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 36,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 36,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 37,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 38,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 39,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 40,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 41,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 42,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 43,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 36,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 37,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 38,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 39,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 40,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 41,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 42,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 43,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 37,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 37,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 38,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 39,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 40,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 41,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 42,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 43,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 44,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 37,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 38,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 39,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 40,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 41,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 42,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 43,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 44,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 38,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 38,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 39,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 40,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 41,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 42,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 43,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 44,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 45,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 38,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 39,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 40,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 41,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 42,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 43,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 44,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 45,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 39,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 39,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 40,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 41,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 42,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 43,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 44,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 45,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 46,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 39,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 40,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 41,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 42,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 43,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 44,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 45,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 46,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 40,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 40,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 41,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 42,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 43,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 44,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 45,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 46,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 47,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 40,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 41,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 42,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 43,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 44,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 45,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 46,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 47,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 41,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 41,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 42,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 43,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 44,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 45,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 46,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 47,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 48,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 41,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 42,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 43,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 44,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 45,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 46,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 47,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 48,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 42,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 42,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 43,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 44,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 45,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 46,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 47,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 48,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 49,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 42,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 43,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 44,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 45,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 46,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 47,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 48,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 49,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 43,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 43,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 44,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 45,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 46,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 47,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 48,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 49,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 50,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 43,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 44,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 45,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 46,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 47,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 48,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 49,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 50,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 44,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 44,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 45,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 46,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 47,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 48,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 49,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 50,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 51,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 44,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 45,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 46,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 47,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 48,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 49,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 50,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 51,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 45,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 45,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 46,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 47,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 48,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 49,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 50,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 51,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 52,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 45,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 46,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 47,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 48,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 49,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 50,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 51,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 52,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 46,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 46,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 47,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 48,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 49,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 50,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 51,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 52,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 53,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 46,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 47,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 48,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 49,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 50,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 51,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 52,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 53,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 47,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 47,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 48,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 49,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 50,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 51,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 52,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 53,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 54,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 47,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 48,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 49,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 50,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 51,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 52,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 53,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 54,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 48,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 48,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 49,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 50,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 51,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 52,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 53,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 54,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 55,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 48,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 49,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 50,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 51,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 52,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 53,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 54,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 55,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 49,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 49,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 50,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 51,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 52,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 53,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 54,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 55,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 56,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 49,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 50,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 51,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 52,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 53,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 54,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 55,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 56,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 50,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 50,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 51,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 52,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 53,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 54,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 55,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 56,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 57,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 50,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 51,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 52,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 53,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 54,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 55,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 56,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 57,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 51,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 51,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 52,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 53,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 54,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 55,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 56,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 57,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 58,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 51,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 52,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 53,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 54,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 55,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 56,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 57,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 58,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 52,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 52,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 53,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 54,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 55,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 56,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 57,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 58,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 59,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 52,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 53,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 54,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 55,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 56,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 57,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 58,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 59,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 53,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 53,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 54,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 55,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 56,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 57,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 58,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 59,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 60,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 53,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 54,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 55,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 56,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 57,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 58,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 59,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 60,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 54,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 54,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 55,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 56,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 57,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 58,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 59,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 60,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 61,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 54,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 55,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 56,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 57,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 58,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 59,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 60,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 61,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 55,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 55,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 56,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 57,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 58,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 59,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 60,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 61,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 62,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 55,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 56,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 57,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 58,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 59,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 60,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 61,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 62,
+            "delay": 0.0
+        }
+        ]
+    },
+    {
+        "id": 56,
+        "skewAngle": 0.0,
+        "refractedAngle": 0.0,
+        "beamDelay": 3.383E-05,
+        "ascanStart": -3.7E-06,
+        "ascanLength": 2.62E-05,
+        "gainOffset": 0.0,
+        "sumGainMode": "Automatic",
+        "sumGain": 21.1,
+        "pulsers": [
+        {
+            "id": 0,
+            "elementId": 56,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 57,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 58,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 59,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 60,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 61,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 62,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 63,
+            "delay": 0.0
+        }
+        ],
+        "receivers": [
+        {
+            "id": 0,
+            "elementId": 56,
+            "delay": 0.0
+        },
+        {
+            "id": 1,
+            "elementId": 57,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 2,
+            "elementId": 58,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 3,
+            "elementId": 59,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 4,
+            "elementId": 60,
+            "delay": 2.2316240638196362E-08
+        },
+        {
+            "id": 5,
+            "elementId": 61,
+            "delay": 1.859562241504246E-08
+        },
+        {
+            "id": 6,
+            "elementId": 62,
+            "delay": 1.1155879430298384E-08
+        },
+        {
+            "id": 7,
+            "elementId": 63,
+            "delay": 0.0
+        }
+        ]
+    }
+    ],
+    "pulse": {
+    "width": 1.425E-07,
+    "voltage": 32793.0,
+    "polarity": "Bipolar"
+    },
+    "gates": [
+    {
+        "id": 0,
+        "name": "Gate I",
+        "geometry": "SoundPath",
+        "thresholdPolarity": "Absolute",
+        "synchronization": {
+        "mode": "Pulse"
+        },
+        "start": -3.7E-06,
+        "length": 5.64E-06,
+        "threshold": 20.0
+    },
+    {
+        "id": 1,
+        "name": "Gate A",
+        "geometry": "SoundPath",
+        "thresholdPolarity": "Absolute",
+        "synchronization": {
+        "mode": "Pulse"
+        },
+        "start": 2.3703E-06,
+        "length": 8.15E-06,
+        "threshold": 20.0
+    }
+    ],
+    "rectification": "Full",
+    "digitizingFrequency": 100000000.0,
+    "ascanSynchroMode": "Pulse",
+    "ascanCompressionFactor": 5,
+    "gain": 34.0,
+    "wedgeDelay": 0.0,
+    "ultrasoundMode": "TrueDepth",
+    "referenceAmplitude": 80.0,
+    "referenceGain": 0.0,
+    "digitalBandPassFilter": {
+    "filterType": "None",
+    "highCutOffFrequency": 17900000.0,
+    "lowCutOffFrequency": 1000000.0,
+    "characteristic": "None"
+    },
+    "smoothingFilter": 1000000.0,
+    "averagingFactor": 1
+}
+          

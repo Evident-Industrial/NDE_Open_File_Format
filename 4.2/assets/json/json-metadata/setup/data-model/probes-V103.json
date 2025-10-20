@@ -1,0 +1,22 @@
+"probes": [
+  {
+    "id": 0,
+    "model": "V103",
+    "serie": "CONTACT",
+    "conventionalRound": {
+      "centralFrequency": 1000000.0,
+      "diameter": 0.0127,
+      "elements": [
+        {
+          "id": 0,
+          "acquisitionUnitId": 0,
+          "connectorName": "P1"
+        }
+      ]
+    },
+    "wedgeAssociation": {
+      "wedgeId": 0,
+      "mountingLocationId": 0
+    }
+  }
+]
