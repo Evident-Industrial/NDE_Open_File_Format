@@ -11,7 +11,9 @@ The **tfmBoxGates** array serves as a box-type gate process description for a TF
 | **zImagingMin**   | number  |  m   | The start position of the box gate against the z axis             |
 | **zImagingMax**   | number  |  m   | The end position of the box gate against the z axis               |
 
-```json title="Example"
+## Example
+
+```json
 "tfmBoxGates": [
     {
         "id": 1,

@@ -6,7 +6,16 @@ Specific information related to how the OmniScan X3 and X4 products save .nde fi
 
 Any change or correction regarding the way the OmniScan X3 and X4 flaw detectors save data in the .nde format will be logged in this section. 
 
-### [MXU 6.2.0](https://ims.evidentscientific.com/en/downloads?product=OmniScan+X4) - <small>August 26, 2025</small> { id="6.1.0" }
+### [MXU 6.3.0](https://ims.evidentscientific.com/en/downloads?product=OmniScan+X4) - <small>October 29, 2025</small> { id="6.3.0" }
+
+#### Fixed
+
+- [mountingLocations](../../json-metadata/setup/data-model/wedges.md#mountinglocations-array) array offsets were not saved with correct values for **conventional UT wedges**, specifically for the `primaryOffset` and `tertiaryOffset` values. The correct values can still be recovered from previous files (saved with version 6.2.0 and earlier) using the following formulas: 
+    - $\small \mathrm{tertiaryOffset_{NEW}}=\cos(\mathrm{wedgeAngle})\times(\frac{\mathrm{wedgeDelay}}{2})\times \mathrm{longitudinalVelocity}$
+    - $\small \mathrm{primaryOffset_{NEW}} = \mathrm{primaryOffset_{OLD}}-\sin(\mathrm{wedgeAngle})\times(\frac{\mathrm{wedgeDelay}}{2})\times \mathrm{longitudinalVelocity}$
+- [mountingLocations](../../json-metadata/setup/data-model/wedges.md#mountinglocations-array) array `secondaryOffset` value was not saved with the correct sign when saving a **PA Linear custom wedge** according to [wedges](../../json-metadata/setup/data-model/wedges.md#mountinglocations-array) conventions. For files saved with version 6.2.0 and earlier, simply invert the sign. 
+
+### [MXU 6.2.0](https://ims.evidentscientific.com/en/downloads?product=OmniScan+X4) - <small>August 26, 2025</small> { id="6.2.0" }
 
 #### Changed
 

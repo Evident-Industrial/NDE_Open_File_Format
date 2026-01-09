@@ -2,6 +2,11 @@
 
 All notable changes to the .nde file format documentation will be documented on this page.
 
+### <small>January 9, 2026</small>
+
+- Update [OmniScan MXU](../supporting-software/evident/omniscan-mxu.md) changelog
+- Correct various errors throughout the documentation
+
 ### <small>October 16, 2025</small>
 
 Update to documentation for [NDE file format version 4.2](../versioning/changelog.md#4.2.0), comprising:
