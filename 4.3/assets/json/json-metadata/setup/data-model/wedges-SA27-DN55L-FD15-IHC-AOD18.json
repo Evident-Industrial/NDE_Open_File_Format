@@ -1,0 +1,40 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "SA27-DN55L-FD15-IHC-AOD18",
+    "serie": "SA27 (DMA 16x2)",
+    "angleBeamWedge": {
+      "width": 0.04,
+      "height": 0.015065,
+      "length": 0.028,
+      "longitudinalVelocity": 2330.0,
+      "mountingLocations": [
+        {
+          "id": 0,
+          "wedgeAngle": 18.72,
+          "primaryOffset": -0.02116,
+          "secondaryOffset": -0.0065399999999999989,
+          "tertiaryOffset": 0.00739,
+          "squintAngle": 0.0,
+          "roofAngle": -4.41
+        },
+        {
+          "id": 1,
+          "wedgeAngle": 18.72,
+          "primaryOffset": -0.02116,
+          "secondaryOffset": 0.0065399999999999989,
+          "tertiaryOffset": 0.00739,
+          "squintAngle": 0.0,
+          "roofAngle": 4.41
+        }
+      ]
+    },
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0.0,
+      "vCoordinateOffset": 0.0,
+      "skewAngle": 90.0
+    }
+  }
+]

@@ -1,0 +1,172 @@
+{
+"$schema": "./Setup-Schema-4.1.0.json",
+"version": "4.1.0",
+"scenario": "General Mapping",
+"groups": [
+    {
+    "id": 0,
+    "name": "GR-1",
+    "datasets": [
+        {
+        "id": 0,
+        "dataTransformations": [
+            {
+            "processId": 0
+            }
+        ],
+        "dataClass": "AScanAmplitude",
+        "storageMode": "Paintbrush",
+        "dataValue": {
+            "min": -1,
+            "max": 1,
+            "unitMin": -100.0,
+            "unitMax": 100.0,
+            "unit": "Percent"
+        },
+        "path": "/Public/Groups/0/Datasets/0-AScanAmplitude",
+        "dimensions": [
+            {
+            "axis": "UCoordinate",
+            "offset": 0.0,
+            "quantity": 5,
+            "resolution": 0.001,
+            },
+            {
+            "axis": "VCoordinate",
+            "offset": 0.0,
+            "quantity": 1,
+            "resolution": 0.001
+            },
+            {
+            "axis": "Ultrasound",
+            "offset": 0.0,
+            "quantity": 3000,
+            "resolution": 1E-08
+            }
+        ]
+        }
+    ],
+    "processes": [
+        {
+        "inputs": [],
+        "outputs": [
+            {
+            "id": 0,
+            "datasetId": 0,
+            "dataClass": "AScanAmplitude"
+            }
+        ],
+        "id": 0,
+        "implementation": "Hardware",
+        "ultrasonicConventional": {
+            "pulseEcho": {
+                "probeId": 0
+            },
+            "waveMode": "Longitudinal",
+            "velocity": 5890.0,
+            "wedgeDelay": 0.0,
+            "digitizingFrequency": 100000000.0,
+            "rectification": "None",
+            "beams": [
+            {
+                "id": 0,
+                "refractedAngle": 0.0,
+                "ascanStart": 0.0,
+                "ascanLength": 30E-6
+            }
+            ]
+        }
+        }
+    ]
+    }
+],
+"acquisitionUnits": [
+    {
+    "id": 0,
+    "platform": "X4",
+    "name": "MXU",
+    "model": "Orion_64x128",
+    "serialNumber": "QC-0090228",
+    "acquisitionRate": 120.0
+    }
+],
+"specimens": [
+    {
+    "id": 0,
+    "plateGeometry": {
+        "width": 0.3,
+        "length": 0.3,
+        "thickness": 0.025,
+        "surfaces": [
+        {
+            "id": 0,
+            "name": "Top"
+        }
+        ],
+        "material": {
+        "name": "Steel_Mild",
+        "longitudinalWave": {
+            "nominalVelocity": 5890.0,
+            "attenuationCoefficient": 0.087
+        },
+        "transversalVerticalWave": {
+            "nominalVelocity": 3240.0,
+            "attenuationCoefficient": 0.174
+        },
+        "density": 7.8
+        }
+    }
+    }
+],
+"probes": [
+    {
+    "id": 0,
+    "model": "C109",
+    "serie": "CONTACT",
+    "conventionalRound": {
+        "centralFrequency": 5000000.0,
+        "diameter": 0.0127,
+        "elements": [
+        {
+            "id": 0,
+            "acquisitionUnitId": 0,
+            "connectorName": "P1"
+        }
+        ]
+    },
+    "wedgeAssociation": {
+        "wedgeId": 0,
+        "mountingLocationId": 0
+    }
+    }
+],
+"wedges": [
+    {
+    "id": 0,
+    "model": "Contact",
+    "serie": "Default",
+    "angleBeamWedge": {
+        "width": 0.1,
+        "height": 0.1,
+        "length": 0.1,
+        "longitudinalVelocity": 2330.0,
+        "mountingLocations": [
+        {
+            "id": 0,
+            "wedgeAngle": 0.0,
+            "primaryOffset": -1E-05,
+            "secondaryOffset": 0.0,
+            "tertiaryOffset": 0.0
+        }
+        ]
+    },
+    "positioning": {
+        "specimenId": 0,
+        "surfaceId": 0,
+        "uCoordinateOffset": 0.0,
+        "vCoordinateOffset": 0.0,
+        "skewAngle": 90.0
+    }
+    }
+]
+}

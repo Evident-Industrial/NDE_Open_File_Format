@@ -1,0 +1,30 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "SPWZ1-N60L-IHC",
+    "serie": "SPWZ1",
+    "angleBeamWedge": {
+      "width": 0.04,
+      "height": 0.06941,
+      "length": 0.09108,
+      "longitudinalVelocity": 2330.0,
+      "mountingLocations": [
+        {
+          "id": 0,
+          "wedgeAngle": 20.03,
+          "primaryOffset": -0.086750000000000008,
+          "secondaryOffset": 0.0,
+          "tertiaryOffset": 0.047009999999999996
+        }
+      ],
+      "pocketDepth": 0.0
+    },
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0.0,
+      "vCoordinateOffset": 0.0,
+      "skewAngle": 90.0
+    }
+  }
+]

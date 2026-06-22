@@ -1,0 +1,30 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "HydroFORM",
+    "serie": "SI4",
+    "angleBeamWedge": {
+      "width": 0.041,
+      "height": 0.036000000000000004,
+      "length": 0.081,
+      "longitudinalVelocity": 1480.0,
+      "mountingLocations": [
+        {
+          "id": 0,
+          "wedgeAngle": 0.0,
+          "primaryOffset": -0.071000000000000008,
+          "secondaryOffset": 0.0,
+          "tertiaryOffset": 0.013000000000000001
+        }
+      ],
+      "pocketDepth": 0.023
+    },
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0.0,
+      "vCoordinateOffset": 0.0,
+      "skewAngle": 90.0
+    }
+  }
+]
