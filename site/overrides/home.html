@@ -1,117 +1,358 @@
 {% extends "main.html" %}
 
+{% block extrahead %}
+{{ super() }}
+<style>
+  /* ── Home page: make every shell transparent so the fixed gradient layer shows through ──
+     The actual gradient is a position:fixed div injected below (in the container block).
+     Using !important because style.css (loaded later) sets body { background: #ffffff }. */
+  html,
+  body,
+  .md-container,
+  .md-main,
+  .md-main__inner,
+  .md-content,
+  .md-footer,
+  .md-footer__inner,
+  .md-footer-meta,
+  .md-footer-meta__inner,
+  .md-footer-nav {
+    background: transparent !important;
+  }
+  /* Layout: block display removes sidebar flex that splits content to half-width */
+  .md-main__inner.md-grid {
+    padding: 0 !important;
+    display: block !important;
+  }
+  .md-content {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .md-content__inner {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+</style>
+{% endblock %}
 
 {% block container %}
 
-<head>
-    <link rel="stylesheet" href="dist/css/style.css">
-	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-</head>
+<!-- Fixed gradient layer — position:fixed + z-index:-9999 puts it behind every MkDocs element.
+     Inline style is inviolable: no CSS cascade can override it. -->
+<div aria-hidden="true" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-9999;background:linear-gradient(to bottom,#005cb9 0%,#005cb9 8%,#004090 40%,#071d40 70%,#020a1c 100%);pointer-events:none;"></div>
 
-<body class="is-boxed has-animations" style="height: 100%;">
-    <div class="body-wrap md-content">
-        
+<style>
 
-        <main>
-            <section class="hero">
-                <div class="container">
-                    <div class="hero-inner">
-						<div class="hero-copy">
-	                        <h1 class="hero-title mt-0">An Open File Format for the NDE Community</h1>
-	                        <p class="hero-paragraph textwhite">Leverage your inspection data and develop your own applications.</p>
-	                        <div class="hero-cta"><a class="button button-primary" href="./getting-started/">Getting started</a><a class="button" href="./examples/">examples</a></div>
-						</div>
-                        <div class="hero-copy">
-                            <img src="dist/images/NDE-Logo-White.png" alt="NDE Logo">
-						</div>
-                    </div>
-                </div>
-            </section>
+  /* ── Containers ── */
+  .home-wrap .container {
+    max-width: 100%;
+    padding-left: .4rem;
+    padding-right: .4rem;
+  }
+  .home-wrap .container-sm {
+    max-width: 900px;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    margin: 0 auto;
+  }
 
-            <section class="features section">
-                <div class="container">
-					<div class="features-inner section-inner has-bottom-divider">
-                        <div class="features-wrap">
-                            <div class="feature text-center is-revealing" style="visibility: visible;">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="dist/images/lock_open_75dp_FFFFFF.svg" alt="Feature 01">
-                                    </div>
-                                    <h4 class="feature-title mt-24">No proprietary software</h4>
-                                    <p class="text-sm mb-0 textwhite">Access your inspection data with standard and open-source tools. No SDK or API required. </p>
-                                </div>
-                            </div>
-							<div class="feature text-center is-revealing" style="visibility: visible;">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="dist/images/money_off_75dp_FFFFFF.svg" alt="Feature 02">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Free of charge</h4>
-                                    <p class="text-sm mb-0 textwhite">An entirely open-source-based format, .nde will always be free to use, ensuring compliance with the EU Data Act.</p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing" style="visibility: visible;">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="dist/images/fact_check_75dp_FFFFFF.svg" alt="Feature 03">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Standardized</h4>
-                                    <p class="text-sm mb-0 textwhite">NDE file specifications are openly documented, with resources available on this page and on our GitHub repository.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+  /* ── Button fix ── */
+  .home-wrap .button { align-items: center; }
 
-            <section class="pricing section">
-                <div class="container-sm">
-                    <div class="pricing-inner section-inner">
-                        <div class="pricing-header text-center">
-                            <h2 class="section-title mt-0">Open to collaboration</h2>
-                            <p class="section-paragraph mb-0 textwhite">Would you like to collaborate with us on new functionalities, modalities, and improvements?</p>
-                        </div>
-                        <br>
-						<div class="pricing-tables-wrap">
-                            <div class="pricing-table">
-                                <div class="pricing-table-inner is-revealing" style="visibility: visible;">
-                                    <div class="pricing-table-main">
-                                        <ul class="pricing-table-features list-reset text-xs textwhite">
-                                            <li>
-                                                <span>Vendors</span>
-                                            </li>
-                                            <li>
-                                                <span>Service providers</span>
-                                            </li>
-                                            <li>
-                                                <span>Asset owners</span>
-                                            </li>
-											<li>
-												<span>Academics</span>
-											</li>
-                                        </ul>
-                                    </div>
-                                    <div class="pricing-table-cta mb-8">
-                                        <a class="button button-primary button-shadow button-block" href="mailto:nde_support@evidentscientific.com">Contact us</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+  /* ── Hero layout ── */
+  .home-hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .home-hero-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .home-hero-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .home-hero-title {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 16px;
+  }
+  .home-hero-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.78);
+    line-height: 28px;
+    margin: 0 0 32px;
+    max-width: 520px;
+  }
 
-			
-        </main>
+  /* ── Features strip ── */
+  .home-features {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .home-feature-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .home-feature-item + .home-feature-item {
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  /* side borders only when items are in a row */
+  @media (min-width: 641px) {
+    .home-feature-item + .home-feature-item {
+      border-top: none;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+  }
 
-        
-    </div>
+  /* ── Quick nav cards ── */
+  .home-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
 
-    <script src="dist/js/main.min.js"></script>
+  /* ── Collaboration card ── */
+  .home-collab-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 8px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .home-collab-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px 32px;
+    flex-wrap: wrap;
+  }
 
+  /* ════════════════════════════════
+     TABLET  ≤ 960px
+  ════════════════════════════════ */
+  @media (max-width: 960px) {
+    .home-nav-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-</body>
+  /* ════════════════════════════════
+     MOBILE  ≤ 640px
+  ════════════════════════════════ */
+  @media (max-width: 640px) {
+    /* Hero: column, centered */
+    .home-hero-inner {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+    }
+    .home-hero-logo { order: -1; } /* logo above text on mobile */
+    .home-hero-logo img { width: 120px !important; }
+    .home-hero-title { font-size: 28px !important; line-height: 36px !important; }
+    .home-hero-sub {
+      font-size: 16px !important;
+      line-height: 24px !important;
+      max-width: 100% !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .home-hero-cta { justify-content: center; }
+    .home-hero-cta .button { width: 100%; max-width: 260px; justify-content: center; }
 
+    /* Section padding */
+    section { padding-top: 36px !important; padding-bottom: 36px !important; }
+
+    /* Features: stack full-width */
+    .home-feature-item { min-width: 100%; }
+
+    /* Quick nav: 1 column on very small, 2 on medium mobile */
+    .home-nav-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Collaboration: stack button below list */
+    .home-collab-card { flex-direction: column; gap: 20px; }
+    .home-collab-card .button { width: 100%; max-width: 260px; }
+    .home-collab-list { justify-content: center; text-align: left; }
+
+    /* Containers: a bit more breathing room on small screens */
+    .home-wrap .container,
+    .home-wrap .container-sm {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .home-nav-grid { grid-template-columns: 1fr; }
+    .home-hero-title { font-size: 24px !important; line-height: 32px !important; }
+  }
+</style>
+
+<link rel="stylesheet" href="dist/css/style.css">
+<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+<div class="home-wrap has-animations" style="background: transparent; width: 100%; min-height: 100vh;">
+  <main>
+    <section style="padding: 52px 0 48px;">
+      <div class="container" style="padding-left: 2rem; padding-right: 2rem;">
+        <div class="home-hero-inner">
+          <div class="home-hero-text">
+
+            <h1 class="home-hero-title">An Open File Format<br>for the NDE Community</h1>
+            <p class="home-hero-sub">Leverage your inspection data and develop your own applications. No proprietary software, no licensing fees.</p>
+
+            <div class="home-hero-cta">
+              <a class="button button-primary" href="./getting-started/" style="height: 44px; padding: 0 28px; font-size: 14px; border-radius: 4px;">Get started</a>
+              <a class="button" href="./examples/" style="height: 44px; padding: 0 24px; font-size: 14px; border-radius: 4px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);">View examples</a>
+            </div>
+          </div>
+
+          <div class="home-hero-logo">
+            <img src="dist/images/NDE-Logo-White.svg" alt="NDE Logo" style="width: 200px; height: auto; opacity: 0.88; display: block; margin: 0;">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 0;">
+      <div class="container">
+        <div class="home-features">
+
+          <div class="home-feature-item">
+            <img src="dist/images/lock_open_75dp_FFFFFF.svg" alt="" style="width: 28px; height: 28px; flex-shrink: 0; opacity: 0.8; margin: 2px 0 0;">
+            <div>
+              <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 3px;">No proprietary software</div>
+              <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 19px;">Standard and open-source tools. No SDK required.</div>
+            </div>
+          </div>
+
+          <div class="home-feature-item">
+            <img src="dist/images/money_off_75dp_FFFFFF.svg" alt="" style="width: 28px; height: 28px; flex-shrink: 0; opacity: 0.8; margin: 2px 0 0;">
+            <div>
+              <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 3px;">Free of charge</div>
+              <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 19px;">Always free, open-source, EU Data Act compliant.</div>
+            </div>
+          </div>
+
+          <div class="home-feature-item">
+            <img src="dist/images/fact_check_75dp_FFFFFF.svg" alt="" style="width: 28px; height: 28px; flex-shrink: 0; opacity: 0.8; margin: 2px 0 0;">
+            <div>
+              <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 3px;">Standardized</div>
+              <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 19px;">Openly documented on this site and on GitHub.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 52px 0;">
+      <div class="container">
+
+        <h2 style="font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 6px; text-align: center;">Supported Technologies</h2>
+        <p style="text-align: center; color: rgba(255,255,255,0.65); font-size: 14px; margin: 0 0 24px;">A unified format covering multiple NDE modalities.</p>
+
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px;">
+
+          <div style="background: rgba(255,255,255,0.07); border-radius: 8px; padding: 24px 28px; flex: 1; min-width: 240px; border: 1px solid rgba(255,255,255,0.13);">
+            <div style="font-size: 10px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px;">UT &nbsp;/&nbsp; PAUT</div>
+            <div style="font-weight: 700; font-size: 17px; color: #fff; margin-bottom: 8px;">Ultrasonic Testing</div>
+            <p style="font-size: 13px; color: rgba(255,255,255,0.7); line-height: 20px; margin: 0;">Conventional UT, Phased Array (PAUT), Full Matrix Capture (FMC), Total Focusing Method (TFM), Plane Wave Imaging (PWI), TOFD.</p>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.07); border-radius: 8px; padding: 24px 28px; flex: 1; min-width: 240px; border: 1px solid rgba(255,255,255,0.13);">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 10px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.45);">ECT &nbsp;/&nbsp; ECA</span>
+              <span style="font-size: 10px; font-weight: 700; background: rgba(255,255,255,0.18); color: #fff; padding: 2px 7px; border-radius: 3px; letter-spacing: 0.3px;">New in 4.3</span>
+            </div>
+            <div style="font-weight: 700; font-size: 17px; color: #fff; margin-bottom: 8px;">Eddy Current Testing</div>
+            <p style="font-size: 13px; color: rgba(255,255,255,0.7); line-height: 20px; margin: 0;">Conventional ECT and Eddy Current Array (ECA) — strip charts, layer detection, conductivity, mixed signals.</p>
+          </div>
+
+        </div>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.12); margin-bottom: 40px;"></div>
+
+        <h2 style="font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 6px; text-align: center;">Explore the Documentation</h2>
+
+        <div class="home-nav-grid">
+
+          <a href="./hdf5-structure/" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 18px 22px; text-decoration: none !important; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
+            <div style="font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 4px;">HDF5 Structure</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); line-height: 17px;">File architecture and dataset layout</div>
+          </a>
+
+          <a href="./json-metadata/" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 18px 22px; text-decoration: none !important; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
+            <div style="font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 4px;">JSON Metadata</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); line-height: 17px;">Setup and properties schema reference</div>
+          </a>
+
+          <a href="./examples/" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 18px 22px; text-decoration: none !important; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
+            <div style="font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 4px;">Examples</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); line-height: 17px;">File samples and code snippets</div>
+          </a>
+
+          <a href="./versioning/" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 18px 22px; text-decoration: none !important; transition: background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.2)'">
+            <div style="font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 4px;">Versioning</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); line-height: 17px;">Changelog and upgrade guides</div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ COLLABORATION ═══ -->
+    <section style="padding: 0 0 56px;">
+      <div class="container-sm">
+        <div style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 48px; text-align: center;">
+          <h2 style="font-size: 24px; font-weight: 700; color: #fff; margin: 0 0 10px;">Open to collaboration</h2>
+          <p style="color: rgba(255,255,255,0.75); font-size: 15px; margin: 0 0 32px; line-height: 24px;">Would you like to collaborate with us on new functionalities, modalities, and improvements?</p>
+
+          <div class="home-collab-card">
+            <ul class="home-collab-list">
+              <li style="color: rgba(255,255,255,0.8); font-size: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: #02CBB1; font-weight: 700;">&#10003;</span> Vendors</li>
+              <li style="color: rgba(255,255,255,0.8); font-size: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: #02CBB1; font-weight: 700;">&#10003;</span> Service providers</li>
+              <li style="color: rgba(255,255,255,0.8); font-size: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: #02CBB1; font-weight: 700;">&#10003;</span> Asset owners</li>
+              <li style="color: rgba(255,255,255,0.8); font-size: 14px; display: flex; align-items: center; gap: 8px;"><span style="color: #02CBB1; font-weight: 700;">&#10003;</span> Academics</li>
+            </ul>
+            <a class="button button-primary" href="mailto:nde_support@evidentscientific.com" style="height: 40px; padding: 0 24px; font-size: 13px; white-space: nowrap; flex-shrink: 0; align-items: center;">Contact us</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="dist/js/main.min.js"></script>
 
 {% endblock %}

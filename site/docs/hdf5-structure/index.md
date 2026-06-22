@@ -14,9 +14,9 @@ Each .nde file should follow this basic structure:
 
 ``` mermaid
 flowchart LR
-  .nde[**.nde**]:::root --> Private["/Private"]:::group
-  .nde[**.nde**]:::root --> Public["/Public `required`"]:::group
-  .nde[**.nde**]:::root --> Properties["/Properties*"]:::dataset
+  .nde[<b>.nde</b>]:::root --> Private["/Private"]:::group
+  .nde[<b>.nde</b>]:::root --> Public["/Public `required`"]:::group
+  .nde[<b>.nde</b>]:::root --> Properties["/Properties*"]:::dataset
   Public["/Public*"] --> Setup["/Setup*"]:::dataset
   Public["/Public*"] --> Groups["/Groups"]:::group
   .nde@{ shape: text}

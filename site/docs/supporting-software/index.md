@@ -12,19 +12,33 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
 <div class="grid cards" markdown>
 
+-   __NORTEC 700™__
+
+    ---
+
+    ![Nortec 700](../assets/images/supporting-software/Nortec_700.png)
+
+    The onboard software powering the NORTEC™ 700.
+
+    ---
+
+    [:material-arrow-right: Learn more](https://ims.evidentscientific.com/fr/products/flaw-detectors/nortec-700)
+
+    :material-file: Read/Write NORTEC™ 700 .nde files
+
 -   :evident-omniscan:{ .lg .middle } __MXU__
 
     ---
 
     ![OmniScan X4](../assets/images/supporting-software/OmniScan_X4.png)
 
-    The onboard software powering the OmniScan product line.
+    The onboard software powering the OmniScan™ product line.
 
     ---
 
     [:material-history: Changelog](evident/omniscan-mxu.md)
 
-    :material-file: Write OmniScan X3 and X4 .nde files
+    :material-file: Read/Write OmniScan™ X3 and X4 .nde files
 
 -   :evident-omnipc:{ .lg .middle } __OmniPC&trade;__
 
@@ -32,13 +46,13 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
     ![OmniPC](../assets/images/supporting-software/omnipc.png)
 
-    The embedded companion analysis tool of the OmniScan product line.
+    The embedded companion analysis tool of the OmniScan™ product line.
     
     ---
 
     [:material-download: Download](https://ims.evidentscientific.com/en/downloads?product=OmniPC+6)
 
-    :material-file: Read OmniScan X3 and X4 .nde files
+    :material-file: Read OmniScan™ X3 and X4 .nde files
 
 -   :evident-aeroview:{ .lg .middle } __AeroView&trade;__
 
@@ -65,7 +79,7 @@ Feel free to [reach out to us](mailto:nde_support@evidentscientific.com) if you 
 
     [:material-arrow-right: Learn more](https://ims.evidentscientific.com/en/products/software/aeroview)
 
-    :material-file: Read OmniScan .nde files
+    :material-file: Read OmniScan™ .nde files
 
 
 </div>

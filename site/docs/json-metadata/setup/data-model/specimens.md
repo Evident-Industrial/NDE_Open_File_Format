@@ -1,8 +1,11 @@
-# Specimen Related Arrays and Objects
+# Specimens
 
-## **specimens** array
+<!-- md:json_type array -->
 
-The **specimens** array lists the specimens on which the inspection is performed. 
+The **specimens** array lists the specimens on which the inspection is performed.
+
+## **specimens**
+<!-- md:json_type array -->
 
 <table>
 <thead>
@@ -14,209 +17,217 @@ The **specimens** array lists the specimens on which the inspection is performed
 </thead>
 <tbody>
   <tr>
-    <td><b>id</b>  <code>required</code></td>
+    <td><b>id</b> <code>required</code></td>
     <td>integer</td>
-    <td>The unique specimen id in the JSON structure</td>
+    <td>Unique specimen id in the JSON structure</td>
   </tr>
   <tr>
-    <td>One of the following <code>required</code> sub-object: 
-        <ul>
-          <li><b><a href="#plategeometry-object">plateGeometry</a></b></li>
-          <li><b><a href="#pipegeometry-object">pipeGeometry</a></b></li>
-          <li><b><a href="#bargeometry-object">barGeometry</a></b></li>
-        </ul>  
+    <td>
+      One of the following <code>required</code> geometry objects:
+      <ul>
+        <li><b><a href="#plategeometry">plateGeometry</a></b></li>
+        <li><b><a href="#pipegeometry">pipeGeometry</a></b></li>
+        <li><b><a href="#bargeometry">barGeometry</a></b></li>
+        <li><b><a href="#unspecifiedgeometry">unspecifiedGeometry</a></b></li>
+      </ul>
     </td>
     <td>object</td>
     <td></td>
   </tr>
   <tr>
-    <td><b>weldGeometry</b></td>
-    <td>object </td>
-    <td>A <a href="#weldgeometry-object">weldGeometry</a> object</td>
+    <td><b><a href="#weldgeometry">weldGeometry</a></b></td>
+    <td>object</td>
+    <td>A weldGeometry object</td>
   </tr>
   <tr>
-    <td><b>customOverlay2D</b></td>
+    <td><b><a href="#customoverlay2d">customOverlay2D</a></b></td>
     <td>object</td>
-    <td>A <a href="#customoverlay2d-object">customOverlay2D</a> object</td>
+    <td>A customOverlay2D object</td>
   </tr>
 </tbody>
 </table>
 
+## **plateGeometry**
+<!-- md:json_type object -->
 
-### **plateGeometry** object
+The **plateGeometry** object describes a generic plate geometry.
 
-The **plateGeometry** object describes a generic plate geometry. 
-
-| Property                 | Type   | Unit | Description                           |
-| :----------------------- | :----- | :--: | :------------------------------------ |
-| **width**                | number |  m   | The plate width                       |
-| **length**               | number |  m   | The plate length                      |
-| **thickness** `required` | number |  m   | The plate thickness                   |
-| **material** `required`  | object |  -   | A [material](#material-object) object |
-| **surfaces** `required`  | array  |  -   | A [surfaces](#surfaces-array) array   |
+| Property                 | Type   | Unit | Description                    |
+| :----------------------- | :----- | :--: | :----------------------------- |
+| **width**                | number |  m   | Plate width                    |
+| **length**               | number |  m   | Plate length                   |
+| **thickness** `required` | number |  m   | Plate thickness                |
+| **material**             | object |  -   | A [material](#material) object |
+| **surfaces** `required`  | array  |  -   | A [surfaces](#surfaces) array  |
 
 ![plateGeometry.png](../../../assets/images/json-metadata/setup/data-model/specimens/plateGeometry.png){ width="400" }
 
-### **pipeGeometry** object
+## **pipeGeometry**
+<!-- md:json_type object -->
 
-The **pipeGeometry** object describes a generic pipe geometry. 
+The **pipeGeometry** object describes a generic pipe geometry.
 
-| Property                 | Type   | Unit | Description                           |
-| :----------------------- | :----- | :--: | :------------------------------------ |
-| **length**               | number |  m   | The pipe length                       |
-| **thickness** `required` | number |  m   | The pipe thickness                    |
-| **outerRadius**          | number |  m   | The outer radius of the pipe          |
-| **angularOpening**       | number |  °   | The angular opening of the pipe       |
-| **material** `required`  | object |  -   | A [material](#material-object) object |
-| **surfaces** `required`  | array  |  -   | A [surfaces](#surfaces-array) array   |
+| Property                 | Type   | Unit | Description                    |
+| :----------------------- | :----- | :--: | :----------------------------- |
+| **length**               | number |  m   | Pipe length                    |
+| **thickness** `required` | number |  m   | Pipe thickness                 |
+| **outerRadius**          | number |  m   | Outer radius of the pipe       |
+| **angularOpening**       | number |  °   | Angular opening of the pipe    |
+| **material**             | object |  -   | A [material](#material) object |
+| **surfaces** `required`  | array  |  -   | A [surfaces](#surfaces) array  |
 
 ![pipeGeometry.png](../../../assets/images/json-metadata/setup/data-model/specimens/pipeGeometry.png){ width="600" }
 
-### **barGeometry** object
+## **barGeometry**
+<!-- md:json_type object -->
 
-The **barGeometry** object describes a generic bar geometry. 
+The **barGeometry** object describes a generic bar geometry.
 
-| Property                | Type   | Unit | Description                           |
-| :---------------------- | :----- | :--: | :------------------------------------ |
-| **length** `required`   | number |  m   | The bar length                        |
-| **diameter** `required` | number |  m   | The bar diameter                      |
-| **material** `required` | object |  -   | A [material](#material-object) object |
-| **surfaces** `required` | array  |  -   | A [surfaces](#surfaces-array) array   |
+| Property                | Type   | Unit | Description                    |
+| :---------------------- | :----- | :--: | :----------------------------- |
+| **length** `required`   | number |  m   | Bar length                     |
+| **diameter** `required` | number |  m   | Bar diameter                   |
+| **material**            | object |  -   | A [material](#material) object |
+| **surfaces** `required` | array  |  -   | A [surfaces](#surfaces) array  |
 
 ![barGeometry.png](../../../assets/images/json-metadata/setup/data-model/specimens/barGeometry.png){ width="400" }
 
-#### **material** object
+## **unspecifiedGeometry**
+<!-- md:json_type object -->
 
-This object describes generic material properties. 
+The **unspecifiedGeometry** object is used when the specimen geometry is not known or not relevant to the acquisition. Only the inspectable surfaces are declared; no dimensions or material are provided.
 
-| Property                        | Type   | Unit  | Description                   |
-| :------------------------------ | :----- | :---: | :---------------------------- |
-| **name** `required`             | string |   -   | Name of the material          |
-| **longitudinalWave** `required` | object |   -   | A [wave](#wave-object) object |
-| **transversalWave** `required`  | object |   -   | A [wave](#wave-object) object |
-| **density**                     | number | kg/m3 | Density of the material       |
+| Property                | Type  | Description                   |
+| :---------------------- | :---- | :---------------------------- |
+| **surfaces** `required` | array | A [surfaces](#surfaces) array |
 
-##### **wave** object
+### **material**
+<!-- md:json_type object -->
 
-The **wave** object describes an ultrasonic wave. 
+The **material** object describes generic material properties.
 
-| Property                       | Type   |   Unit   | Description                             |
-| :----------------------------- | :----- | :------: | :-------------------------------------- |
-| **nominalVelocity** `required` | number |   m/s    | Speed of sound in the material          |
-| **attenuationCoefficient**     | number | dB/m/MHz | Attenuation coefficient in the material |
+| Property                        | Type   | Unit  | Description                        |
+| :------------------------------ | :----- | :---: | :--------------------------------- |
+| **name** `required`             | string |   -   | Name of the material               |
+| **longitudinalWave** `required` | object |   -   | A [wave](#wave) object             |
+| **transversalWave** `required`  | object |   -   | A [wave](#wave) object             |
+| **density**                     | number | kg/m³ | Density of the material            |
 
+#### **wave**
+<!-- md:json_type object -->
 
-#### **surfaces** array
+The **wave** object describes an ultrasonic wave.
 
-This array lists surfaces.
+| Property                       | Type   |   Unit   | Description                              |
+| :----------------------------- | :----- | :------: | :--------------------------------------- |
+| **nominalVelocity** `required` | number |   m/s    | Speed of sound in the material           |
+| **attenuationCoefficient**     | number | dB/m/MHz | Attenuation coefficient in the material  |
 
-| Property            | Type    | Description                                                         |
-| :------------------ | :------ | :------------------------------------------------------------------ |
-| **id** `required`   | integer | Id of the surface                                                   |
-| **name** `required` | string  | Name of the surface, one of the following: `Top`, `Bottom`, `Inside`, or `Outside` |
+### **surfaces**
+<!-- md:json_type array -->
 
-Note: 
+The **surfaces** array lists the inspectable surfaces of the specimen.
 
-- plateGeometry: `Top` or `Bottom`
-- pipeGeometry: `Inside` or `Outside`
-- barGeometry: `Outside`
+| Property          | Type    | Description                                                                |
+| :---------------- | :------ | :------------------------------------------------------------------------- |
+| **id** `required` | integer | Unique surface id                                                          |
+| **name**          | string  | Surface name. Required for `plateGeometry`, `pipeGeometry`, and `barGeometry`; omitted for `unspecifiedGeometry`. |
 
-### **weldGeometry** object
+Valid surface names per geometry type:
 
-The **weldGeometry** object describes a generic weld geometry. 
+- `plateGeometry`: `Top` or `Bottom`
+- `pipeGeometry`: `Inside` or `Outside`
+- `barGeometry`: `Outside`
+- `unspecifiedGeometry`: not applicable
 
-| Property                  | Type   | Unit | Description                                                                  |
-| :------------------------ | :----- | :--: | :--------------------------------------------------------------------------- |
-| **weldAngle** `required`  | number |  °   | The weld angle                                                               |
-| **material** `required`   | object |  -   | A [material](#material-object) object                                        |
-| **bevelShape** `required` | string |  -   | The bevel shape, one of: `U`, `V`                                            |
-| **symmetry** `required`   | string |  -   | The weld symmetry type, one of the following: `Symmetric`, `StraightLeft`, or `StraightRight` |
-| **heatAffectedZoneWidth** | number |  m   | The HAZ width                                                                |
-| **offset**                | number |  m   |                                                                              |
-| **upperCap**              | object |  -   | An [upperCap](#uppercap-object) object                                        |
-| **lowerCap**              | object |  -   | A [lowerCap](#lowercap-object) object                                        |
-| **fills**                 | object |  -   | A [fills](#fills-array) array                                                |
-| **hotPass**               | object |  -   | A [hotPass](#hotpass-object) object                                          |
-| **land**                  | object |  -   | A [land](#land-object) object                                                |
-| **root**                  | object |  -   | A [root](#root-object) object                                                |
+## **weldGeometry**
+<!-- md:json_type object -->
 
+The **weldGeometry** object describes a generic weld geometry.
 
-#### **upperCap** object
+| Property                  | Type   | Unit | Description                                                    |
+| :------------------------ | :----- | :--: | :------------------------------------------------------------- |
+| **weldAngle** `required`  | number |  °   | Weld angle                                                     |
+| **material**              | object |  -   | A [material](#material) object                                 |
+| **bevelShape** `required` | string |  -   | Bevel shape: `U` or `V`                                        |
+| **symmetry** `required`   | string |  -   | Weld symmetry: `Symmetric`, `StraightLeft`, or `StraightRight` |
+| **heatAffectedZoneWidth** | number |  m   | HAZ width                                                      |
+| **offset**                | number |  m   |                                                                |
+| **upperCap**              | object |  -   | An [upperCap](#uppercap) object                                |
+| **lowerCap**              | object |  -   | A [lowerCap](#lowercap) object                                 |
+| **fills**                 | array  |  -   | A [fills](#fills) array                                        |
+| **hotPass**               | object |  -   | A [hotPass](#hotpass) object                                   |
+| **land**                  | object |  -   | A [land](#land) object                                         |
+| **root**                  | object |  -   | A [root](#root) object                                         |
 
-The **upperCap** object describes a weld upper cap. 
+### **upperCap**
+<!-- md:json_type object -->
 
 | Property              | Type   | Unit | Description |
 | :-------------------- | :----- | :--: | :---------- |
 | **width**             | number |  m   |             |
 | **height** `required` | number |  m   |             |
 
-
-#### **lowerCap** object
-
-The **lowerCap** object describes a weld lower cap.
+### **lowerCap**
+<!-- md:json_type object -->
 
 | Property              | Type   | Unit | Description |
 | :-------------------- | :----- | :--: | :---------- |
 | **width**             | number |  m   |             |
 | **height** `required` | number |  m   |             |
 
-#### **fills** array
-
-The **fills** array describes a weld fill.
-
-| Property              | Type   | Unit | Description |
-| :-------------------- | :----- | :--: | :---------- |
-| **angle** `required`  | number |  °   |             |
-| **height** `required` | number |  m   |             |
-
-#### **hotPass** object
-
-The **hotPass** object describes a weld hot pass.
+### **fills**
+<!-- md:json_type array -->
 
 | Property              | Type   | Unit | Description |
 | :-------------------- | :----- | :--: | :---------- |
 | **angle** `required`  | number |  °   |             |
 | **height** `required` | number |  m   |             |
 
-#### **land** object
-
-The **land** object describes a weld land.
-
-| Property              | Type   | Unit | Description |
-| :-------------------- | :----- | :--: | :---------- |
-| **height** `required` | number |  m   |             |
-
-#### **root** object
-
-The **root** object describes a weld root.
+### **hotPass**
+<!-- md:json_type object -->
 
 | Property              | Type   | Unit | Description |
 | :-------------------- | :----- | :--: | :---------- |
 | **angle** `required`  | number |  °   |             |
 | **height** `required` | number |  m   |             |
 
-### **customOverlay2D** object
+### **land**
+<!-- md:json_type object -->
 
-The **customOverlay2D** object describes a generic custom 2D CAD overlay. 
+| Property              | Type   | Unit | Description |
+| :-------------------- | :----- | :--: | :---------- |
+| **height** `required` | number |  m   |             |
 
-| Property                        | Type   | Unit | Description                                      |
-| :------------------------------ | :----- | :--: | :----------------------------------------------- |
-| **filename** `required`         | string |  -   | The file name containing the overlay             |
-| **format** `required`           | string |  -   | The file format                                  |
-| **extension** `required`        | string |  -   | The extension of the file containing the overlay |
-| **path** `required`             | string |  -   | The path to the file                             |
-| **localScale** `required`       | object |  -   | A [coordinate](#coordinate-object) object        |
-| **localTranslation** `required` | object |  -   | A [coordinate](#coordinate-object) object        |
-| **translation** `required`      | object |  -   | A [coordinate](#coordinate-object) object        |
-| **scale** `required`            | number |  -   | The scale to be applied to the overlay           |
-| **rotation** `required`         | number |  -   | The rotation to be applied to the overlay        |
-| **width** `required`            | number |  m   |                                                  |
-| **thickness** `required`        | number |  m   |                                                  |
+### **root**
+<!-- md:json_type object -->
 
+| Property              | Type   | Unit | Description |
+| :-------------------- | :----- | :--: | :---------- |
+| **angle** `required`  | number |  °   |             |
+| **height** `required` | number |  m   |             |
 
-#### **coordinate** object
+## **customOverlay2D**
+<!-- md:json_type object -->
 
-This object describes a generic coordinate system. 
+The **customOverlay2D** object describes a generic custom 2D CAD overlay.
+
+| Property                        | Type   | Unit | Description                                         |
+| :------------------------------ | :----- | :--: | :-------------------------------------------------- |
+| **filename** `required`         | string |  -   | File name containing the overlay                    |
+| **format** `required`           | string |  -   | File format                                         |
+| **extension** `required`        | string |  -   | Extension of the file containing the overlay        |
+| **path** `required`             | string |  -   | Path to the file                                    |
+| **localScale** `required`       | object |  -   | A [coordinate](#coordinate) object                  |
+| **localTranslation** `required` | object |  -   | A [coordinate](#coordinate) object                  |
+| **translation** `required`      | object |  -   | A [coordinate](#coordinate) object                  |
+| **scale** `required`            | number |  -   | Scale to be applied to the overlay                  |
+| **rotation** `required`         | number |  -   | Rotation to be applied to the overlay               |
+| **width** `required`            | number |  m   |                                                     |
+| **thickness** `required`        | number |  m   |                                                     |
+
+### **coordinate**
+<!-- md:json_type object -->
 
 | Property         | Type   | Description |
 | :--------------- | :----- | :---------- |

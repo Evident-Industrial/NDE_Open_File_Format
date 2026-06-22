@@ -17,6 +17,50 @@ font-size: 0.85em;
 .mdx-badge__icon {
   padding: .2rem;
   background: var(--md-accent-fg-color--transparent);
+  border-start-start-radius: .1rem;
+  border-end-start-radius: .1rem;
 }
 
-  
+.mdx-badge__text {
+  padding: .2rem .2rem;
+  border-start-end-radius: .1rem;
+  border-end-end-radius: .1rem;
+  box-shadow: 0 0 0 1px inset var(--md-accent-fg-color--transparent);
+}
+
+/* Technology scope badges */
+.badge-ut, .badge-et, .badge-all {
+  display: inline-block;
+  font-size: 0.65em;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.badge-ut {
+  background-color: rgba(25, 118, 210, 0.1);
+  color: #1565c0;
+  border: 1px solid rgba(25, 118, 210, 0.3);
+}
+.badge-et {
+  background-color: rgba(46, 125, 50, 0.1);
+  color: #2e7d32;
+  border: 1px solid rgba(46, 125, 50, 0.3);
+}
+.badge-all {
+  background-color: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  border: 1px solid var(--md-default-fg-color--lighter);
+}
+/* Dark mode overrides */
+[data-md-color-scheme="slate"] .badge-ut {
+  background-color: rgba(66, 165, 245, 0.15);
+  color: #90caf9;
+  border-color: rgba(66, 165, 245, 0.3);
+}
+[data-md-color-scheme="slate"] .badge-et {
+  background-color: rgba(102, 187, 106, 0.15);
+  color: #a5d6a7;
+  border-color: rgba(102, 187, 106, 0.3);
+}

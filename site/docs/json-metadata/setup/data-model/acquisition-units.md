@@ -1,19 +1,22 @@
-# Acquisition Unit Related Arrays and Objects
+# Acquisition Units
 
-## **acquisitionUnits** array
+<!-- md:json_type array -->
 
-The **acquisitionUnits** array lists the acquisitions units used for the capture of the datasets and their parameters.
+The **acquisitionUnits** array lists the acquisition units used for the capture of the datasets and their parameters.
 
-| Property                       | Type    | Unit | Description                                                                                                                                            |
-| :----------------------------- | :------ | :--: | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **id** `required`              | integer |  -   | The unique acquisition unit id in the JSON structure referenced in the [elements](probes.md#elements-array) of a [probe](probes.md#probes-array) array |
-| **platform** `required`        | string  |  -   | The name of the acquisition unit platform                                                                                                              |
-| **model** `required`           | string  |  -   | The model of the acquisition unit                                                                                                                      |
-| **serialNumber**               | string  |  -   | The serial number of the acquisition unit                                                                                                              |
-| **name**                       | string  |  -   | The name of the acquisition unit                                                                                                                       |
-| **acquisitionRate** `required` | number  |  Hz  | The acquisition rate of the acquisition unit                                                                                                           |
+## **acquisitionUnits** 
+<!-- md:json_type array -->
 
-**Related objects**: [probe](probes.md#probes-array), [elements](probes.md#elements-array)
+| Property                       | Type    | Unit | Description                                                                             |
+| :----------------------------- | :------ | :--: | :-------------------------------------------------------------------------------------- |
+| **id** `required`              | integer |  -   | Unique acquisition unit id, referenced in the [elements](probes.md#elements) of a probe |
+| **platform** `required`        | string  |  -   | Name of the acquisition unit platform                                                   |
+| **model** `required`           | string  |  -   | Model of the acquisition unit                                                           |
+| **serialNumber**               | string  |  -   | Serial number of the acquisition unit                                                   |
+| **name**                       | string  |  -   | Name of the acquisition unit                                                            |
+| **acquisitionRate** `required` | number  |  Hz  | Acquisition rate of the acquisition unit                                                |
+
+**Related objects**: [probes](probes.md#probes), [elements](probes.md#elements)
 
 ## Example
 
@@ -26,7 +29,12 @@ The **acquisitionUnits** array lists the acquisitions units used for the capture
       "serialNumber": "12345XYZ",
       "name": "MXU",
       "acquisitionRate": 120.0
+    },
+    {
+      "id": 0,
+      "model": "N700",
+      "platform": "Nortec 700",
+      "acquisitionRate": 4000
     }
 ]
 ```
-

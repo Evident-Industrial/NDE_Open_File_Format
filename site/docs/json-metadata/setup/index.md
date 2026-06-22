@@ -2,7 +2,7 @@
 
 ``` mermaid
 flowchart LR
-  .nde[**.nde**]:::root --> Public["/Public*"]:::group
+  .nde[<b>.nde</b>]:::root --> Public["/Public*"]:::group
   Public["/Public*"] --> Setup["/Setup*"]:::dataset
   .nde@{ shape: text}
   click Public "public-group"
@@ -13,7 +13,7 @@ flowchart LR
 
 The Setup dataset is **mandatory** and located inside the Public group of the .nde file HDF5 structure. It contains all the metadata useful for retrieving the acquisition context and reading or processing the acquired datasets (probes, specimens, acquisitions units, etc.) and is formatted in a JSON. 
 
-The structure of the formatted JSON included in the **Setup** dataset can be validated against [a dedicated JSON schema](../setup/schema_doc.md). 
+The structure of the formatted JSON included in the **Setup** dataset can be validated against [a dedicated JSON schema](https://raw.githubusercontent.com/Evident-Industrial/NDE_Open_File_Format/refs/heads/main/schemas/Setup-Schema-4.3.0.json). 
 
 The [data model](data-model/index.md) related to the **Setup** dataset details the different JSON objects and arrays with their expected values, associated description, and examples. 
 

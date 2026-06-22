@@ -8,9 +8,9 @@ Welcome to the official documentation of the NDE open file format. This page wil
 
 The **NDE open file format** refers to any data file stored using the [HDF5 container library](https://www.hdfgroup.org/) and [JSON](https://www.json.org/) text format following the [HDF5 Structure](../hdf5-structure/index.md) and [JSON Metadata](../json-metadata/index.md) requirements detailed in this documentation. Such a file should be saved using the **.nde** extension. 
 
-The .nde open file format is designed for storing nondestructive testing (NDT) data. It is platform-independent and modality-agnostic, offering a relatively simple file structure for mainstream NDT applications while supporting future complex solutions and technologies. It currently supports the ultrasonic testing (UT) modality and will soon support the eddy current (ET) modality.
+The .nde open file format is designed for storing nondestructive testing (NDT) data. It is platform-independent and modality-agnostic, offering a relatively simple file structure for mainstream NDT applications while supporting future complex solutions and technologies. It currently supports the ultrasonic testing (UT) and eddy current testing (ECT/ECA) modalities.
 
-## Learn about the NDE 0pen file format initiative 
+## Learn about the NDE Open file format initiative 
 
 You've heard about the .nde open file format, but you're unsure where it originates or whether it's right for you. Here are some interesting resources to help you decide:
 

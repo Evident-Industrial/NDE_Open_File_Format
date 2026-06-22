@@ -44,6 +44,8 @@ def on_page_markdown(
         if type == "flag":         return flag(args, page, files)
         elif type == "option":       return option(args)
         elif type == "setting":      return setting(args)
+        elif type == "json_type":   return _badge_for_json_type(args, page, files)
+        elif type == "version":   return _badge_for_version(args, page, files)
 
         # Otherwise, raise an error
         raise RuntimeError(f"Unknown shortcode: {type}")
@@ -106,4 +108,23 @@ def _badge_for_experimental(page: Page, files: Files):
     icon = "material-flask-outline"
     return _badge(
         icon = f"[:{icon}: Experimental](/getting-started/collaboration.md)"
+    )
+
+# Create badge for experimental flag
+def _badge_for_json_type(text: str, page: Page, files: Files):
+    icon = "material-code-json"
+    return _badge(
+        icon = f"[:{icon}: Type]()",
+        text = text
+    )
+
+def _badge_for_version(text: str, page: Page, files: Files):
+    spec = text
+    path = f"changelog/index.md#{spec}"
+
+    # Return badge
+    icon = "material-tag-outline"
+    return _badge(
+        icon = f"[:{icon}:]()",
+        text = text
     )

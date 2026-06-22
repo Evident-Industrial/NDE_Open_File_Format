@@ -12,7 +12,7 @@ The NDE Open File Format is designed for storing nondestructive testing (NDT) da
 
 The official documentation of the .NDE Open File Format is available at [ndeformat.com](https://ndeformat.com/) and is generated from the files located in the "site" directory of this repository. 
 
-## Collaboration & Support
+## Collaboration
 
 If you have any questions, contact Evident at nde_support@evidentscientific.com
 

@@ -1,41 +1,80 @@
-# Motion Device Related Arrays and Objects
+# Motion Devices
 
-## **motionDevices** array
+<!-- md:json_type array -->
 
-This array list the motion devices used to move the probe(s) over the specimen.
+The **motionDevices** array lists the motion devices used to move the probe(s) over the specimen.
 
-| Property               | Type    | Description                                                                                                                                       |
-| :--------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **id** `required`      | integer | The unique motion device id in the JSON structure referenced in `dimensions` array of [discreteGrid](data-mappings.md#discretegrid-object) object |
-| **name**               | string  | Name of the motion device                                                                                                                         |
-| **encoder** `required` | object  | An [encoder](#encoder-object) object                                                                                                              |
+## **motionDevices**
+<!-- md:json_type array -->
 
-**Related objects**: [discreteGrid](data-mappings.md#discretegrid-object), [UCoordinate](data-mappings.md#ucoordinate-object), [VCoordinate](data-mappings.md#vcoordinate-object)
+| Property               | Type    | Description                                                                                                            |
+| :--------------------- | :------ | :--------------------------------------------------------------------------------------------------------------------- |
+| **id** `required`      | integer | Unique motion device id, referenced in the `dimensions` array of [discreteGrid](data-mappings.md#discretegrid) and [allCycle](data-mappings.md#allcycle) objects |
+| **name**               | string  | Name of the motion device                                                                                              |
+| **encoder** `required` | object  | An [encoder](#encoder) object                                                                                          |
 
-### **encoder** object
+**Related objects**: [UCoordinate](data-mappings.md#ucoordinate), [VCoordinate](data-mappings.md#vcoordinate), [Polar](data-mappings.md#polar), [allCycle datasets](data-mappings.md#datasets)
 
-This object describes a generic encoder used to register the position of a motion device.
+## **encoder**
+<!-- md:json_type object -->
 
-| Property                      | Type    |  Unit  | Description                                                                                                            |
-| :---------------------------- | :------ | :----: | :--------------------------------------------------------------------------------------------------------------------- |
-| **serialNumber**              | string  |   -    | The serial number of the encoder                                                                                       |
-| **mode** `required`           | string  |   -    | One of the following encoder pulse mode used for recording the position: `Quadrature`,`ClockDir`,`PulseUp`,`PulseDown` |
-| **stepResolution** `required` | number  | step/m | Resolution of the encoder                                                                                              |
-| **preset**                    | number  |   -    | Preset value                                                                                                           |
-| **inverted**                  | boolean |   -    | Whether the encoder counting direction was reversed                                                                    |
+The **encoder** object describes a generic encoder used to register the position of a motion device.
 
-## Example
+| Property                      | Type    | Description                                                                                                                        |
+| :---------------------------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------- |
+| **serialNumber**              | string  | Serial number of the encoder                                                                                                       |
+| **mode** `required`           | string  | Encoder pulse mode: `Quadrature`, `ClockDir`, `PulseUp`, `PulseDown`, `Tach`, or `Index`                                          |
+| **stepResolution** `required` | number  | Resolution of the encoder in steps per unit (meter or revolution depending on `unit`)                                              |
+| **unit**                      | string  | Unit of `stepResolution`: `StepPerMeter` for linear encoders or `StepPerRevolution` for rotary encoders                           |
+| **preset**                    | number  | Preset value                                                                                                                       |
+| **inverted**                  | boolean | Whether the encoder counting direction was reversed                                                                                |
 
-```json
-"motionDevices": [
-    {
-      "id": 0,
-      "name": "Default",
-      "encoder": {
-        "mode": "Quadrature",
-        "stepResolution": 12.0,
-        "preset": 0.0
+**Rotary encoder modes**
+<!-- md:version 4.3.0 -->
+
+- `Tach` — Each encoder step corresponds to a partial rotation. `stepResolution` defines the number of steps per revolution.
+- `Index` — Each encoder step corresponds to one complete revolution. `stepResolution` is typically `1.0`.
+
+## Examples
+
+=== "Linear encoder"
+    ``` json
+    "motionDevices": [
+      {
+        "id": 0,
+        "name": "Scan",
+        "encoder": {
+          "mode": "Quadrature",
+          "stepResolution": 12000.0,
+          "unit": "StepPerMeter",
+          "preset": 0.0
+        }
       }
-    }
-]
-```
+    ]
+    ```
+
+=== "Rotary encoder"
+    ``` json
+    "motionDevices": [
+      {
+      "id": 0,
+      "encoder": {
+        "preset": 0,
+        "inverted": false,
+        "unit": "StepPerRevolution",
+        "mode": "Index",
+        "stepResolution": 1.0,
+      }
+      },
+      {
+        "id": 1,
+        "encoder": {
+          "preset": 0,
+          "inverted": false,
+          "unit": "StepPerRevolution",
+          "mode": "Tach",
+          "stepResolution": 4.0,
+        }
+      }
+    ]
+    ```

@@ -1,4 +1,4 @@
-# Process Related Arrays and Objects
+# Processes
 
 A process describes an operation aimed at creating, modifying, or formatting data, which are ultimately stored or referenced within a dataset. Processes have inputs and outputs and can be directly linked to a dataset or to another process.
 
@@ -14,7 +14,8 @@ classDiagram
    classDef default fill:#fff,stroke:#000000,color:#000000
 ```
 
-## **processes** array
+## **processes**
+<!-- md:json_type array -->
 
 This array describes multiple processes.
 
@@ -22,13 +23,14 @@ This array describes multiple processes.
 | :----------------- | :------ | :--------------------------------------------------------------------------------------------------- |
 | **id** `required`  | integer | The unique process id in the JSON structure                                                          |
 | **implementation** | string  | The process implementation type, can be `Software` or `Hardware`                                     |
-| **inputs**         | object  | An [inputs](#inputs-object) object describing the different inputs of the process                    |
-| **outputs**        | object  | An [outputs](#outputs-object) object describing the different outputs of the process                 |
-| **dataMappingId**  | integer | The unique Id of the referenced [dataMappings](../../data-mappings.md#datamappings-array) array |
-| One of the following  <code>required</code> subobjects: <ul><li><b><a href="./ultrasonicConventional">ultrasonicConventional</a></b></li><li><b><a href="./ultrasonicPhasedArray">ultrasonicPhasedArray</a></b></li><li><b><a href="./ultrasonicMatrixCapture">ultrasonicMatrixCapture</a></b></li><li><b><a href="./totalFocusingMethod">totalFocusingMethod</a></b></li><li><b><a href="./tfmBoxGates">tfmBoxGates</a></b></li><li><b><a href="./thickness">thickness</a></b></li><li><b><a href="./gain">gain</a></b></li></ul> |         |      |                                                              |
+| **inputs**         | object  | An [inputs](#inputs) object describing the different inputs of the process                    |
+| **outputs**        | object  | An [outputs](#outputs) object describing the different outputs of the process                 |
+| **dataMappingId**  | integer | The unique Id of the referenced [dataMappings](../../data-mappings.md#datamappings) array |
+| One of the following  <code>required</code> subobjects: <ul><li><b><a href="./ultrasonicConventional">ultrasonicConventional</a></b> <span class="badge-ut">UT</span></li><li><b><a href="./ultrasonicPhasedArray">ultrasonicPhasedArray</a></b> <span class="badge-ut">UT</span></li><li><b><a href="./ultrasonicMatrixCapture">ultrasonicMatrixCapture</a></b> <span class="badge-ut">UT</span></li><li><b><a href="./totalFocusingMethod">totalFocusingMethod</a></b> <span class="badge-ut">UT</span></li><li><b><a href="./tfmBoxGates">tfmBoxGates</a></b> <span class="badge-ut">UT</span></li><li><b><a href="./thickness">thickness</a></b> <span class="badge-ut">UT</span></li><li><b><a href="./gain">gain</a></b></li><li><b><a href="./eddyCurrent">eddyCurrent</a></b> <span class="badge-et">ET</span></li><li><b><a href="./eddyCurrentMix">eddyCurrentMix</a></b> <span class="badge-et">ET</span></li><li><b><a href="./conductivity">conductivity</a></b> <span class="badge-et">ET</span></li><li><b><a href="./impedanceTransformation">impedanceTransformation</a></b> <span class="badge-et">ET</span></li><li><b><a href="./highPassFilter">highPassFilter</a></b> <span class="badge-et">ET</span></li><li><b><a href="./lowPassFilter">lowPassFilter</a></b> <span class="badge-et">ET</span></li><li><b><a href="./figure6Filter">figure6Filter</a></b> <span class="badge-et">ET</span></li><li><b><a href="./figure8Filter">figure8Filter</a></b> <span class="badge-et">ET</span></li><li><b><a href="./layerDetection">layerDetection</a></b> <span class="badge-et">ET</span></li><li><b><a href="./mapToDescrete">mapToDescrete</a></b> <span class="badge-et">ET</span></li></ul> |         |      |                                                              |
 
 
-### **inputs** object
+### **inputs**
+<!-- md:json_type object -->
 
 | Property                 | Type    | Description                                                                   |
 | :----------------------- | :------ | :---------------------------------------------------------------------------- |
@@ -37,7 +39,8 @@ This array describes multiple processes.
 | **outputIds**            | array   | An array containing the specific outputs of the previously referenced process |
 
 
-### **outputs** object
+### **outputs**
+<!-- md:json_type object -->
 
 | Property          | Type    | Description                                                                      |
 | :---------------- | :------ | :------------------------------------------------------------------------------- |

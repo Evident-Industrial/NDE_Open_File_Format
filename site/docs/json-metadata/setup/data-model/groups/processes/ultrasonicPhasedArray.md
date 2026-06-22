@@ -1,4 +1,6 @@
-# **ultrasonicPhasedArray** Object
+# **ultrasonicPhasedArray**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **ultrasonicPhasedArray** object serves as a conventional phased array acquisition process.
 
@@ -18,27 +20,31 @@ The **ultrasonicPhasedArray** object serves as a conventional phased array acqui
 | **referenceGain**                                                                                                                                                                                                                               | number  |  dB  | Reference gain value from which other gain values will be offset                              |
 | **smoothingFilter**                                                                                                                                                                                                                             | number  |  Hz  | Characteristic frequency of the smoothing filter                                               |
 | **averagingFactor**                                                                                                                                                                                                                             | integer |  -   | The averaging ratio                                                                          |
-| **beams**                                                                                                                                                                                                                                       | array   |  -   | A [**beams**](#beams-array) array                                                              |
-| **digitalBandPassFilter**                                                                                                                                                                                                                       | object  |  -   | A [**digitalBandPassFilter**](#digitalbandpassfilter-object) object                            |
-| **pulse**                                                                                                                                                                                                                                       | object  |  -   | A [**pulse**](#pulse-object) object                                                            |
-| **gates**                                                                                                                                                                                                                                       | object  |  -   | A [**gates**](#gates-object) object                                                            |
-| **calibrationStates**                                                                                                                                                                                                                           | array   |  -   | A [**calibrationStates**](#calibrationstates-array) array                                      |
-| **lawFile**                                                                                                                                                                                                                                     | object  |  -   | A [**lawFile**](#lawfile-object) object                                                        |
-| **focusing** `required`                                                                                                                                                                                                                         | object  |  -   | A [**focusing**](#focusing-object) object (except for the tandem configuration case)           |
-| One of the following  <code>required</code> subobjects: <ul><li><b><a href="#pulseecho-object">pulseEcho</a></b></li><li><b><a href="#pitchcatch-object-object">pitchCatch</a></b></li><li><b><a href="#tandem-object">tandem</a></b></li></ul> |         |      |                                                                                                |
+| **beams**                                                                                                                                                                                                                                   | array   |  -   | A [**beams**](#beams) array                                                              |
+| **digitalBandPassFilter**                                                                                                                                                                                                                   | object  |  -   | A [**digitalBandPassFilter**](#digitalbandpassfilter) object                            |
+| **pulse**                                                                                                                                                                                                                                   | object  |  -   | A [**pulse**](#pulse) object                                                            |
+| **gates**                                                                                                                                                                                                                                   | object  |  -   | A [**gates**](#gates) object                                                            |
+| **calibrationStates**                                                                                                                                                                                                                       | array   |  -   | A [**calibrationStates**](#calibrationstates) array                                      |
+| **lawFile**                                                                                                                                                                                                                                 | object  |  -   | A [**lawFile**](#lawfile) object                                                        |
+| **focusing** `required`                                                                                                                                                                                                                     | object  |  -   | A [**focusing**](#focusing) object (except for the tandem configuration case)           |
+| One of the following  <code>required</code> subobjects: <ul><li><b><a href="#pulseecho">pulseEcho</a></b></li><li><b><a href="#pitchcatch">pitchCatch</a></b></li><li><b><a href="#tandem">tandem</a></b></li></ul> |         |      |                                                                                                |
 
 
-## **pulseEcho** object 
+## **pulseEcho**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **pulseEcho** object describes the probe used in an acquisition pattern where the same probe is used at emission and reception and the associated beam formation.
 
 | Property                                                                                                                                                                                                                                                            | Type    | Description                                                              |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------ | :----------------------------------------------------------------------- |
 | **probeId**                                                                                                                                                                                                                                                         | integer | The id of the probe used at emission and reception in a pulse-echo setup |
-| One of the following subobjects: <ul><li><b><a href="#linearformation-object">linearFormation</a></b></li><li><b><a href="#sectorialformation-object">sectorialFormation</a></b></li><li><b><a href="#compoundformation-object">compoundFormation</a></b></li></ul> |         |                                                                          |
+| One of the following subobjects: <ul><li><b><a href="#linearformation">linearFormation</a></b></li><li><b><a href="#sectorialformation">sectorialFormation</a></b></li><li><b><a href="#compoundformation">compoundFormation</a></b></li></ul> |         |                                                                          |
 
 
-## **pitchCatch** object 
+## **pitchCatch**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **pitchCatch** object describes the probes used in an acquisition pattern where one probe is used at emission and an other at reception and the associated beam formation.
 
@@ -46,9 +52,11 @@ The **pitchCatch** object describes the probes used in an acquisition pattern wh
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------ | :---------------------------------------------------------- |
 | **pulserProbeId**                                                                                                                                                                                                                                                   | integer | The id of the probe used at emission in a pitch-catch setup |
 | **receiverProbeId**                                                                                                                                                                                                                                                 | integer | The id of the probe used at reception in a pitch-catch setup |
-| One of the following subobjects: <ul><li><b><a href="#linearformation-object">linearFormation</a></b></li><li><b><a href="#sectorialformation-object">sectorialFormation</a></b></li><li><b><a href="#compoundformation-object">compoundFormation</a></b></li></ul> |         |                                                             |
+| One of the following subobjects: <ul><li><b><a href="#linearformation">linearFormation</a></b></li><li><b><a href="#sectorialformation">sectorialFormation</a></b></li><li><b><a href="#compoundformation">compoundFormation</a></b></li></ul> |         |                                                             |
 
-## **tandem** object 
+## **tandem**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **tandem** object describes a self-tandem acquisition and the associated beam formation.
 
@@ -56,11 +64,13 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 | :-------------------- | :------ | :--: | :---------------------------------------------------- |
 | **pulserProbeId**     | integer |  -   | The id of the probe used at emission  in a TOFD setup |
 | **receiverProbeId**   | integer |  -   | The id of the probe used at reception in a TOFD setup |
-| **pulserFormation**   | object  |  -   | A [singleFormation](#singleformation-object) object   |
-| **receiverFormation** | object  |  -   | A [singleFormation](#singleformation-object) object   |
+| **pulserFormation**   | object  |  -   | A [singleFormation](#singleformation) object   |
+| **receiverFormation** | object  |  -   | A [singleFormation](#singleformation) object   |
 
 
-### **linearFormation** object 
+### **linearFormation**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property                 | Type    | Unit | Description                                                                            |
 | :----------------------- | :------ | :--: | -------------------------------------------------------------------------------------- |
@@ -70,15 +80,19 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 | **elementAperture** `required`      | integer |  -   | The aperture in number of elements                                                     |
 | **beamRefractedAngle** `required`   | number  |  °   | The refracted angle of the wavefront in the specimen used for the beam delay calculation |
 
-### **sectorialFormation** object 
+### **sectorialFormation**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property                           | Type    | Description                                                     |
 | :--------------------------------- | :------ | :-------------------------------------------------------------- |
 | **probeFirstElementId** `required` | integer | The id of the first element of the probe in the firing sequence |
 | **elementAperture** `required`     | integer | The aperture in number of elements                              |
-| **beamRefractedAngles** `required` | object  | A [beamRefractedAngles](#beamrefractedangles-object)  object    |
+| **beamRefractedAngles** `required` | object  | A [beamRefractedAngles](#beamrefractedangles)  object    |
 
-#### **beamRefractedAngles** object 
+#### **beamRefractedAngles**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property   | Type   | Unit | Description                              |
 | :--------- | :----- | :--: | ---------------------------------------- |
@@ -86,16 +100,20 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 | **stop** `required`   | number |  °   | Angle stop for the beam delay calculation  |
 | **step** `required`   | number |  °   | Angle step for the beam delay calculation  |
 
-### **compoundFormation** object 
+### **compoundFormation**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property                           | Type    | Description                                                     |
 | :--------------------------------- | :------ | :-------------------------------------------------------------- |
 | **probeFirstElementId** `required` | integer | The id of the first element of the probe in the firing sequence |
 | **probeLastElementId** `required`  | integer | The id of the last element of the probe in the firing sequence  |
 | **elementAperture** `required`     | integer | The aperture in number of elements                              |
-| **beamRefractedAngles** `required` | number  | A [beamRefractedAngles](#beamrefractedangles-object)  object    |
+| **beamRefractedAngles** `required` | number  | A [beamRefractedAngles](#beamrefractedangles)  object    |
 
-### **singleFormation** object 
+### **singleFormation**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property                           | Type    | Unit | Description                                                                            |
 | :--------------------------------- | :------ | :--: | -------------------------------------------------------------------------------------- |
@@ -106,7 +124,9 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 | **focusingDistance**               | number  |  m   | Focusing distance used for the beam delay calculation                                    |
 
 
-## **pulse** object 
+## **pulse**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property               | Type   | Unit | Description                                                                                                                                                                                         |
 | :--------------------- | :----- | :--: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -117,7 +137,9 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 ![pulse.png](../../../../../assets/images/json-metadata/setup/data-model/groups/processes/pulse.png){width="50%"}
 
 
-## **focusing** object 
+## **focusing**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property            | Type   | Unit | Description                                                              |
 | :------------------ | :----- | :--: | ------------------------------------------------------------------------ |
@@ -126,7 +148,9 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 | **angle**           | number |  °   | Focusing angle used for the beam delay calculation                         |
 
 
-## **beams** array 
+## **beams**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 | Property                      | Type    | Unit | Description                                                                      |
 | :---------------------------- | :------ | :--: | -------------------------------------------------------------------------------- |
@@ -140,18 +164,22 @@ The **tandem** object describes a self-tandem acquisition and the associated bea
 | **recurrence**                | number  |      |                                                                                  |
 | **sumGain**                   | number  |  dB  |                                                                                  |
 | **sumGainMode**               | string  |      | Either: `Manual` or `Automatic`                                                     |
-| **tcg**                       | object  |  -   | A [tcg](#tcg-object) object                                                      |
-| **pulsers**                   | array   |  -   | A [pulsers](#pulsers-array) array                                                |
-| **receivers**                 | array   |  -   | A [receivers](#receivers-array) array                                            |
+| **tcg**                       | object  |  -   | A [tcg](#tcg) object                                                      |
+| **pulsers**                   | array   |  -   | A [pulsers](#pulsers) array                                                |
+| **receivers**                 | array   |  -   | A [receivers](#receivers) array                                            |
 
-### **tcg** object 
+### **tcg**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property              | Type   | Description                                                      |
 | :-------------------- | :----- | :--------------------------------------------------------------- |
 | **synchroMode**       | string | Either: `Pulse`, `AscanSynchroRelative` or `SynchroGateRelative` |
-| **points** `required` | array  | A TCG [**points**](#points-array) array                          |
+| **points** `required` | array  | A TCG [**points**](#points) array                          |
 
-#### **points** array        
+#### **points**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 The **points** array lists the time-corrected gain (TCG) points, with the corresponding gain to apply for a given time increment. 
 
@@ -160,7 +188,9 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 | **time** `required` | number |  s   | Time increment in seconds |
 | **gain** `required` | number |  dB  | Gain in decibels           |
 
-### **pulsers** array 
+### **pulsers**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 | Property  | Type    | Unit | Description                                               |
 | :-------- | :------ | :--: | --------------------------------------------------------- |
@@ -168,7 +198,9 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 | elementId | integer |  -   | The elementId of the probe used by the pulser             |
 | delay     | number  |  s   | The associated delay applied to this pulser before firing |
 
-### **receivers** array 
+### **receivers**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 | Property  | Type    | Unit | Description                                                               |
 | :-------- | :------ | :--: | ------------------------------------------------------------------------- |
@@ -177,7 +209,9 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 | delay     | number  |  s   | The associated delay applied to this receiver before recording the A-Scan |
 
 
-## **gates** object 
+## **gates**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 | Property                         | Type    | Unit | Description                                          |
 | :------------------------------- | :------ | :--: | :--------------------------------------------------- |
@@ -188,18 +222,22 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 | **length** `required`            | number  |  s   | Gate time duration                                     |
 | **threshold** `required`         | number  |  %   | Threshold level                                      |
 | **thresholdPolarity** `required` | string  |  -   | One of the following: `Absolute`, `Positive` or `Negative`          |
-| **synchronization** `required`   | object  |  -   | A [synchronization](#synchronization-object) object  |
+| **synchronization** `required`   | object  |  -   | A [synchronization](#synchronization) object  |
 
-### **synchronization** object 
+### **synchronization**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property            | Type    | Description                                                                                                                                                      |
 | :------------------ | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **mode**            | string  | Synchronization mode, either: `Pulse` or `GateRelative`                                                                                                          |
 | **triggeringEvent** | string  | When synchronization is performed relative to a gate (`GateRelative`), the synchronization triggering event is either: `Peak` or `Crossing`                            |
-| **gateId**          | integer | When synchronization is performed relative to a gate (`GateRelative`), this is the corresponding gate Id in the ultrasonic acquisition process [gates](#gates-object) object |
+| **gateId**          | integer | When synchronization is performed relative to a gate (`GateRelative`), this is the corresponding gate Id in the ultrasonic acquisition process [gates](#gates) object |
 
 
-## **digitalBandPassFilter** object 
+## **digitalBandPassFilter**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **digitalBandPassFilter** object describes the band-pass filter parameters applied during acquisition.
 
@@ -210,19 +248,23 @@ The **digitalBandPassFilter** object describes the band-pass filter parameters a
 | **lowCutOffFrequency** `required`  | number |  Hz  | Low cutoff frequency in Hz                                            |
 | **characteristic** `required`      | string |  -   | Either: `None` or `TOFD`                                                |
 
-## **calibrationStates** array 
+## **calibrationStates**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 | Property                      | Type   | Description                                           |
 | :---------------------------- | :----- | :---------------------------------------------------- |
-| **sensitivityCalibration**    | object | A [calibrationState](#calibrationstate-object) object |
-| **tcgCalibration**            | object | A [calibrationState](#calibrationstate-object) object |
-| **velocityCalibration**       | object | A [calibrationState](#calibrationstate-object) object |
-| **wedgeDelayCalibration**     | object | A [calibrationState](#calibrationstate-object) object |
-| **dacCalibration**            | object | A [calibrationState](#calibrationstate-object) object |
-| **dgsCalibration**            | object | A [calibrationState](#calibrationstate-object) object |
-| **tofdWedgeDelayCalibration** | object | A [calibrationState](#calibrationstate-object) object |
+| **sensitivityCalibration**    | object | A [calibrationState](#calibrationstate) object |
+| **tcgCalibration**            | object | A [calibrationState](#calibrationstate) object |
+| **velocityCalibration**       | object | A [calibrationState](#calibrationstate) object |
+| **wedgeDelayCalibration**     | object | A [calibrationState](#calibrationstate) object |
+| **dacCalibration**            | object | A [calibrationState](#calibrationstate) object |
+| **dgsCalibration**            | object | A [calibrationState](#calibrationstate) object |
+| **tofdWedgeDelayCalibration** | object | A [calibrationState](#calibrationstate) object |
 
-### **calibrationState** object
+### **calibrationState**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 Same structure for **sensitivityCalibration**, **tcgCalibration**, **velocityCalibration**, **wedgeDelayCalibration**, **dacCalibration**, **dgsCalibration**, and **tofdWedgeDelayCalibration**.
 
@@ -231,7 +273,9 @@ Same structure for **sensitivityCalibration**, **tcgCalibration**, **velocityCal
 | **calibrated** `required` | Boolean | Indicate whether the calibration was performed or not |
 
 
-## **lawFile** object
+## **lawFile**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property                | Type   | Description                                        |
 | :---------------------- | :----- | :------------------------------------------------- |

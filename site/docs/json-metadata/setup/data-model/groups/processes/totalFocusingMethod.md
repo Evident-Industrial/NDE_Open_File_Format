@@ -1,4 +1,6 @@
-# **totalFocusingMethod** Object
+# **totalFocusingMethod**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **totalFocusingMethod** object serves as a total focusing method (TFM) process description.
 
@@ -10,24 +12,28 @@ The **totalFocusingMethod** object serves as a total focusing method (TFM) proce
 | **gain** `required`            | number  |  dB  | Gain applied to the TFM image                                            |
 | **referenceAmplitude**         | number  |  %   |                                                                          |
 | **referenceGain**              | number  |  dB  |                                                                          |
-| **rectangularGrid** `required` | object  |  -   | [rectangularGrid](#rectangulargrid-object) object                        |
+| **rectangularGrid** `required` | object  |  -   | [rectangularGrid](#rectangulargrid) object                        |
 | **fmcPulserIds**               | array   |  -   | Array listing the ids of the pulsers used to compute the TFM image       |
 | **fmcReceiverIds**             | array   |  -   | Array listing the ids of the receivers used to compute the TFM image     |
 | **pathName** `required`        | string  |  -   | Wave path name, often referred to as a "mode" or "view" (e.g.: "T-T", "LL-T") |
-| **waveSet** `required`         | object  |  -   | [waveSet](#waveset-object) object                                        |
-| **columns**                    | array   |  -   | [columns](#columns-array) array                                          |
+| **waveSet** `required`         | object  |  -   | [waveSet](#waveset) object                                        |
+| **columns**                    | array   |  -   | [columns](#columns) array                                          |
 
 
-## **rectangularGrid** object 
+## **rectangularGrid**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **rectangularGrid** object describes the dimensions of the region of interest (ROI) used to compute the TFM.
 
 | Property                      | Type   | Description                   |
 | :---------------------------- | :----- | :---------------------------- |
-| **yImagingLimits** `required` | object | [range](#range-object) object |
-| **zImagingLimits** `required` | object | [range](#range-object) object |
+| **yImagingLimits** `required` | object | [range](#range) object |
+| **zImagingLimits** `required` | object | [range](#range) object |
 
-### **range** object 
+### **range**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property                  | Type   | Unit | Description                   |
 | :------------------------ | :----- | :--: | ----------------------------- |
@@ -50,7 +56,9 @@ The **rectangularGrid** object describes the dimensions of the region of interes
 }
 ```
 
-## **waveSet** object 
+## **waveSet**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **waveSet** object describes the pathName in more details, listing the modes (or views) of the wave paths.
 
@@ -71,24 +79,30 @@ The **waveSet** object describes the pathName in more details, listing the modes
 }
 ```
 
-## **columns** array 
+## **columns**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 The **columns** array describes the time-corrected gain (TCG) parameters used for each column of the TFM image 
 
 | Property               | Type    | Description                                                |
 | :--------------------- | :------ | :--------------------------------------------------------- |
 | **id** `required`      | integer | Unique column id of the TFM image                          |
-| **gainMap** `required` | object  | An object containing TCG [**points**](#points-array) array |
+| **gainMap** `required` | object  | An object containing TCG [**points**](#points) array |
 
-### **gainMap** object
+### **gainMap**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **gainMap** contain the information related to the gain applied to the TFM image for the TCG.
 
 | Property              | Type  | Description                           |
 | :-------------------- | :---- | :------------------------------------ |
-| **points** `required` | array | TCG [**points**](#points-array) array |
+| **points** `required` | array | TCG [**points**](#points) array |
 
-#### **points** array
+#### **points**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 The **points** array lists the time-corrected gain (TCG) points, with the corresponding gain to apply for a given position in the column of the TFM image. 
 

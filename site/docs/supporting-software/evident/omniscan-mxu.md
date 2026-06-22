@@ -10,16 +10,16 @@ Any change or correction regarding the way the OmniScan X3 and X4 flaw detectors
 
 #### Fixed
 
-- [mountingLocations](../../json-metadata/setup/data-model/wedges.md#mountinglocations-array) array offsets were not saved with correct values for **conventional UT wedges**, specifically for the `primaryOffset` and `tertiaryOffset` values. The correct values can still be recovered from previous files (saved with version 6.2.0 and earlier) using the following formulas: 
+- [mountingLocations](../../json-metadata/setup/data-model/wedges.md#mountinglocations) array offsets were not saved with correct values for **conventional UT wedges**, specifically for the `primaryOffset` and `tertiaryOffset` values. The correct values can still be recovered from previous files (saved with version 6.2.0 and earlier) using the following formulas: 
     - $\small \mathrm{tertiaryOffset_{NEW}}=\cos(\mathrm{wedgeAngle})\times(\frac{\mathrm{wedgeDelay}}{2})\times \mathrm{longitudinalVelocity}$
     - $\small \mathrm{primaryOffset_{NEW}} = \mathrm{primaryOffset_{OLD}}-\sin(\mathrm{wedgeAngle})\times(\frac{\mathrm{wedgeDelay}}{2})\times \mathrm{longitudinalVelocity}$
-- [mountingLocations](../../json-metadata/setup/data-model/wedges.md#mountinglocations-array) array `secondaryOffset` value was not saved with the correct sign when saving a **PA Linear custom wedge** according to [wedges](../../json-metadata/setup/data-model/wedges.md#mountinglocations-array) conventions. For files saved with version 6.2.0 and earlier, simply invert the sign. 
+- [mountingLocations](../../json-metadata/setup/data-model/wedges.md#mountinglocations) array `secondaryOffset` value was not saved with the correct sign when saving a **PA Linear custom wedge** according to [wedges](../../json-metadata/setup/data-model/wedges.md#mountinglocations) conventions. For files saved with version 6.2.0 and earlier, simply invert the sign. 
 
 ### [MXU 6.2.0](https://ims.evidentscientific.com/en/downloads?product=OmniScan+X4) - <small>August 26, 2025</small> { id="6.2.0" }
 
 #### Changed
 
-- For a One-Line Scan in 0° with overlap configuration, the [dataMappings](../../json-metadata/setup/data-model/data-mappings.md) object is now aligned with the Raster Scan in 0° with overlap case. This includes a second axis to the description of the [discreteGrid](../../json-metadata/setup/data-model/data-mappings.md#discretegrid-object) object dimensions, but without 'motionDeviceId' specified.
+- For a One-Line Scan in 0° with overlap configuration, the [dataMappings](../../json-metadata/setup/data-model/data-mappings.md) object is now aligned with the Raster Scan in 0° with overlap case. This includes a second axis to the description of the [discreteGrid](../../json-metadata/setup/data-model/data-mappings.md#discretegrid) object dimensions, but without 'motionDeviceId' specified.
   
     ??? quote "Example"
 
@@ -85,7 +85,7 @@ Any change or correction regarding the way the OmniScan X3 and X4 flaw detectors
 #### Fixed
 
 - Following the fix introduced in MXU 6.1.0, resaving files with invalid HDF5 Groups Ids, when multiple TFM groups were configured, now correctly update the paths in the [JSON-formatted Setup dataset](../../json-metadata/setup/index.md).
-- Offsets in the [beams](../../json-metadata/setup/data-model/groups/datasets.md#beams-array) array of datasets were previously set incorrectly for probe skew angles of 0° and 180°. This has been corrected for all new files saved or resaved with this version.
+- Offsets in the [beams](../../json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md#beams) array of datasets were previously set incorrectly for probe skew angles of 0° and 180°. This has been corrected for all new files saved or resaved with this version.
 
 ### [MXU 6.1.0](https://ims.evidentscientific.com/en/downloads?product=OmniScan+X4) - <small>April 23, 2025</small> { id="6.1.0" }
 

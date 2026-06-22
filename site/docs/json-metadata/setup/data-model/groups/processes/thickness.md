@@ -1,4 +1,6 @@
-# **thickness** Object
+# **thickness**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **thickness** object serves as thickness measurement process description.
 
@@ -6,10 +8,12 @@ The **thickness** object serves as thickness measurement process description.
 | :------------------- | :----- | :--: | :-------------------- |
 | **min** `required`   | number |  m   |                       |
 | **max** `required`   | number |  m   |                       |
-| **gates** `required` | array  |  -   | [gates](#gates-array) |
+| **gates** `required` | array  |  -   | [gates](#gates) |
 
 
-## **gates** array
+## **gates**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 The **gates** array lists the different gates used for the thickness measurement. 
 

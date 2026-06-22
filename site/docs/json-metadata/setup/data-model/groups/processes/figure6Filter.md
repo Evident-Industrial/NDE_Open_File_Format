@@ -1,0 +1,20 @@
+# **figure6Filter**
+<span class="badge-et">ET</span>
+<!-- md:json_type object -->
+<!-- md:version 4.3.0 -->
+
+The **figure6Filter** process is a specialized digital signal processing filter used in eddy current inspection systems, applied to data with constant sampling frequency (spatial in `PerMeter` or temporal in `Hz`).
+
+| Property                       | Type   | Description                                      |
+| :----------------------------- | :----- | :----------------------------------------------- |
+| **cutoffFrequency** `required` | number | Filter cutoff frequency                          |
+| **cutoffUnits** `required`     | string | Unit of the cutoff frequency: `Hz` or `PerMeter` |
+
+## Example
+
+```json
+"figure6Filter": {
+    "cutoffFrequency": 125,
+    "cutoffUnits": "Hz"
+}
+```

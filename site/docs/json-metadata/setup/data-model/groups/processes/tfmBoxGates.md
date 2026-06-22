@@ -1,4 +1,6 @@
-# **tfmBoxGates** Array
+# **tfmBoxGates**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 The **tfmBoxGates** array serves as a box-type gate process description for a TFM image
 

@@ -2,7 +2,7 @@
 
 ``` mermaid
 flowchart LR
-  .nde[**.nde**]:::root --> Public["/Public*"]:::group
+  .nde[<b>.nde</b>]:::root --> Public["/Public*"]:::group
   Public["/Public*"] --> Setup["/Setup*"]:::dataset
   Public["/Public*"] --> Groups["/Groups"]:::group
   .nde@{ shape: text}

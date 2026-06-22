@@ -4,16 +4,16 @@ This page and its subsections detail the different JSON objects and arrays with 
 
 ``` json
 {
-"$schema": "./Setup-Schema-4.1.0.json",
-"version": "4.1.0",
-"scenario": "...",
-"groups": [],
-"acquisitionUnits": [],
-"motionDevices": [],
-"dataMappings": [],
-"specimens": [],
-"probes": [],
-"wedges": [],
+  "$schema": "./Setup-Schema-4.3.0.json",
+  "version": "4.3.0",
+  "scenario": "...",
+  "groups": [],
+  "acquisitionUnits": [],
+  "motionDevices": [],
+  "dataMappings": [],
+  "specimens": [],
+  "probes": [],
+  "wedges": [],
 }
 ```
 

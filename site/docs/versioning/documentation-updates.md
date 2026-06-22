@@ -2,6 +2,21 @@
 
 All notable changes to the .nde file format documentation will be documented on this page.
 
+### <small>June 15, 2026</small>
+
+Update to documentation for [NDE file format version 4.3](../versioning/changelog.md#4.3.0), comprising:
+
+- New [What's new in 4.3](version-4.3/whats-new-4.3.md) page detailing Eddy Current modality support.
+- New [eddyCurrentProbe](../json-metadata/setup/data-model/probes.md#eddycurrentprobe) probe type documentation.
+- New [EC wedge](../json-metadata/setup/data-model/wedges.md) type documentation.
+- New ET process pages: [eddyCurrent](../json-metadata/setup/data-model/groups/processes/eddyCurrent.md), [impedanceTransformation](../json-metadata/setup/data-model/groups/processes/impedanceTransformation.md), [eddyCurrentMix](../json-metadata/setup/data-model/groups/processes/eddyCurrentMix.md), [conductivity](../json-metadata/setup/data-model/groups/processes/conductivity.md), [layerDetection](../json-metadata/setup/data-model/groups/processes/layerDetection.md), [mapToDescrete](../json-metadata/setup/data-model/groups/processes/mapToDescrete.md), and filter processes.
+- New [allCycle](../json-metadata/setup/data-model/data-mappings.md#allcycle) and [Polar](../json-metadata/setup/data-model/data-mappings.md#polar) data mapping documentation.
+- New [nomenclature](../json-metadata/setup/nomenclature.md) page covering UT/PAUT and ET/ECA terminology.
+- New [Eddy Current Testing Example Files](../examples/example-files/index.md#eddy-current-testing-examples) covering the general mapping scenario.
+- Updated [conventions](../json-metadata/setup/conventions.md) page to cover ET modality (axes, probe coordinate systems, storage modes).
+- Updated [datasets](../json-metadata/setup/data-model/groups/datasets.md) page with ET data classes and supported dataset configurations.
+- Updated [specimens](../json-metadata/setup/data-model/specimens.md) page with the new `unspecifiedGeometry` specimen type.
+
 ### <small>January 9, 2026</small>
 
 - Update [OmniScan MXU](../supporting-software/evident/omniscan-mxu.md) changelog
@@ -11,8 +26,8 @@ All notable changes to the .nde file format documentation will be documented on 
 
 Update to documentation for [NDE file format version 4.2](../versioning/changelog.md#4.2.0), comprising:
 
-- New `SynchroGateRelative` mode for [TCG](../json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md#tcg-object) 
-- New `inverted` parameter for [encoder](../json-metadata/setup/data-model/motion-devices.md#encoder-object) description 
+- New `SynchroGateRelative` mode for [TCG](../json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md#tcg) 
+- New `inverted` parameter for [encoder](../json-metadata/setup/data-model/motion-devices.md#encoder) description 
 
 ### <small>September 9, 2025</small>
 

@@ -1,4 +1,5 @@
-# **gain** object
+# **gain**
+<!-- md:json_type object -->
 
 The **gain** object serves as a gain process description.
 

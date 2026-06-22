@@ -1,4 +1,6 @@
-# **ultrasonicConventional** Object
+# **ultrasonicConventional**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **ultrasonicConventional** object serves as a conventional ultrasonic acquisition process.
 
@@ -17,18 +19,20 @@ The **ultrasonicConventional** object serves as a conventional ultrasonic acquis
 | **referenceGain**          | number  |  dB  | Reference gain value from which other gain values will be offset                              |
 | **smoothingFilter**        | number  |  Hz  | Characteristic frequency of the smoothing filter                                               |
 | **averagingFactor**        | integer |  -   | The averaging ratio                                                                           |
-| **beams**                  | array   |  -   | A [**beams**](#beams-array) array                                                              |
-| **digitalBandPassFilter**  | object  |  -   | A [**digitalBandPassFilter**](#digitalbandpassfilter-object) object                            |
-| **pulse**                  | object  |  -   | A [**pulse**](#pulse-object) object                                                            |
-| **gates**                  | object  |  -   | A [**gates**](#gates-object) object                                                            |
-| **calibrationStates**      | array   |  -   | A [**calibrationStates**](#calibrationstates-array) array                                      |
-| One of the following <code>required</code>  subobjects: <ul><li><b><a href="#pulseecho-object">pulseEcho</a></b></li><li><b><a href="#pitchcatch-object-object">pitchCatch</a></b></li><li><b><a href="#tofd-object">tofd</a></b></li></ul> |         |      |                                                              |
+| **beams**                  | array   |  -   | A [**beams**](#beams) array                                                              |
+| **digitalBandPassFilter**  | object  |  -   | A [**digitalBandPassFilter**](#digitalbandpassfilter) object                            |
+| **pulse**                  | object  |  -   | A [**pulse**](#pulse) object                                                            |
+| **gates**                  | object  |  -   | A [**gates**](#gates) object                                                            |
+| **calibrationStates**      | array   |  -   | A [**calibrationStates**](#calibrationstates) array                                      |
+| One of the following <code>required</code>  subobjects: <ul><li><b><a href="#pulseecho">pulseEcho</a></b></li><li><b><a href="#pitchcatch">pitchCatch</a></b></li><li><b><a href="#tofd">tofd</a></b></li></ul> |         |      |                                                              |
 
 NOTES:
 
 - **Compression**: Currently, the default compression behavior consists in keeping the maximum value of N consecutive acquisition points in time, N being the value stored as the **ascanCompressionFactor**. 
 
-## **pulseEcho** object 
+## **pulseEcho**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **pulseEcho** object lists the probe used in an acquisition pattern where the same probe is used at emission and reception.
 
@@ -42,7 +46,9 @@ The **pulseEcho** object lists the probe used in an acquisition pattern where th
 }
 ```
 
-## **pitchCatch** object 
+## **pitchCatch**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **pitchCatch** object lists the probes used in an acquisition pattern where one probe is used at emission and another at reception.
 
@@ -58,7 +64,9 @@ The **pitchCatch** object lists the probes used in an acquisition pattern where 
 }
 ```
 
-## **tofd** object 
+## **tofd**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **tofd** object describes the time-of-flight diffraction (TOFD) technique parameters.
 
@@ -76,7 +84,9 @@ The **tofd** object describes the time-of-flight diffraction (TOFD) technique pa
 }
 ```
 
-## **digitalBandPassFilter** object 
+## **digitalBandPassFilter**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **digitalBandPassFilter** object describes the band-pass filter parameters applied during acquisition.
 
@@ -96,7 +106,9 @@ The **digitalBandPassFilter** object describes the band-pass filter parameters a
 }
 ```
 
-## **pulse** object 
+## **pulse**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property               | Type   | Unit | Description                                                                                                                                                                                         |
 | :--------------------- | :----- | :--: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -114,16 +126,20 @@ The **digitalBandPassFilter** object describes the band-pass filter parameters a
 }
 ```
 
-## **tcg** object 
+## **tcg**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 The **tcg** object lists the time-corrected gain (TCG) parameters used for the acquisition.
 
 | Property               | Type   | Description                                                       |
 | :--------------------- | :----- | :---------------------------------------------------------------- |
 | **synchroMode**        | string | Either: `Pulse`, `AscanSynchroRelative`  or `SynchroGateRelative` |
-| **points**  `required` | array  | A TCG [**points**](#points-array) array                           |
+| **points**  `required` | array  | A TCG [**points**](#points) array                           |
 
-### **points** array
+### **points**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 The **points** array lists the time-corrected gain (TCG) points, with the corresponding gain to apply for a given time increment. 
 
@@ -148,7 +164,9 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 }
 ```
 
-## **gates** object 
+## **gates**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property                         | Type    | Unit | Description                                          |
 | :------------------------------- | :------ | :--: | :--------------------------------------------------- |
@@ -159,15 +177,17 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 | **length** `required`            | number  |  s   | Gate time duration                                     |
 | **threshold** `required`         | number  |  %   | Threshold level                                      |
 | **thresholdPolarity** `required` | string  |  -   | One of the following: `Absolute`, `Positive`, or `Negative`          |
-| **synchronization**  `required`  | object  |  -   | A [synchronization](#synchronization-object) object  |
+| **synchronization**  `required`  | object  |  -   | A [synchronization](#synchronization) object  |
 
-### **synchronization** object 
+### **synchronization**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 | Property            | Type    | Description                                                                                                                                                      |
 | :------------------ | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **mode**            | string  | Synchronization mode, either: `Pulse` or `GateRelative`                                                                                                          |
 | **triggeringEvent** | string  | When synchronization is performed relative to a gate (`GateRelative`), the synchronization triggering event is either: `Peak` or `Crossing`                            |
-| **gateId**          | integer | When synchronization is performed relative to a gate (`GateRelative`), the corresponding gate Id in the ultrasonic acquisition process [gates](#gates-object) object |
+| **gateId**          | integer | When synchronization is performed relative to a gate (`GateRelative`), the corresponding gate Id in the ultrasonic acquisition process [gates](#gates) object |
 
 ```json title="Example"
 "gates": [
@@ -186,17 +206,19 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 ]
 ```
 
-## **beams** array 
+## **beams**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
 | Property                      | Type    | Unit | Description                                                                      |
 | :---------------------------- | :------ | :--: | :------------------------------------------------------------------------------- |
-| **id** `required`             | integer |  -   | The unique id of the beam within the ultrasonicPhasedArray process               |
+| **id** `required`             | integer |  -   | The unique id of the beam within the ultrasonicConventional process              |
 | **refractedAngle** `required` | number  |  °   | The refracted angle of the wavefront in the specimen used for this specific beam |
 | **beamDelay** `required`      | number  |  s   |                                                                                  |
 | **ascanstart** `required`     | number  |  s   | When recording of the A-scan starts for this beam                                  |
 | **acanLength** `required`     | number  |  s   | Time duration of each A-scan for this beam                                         |
 | **recurrence**                | number  |      |                                                                                  |
-| **tcg**                       | object  |  -   | [tcg](#tcg-object) object                                                        |
+| **tcg**                       | object  |  -   | [tcg](#tcg) object                                                        |
 
 
 ```json title="Example"
@@ -210,22 +232,26 @@ The **points** array lists the time-corrected gain (TCG) points, with the corres
 ]
 ```
 
-## **calibrationStates** array 
+## **calibrationStates**
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
 
-The **calibrationStates** array lists the calibration status (through a [calibrationState](#calibrationstate-object) object) of a given calibration method, as listed below.  
+The **calibrationStates** array lists the calibration status (through a [calibrationState](#calibrationstate) object) of a given calibration method, as listed below.  
 
 | Property                      | Type   | Description                                         |
 | :---------------------------- | :----- | :-------------------------------------------------- |
-| **sensitivityCalibration**    | object | [calibrationState](#calibrationstate-object) object |
-| **tcgCalibration**            | object | [calibrationState](#calibrationstate-object) object |
-| **velocityCalibration**       | object | [calibrationState](#calibrationstate-object) object |
-| **wedgeDelayCalibration**     | object | [calibrationState](#calibrationstate-object) object |
-| **dacCalibration**            | object | [calibrationState](#calibrationstate-object) object |
-| **dgsCalibration**            | object | [calibrationState](#calibrationstate-object) object |
-| **tofdWedgeDelayCalibration** | object | [calibrationState](#calibrationstate-object) object |
+| **sensitivityCalibration**    | object | [calibrationState](#calibrationstate) object |
+| **tcgCalibration**            | object | [calibrationState](#calibrationstate) object |
+| **velocityCalibration**       | object | [calibrationState](#calibrationstate) object |
+| **wedgeDelayCalibration**     | object | [calibrationState](#calibrationstate) object |
+| **dacCalibration**            | object | [calibrationState](#calibrationstate) object |
+| **dgsCalibration**            | object | [calibrationState](#calibrationstate) object |
+| **tofdWedgeDelayCalibration** | object | [calibrationState](#calibrationstate) object |
 
 
-### **calibrationState** object
+### **calibrationState**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
 
 Same structure for **sensitivityCalibration**, **tcgCalibration**, **velocityCalibration**, **wedgeDelayCalibration**, **dacCalibration**, **dgsCalibration**, and **tofdWedgeDelayCalibration**.
 
@@ -309,4 +335,3 @@ Same structure for **sensitivityCalibration**, **tcgCalibration**, **velocityCal
     ]
 }
 ```
-

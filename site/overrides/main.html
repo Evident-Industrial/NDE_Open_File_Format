@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+  document$.subscribe(function() {
+    document.querySelectorAll(".md-nav__link .md-ellipsis").forEach(function(el) {
+      el.innerHTML = el.innerHTML
+        .replace(/\s*\[UT\]/g, ' <span class="badge-ut">UT</span>')
+        .replace(/\s*\[ET\]/g, ' <span class="badge-et">ET</span>');
+    });
+  });
+</script>
+{% endblock %}
+
+{% block announce %}
+<style>
+  .md-banner {background-color: rgb(255, 199, 44);}
+  .md-banner {color: rgb(0, 0, 0);}
+</style>
+🚀 Version 4.3 was just released, adding the Eddy Current modality! Explore the updates on our <a href="https://ndeformat.com/4.3/versioning/version-4.3/whats-new-4.3/" style="color: rgb(0, 0, 0);">
+  <strong>dedicated page</strong>.
+</a>
+{% endblock %}

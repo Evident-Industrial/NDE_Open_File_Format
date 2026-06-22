@@ -4,10 +4,10 @@ To learn how to write UT A-scans to an .nde file, follow this simple procedure:
 
 - [x] JSON formatted [**Properties**](../../json-metadata/properties/index.md) dataset:
     - Create the dataset according to the **Properties** [data model](../../json-metadata/properties/data-model.md)
-    - Validate the dataset structure against the [Properties JSON Schema](../../json-metadata/properties/schema_doc.md)
+    - Validate the dataset structure against the [Properties JSON Schema](../../json-metadata/properties/index.md)
 - [x] JSON formatted [**Setup**](../../json-metadata/setup/index.md) dataset:
     - Create the dataset according to the **Setup** [data model](../../json-metadata/setup/data-model/index.md)
-    - Validate this JSON against the [Setup JSON Schema](../../json-metadata/setup/schema_doc.md)
+    - Validate this JSON against the [Setup JSON Schema](../../json-metadata/setup/index.md)
 - [x] Simulate or collect A-scans to be saved in a **AScanAmplitude** dataset
 - [x] Save datasets according to the .nde [HDF5 structure](../../hdf5-structure/index.md)
 
@@ -32,7 +32,7 @@ The **Properties** dataset results in the following:
 
 ### Validate the dataset structure
 
-Then, validate the JSON file against the **Properties** [JSON Schema](../../json-metadata/properties/schema_doc.md), assuming you saved the above [**Properties**](../../json-metadata/properties/index.md) JSON under `properties_ut_ascans.json`: 
+Then, validate the JSON file against the **Properties** [JSON Schema](../../json-metadata/properties/index.md), assuming you saved the above [**Properties**](../../json-metadata/properties/index.md) JSON under `properties_ut_ascans.json`: 
 
 ``` python
 import fastjsonschema
@@ -99,7 +99,7 @@ As the process of creating these JSON objects can be tedious the first time, the
 
 ### Validate the dataset structure
 
-Then, validate the JSON file against the **Setup** [JSON Schema](../../json-metadata/setup/schema_doc.md), assuming you saved the above [**Setup**](../../json-metadata/setup/index.md) JSON under `setup_ut_ascans.json`: 
+Then, validate the JSON file against the **Setup** [JSON Schema](../../json-metadata/setup/index.md), assuming you saved the above [**Setup**](../../json-metadata/setup/index.md) JSON under `setup_ut_ascans.json`: 
 
 ``` python
 setup = json.load(open('setup_ut_ascans.json', 'r'))

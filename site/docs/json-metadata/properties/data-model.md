@@ -7,7 +7,7 @@ This page details the different JSON objects and arrays with their expected valu
 The **$schema** specifies the name of the JSON Schema used to validate the **Properties** JSON formatted dataset. 
 
 ``` json 
-"$schema": "./Properties-Schema-4.1.0.json"
+"$schema": "./Properties-Schema-4.3.0.json"
 ```
 
 ## **file** object
@@ -40,8 +40,8 @@ The **file** object describes generic file creation and modification properties.
    "modifiedByAppVersion": "6.1.0",
    "modifiedByAppCompany": "Evident",
    "modificationDate": "2024-10-27T16:15:55-04:00",
-   "formatVersion": "4.1.0",
-   "notice": "NDE 4.1 Release Version"
+   "formatVersion": "4.3.0",
+   "notice": "NDE 4.3 Release Version"
 },
 ```
 

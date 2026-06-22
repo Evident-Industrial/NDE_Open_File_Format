@@ -3,7 +3,7 @@ site_url: https://ndeformat.com
 theme: 
   name: material
   custom_dir: overrides
-  logo: assets/images/NDE-Logo-White.png
+  logo: assets/images/NDE-Logo-White.svg
   favicon: assets/images/NDE-Favicon.png
   font:
     text: Roboto
@@ -16,6 +16,7 @@ theme:
   features:
     - content.code.copy
     - content.code.annotate
+    - content.tabs.link
     - navigation.top
     - navigation.tabs
     - navigation.sections
@@ -38,6 +39,7 @@ extra:
 repo_url: https://github.com/Evident-Industrial/NDE_Open_File_Format
 repo_name: Evident-Industrial/NDE_Open_File_Format
 markdown_extensions:
+  - pymdownx.blocks.caption
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
@@ -104,11 +106,11 @@ nav:
       - Properties: 
         - json-metadata/properties/index.md
         - Data Model: json-metadata/properties/data-model.md
-        - JSON Schema: json-metadata/properties/schema_doc.md
       - Setup:
         - json-metadata/setup/index.md
         - Conventions:  json-metadata/setup/conventions.md
-        - Data Model: 
+        - Nomenclature: json-metadata/setup/nomenclature.md
+        - Data Model:
           - json-metadata/setup/data-model/index.md
           - Scenarios: json-metadata/setup/data-model/scenarios.md
           - Probes: json-metadata/setup/data-model/probes.md
@@ -122,14 +124,23 @@ nav:
             - Datasets: json-metadata/setup/data-model/groups/datasets.md
             - Processes: 
                 - json-metadata/setup/data-model/groups/processes/index.md
-                - ultrasonicConventional: json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md
-                - ultrasonicPhasedArray: json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md
-                - ultrasonicMatrixCapture: json-metadata/setup/data-model/groups/processes/ultrasonicMatrixCapture.md
-                - totalFocusingMethod: json-metadata/setup/data-model/groups/processes/totalFocusingMethod.md
-                - tfmBoxGates: json-metadata/setup/data-model/groups/processes/tfmBoxGates.md
-                - thickness: json-metadata/setup/data-model/groups/processes/thickness.md
-                - gain: json-metadata/setup/data-model/groups/processes/gain.md                     
-        - JSON Schema: json-metadata/setup/schema_doc.md
+                - ultrasonicConventional [UT]: json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md
+                - ultrasonicPhasedArray [UT]: json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md
+                - ultrasonicMatrixCapture [UT]: json-metadata/setup/data-model/groups/processes/ultrasonicMatrixCapture.md
+                - totalFocusingMethod [UT]: json-metadata/setup/data-model/groups/processes/totalFocusingMethod.md
+                - tfmBoxGates [UT]: json-metadata/setup/data-model/groups/processes/tfmBoxGates.md
+                - thickness [UT]: json-metadata/setup/data-model/groups/processes/thickness.md
+                - gain: json-metadata/setup/data-model/groups/processes/gain.md
+                - eddyCurrent [ET]: json-metadata/setup/data-model/groups/processes/eddyCurrent.md
+                - eddyCurrentMix [ET]: json-metadata/setup/data-model/groups/processes/eddyCurrentMix.md
+                - conductivity [ET]: json-metadata/setup/data-model/groups/processes/conductivity.md
+                - impedanceTransformation [ET]: json-metadata/setup/data-model/groups/processes/impedanceTransformation.md
+                - highPassFilter [ET]: json-metadata/setup/data-model/groups/processes/highPassFilter.md
+                - lowPassFilter [ET]: json-metadata/setup/data-model/groups/processes/lowPassFilter.md
+                - figure6Filter [ET]: json-metadata/setup/data-model/groups/processes/figure6Filter.md
+                - figure8Filter [ET]: json-metadata/setup/data-model/groups/processes/figure8Filter.md
+                - layerDetection [ET]: json-metadata/setup/data-model/groups/processes/layerDetection.md
+                - mapToDescrete [ET]: json-metadata/setup/data-model/groups/processes/mapToDescrete.md
  - Examples: 
       - examples/index.md
       - Example Files: 
@@ -144,6 +155,8 @@ nav:
       - versioning/index.md
       - CHANGELOG: versioning/changelog.md
       - Documentation Updates: versioning/documentation-updates.md
+      - Version 4.3:
+         - What's new in 4.3: versioning/version-4.3/whats-new-4.3.md
       - Version 4.0:
          - What's new in 4.0: versioning/version-4.0/whats-new-4.0.md
          - Upgrade from 3.3 to 4.0: 
