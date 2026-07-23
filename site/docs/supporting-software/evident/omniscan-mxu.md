@@ -2,9 +2,28 @@
 
 Specific information related to how the OmniScan X3 and X4 products save .nde files will be documented on this page. 
 
+## NDE Version Compatibility
+
+|                     NDE Version                     |  MXU Versions   |
+| :-------------------------------------------------: | :-------------: |
+|     [4.2](../../versioning/changelog.md#4.2.0)      |    6.4, 6.5     |
+|     [4.1](../../versioning/changelog.md#4.1.0)      | 5.20, 6.1 – 6.3 |
+|     [4.0](../../versioning/changelog.md#4.0.0)      |    5.19, 6.0    |
+|     [3.3](../../versioning/changelog.md#3.3.0)      |   5.16 – 5.18   |
+|     [3.2](../../versioning/changelog.md#3.2.0)      |      5.15       |
+| [3.1](../../versioning/changelog.md#3.1.0) *(beta)* |   5.13 – 5.14   |
+| [3.0](../../versioning/changelog.md#3.0.0) *(beta)* |      5.12       |
+|                    2.2 *(beta)*                     |      5.11       |
+
 ## CHANGELOG
 
 Any change or correction regarding the way the OmniScan X3 and X4 flaw detectors save data in the .nde format will be logged in this section. 
+
+### [MXU 6.4.0](https://ims.evidentscientific.com/en/downloads?product=OmniScan+X4) - <small>February 17, 2026</small> { id="6.4.0" }
+
+#### Added
+
+- [encoder](../json-metadata/setup/data-model/motion-devices.md#encoder) `inverted` parameter is now saved. 
 
 ### [MXU 6.3.0](https://ims.evidentscientific.com/en/downloads?product=OmniScan+X4) - <small>October 29, 2025</small> { id="6.3.0" }
 
@@ -125,4 +144,3 @@ Any change or correction regarding the way the OmniScan X3 and X4 flaw detectors
         |                3                | `/Public/Groups/2/Datasets/...` | `/Public/Groups/3/Datasets/...` | HDF5 Group does not exist. Path update required. |
         |                5                | `/Public/Groups/3/Datasets/...` | `/Public/Groups/5/Datasets/...` | HDF5 Group exists. Path update required.         |
         |               ...               | ...                             |               ...               | ...                                              |
-

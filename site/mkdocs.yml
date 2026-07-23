@@ -130,6 +130,8 @@ nav:
                 - totalFocusingMethod [UT]: json-metadata/setup/data-model/groups/processes/totalFocusingMethod.md
                 - tfmBoxGates [UT]: json-metadata/setup/data-model/groups/processes/tfmBoxGates.md
                 - thickness [UT]: json-metadata/setup/data-model/groups/processes/thickness.md
+                - ultrasonicGates [UT]: json-metadata/setup/data-model/groups/processes/ultrasonicGates.md
+                - ultrasonicTcg [UT]: json-metadata/setup/data-model/groups/processes/ultrasonicTcg.md
                 - gain: json-metadata/setup/data-model/groups/processes/gain.md
                 - eddyCurrent [ET]: json-metadata/setup/data-model/groups/processes/eddyCurrent.md
                 - eddyCurrentMix [ET]: json-metadata/setup/data-model/groups/processes/eddyCurrentMix.md

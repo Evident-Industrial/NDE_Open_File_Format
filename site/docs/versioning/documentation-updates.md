@@ -2,6 +2,12 @@
 
 All notable changes to the .nde file format documentation will be documented on this page.
 
+### <small>July 1, 2026</small>
+
+- Add [ultrasonicGates](../json-metadata/setup/data-model/groups/processes/ultrasonicGates.md) process description
+- Add [ultrasonicTcg](../json-metadata/setup/data-model/groups/processes/ultrasonicTcg.md) process description
+- Add [OmniScan MXU](../supporting-software/evident/omniscan-mxu.md#nde-version-compatibility) .nde compatibility table
+
 ### <small>June 15, 2026</small>
 
 Update to documentation for [NDE file format version 4.3](../versioning/changelog.md#4.3.0), comprising:
