@@ -1,0 +1,29 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "ST1-25L-IHC",
+    "serie": "TOFD",
+    "angleBeamWedge": {
+      "width": 0.02106,
+      "height": 0.01325,
+      "length": 0.02106,
+      "longitudinalVelocity": 2330.0,
+      "mountingLocations": [
+        {
+          "id": 0,
+          "wedgeAngle": 9.6,
+          "primaryOffset": -0.008,
+          "secondaryOffset": 0.0,
+          "tertiaryOffset": 0.0
+        }
+      ]
+    },
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0.0,
+      "vCoordinateOffset": 0.0,
+      "skewAngle": 90.0
+    }
+  }
+]

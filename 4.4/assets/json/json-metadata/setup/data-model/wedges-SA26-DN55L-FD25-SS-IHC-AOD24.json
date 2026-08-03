@@ -1,0 +1,40 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "SA26-DN55L-FD25-SS-IHC-AOD24",
+    "serie": "SA26",
+    "angleBeamWedge": {
+      "width": 0.05,
+      "height": 0.022494999999999998,
+      "length": 0.048,
+      "longitudinalVelocity": 2330.0,
+      "mountingLocations": [
+        {
+          "id": 0,
+          "wedgeAngle": 18.95,
+          "primaryOffset": -0.03767,
+          "secondaryOffset": -0.00962,
+          "tertiaryOffset": 0.00865,
+          "squintAngle": 0.0,
+          "roofAngle": -5.41
+        },
+        {
+          "id": 1,
+          "wedgeAngle": 18.95,
+          "primaryOffset": -0.03767,
+          "secondaryOffset": 0.00962,
+          "tertiaryOffset": 0.00865,
+          "squintAngle": 0.0,
+          "roofAngle": 5.41
+        }
+      ]
+    },
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0.0,
+      "vCoordinateOffset": 0.0,
+      "skewAngle": 90.0
+    }
+  }
+]

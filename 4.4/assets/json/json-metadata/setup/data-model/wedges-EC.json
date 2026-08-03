@@ -1,0 +1,13 @@
+"wedges": [
+  {
+    "id": 0,
+    "model": "Contact",
+    "positioning": {
+      "specimenId": 0,
+      "surfaceId": 0,
+      "uCoordinateOffset": 0,
+      "vCoordinateOffset": 0,
+      "skewAngle": 90
+    }
+  }
+]

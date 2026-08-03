@@ -1,0 +1,396 @@
+{
+  "probes": [
+    {
+      "id": 0,
+      "model": "Subsurface64_LT",
+      "eddyCurrentProbe": {
+        "sensorGroups": [
+          {
+            "id": 0,
+            "name": "Longi",
+            "sensors": [
+              {
+                "id": 0,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 1,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.002,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 2,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.004,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 3,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.006,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 4,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.008,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 5,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.01,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 6,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.012,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 7,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.014,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 8,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.016,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 9,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.018000000000000002,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 10,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.02,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 11,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.022,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 12,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.024,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 13,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.026000000000000002,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 14,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.028,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 15,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.03,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 16,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.032,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 17,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.034,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 18,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.036000000000000004,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 19,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.038,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 20,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.04,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 21,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.042,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 22,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.044,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 23,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.046,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 24,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.048,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 25,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.05,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 26,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.052000000000000005,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 27,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.054,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 28,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.056,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 29,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.058,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 30,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.06,
+                "secondaryOffset": 0
+              },
+              {
+                "id": 31,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.062,
+                "secondaryOffset": 0
+              }
+            ]
+          },
+          {
+            "id": 1,
+            "name": "Trans",
+            "sensors": [
+              {
+                "id": 0,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 1,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.002,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 2,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.004,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 3,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.006,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 4,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.008,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 5,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.01,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 6,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.012,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 7,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.014,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 8,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.016,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 9,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.018000000000000002,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 10,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.02,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 11,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.022,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 12,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.024,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 13,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.026000000000000002,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 14,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.028,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 15,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.03,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 16,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.032,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 17,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.034,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 18,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.036000000000000004,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 19,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.038,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 20,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.04,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 21,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.042,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 22,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.044,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 23,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.046,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 24,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.048,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 25,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.05,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 26,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.052000000000000005,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 27,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.054,
+                "secondaryOffset": -0.00475
+              },
+              {
+                "id": 28,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.056,
+                "secondaryOffset": 0.00475
+              },
+              {
+                "id": 29,
+                "acquisitionUnitId": 0,
+                "primaryOffset": 0.058,
+                "secondaryOffset": -0.00475
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
