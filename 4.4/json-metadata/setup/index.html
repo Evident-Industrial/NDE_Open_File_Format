@@ -3428,7 +3428,7 @@
   classDef group fill:#ffc72c,stroke:#000000,color:#000000
   classDef dataset fill:#fff,stroke:#000000,color:#000000</code></pre>
 <p>The Setup dataset is <strong>mandatory</strong> and located inside the Public group of the .nde file HDF5 structure. It contains all the metadata useful for retrieving the acquisition context and reading or processing the acquired datasets (probes, specimens, acquisitions units, etc.) and is formatted in a JSON. </p>
-<p>The structure of the formatted JSON included in the <strong>Setup</strong> dataset can be validated against <a href="https://raw.githubusercontent.com/Evident-Industrial/NDE_Open_File_Format/refs/heads/main/schemas/Setup-Schema-4.3.0.json">a dedicated JSON schema</a>. </p>
+<p>The structure of the formatted JSON included in the <strong>Setup</strong> dataset can be validated against <a href="https://raw.githubusercontent.com/Evident-Industrial/NDE_Open_File_Format/refs/heads/main/schemas/Setup-Schema-4.4.0.json">a dedicated JSON schema</a>. </p>
 <p>The <a href="data-model/">data model</a> related to the <strong>Setup</strong> dataset details the different JSON objects and arrays with their expected values, associated description, and examples. </p>
 <pre class="mermaid"><code>classDiagram
    Setup --&gt; "1" version
