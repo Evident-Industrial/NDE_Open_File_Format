@@ -109,7 +109,7 @@ The **conventionalRound** object describes a conventional single-element ultraso
 | :------------------------------ | :----- | :--: | :------------------------------------------------------------------- |
 | **centralFrequency** `required` | number |  Hz  | Central frequency of the probe                                       |
 | **diameter** `required`         | number |  m   | Diameter of the probe active element                                 |
-| **elements** `required`         | array  |  -   | An [elements](#elements) array (single element in this case)   |
+| **elements** `required`         | array  |  -   | An [elements](#conventional-elements) array (single element in this case)   |
 
 ![conventionalRound.png](../../../assets/images/json-metadata/setup/data-model/probes/conventionalRound.png)
 
@@ -138,7 +138,7 @@ The **conventionalRectangular** object describes a conventional single-element u
 | **centralFrequency** `required` | number |  Hz  | Central frequency of the probe                                       |
 | **length** `required`           | number |  m   | Length of the probe's active element                                 |
 | **width** `required`            | number |  m   | Width of the probe's active element                                  |
-| **elements** `required`         | array  |  -   | An [elements](#elements) array (single element in this case)   |
+| **elements** `required`         | array  |  -   | An [elements](#conventional-elements) array (single element in this case)   |
 
 ![conventionalRectangular.png](../../../assets/images/json-metadata/setup/data-model/probes/conventionalRectangular.png)
 
@@ -156,6 +156,20 @@ The **conventionalRectangular** object describes a conventional single-element u
   ]
 }
 ```
+
+### **elements** { id="conventional-elements" }
+<span class="badge-ut">UT</span>
+<!-- md:json_type array -->
+
+The **elements** array lists the conventional probe elements and their connection properties.
+
+| Property                         | Type    | Description                                                                               |
+| :------------------------------- | :-----: | :---------------------------------------------------------------------------------------- |
+| **id** `required`                | integer | Unique id of the probe element                                                            |
+| **acquisitionUnitId** `required` | integer | Unique id of the acquisition unit to which the element is connected                       |
+| **pinId**                        | integer | Pin id to which the element is connected                                                  |
+| **connectorName**                | string  | Name of the connector interfacing the element with the acquisition unit                   |
+| **connectorType**                | string  | Connector type, one of the following: `Conventional` or `PhasedArray`                    |
 
 ## **phasedArrayLinear** 
 <span class="badge-ut">UT</span>

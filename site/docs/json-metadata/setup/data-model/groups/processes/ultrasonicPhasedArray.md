@@ -14,6 +14,7 @@ The **ultrasonicPhasedArray** object serves as a conventional phased array acqui
 | **digitizingFrequency**                                                                                                                                                                                                                         | number  |  Hz  | Sampling rate of the saved  A-scans                                                            |
 | **ascanSynchroMode**                                                                                                                                                                                                                            | string  |  -   | Type of A-scan syncrhonization, either: `Pulse` or `SynchroGateRelative`                          |
 | **ascanCompressionFactor**                                                                                                                                                                                                                      | integer |  -   | Compression factor applied to the A-scans                                                          |
+| **ascanData**                                                                                                                                                                                                                                   | object  |  -   | An [**ascanData**](#ascandata) object                                                               |
 | **gain**                                                                                                                                                                                                                                        | number  |  dB  | Hardware gain applied to all A-scans                                                           |
 | **ultrasoundMode**                                                                                                                                                                                                                              | string  |  -   | Ultrasound mode, one of the following: `TrueDepth`, `SoundPath`, or `Time`                                       |
 | **referenceAmplitude**                                                                                                                                                                                                                          | number  |  %   | A-scan full-screen height of the reference amplitude                                           |
@@ -247,6 +248,15 @@ The **digitalBandPassFilter** object describes the band-pass filter parameters a
 | **highCutOffFrequency** `required` | number |  Hz  | High cutoff frequency in Hz                                           |
 | **lowCutOffFrequency** `required`  | number |  Hz  | Low cutoff frequency in Hz                                            |
 | **characteristic** `required`      | string |  -   | Either: `None` or `TOFD`                                                |
+
+## **ascanData**
+<span class="badge-ut">UT</span>
+<!-- md:json_type object -->
+<!-- md:version 4.4.0 -->
+
+| Property              | Type    | Unit | Description                                    |
+| :-------------------- | :------ | :--: | :--------------------------------------------- |
+| **amplitudeBitDepth** | integer | bits | The size of an A-scan point in bits (`8` to `32`) |
 
 ## **calibrationStates**
 <span class="badge-ut">UT</span>

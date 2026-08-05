@@ -6,6 +6,18 @@ toc_depth: 3
 
 All notable changes to the .nde file format will be documented on this page. It is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [4.4.0] - <small>July 23, 2026</small> { id="4.4.0" }
+
+#### Added
+
+- Added optional `ascanData` object (with `amplitudeBitDepth`) to [ultrasonicConventional](../json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md) and [ultrasonicPhasedArray](../json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md) process descriptions.
+- Added conventional UT probe element connector typing (`connectorType`) in [probes](../json-metadata/setup/data-model/probes.md).
+
+#### Changed
+
+- `dataMappingId` is now required for process objects in the [processes](../json-metadata/setup/data-model/groups/processes/index.md) definition.
+- Conventional UT probe elements now require only `id` and `acquisitionUnitId`; `pinId` and `connectorName` are optional in [probes](../json-metadata/setup/data-model/probes.md).
+
 
 ### [4.3.0] - <small>June 15, 2026</small> { id="4.3.0" }
 

@@ -4,8 +4,8 @@ This page and its subsections detail the different JSON objects and arrays with 
 
 ``` json
 {
-  "$schema": "./Setup-Schema-4.3.0.json",
-  "version": "4.3.0",
+  "$schema": "./Setup-Schema-4.4.0.json",
+  "version": "4.4.0",
   "scenario": "...",
   "groups": [],
   "acquisitionUnits": [],

@@ -2,6 +2,13 @@
 
 All notable changes to the .nde file format documentation will be documented on this page.
 
+### <small>July 23, 2026</small>
+
+Update to documentation for [NDE file format version 4.4](../versioning/changelog.md#4.4.0), comprising:
+
+- New optional `ascanData` object (with `amplitudeBitDepth`) for [ultrasonicConventional](../json-metadata/setup/data-model/groups/processes/ultrasonicConventional.md) and [ultrasonicPhasedArray](../json-metadata/setup/data-model/groups/processes/ultrasonicPhasedArray.md) processes.
+- New conventional UT probe element connector typing (`connectorType`) for [probes](../json-metadata/setup/data-model/probes.md).
+
 ### <small>July 1, 2026</small>
 
 - Add [ultrasonicGates](../json-metadata/setup/data-model/groups/processes/ultrasonicGates.md) process description
